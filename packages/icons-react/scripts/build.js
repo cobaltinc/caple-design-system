@@ -17,7 +17,7 @@ const icons = readdirSync('./src/svgs')
 const attrsToString = attrs => {
   return Object.keys(attrs)
     .map(key => {
-      if (key === 'width' || key === 'height' || key === 'stroke') {
+      if (key === 'width' || key === 'height' || key === 'fill') {
         return key + '={' + attrs[key] + '}';
       }
       if (key === 'otherProps') {
