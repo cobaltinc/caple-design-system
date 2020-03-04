@@ -10,9 +10,11 @@ sw.*
 *.swp
 
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.js
+
+dist
 
 # testing
 /coverage
