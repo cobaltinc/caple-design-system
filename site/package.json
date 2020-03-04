@@ -8,7 +8,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "deploy": "next build && next export && touch out/.nojekyll && git add out/ && git commit -m 'deploy to gh-pages' && git subtree push --prefix out origin gh-pages",
+    "deploy": "next build && next export && touch out/.nojekyll && node scripts/deploy.js",
     "lint": "tslint --project .",
     "type-check": "tsc"
   },
@@ -46,6 +46,7 @@
     "babel-plugin-module-resolver": "4.0.0",
     "dotenv": "^8.2.0",
     "electron": "7.1.10",
+    "gh-pages": "^2.2.0",
     "next-compose-plugins": "2.2.0",
     "node-sass": "4.13.1",
     "prettier": "1.19.1",
