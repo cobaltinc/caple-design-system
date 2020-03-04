@@ -1,0 +1,52 @@
+@import '../../styles/base/core';
+@import '../../styles/helpers/mixins';
+@import '../../styles/variables/motion';
+
+$collapse-prefix: '#{$prefix}-collapse';
+
+:global {
+  .#{$collapse-prefix} {
+    display: block;
+    width: 100%;
+
+    .#{$collapse-prefix}--header {
+      position: relative;
+      display: inline-flex;
+      width: 100%;
+      align-items: center;
+
+      .#{$collapse-prefix}--title {
+        float: left;
+        width: 100%;
+        vertical-align: middle;
+      }
+
+      .#{$collapse-prefix}--collapse-dropdown {
+        float: right;
+        cursor: pointer;
+
+        .#{$collapse-prefix}--indicator {
+          margin-right: 10px;
+        }
+
+        .#{$collapse-prefix}--caret {
+          width: 20px;
+          height: 20px;
+          transition: transform $duration-fast;
+
+          &.reverse {
+            transform: rotateZ(180deg) !important;
+          }
+        }
+      }
+
+      @include clearfix;
+    }
+
+    .#{$collapse-prefix}--content {
+      height: auto;
+      padding: 20px 0;
+      box-sizing: border-box;
+    }
+  }
+}

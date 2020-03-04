@@ -1,0 +1,26 @@
+{
+  "name": "caple-ui",
+  "version": "0.0.0",
+  "author": "Cobalt. Inc.",
+  "private": true,
+  "engines": {
+    "node": "12.x"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": []
+  },
+  "scripts": {
+  },
+  "resolutions": {
+    "react": "~16.12.0",
+    "react-dom": "~16.12.0",
+    "react-is": "~16.12.0",
+    "react-test-renderer": "~16.12.0"
+  },
+  "devDependencies": {
+    "prettier": "1.19.1"
+  }
+}

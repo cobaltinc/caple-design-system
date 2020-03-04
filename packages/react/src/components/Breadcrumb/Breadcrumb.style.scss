@@ -1,0 +1,40 @@
+@import '../../styles/base/core';
+
+$breadcrumb-prefix: '#{$prefix}-breadcrumb';
+
+:global {
+  .#{$breadcrumb-prefix} {
+    .#{$breadcrumb-prefix}-item {
+      display: inline-block;
+      height: 20px;
+      font-weight: bold;
+      vertical-align: middle;
+
+      .#{$breadcrumb-prefix}-item--text {
+        display: inline-flex;
+        height: 20px;
+        margin-top: -2px;
+        align-items: center;
+        color: #637381;
+        vertical-align: middle;
+        cursor: pointer;
+
+        &:hover {
+          color: #454F5B;
+        }
+
+        svg:hover {
+          fill: #454F5B !important;
+        }
+      }
+
+      .#{$breadcrumb-prefix}-item--separator {
+        display: inline-flex;
+        height: 20px;
+        padding: 0 8px;
+        align-items: center;
+        vertical-align: middle;
+      }
+    }
+  }
+}

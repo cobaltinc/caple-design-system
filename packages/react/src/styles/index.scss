@@ -1,0 +1,23 @@
+
+@import './base/reset';
+@import './base/core';
+@import './variables/color';
+@import './variables/spacing';
+@import './variables/typography';
+@import './variables/motion';
+@import './helpers/mixins';
+
+html,
+body {
+  font-family: 'Spoqa Han Sans', -apple-system, BlinkMacSystemFont, 'Sans-serif';
+  font-size: 14px;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: $background;
+  color: $ink;
+  -ms-overflow-style: scrollbar;
+}

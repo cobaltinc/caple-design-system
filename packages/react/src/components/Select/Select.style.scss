@@ -1,0 +1,155 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/typography';
+@import '../../styles/variables/color';
+@import '../../styles/variables/motion';
+
+$select-prefix: '#{$prefix}-select';
+
+:global {
+  .#{$select-prefix}--container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+
+    &.#{$select-prefix}--block {
+      display: block;
+      width: auto;
+    }
+    
+    .#{$select-prefix}--label {
+      margin-bottom: 2px;
+      vertical-align: middle;
+    }
+    
+    .#{$select-prefix} {
+      display: inline-flex;
+      width: 100%;
+      align-items: center;
+      color: $ink;
+      box-sizing: border-box;
+      transition: border $duration-moderate, box-shadow $duration-moderate;
+
+      .#{$select-prefix}--value {
+        width: 100%;
+        &:empty:before {
+          content: attr(placeholder);
+          color: $ink-lighter;
+        }
+      }
+  
+      &.#{$select-prefix}--size-mini {
+        height: 24px;
+        padding: 0 6px;
+        font-size: 11px;
+      }
+      &.#{$select-prefix}--size-small {
+        height: 30px;
+        padding: 0 8px;
+        font-size: 12px;
+      }
+      &.#{$select-prefix}--size-normal {
+        height: 36px;
+        padding: 0 10px;
+        font-size: 12px;
+      }
+      &.#{$select-prefix}--size-large {
+        height: 44px;
+        padding: 0 10px;
+        font-size: 13px;
+      }
+      &.#{$select-prefix}--size-xlarge {
+        height: 50px;
+        padding: 0 10px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      &.#{$select-prefix}--border-type-border {
+        border: solid 1px $sky-dark;
+        border-radius: 3px;
+        background-color: white;
+        box-shadow: inset 0px 1px 2px rgba(102, 113, 123, 0.21);
+  
+        &.#{$select-prefix}--focused {
+          border: 1px solid $indigo;
+          box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+        }
+        &.#{$select-prefix}--disabled {
+          background: #F9FAFB;
+          border: 1px solid $sky;
+        }
+      }
+      &.#{$select-prefix}--border-type-underline {
+        padding: 0;
+        border-bottom: solid 1px $sky-dark;
+  
+        &.#{$select-prefix}--focused {
+          border-color: $indigo;
+        }
+        &.#{$select-prefix}--disabled {
+          border-color: $sky;
+        }
+      }
+      &.#{$select-prefix}--border-type-none {
+        border: none;
+      }
+
+      .#{$select-prefix}--caret {
+        margin-right: 4px;
+        vertical-align: middle;
+        transition: transform $duration-fast;
+
+        &.reverse {
+          transform-origin: center;
+          transform: rotateZ(180deg) !important;
+        }
+      }
+
+      input {
+        display: none;
+        width: 0;
+        height: 0;
+      }
+    }
+
+    .#{$select-prefix}--options {
+      position: absolute;
+      top: calc(100% + 5px);
+      width: 100%;
+      border-radius: 3px;
+      box-shadow: 0 2px 16px 0 rgba(33, 43, 54, 0.08), 0 0 0 1px rgba(6, 44, 82, 0.1);
+      background-color: white;
+      opacity: 0;
+      z-index: 10;
+
+      .#{$select-prefix}-option {
+        display: flex;
+        width: 100%;
+        height: 36px;
+        padding: 0 15px;
+        justify-content: left;
+        align-items: center;
+        font-size: 12px;
+        color: $ink;
+        box-sizing: border-box;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $sky-light;
+        }
+
+        &.#{$select-prefix}-option--selected {
+          box-shadow: inset 2px 0 0 0 $indigo;
+          background-color: $sky-light;
+        }
+
+        &.#{$select-prefix}-option--disabled {
+          color: $ink-lightest;
+          background-color: white;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}

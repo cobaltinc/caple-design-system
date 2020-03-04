@@ -1,0 +1,197 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/typography';
+@import '../../styles/variables/color';
+@import '../../styles/variables/motion';
+
+$input-prefix: '#{$prefix}-input';
+
+:global {
+  .#{$input-prefix}--container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+
+    &.#{$input-prefix}--block {
+      display: block;
+      width: auto;
+    }
+    
+    .#{$input-prefix}--label {
+      margin-bottom: 2px;
+      vertical-align: middle;
+    }
+    
+    .#{$input-prefix} {
+      display: inline-flex;
+      width: 100%;
+      align-items: center;
+      color: $ink;
+      box-sizing: border-box;
+      transition: border $duration-moderate, box-shadow $duration-moderate;
+      
+      &::placeholder {
+        color: $ink-lighter;
+      }
+  
+      &.#{$input-prefix}--size-mini {
+        height: 24px;
+        padding: 0 6px;
+        font-size: 11px;
+
+        input {
+          margin: 0 6px;
+          margin-top: -1px;
+          height: 20px;
+          font-size: 11px;
+        }
+      }
+      &.#{$input-prefix}--size-small {
+        height: 30px;
+        padding: 0 8px;
+        font-size: 12px;
+        
+        input {
+          margin: 0 6px;
+          height: 26px;
+          font-size: 12px;
+        }
+      }
+      &.#{$input-prefix}--size-normal {
+        height: 36px;
+        padding: 0 10px;
+        font-size: 12px;
+        
+        input {
+          margin: 0 6px;
+          height: 32px;
+          font-size: 12px;
+        }
+      }
+      &.#{$input-prefix}--size-large {
+        height: 44px;
+        padding: 0 10px;
+        font-size: 13px;
+        
+        input {
+          margin: 0 8px;
+          height: 40px;
+          font-size: 13px;
+        }
+      }
+      &.#{$input-prefix}--size-xlarge {
+        height: 50px;
+        padding: 0 10px;
+        font-size: 14px;
+        font-weight: bold;
+
+        input {
+          margin: 0 10px;
+          height: 46px;
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      &.#{$input-prefix}--border-type-border {
+        border: solid 1px $sky-dark;
+        border-radius: 3px;
+        box-shadow: inset 0px 1px 2px rgba(102, 113, 123, 0.21);
+  
+        &.#{$input-prefix}--focused {
+          border: 1px solid $indigo;
+          box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+        }
+        &.#{$input-prefix}--disabled {
+          background: #F9FAFB;
+          border: 1px solid $sky;
+        }
+      }
+      &.#{$input-prefix}--border-type-underline {
+        padding: 0;
+        border-bottom: solid 1px $sky-dark;
+  
+        &.#{$input-prefix}--focused {
+          border-color: $indigo;
+        }
+        &.#{$input-prefix}--disabled {
+          border-color: $sky;
+        }
+      }
+      &.#{$input-prefix}--border-type-none {
+        border: none;
+      }
+
+      .#{$input-prefix}--prefix, .#{$input-prefix}--subfix {
+        vertical-align: middle;
+      }
+
+      input {
+        width: 100%;
+        padding: 0;
+        line-height: 0;
+        vertical-align: middle;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        &[type=number] {
+          -moz-appearance:textfield;
+        }
+
+        &:disabled {
+          color: #919EAB;
+          cursor: not-allowed;
+        }
+      }
+
+      .#{$input-prefix}--password-toggle {
+        cursor: pointer;
+        svg {
+          transition: fill $duration-moderate, stroke $duration-moderate;
+
+          &:hover {
+            fill: $ink !important;
+          }
+        }
+      }
+    }
+
+    .hint {
+      margin-top: 2px;
+      font-size: 10px;
+      color: #7c8495;
+  
+      &.float {
+        position: absolute;
+        top: calc(100% + 3px);
+        margin-top: 0;
+      }
+  
+      &.success {
+        color: #7ed321;
+      }
+  
+      &.error {
+        color: #bf0711;
+      }
+  
+      &.warning {
+        color: #f8e71c;
+      }
+  
+      .icon {
+        vertical-align: middle;
+      }
+      .text {
+        vertical-align: middle;
+      }
+    }
+  }
+}

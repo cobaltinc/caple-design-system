@@ -1,0 +1,55 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/color';
+@import '../../styles/variables/typography';
+@import '../../styles/variables/motion';
+
+$tag-prefix: '#{$prefix}-tag';
+
+:global {
+  .#{$tag-prefix} {
+    display: inline-block;
+    padding: 6px 8px;
+    color: $indigo;
+    border-radius: 2px;
+    border: 1px solid $indigo;
+    transition: color $duration-fast $ease-in, border $duration-fast $ease-in;
+    cursor: pointer;
+
+    &.#{$tag-prefix}--size-large {
+      font-size: $text-size-large;
+    }
+    &.#{$tag-prefix}--size-normal {
+      font-size: $text-size-normal;
+    }
+    &.#{$tag-prefix}--size-small {
+      font-size: $text-size-small;
+    }
+
+    &:hover {
+      color: $indigo-dark;
+      border: 1px solid $indigo-dark;
+    }
+
+    &:active {
+      color: $indigo-darker;
+      border: 1px solid $indigo-darker;
+    }
+
+    &.#{$tag-prefix}--disabled {
+      color: $ink-light;
+      border: 1px solid $ink-light;
+      cursor: not-allowed;
+      pointer-events: none;
+      touch-action: none;
+    }
+
+    .#{$tag-prefix}--delete {
+      margin-left: 4px;
+      transition: transform $duration-fast;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

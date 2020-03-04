@@ -1,0 +1,112 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/color';
+@import '../../styles/variables/typography';
+@import '../../styles/variables/motion';
+
+$toast-prefix: '#{$prefix}-toast';
+
+:global {
+  ##{$toast-prefix}-portal {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    max-width: 420px;
+    z-index: 2000;
+    // transition: transform 0.4s, opacity 0.4s ease;
+  }
+  
+  .#{$toast-prefix}--container {
+    transform: translate3d(0, -0, -0) scale(1);
+    transition: all 0.4s ease;
+    position: absolute;
+    bottom: 0;
+    height: 72px;
+    right: 0;
+
+    &:nth-last-child(1) {
+      animation: #{$toast-prefix}-show-1 0.4s ease forwards;
+      z-index: 2002;
+    }
+  
+    &:nth-last-child(2) {
+      animation: #{$toast-prefix}-show-2 0.4s ease forwards;
+      z-index: 2001;
+    }
+  
+    &:nth-last-child(3) {
+      animation: #{$toast-prefix}-show-3 0.4s ease forwards;
+      z-index: 2000;
+    }
+  
+    &:nth-last-child(4) {
+      animation: #{$toast-prefix}-show-3 0.4s ease forwards;
+      z-index: 2000;
+    }
+  
+    &:nth-last-child(n + 4) {
+      visibility: hidden;
+    }
+  
+    @keyframes :global(#{$toast-prefix}-show-1) {
+      from {
+        transform: translate3d(0, 72px, 0);
+      }
+      to {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+    @keyframes :global(#{$toast-prefix}-show-2) {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(0, -14px, 0) scale(0.95);
+      }
+    }
+  
+    @keyframes :global(#{$toast-prefix}-show-3) {
+      from {
+        transform: translate3d(0, -14px, 0) scale(0.95);
+      }
+      to {
+        transform: translate3d(0, -28px, 0) scale(0.9);
+      }
+    }
+  
+    @keyframes :global(#{$toast-prefix}-show-4) {
+      from {
+        transform: translate3d(0, -28px, 0) scale(0.9);
+        opacity: 1;
+      }
+      to {
+        transform: translate3d(0, -32px, 0) scale(0.85);
+        opacity: 0;
+      }
+    }
+    
+    .#{$toast-prefix} {
+      padding: 0 20px;
+      border-radius: 5px;
+      border: 0;
+      width: 450px;
+      height: 70px;
+      color: #212b36;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      border: 1px solid #cfd8eb;
+      box-shadow: 0px 1px 3px rgba(63, 63, 68, 0.15), 0px 0px 0px rgba(63, 63, 68, 0.05);
+      font-size: 14px;
+  
+      .#{$toast-prefix}--icon {
+        vertical-align: middle;
+      }
+  
+      .#{$toast-prefix}--message {
+        margin-top: -2px;
+        margin-left: 14px;
+        vertical-align: middle;
+      }
+    }
+  }
+}

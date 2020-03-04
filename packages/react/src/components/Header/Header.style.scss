@@ -1,0 +1,42 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/typography';
+
+$header-prefix: '#{$prefix}-header';
+
+:global {
+  .#{$header-prefix} {
+    display: block;
+    margin: 0;
+
+    &[contenteditable=true] {
+      border-bottom: 1px solid black;
+    }
+
+    &[contenteditable=true]:empty:before {
+      content: attr(placeholder);
+      color: #d9d9de;
+      border-bottom: 1px solid #d9d9de;
+      cursor: text;
+    }
+
+    &[contenteditable=true]:focus {
+      outline: none;
+    }
+  }
+
+  h1.#{$header-prefix} {
+    font-size: $header-size-xlarge;
+  }
+  
+  h2.#{$header-prefix} {
+    font-size: $header-size-large;
+  }
+  
+  h3.#{$header-prefix} {
+    font-size: $header-size-normal;
+  }
+
+  h4.#{$header-prefix} {
+    font-size: $header-size-small;
+  }
+}

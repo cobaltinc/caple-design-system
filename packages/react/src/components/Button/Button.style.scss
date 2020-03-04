@@ -1,0 +1,114 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/color';
+
+$button-prefix: '#{$prefix}-button';
+
+:global {
+  .#{$button-prefix} {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &.#{$button-prefix}--type-basic {
+      color: #212b36;
+      border: solid 1px #c4cdd5;
+      background-image: linear-gradient(to bottom, #ffffff, #f9fafb);
+      box-shadow: 0 1px 0 0 rgba(22, 29, 37, 0.05);
+
+      &:hover {
+        background-image: linear-gradient(to bottom, #fafbfc, #ebeff2);
+      }
+
+      &:active {
+        background-image: linear-gradient(to bottom, #eaebec, #dbdfe2);
+      }
+
+      &:disabled {
+        color: #919eab;
+        border: solid 1px #dfe3e8;
+        background-image: none;
+        background-color: #f9fafb;
+      }
+    }
+    &.#{$button-prefix}--type-primary {
+      color: white;
+      border: solid 1px #4f5dba;
+      background-image: linear-gradient(to bottom, #606fc7, #5865c1);
+      box-shadow: 0 1px 0 0 rgba(22, 29, 37, 0.1), inset 0 1px 0 1px rgba(255, 255, 255, 0.06);
+
+      &:hover {
+        border: solid 1px #3e4bb1;
+        background-image: linear-gradient(to bottom, #5b67c7, #4856c0);
+      }
+
+      &:active {
+        border: solid 1px #3e4bb1;
+        background-image: linear-gradient(to bottom, #4b57b7, #3846b0);
+      }
+
+      &:disabled {
+        border: solid 1px #b1b6d7;
+        background-image: none;
+        background-color: #bec3e7;
+      }
+    }
+    &.#{$button-prefix}--type-destructive {
+      color: white;
+      border: solid 1px #bf0711;
+      background-image: linear-gradient(to bottom, #e33719, #d63418);
+      box-shadow: 0 1px 0 0 rgba(22, 29, 37, 0.1), inset 0 1px 0 1px rgba(255, 255, 255, 0.09);
+
+      &:hover {
+        background-image: linear-gradient(to bottom, #d93518, #cc3216);
+      }
+
+      &:active {
+        background-image: linear-gradient(to bottom, #c92508, #bc2206);
+      }
+
+      &:disabled {
+        border: solid 1px #db9586;
+        background-image: linear-gradient(to bottom, #fdac9a, #f2a594);
+      }
+    }
+
+    &.#{$button-prefix}--size-mini {
+      height: 24px;
+      padding: 0 6px;
+      font-size: 11px;
+    }
+    &.#{$button-prefix}--size-small {
+      height: 30px;
+      padding: 0 8px;
+      font-size: 12px;
+    }
+    &.#{$button-prefix}--size-normal {
+      height: 36px;
+      padding: 0 10px;
+      font-size: 12px;
+    }
+    &.#{$button-prefix}--size-large {
+      height: 44px;
+      padding: 0 14px;
+      font-size: 13px;
+    }
+    &.#{$button-prefix}--size-xlarge {
+      height: 50px;
+      padding: 0 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    &.#{$button-prefix}--block {
+      width: 100%;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+}

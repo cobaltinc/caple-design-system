@@ -1,0 +1,147 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/motion';
+
+$popover-prefix: '#{$prefix}-popover';
+
+:global {
+  .#{$popover-prefix} {
+    display: inline-block;
+    position: relative;
+
+    .#{$popover-prefix}--host {
+      display: inline-block;
+    }
+
+    &.#{$popover-prefix}--active {
+      .#{$popover-prefix}--caret {
+        opacity: 1;
+      }
+      .#{$popover-prefix}--content {
+        opacity: 1;
+      }
+    }
+
+    .#{$popover-prefix}--caret {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      z-index: 10000;
+      opacity: 0;
+      transition: opacity $duration-fast $ease-in;
+      user-select: none;
+      pointer-events: none;
+
+      &[class^="top"] {
+        top: -12px;
+        left: 50%;
+        transform: translate(-50%) rotate(180deg);
+      }
+
+      &[class^="bottom"] {
+        bottom: -12px;
+        left: 50%;
+        transform: translate(-50%);
+      }
+
+      &[class^="right"] {
+        right: -18px;
+        top: 50%;
+        transform: translateY(-50%) rotate(-90deg);
+      }
+
+      &[class^="left"] {
+        left: -18px;
+        top: 50%;
+        transform: translateY(-50%) rotate(90deg);
+      }
+    }
+
+    .#{$popover-prefix}--content {
+      position: absolute;
+      padding: 12px 20px;
+      font-size: 14px;
+      border-radius: 5px;
+      background-color: white;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity $duration-fast $ease-in;
+
+      // Top
+      &[class^="top"] {
+        bottom: 100%;
+        margin-bottom: 12px;
+      }
+
+      &.top-left {
+        left: 10%;
+      }
+
+      &.top {
+        left: 50%;
+        transform: translate(-50%);
+      }
+
+      &.top-right {
+        right: 10%;
+      }
+
+      // Bottom
+      &[class^="bottom"] {
+        top: 100%;
+        margin-top: 12px;
+      }
+
+      &.bottom-left {
+        left: 10%;
+      }
+
+      &.bottom {
+        left: 50%;
+        transform: translate(-50%);
+      }
+
+      &.bottom-right {
+        right: 10%;
+      }
+
+      // Right
+      &[class^="right"] {
+        left: 100%;
+        margin-left: 12px;
+      }
+
+      &.right-top {
+        top: 10%;
+      }
+
+      &.right {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &.right-bottom {
+        bottom: 10%;
+      }
+
+      // Left
+      &[class^="left"] {
+        right: 100%;
+        margin-right: 12px;
+      }
+
+      &.left-top {
+        top: 10%;
+      }
+
+      &.left {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &.left-bottom {
+        bottom: 10%;
+      }
+    }
+  }
+}

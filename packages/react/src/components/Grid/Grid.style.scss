@@ -1,0 +1,139 @@
+@import '../../styles/base/core';
+
+$row-prefix: '#{$prefix}-row';
+$col-prefix: '#{$prefix}-col';
+
+:global {
+  .#{$row-prefix} {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+
+    &.#{$row-prefix}--justify-center {
+      justify-content: center;
+    }
+    &.#{$row-prefix}--justify-end {
+      justify-content: flex-end;
+    }
+    &.#{$row-prefix}--justify-space-around {
+      justify-content: space-around;
+    }
+    &.#{$row-prefix}--justify-space-between {
+      justify-content: space-between;
+    }
+    &.#{$row-prefix}--align-top {
+      align-items: flex-start;
+    }
+    &.#{$row-prefix}--align-middle {
+      align-items: center;
+    }
+    &.#{$row-prefix}--align-bottom {
+      align-items: flex-end;
+    }
+  }
+
+  .#{$col-prefix} {
+    // float: left;
+    box-sizing: border-box;
+
+    &.#{$col-prefix}--col-1 {
+      width: 6.25%;
+    }
+    &.#{$col-prefix}--col-2 {
+      width: 12.5%;
+    }
+    &.#{$col-prefix}--col-3 {
+      width: 18.75%;
+    }
+    &.#{$col-prefix}--col-4 {
+      width: 25%;
+    }
+    &.#{$col-prefix}--col-5 {
+      width: 31.25%;
+    }
+    &.#{$col-prefix}--col-6 {
+      width: 37.5%;
+    }
+    &.#{$col-prefix}--col-7 {
+      width: 43.75%;
+    }
+    &.#{$col-prefix}--col-8 {
+      width: 50%;
+    }
+    &.#{$col-prefix}--col-9 {
+      width: 56.25%;
+    }
+    &.#{$col-prefix}--col-10 {
+      width: 62.5%;
+    }
+    &.#{$col-prefix}--col-11 {
+      width: 68.75%;
+    }
+    &.#{$col-prefix}--col-12 {
+      width: 75%;
+    }
+    &.#{$col-prefix}--col-13 {
+      width: 81.25%;
+    }
+    &.#{$col-prefix}--col-14 {
+      width: 87.5%;
+    }
+    &.#{$col-prefix}--col-15 {
+      width: 93.75%;
+    }
+    &.#{$col-prefix}--col-16 {
+      width: 100%;
+    }
+    &.#{$col-prefix}--col-offset-0 {
+      margin-left: 0;
+    }
+    &.#{$col-prefix}--col-offset-1 {
+      margin-left: 6.25%;
+    }
+    &.#{$col-prefix}--col-offset-2 {
+      margin-left: 12.5%;
+    }
+    &.#{$col-prefix}--col-offset-3 {
+      margin-left: 18.75%;
+    }
+    &.#{$col-prefix}--col-offset-4 {
+      margin-left: 25%;
+    }
+    &.#{$col-prefix}--col-offset-5 {
+      margin-left: 31.25%;
+    }
+    &.#{$col-prefix}--col-offset-6 {
+      margin-left: 37.5%;
+    }
+    &.#{$col-prefix}--col-offset-7 {
+      margin-left: 43.75%;
+    }
+    &.#{$col-prefix}--col-offset-8 {
+      margin-left: 50%;
+    }
+    &.#{$col-prefix}--col-offset-9 {
+      margin-left: 56.25%;
+    }
+    &.#{$col-prefix}--col-offset-10 {
+      margin-left: 62.5%;
+    }
+    &.#{$col-prefix}--col-offset-11 {
+      margin-left: 68.75%;
+    }
+    &.#{$col-prefix}--col-offset-12 {
+      margin-left: 75%;
+    }
+    &.#{$col-prefix}--col-offset-13 {
+      margin-left: 81.25%;
+    }
+    &.#{$col-prefix}--col-offset-14 {
+      margin-left: 87.5%;
+    }
+    &.#{$col-prefix}--col-offset-15 {
+      margin-left: 93.75%;
+    }
+    &.#{$col-prefix}--col-offset-16 {
+      margin-left: 100%;
+    }
+  }
+}

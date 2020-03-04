@@ -1,0 +1,32 @@
+@import '../../styles/base/core';
+
+$badge-prefix: '#{$prefix}-badge';
+
+:global {
+  .#{$badge-prefix}--container {
+    position: relative;
+    display: inline-block;
+
+    .#{$badge-prefix} {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0 8px;
+      height: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 20px;
+      border-radius: 40px;
+      color: white;
+      z-index: 10;
+      transform: translate(50%, -50%);
+    }
+    .#{$badge-prefix}--dot {
+      padding: 0;
+      width: 6px;
+      height: 6px;
+      border: 1px solid white;
+      border-radius: 50%;
+    }
+  }
+}

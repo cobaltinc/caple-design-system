@@ -1,0 +1,55 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/color';
+@import '../../styles/variables/typography';
+@import '../../styles/variables/motion';
+
+$menu-prefix: '#{$prefix}-menu';
+$menu-item-prefix: '#{$prefix}-menu-item';
+
+:global {
+  .#{$menu-prefix} {
+    display: inline-flex;
+    width: 100%;
+    padding: 8px 0;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+    text-align: left;
+    overflow: hidden;
+
+    .#{$menu-item-prefix} {
+      position: relative;
+      width: 100%;
+      padding: 22px 20px;
+      font-size: 14px;
+      line-height: 17px;
+      transition: color 0.2s ease 0s;
+      cursor: pointer;
+      user-select: none;
+      box-sizing: border-box;
+
+      &.#{$menu-item-prefix}--active {
+        background-color: #cfd8eb;
+      }
+
+      &.#{$menu-item-prefix}--disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    
+      &:not(.nohover):not(.disabled):hover {
+        background-color: #dfe8fb;
+      }
+
+      .#{$menu-item-prefix}--icon {
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+    
+      .#{$menu-item-prefix}--title {
+        font-size: 14px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
