@@ -5,44 +5,42 @@
 $tab-prefix: '#{$prefix}-tab';
 $tab-item-prefix: '#{$prefix}-tab-item';
 
-:global {
-  .#{$tab-prefix} { 
-    width: 100%;
+.#{$tab-prefix} { 
+  width: 100%;
 
-    .#{$tab-prefix}--panes {
-      box-shadow: inset 0 -1px 0 0 #dfe3e8;
+  .#{$tab-prefix}--panes {
+    box-shadow: inset 0 -1px 0 0 #dfe3e8;
+    background-color: #f9fafb;
+
+    .#{$tab-item-prefix} {
+      float: left;
+      display: inline-flex;
+      min-width: 140px;
+      height: 56px;
+      align-items: center;
+      justify-content: center;
+      font-size: $text-size-normal;
+      color: #637381;
+      border-right: solid 1px #f2f2f6;
       background-color: #f9fafb;
-
-      .#{$tab-item-prefix} {
-        float: left;
-        display: inline-flex;
-        min-width: 140px;
-        height: 56px;
-        align-items: center;
-        justify-content: center;
-        font-size: $text-size-normal;
-        color: #637381;
-        border-right: solid 1px #f2f2f6;
-        background-color: #f9fafb;
-        box-shadow: inset 0 -1px 0 0 #dfe3e8;
-        cursor: pointer;
-    
-        &.#{$tab-item-prefix}--active {
-          font-weight: bold;
-          color: #000323;
-          border-bottom: 3px solid #2a357c;
-          background-color: white;
-          color: #212b36;
-          box-sizing: border-box;
-        }
+      box-shadow: inset 0 -1px 0 0 #dfe3e8;
+      cursor: pointer;
+  
+      &.#{$tab-item-prefix}--active {
+        font-weight: bold;
+        color: #000323;
+        border-bottom: 3px solid #2a357c;
+        background-color: white;
+        color: #212b36;
+        box-sizing: border-box;
       }
-      
-      @include clearfix;
     }
+    
+    @include clearfix;
+  }
 
-    .#{$tab-prefix}--content {
-      width: 100%;
-      height: auto;
-    }
+  .#{$tab-prefix}--content {
+    width: 100%;
+    height: auto;
   }
 }

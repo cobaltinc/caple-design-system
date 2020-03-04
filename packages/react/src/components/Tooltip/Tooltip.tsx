@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
-import { camelToSnake } from '../../utils';
+import { camelToKebab } from '../../utils';
 import './Tooltip.style.scss';
 
 // TODO: child node의 width가 가변 단위이거나 block일 경우 width가 제대로 반영이 안됨. 수정해야 함.
@@ -75,10 +75,10 @@ export default ({ children, placement = 'top', trigger = 'hover', title, width, 
       <span className={`${classPrefix}--host`} onClick={handleClick} onFocus={handleFocus} onBlur={handleBlur}>
         {children}
       </span>
-      <svg className={classnames(camelToSnake(placement), `${classPrefix}--caret`)} width="24" height="12" viewBox="0 0 24 12">
+      <svg className={classnames(camelToKebab(placement), `${classPrefix}--caret`)} width="24" height="12" viewBox="0 0 24 12">
         <path fill="#212B36" strokeWidth="1px" stroke="#EAEAEA" fillRule="evenodd" d="M20 12l-8-8-12 12" />
       </svg>
-      <div className={classnames(camelToSnake(placement), `${classPrefix}--title`)} style={widthStyle}>
+      <div className={classnames(camelToKebab(placement), `${classPrefix}--title`)} style={widthStyle}>
         {title}
       </div>
     </div>

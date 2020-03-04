@@ -4,55 +4,53 @@
 
 $card-prefix: '#{$prefix}-card';
 
-:global {
-  .#{$card-prefix} {
-    border-radius: 3px;
-    box-shadow: 0 1px 3px 0 rgba(63, 63, 68, 0.15), 0 0 0 1px rgba(63, 63, 68, 0.05);
-    background-color: white;
+.#{$card-prefix} {
+  border-radius: 3px;
+  box-shadow: 0 1px 3px 0 rgba(63, 63, 68, 0.15), 0 0 0 1px rgba(63, 63, 68, 0.05);
+  background-color: white;
 
-    .#{$card-prefix}--header {
-      min-height: 56px;
-      box-shadow: inset 0 -1px 0 0 #dfe3e8;
-      
-      .#{$card-prefix}--title {
-        display: inline-flex;
-        height: 56px;
-        margin-left: 20px;
-        align-items: center;
-        vertical-align: middle;
-      }
+  .#{$card-prefix}--header {
+    min-height: 56px;
+    box-shadow: inset 0 -1px 0 0 #dfe3e8;
+    
+    .#{$card-prefix}--title {
+      display: inline-flex;
+      height: 56px;
+      margin-left: 20px;
+      align-items: center;
+      vertical-align: middle;
+    }
 
-      .#{$card-prefix}--collapse-dropdown {
-        float: right;
-        display: inline-flex;
-        height: 56px;
-        margin-right: 20px;
-        align-items: center;
-        vertical-align: middle;
+    .#{$card-prefix}--collapse-dropdown {
+      float: right;
+      display: inline-flex;
+      height: 56px;
+      margin-right: 20px;
+      align-items: center;
+      vertical-align: middle;
 
-        .#{$card-prefix}--caret {
-          width: 20px;
-          height: 20px;
-          transition: transform $duration-fast;
-          cursor: pointer;
+      .#{$card-prefix}--caret {
+        width: 20px;
+        height: 20px;
+        transition: transform $duration-fast;
+        cursor: pointer;
 
-          &.reverse {
-            transform: rotateZ(180deg) !important;
-          }
+        &.reverse {
+          transform: rotateZ(180deg) !important;
         }
       }
-
-      @include clearfix;
     }
 
-    .#{$card-prefix}--content {
-      height: auto;
-      box-sizing: border-box;
-    }
+    @include clearfix;
+  }
 
-    .#{$card-prefix}--footer {
-      min-height: 56px;
-      box-shadow: inset 0 1px 0 0 #dfe3e8;
-    }
+  .#{$card-prefix}--content {
+    height: auto;
+    box-sizing: border-box;
+  }
+
+  .#{$card-prefix}--footer {
+    min-height: 56px;
+    box-shadow: inset 0 1px 0 0 #dfe3e8;
   }
 }

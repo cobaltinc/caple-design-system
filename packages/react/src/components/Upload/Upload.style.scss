@@ -2,14 +2,12 @@
 
 $upload-prefix: '#{$prefix}-upload';
 
-:global {
-  .#{$upload-prefix} {
-    display: inline-block;
-    cursor: pointer;
-    vertical-align: middle;
-    
-    input[type='file'] {
-      display: none;
-    }
+.#{$upload-prefix} {
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: middle;
+  
+  input[type='file'] {
+    display: none;
   }
 }

@@ -6,6 +6,7 @@
       "dom.iterable",
       "esnext"
     ],
+    "sourceMap": true,
     "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
@@ -16,17 +17,10 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": false,
-    "jsx": "preserve",
+    "jsx": "react",
     "declaration": true,
     "declarationDir": "dist/types",
-    "baseUrl": "./",
-    "paths": {
-      "@components/*": ["./components/*"],
-      "@caple-ui": ["./caple-ui"],
-      "@docs/*": ["./docs/*"],
-      "@utils/*": ["./utils/*"],
-      "@assets/*": ["./assets/*"]
-    },
+    "baseUrl": "./"
   },
   "exclude": [
     "node_modules",

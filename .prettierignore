@@ -1,6 +1,7 @@
 **/*.svg
 package.json
 coverage/
+dist/
 CNAME
 LICENSE
 yarn.lock

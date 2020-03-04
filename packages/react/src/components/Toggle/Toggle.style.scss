@@ -4,81 +4,79 @@
 
 $toggle-prefix: '#{$prefix}-toggle';
 
-:global {
-  .#{$toggle-prefix} {
-    display: inline-block;
-    vertical-align: middle;
-    cursor: pointer;
-    user-select: none;
+.#{$toggle-prefix} {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
 
-    .#{$toggle-prefix}--button {
+  .#{$toggle-prefix}--button {
+    position: relative;
+    padding: 2px;
+    border-radius: 2em;
+    background: $sky;
+    box-shadow: 0 1px 0 0 rgba(22, 29, 37, 0.05);
+    transition: background-color $duration-moderate;
+    box-sizing: border-box;
+
+    &:after {
+      content: '';
       position: relative;
-      padding: 2px;
-      border-radius: 2em;
-      background: $sky;
-      box-shadow: 0 1px 0 0 rgba(22, 29, 37, 0.05);
-      transition: background-color $duration-moderate;
-      box-sizing: border-box;
-
-      &:after {
-        content: '';
-        position: relative;
-        left: 0;
-        display: block;
-        height: 100%;
-        border-radius: 50%;
-        background-image: linear-gradient(to bottom, #ffffff, #f9fafb);
-        transition: left $duration-moderate $ease-out, transform $duration-moderate $ease-out;
-      }
-
-      &.#{$toggle-prefix}--size-small {
-        width: 38px;
-        height: 18px;
-
-        &:after {
-          width: 14px;
-        }
-      }
-      &.#{$toggle-prefix}--size-normal {
-        width: 64px;
-        height: 30px;
-
-        &:after {
-          width: 26px;
-        }
-      }
-      &.#{$toggle-prefix}--size-large {
-        width: 88px;
-        height: 42px;
-
-        &:after {
-          width: 38px;
-        }
-      }
+      left: 0;
+      display: block;
+      height: 100%;
+      border-radius: 50%;
+      background-image: linear-gradient(to bottom, #ffffff, #f9fafb);
+      transition: left $duration-moderate $ease-out, transform $duration-moderate $ease-out;
     }
 
-    input {
-      position: absolute;
-      width: 0px;
-      height: 0px;
-      opacity: 0;
+    &.#{$toggle-prefix}--size-small {
+      width: 38px;
+      height: 18px;
 
-      &:checked + .#{$toggle-prefix}--button {
-        background: $indigo;
+      &:after {
+        width: 14px;
       }
+    }
+    &.#{$toggle-prefix}--size-normal {
+      width: 64px;
+      height: 30px;
 
-      &:checked + .#{$toggle-prefix}--button:after {
-        left: 100%;
-        transform: translateX(-100%);
+      &:after {
+        width: 26px;
       }
+    }
+    &.#{$toggle-prefix}--size-large {
+      width: 88px;
+      height: 42px;
 
-      &:disabled + .#{$toggle-prefix}--button {
+      &:after {
+        width: 38px;
+      }
+    }
+  }
+
+  input {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+
+    &:checked + .#{$toggle-prefix}--button {
+      background: $indigo;
+    }
+
+    &:checked + .#{$toggle-prefix}--button:after {
+      left: 100%;
+      transform: translateX(-100%);
+    }
+
+    &:disabled + .#{$toggle-prefix}--button {
+      opacity: 0.7;
+      cursor: not-allowed;
+
+      &:after {
         opacity: 0.7;
-        cursor: not-allowed;
-
-        &:after {
-          opacity: 0.7;
-        }
       }
     }
   }

@@ -5,33 +5,31 @@
 
 $modal-prefix: '#{$prefix}-modal';
 
-:global {
-  .#{$modal-prefix}--dim {
+.#{$modal-prefix}--dim {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.15);
+
+  .#{$modal-prefix} {
     position: fixed;
     top: 50%;
     left: 50%;
-    display: none;
-    width: 100vw;
-    height: 100vh;
+    min-height: 30px;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.5);
 
-    .#{$modal-prefix} {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      min-height: 30px;
-      transform: translate(-50%, -50%);
-      border-radius: 8px;
-      background-color: white;
-      box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.5);
-
-      .#{$modal-prefix}--close {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        cursor: pointer;
-      }
+    .#{$modal-prefix}--close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
     }
   }
 }

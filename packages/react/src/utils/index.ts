@@ -6,7 +6,9 @@ export const tuple = <T extends string[]>(...args: T) => args;
 
 export const warning = (title: string, body: string) => console.warn(`%c ${title}\n\n`, 'font-weight: bold; font-size: 16px;', body);
 
-export const camelToSnake = (camel: string) => camel.replace(/[\w]([A-Z])/g, s => `${s[0]}-${s[1]}`).toLowerCase();
+export const camelToKebab = (camel: string) => camel.replace(/[\w]([A-Z])/g, s => `${s[0]}-${s[1]}`).toLowerCase();
+
+export const kebabToPascal = (kebab: string) => kebab.replace(/(^\w|-\w)/g, s => s.replace(/-/, '').toUpperCase());
 
 export const convertReactNodeTo = <T>(parentName: string, childName: string, reactNode: React.ReactNode) => {
   return React.Children.toArray(reactNode).filter(element => {

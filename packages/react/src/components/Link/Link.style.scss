@@ -5,41 +5,39 @@
 
 $link-prefix: '#{$prefix}-link';
 
-:global {
-  .#{$link-prefix} {
-    display: inline;
-    text-decoration: none;
-    color: $indigo;
-    outline: none;
-    transition: color $duration-fast $ease-in;
+.#{$link-prefix} {
+  display: inline;
+  text-decoration: none;
+  color: $indigo;
+  outline: none;
+  transition: color $duration-fast $ease-in;
 
-    &.#{$link-prefix}--size-large {
-      font-size: $text-size-large;
-    }
-    &.#{$link-prefix}--size-normal {
-      font-size: $text-size-normal;
-    }
-    &.#{$link-prefix}--size-small {
-      font-size: $text-size-small;
-    }
+  &.#{$link-prefix}--size-large {
+    font-size: $text-size-large;
+  }
+  &.#{$link-prefix}--size-normal {
+    font-size: $text-size-normal;
+  }
+  &.#{$link-prefix}--size-small {
+    font-size: $text-size-small;
+  }
 
-    &:hover {
-      color: $indigo-dark;
-      text-decoration: underline;
-    }
+  &:hover {
+    color: $indigo-dark;
+    text-decoration: underline;
+  }
 
-    &:active,
-    &:active:visited,
-    &:active:visited:hover {
-      color: $indigo-darker;
-      text-decoration: underline;
-    }
+  &:active,
+  &:active:visited,
+  &:active:visited:hover {
+    color: $indigo-darker;
+    text-decoration: underline;
+  }
 
-    &:not([href]):not(a), &.#{$link-prefix}--disabled {
-      color: $ink-light;
-      cursor: not-allowed;
-      pointer-events: none;
-      touch-action: none;
-    }
+  &:not([href]):not(a), &.#{$link-prefix}--disabled {
+    color: $ink-light;
+    cursor: not-allowed;
+    pointer-events: none;
+    touch-action: none;
   }
 }

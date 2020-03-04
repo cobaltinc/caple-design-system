@@ -2,36 +2,34 @@
 
 $checkbox-prefix: '#{$prefix}-checkbox';
 
-:global {
-  .#{$checkbox-prefix} {
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-    user-select: none;
+.#{$checkbox-prefix} {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+
+  input {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+  }
+
+  .#{$checkbox-prefix}--checkmark {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
     vertical-align: middle;
+  }
 
-    input {
-      position: absolute;
-      width: 0px;
-      height: 0px;
-      opacity: 0;
-    }
+  .#{$checkbox-prefix}--text {
+    padding-left: 8px;
+    font-size: 12px;
+    vertical-align: middle;
+  }
 
-    .#{$checkbox-prefix}--checkmark {
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      vertical-align: middle;
-    }
-
-    .#{$checkbox-prefix}--text {
-      padding-left: 8px;
-      font-size: 12px;
-      vertical-align: middle;
-    }
-
-    &.#{$checkbox-prefix}--disabled {
-      cursor: not-allowed;
-    }
+  &.#{$checkbox-prefix}--disabled {
+    cursor: not-allowed;
   }
 }

@@ -2,31 +2,29 @@
 
 $spinner-prefix: '#{$prefix}-spinner';
 
-:global {
-  .#{$spinner-prefix} {
-    display: inline-block;
-    vertical-align: middle;
-    z-index: 1000;
+.#{$spinner-prefix} {
+  display: inline-block;
+  vertical-align: middle;
+  z-index: 1000;
+}
+
+.#{$spinner-prefix}--container {
+  position: relative;
+
+  .#{$spinner-prefix}--dim {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.7;
+    z-index: 999;
   }
 
-  .#{$spinner-prefix}--container {
-    position: relative;
-
-    .#{$spinner-prefix}--dim {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      opacity: 0.7;
-      z-index: 999;
-    }
-
-    .#{$spinner-prefix} {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
+  .#{$spinner-prefix} {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }

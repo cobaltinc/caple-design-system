@@ -4,51 +4,49 @@
 
 $text-prefix: '#{$prefix}-text';
 
-:global {
-  .#{$text-prefix} {
-    mark {
-      padding: 0;
-      background-color: $blue-light;
-      font-family: inherit;
-    }
-
-    code {
-      margin: 0 0.2em;
-      padding: 0.1em 0.4em 0.1em;
-      font-family: inherit;
-      font-size: 85%;
-      background: $sky;
-      border: 1px solid $sky-dark;
-      border-radius: 3px;  
-    }
-
-    &.#{$text-prefix}--size-large {
-      font-size: $text-size-large;
-    }
-    &.#{$text-prefix}--size-normal {
-      font-size: $text-size-normal;
-    }
-    &.#{$text-prefix}--size-small {
-      font-size: $text-size-small;
-    }
-
-    &[contenteditable=true] {
-      border-bottom: 1px solid $ink;
-    }
-
-    &[contenteditable=true]:empty:before {
-      content: attr(placeholder);
-      color: $ink-lightest;
-      border-bottom: 1px solid $ink-lightest;
-      cursor: text;
-    }
-
-    &[contenteditable=true]:focus {
-      outline: none;
-    }
+.#{$text-prefix} {
+  mark {
+    padding: 0;
+    background-color: $blue-light;
+    font-family: inherit;
   }
 
-  p.#{$text-prefix} {
-    line-height: 20px;
+  code {
+    margin: 0 0.2em;
+    padding: 0.1em 0.4em 0.1em;
+    font-family: inherit;
+    font-size: 85%;
+    background: $sky;
+    border: 1px solid $sky-dark;
+    border-radius: 3px;  
   }
+
+  &.#{$text-prefix}--size-large {
+    font-size: $text-size-large;
+  }
+  &.#{$text-prefix}--size-normal {
+    font-size: $text-size-normal;
+  }
+  &.#{$text-prefix}--size-small {
+    font-size: $text-size-small;
+  }
+
+  &[contenteditable=true] {
+    border-bottom: 1px solid $ink;
+  }
+
+  &[contenteditable=true]:empty:before {
+    content: attr(placeholder);
+    color: $ink-lightest;
+    border-bottom: 1px solid $ink-lightest;
+    cursor: text;
+  }
+
+  &[contenteditable=true]:focus {
+    outline: none;
+  }
+}
+
+p.#{$text-prefix} {
+  line-height: 20px;
 }

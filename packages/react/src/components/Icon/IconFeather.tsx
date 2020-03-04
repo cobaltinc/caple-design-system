@@ -1,6 +1,5 @@
 import React from 'react';
 import classnames from 'classnames';
-import { icons } from 'feather-icons';
 import ConfigContext from '../_config/ConfigContext';
 import { IconProps } from './Icon';
 import './Icon.style.scss';
@@ -29,7 +28,7 @@ export default ({ type, size = 16, rotate = 0, spin = false, strokeWidth = 2, co
     height: size
   };
 
-  const svg = icons[type].toSvg({ 'stroke-width': strokeWidth, ...iconStyle });
+  const svg = require('feather-icons').icons[type].toSvg({ 'stroke-width': strokeWidth, ...iconStyle });
 
   const base64 = Buffer.from(svg, 'utf8').toString('base64');
 

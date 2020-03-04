@@ -1,1 +1,1 @@
-# Caple Web
+# Caple Design System

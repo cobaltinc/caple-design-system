@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
-import { camelToSnake } from '../../utils';
+import { camelToKebab } from '../../utils';
 import './Popover.style.scss';
 
 // TODO: child node의 width가 가변 단위이거나 block일 경우 width가 제대로 반영이 안됨. 수정해야 함.
@@ -75,10 +75,10 @@ export default ({ children, content, trigger = 'click', placement = 'bottom', wi
       <span className={`${classPrefix}--host`} onClick={handleClick} onFocus={handleFocus} onBlur={handleBlur}>
         {children}
       </span>
-      <svg className={classnames(camelToSnake(placement), `${classPrefix}--caret`)} width="24" height="12" viewBox="0 0 24 12">
+      <svg className={classnames(camelToKebab(placement), `${classPrefix}--caret`)} width="24" height="12" viewBox="0 0 24 12">
         <path fill="white" strokeWidth="1px" stroke="#EAEAEA" fillRule="evenodd" d="M20 12l-8-8-12 12" />
       </svg>
-      <div className={classnames(camelToSnake(placement), `${classPrefix}--content`)} style={contentStyle}>
+      <div className={classnames(camelToKebab(placement), `${classPrefix}--content`)} style={contentStyle}>
         {content}
       </div>
     </div>

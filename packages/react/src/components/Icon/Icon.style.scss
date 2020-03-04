@@ -3,16 +3,14 @@
 
 $icon-prefix: '#{$prefix}-icon';
 
-:global {
-  .#{$icon-prefix} {
-    display: inline-block;
-    vertical-align: middle;
-    transition: all $duration-moderate;
+.#{$icon-prefix} {
+  display: inline-block;
+  vertical-align: middle;
+  transition: all $duration-moderate;
 
-    &.#{$icon-prefix}--spin {
-      animation: #{$icon-prefix}-spin 2500ms infinite linear;
-    }
-
-    @keyframes :global(#{$icon-prefix}-spin) { 100% { transform: rotate(360deg); } }
+  &.#{$icon-prefix}--spin {
+    animation: #{$icon-prefix}-spin 2500ms infinite linear;
   }
+
+  @keyframes #{$icon-prefix}-spin { 100% { transform: rotate(360deg); } }
 }

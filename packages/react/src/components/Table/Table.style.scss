@@ -5,48 +5,46 @@
 
 $table-prefix: '#{$prefix}-table';
 
-:global {
-  .#{$table-prefix} {
-    width: 100%;
-    font-size: 12px;
-    border-collapse: collapse;
-    border-spacing: 0;
+.#{$table-prefix} {
+  width: 100%;
+  font-size: 12px;
+  border-collapse: collapse;
+  border-spacing: 0;
 
-    thead.#{$table-prefix}-head {
-      tr {
-        th {
-          height: 42px;
-          text-align: center;
-          border-top: 1px solid #5d6bc5;
-          border-bottom: 2px solid #5d6bc5;
-          vertical-align: middle;
-          color: #5d6bc5;
-        }
+  thead.#{$table-prefix}-head {
+    tr {
+      th {
+        height: 42px;
+        text-align: center;
+        border-top: 1px solid #5d6bc5;
+        border-bottom: 2px solid #5d6bc5;
+        vertical-align: middle;
+        color: #5d6bc5;
       }
     }
-
-    tbody.#{$table-prefix}-body {
-      tr {
-        border-bottom: solid 1px #dfe3e8;
-
-        td {
-          height: 41px;
-          vertical-align: middle;
-          text-align: center;
-          border-bottom: 1px solid #dfe3e8;
-        }
-      }
-    }
-
-    // tfoot.#{$table-prefix}-foot {
-    // }
-
-    // &.grid thead tr th:not(:last-child) {
-    //   border-right: 1px solid #dfe3e8;
-    // }
-  
-    // &.grid tbody tr td:not(:last-child) {
-    //   border-right: 1px solid #dfe3e8;
-    // }
   }
+
+  tbody.#{$table-prefix}-body {
+    tr {
+      border-bottom: solid 1px #dfe3e8;
+
+      td {
+        height: 41px;
+        vertical-align: middle;
+        text-align: center;
+        border-bottom: 1px solid #dfe3e8;
+      }
+    }
+  }
+
+  // tfoot.#{$table-prefix}-foot {
+  // }
+
+  // &.grid thead tr th:not(:last-child) {
+  //   border-right: 1px solid #dfe3e8;
+  // }
+
+  // &.grid tbody tr td:not(:last-child) {
+  //   border-right: 1px solid #dfe3e8;
+  // }
 }

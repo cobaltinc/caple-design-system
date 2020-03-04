@@ -1,35 +1,14 @@
 import React from 'react';
 import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
-import { warning } from '../../utils';
+import { warning, kebabToPascal } from '../../utils';
+import * as Icons from '@caple-ui/icons-react';
 import IconFeather from './IconFeather';
 import './Icon.style.scss';
 
-export type IconType =
-  'alert-circle' |
-  'android' |
-  'apple' |
-  'arrow-left' |
-  'arrow-right' |
-  'caret-down' |
-  'caret-sort' |
-  'caret-up' |
-  'check-circle' |
-  'chenvron-down' |
-  'chenvron-left' |
-  'chenvron-right' |
-  'chenvron-up' |
-  'close-circle' |
-  'close' |
-  'edit' |
-  'gear' |
-  'plus' |
-  'reload' |
-  'star';
-
 export interface IconProps {
-  type?: IconType | string;
-  component?: React.ReactNode;
+  type?: string;
+  component?: React.ReactElement;
   size?: number;
   rotate?: number;
   spin?: boolean;
@@ -37,14 +16,9 @@ export interface IconProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
   className?: string;
   style?: React.CSSProperties;
-}
+};
 
 const Icon = ({ type, component, size = 16, rotate, spin = false, color = "#212B36", onClick, className = '', style }: IconProps) => {
-  if (!type && !component) {
-    warning('Icon', 'Empty Icon');
-    return null;
-  }
-
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-icon`;
@@ -57,16 +31,26 @@ const Icon = ({ type, component, size = 16, rotate, spin = false, color = "#212B
     height: size,
     transform: rotate ? `rotate(${rotate}deg)` : undefined
   };
-  const iconStyle = {
-    fill: color,
-    // stroke: color
-  };
 
-  const IconComponent = require(`./svgs/${type}.svg`).ReactComponent;
+  let IconComponent = null;
+  if (type && kebabToPascal(type) in Icons) {
+    IconComponent = (Icons as any)[kebabToPascal(type)];
+    IconComponent = <IconComponent size={size} color={color} />
+  } else if (component) {
+    const iconStyle = {
+      fill: color,
+      width: size,
+      height: size
+    };
+    IconComponent = React.cloneElement(component, { style: iconStyle });
+  } else {
+    warning('Icon', 'Empty Icon');
+    return null;
+  }
 
   return (
     <i className={classNames} style={{ ...style, ...shapeStyle }} onClick={onClick}>
-      <IconComponent style={iconStyle} />
+      {IconComponent}
     </i>
   );
 };
