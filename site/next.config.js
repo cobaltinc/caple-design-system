@@ -36,6 +36,7 @@ const nextConfig = {
 
     return config;
   },
+  exportTrailingSlash: true,
 };
 
 module.exports = withPlugins(

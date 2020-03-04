@@ -8,7 +8,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "deploy": "next build && next export && touch out/.nojekyll && node scripts/deploy.js",
+    "deploy": "next build && next export && touch out/.nojekyll && echo design.caple.ai >> out/CNAME && node scripts/deploy.js",
     "lint": "tslint --project .",
     "type-check": "tsc"
   },
