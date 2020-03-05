@@ -1,6 +1,5 @@
 {
   "name": "caple-design-system",
-  "version": "0.0.0",
   "author": "Cobalt. Inc.",
   "private": true,
   "engines": {
@@ -33,5 +32,11 @@
     "tslint": "6.0.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-react": "4.2.0"
-  }
+  },
+  "contributors": [
+    {
+      "name": "Lee Sun-Hyoup",
+      "email": "kciter@naver.com"
+    }
+  ]
 }
