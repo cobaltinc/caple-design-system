@@ -49,97 +49,105 @@ interface Props {
   type?: InputType;
 }
 
-export default React.forwardRef<HTMLInputElement, InputProps & Props>(({ defaultValue, placeholder, label, name, type, 
-  size = 'normal', borderType = 'border', autoFocus, block = false, disabled = false,
-  align, prefix, subfix, loading,
-  onInput, onFocus, onBlur, onKeyDown, onKeyUp, onKeyPress, onChange, onPressEnter,
-  className = '', style, labelClassName = '', labelStyle, inputClassName = '', inputStyle }, ref) => {
+export default React.forwardRef<HTMLInputElement, InputProps & Props>(
+  (
+    {
+      defaultValue,
+      placeholder,
+      label,
+      name,
+      type,
+      size = 'normal',
+      borderType = 'border',
+      autoFocus,
+      block = false,
+      disabled = false,
+      align,
+      prefix,
+      subfix,
+      loading,
+      onInput,
+      onFocus,
+      onBlur,
+      onKeyDown,
+      onKeyUp,
+      onKeyPress,
+      onChange,
+      onPressEnter,
+      className = '',
+      style,
+      labelClassName = '',
+      labelStyle,
+      inputClassName = '',
+      inputStyle,
+    },
+    ref,
+  ) => {
+    const { useContext, useState } = React;
+    const classPrefix = `${useContext(ConfigContext).prefix}-input`;
 
-  const { useContext, useState } = React;
-  const classPrefix = `${useContext(ConfigContext).prefix}-input`;
+    const [focused, setFocused] = useState(false);
 
-  const [focused, setFocused] = useState(false);
+    const inputClassNames = classnames(classPrefix, inputClassName, `${classPrefix}--size-${size}`, `${classPrefix}--border-type-${borderType}`, {
+      [`${classPrefix}--disabled`]: disabled,
+      [`${classPrefix}--focused`]: focused,
+    });
 
-  const inputClassNames = classnames(classPrefix, inputClassName, `${classPrefix}--size-${size}`, `${classPrefix}--border-type-${borderType}`, {
-    [`${classPrefix}--disabled`]: disabled,
-    [`${classPrefix}--focused`]: focused
-  });
+    const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+      setFocused(true);
+      onFocus?.(event);
+    };
 
-  const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
-    setFocused(true);
-    onFocus?.(event)
-  };
+    const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+      setFocused(false);
+      onBlur?.(event);
+    };
 
-  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    setFocused(false);
-    onBlur?.(event)
-  };
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+      if (event.keyCode === 13) {
+        onPressEnter?.(event);
+      }
+      onKeyDown?.(event);
+    };
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.keyCode === 13) {
-      onPressEnter?.(event);
-    }
-    onKeyDown?.(event);
-  };
+    const iconSize = size === 'mini' ? 14 : size === 'small' ? 16 : size === 'normal' ? 20 : size === 'large' ? 24 : 30;
 
-  const iconSize = 
-    size === 'mini' ? 14 :
-    size === 'small' ? 16 :
-    size === 'normal' ? 20 :
-    size === 'large' ? 24 : 30;
-
-  return (
-    <div className={classnames(`${classPrefix}--container`, className, {[`${classPrefix}--block`]: block})} style={style}>
-      {
-        label ?
+    return (
+      <div className={classnames(`${classPrefix}--container`, className, { [`${classPrefix}--block`]: block })} style={style}>
+        {label ? (
           <Text paragraph size="small" className={classnames(`${classPrefix}--label`, labelClassName)} style={labelStyle}>
             {label}
-          </Text> :
-          null
-      }
+          </Text>
+        ) : null}
 
-      <div className={inputClassNames} style={inputStyle}>
-        {
-          prefix ?
-            <span className={`${classPrefix}--prefix`}>
-              {
-                React.isValidElement(prefix) ?
-                  React.cloneElement(prefix, { size: iconSize }) :
-                  prefix
-              }
-            </span> :
-            null
-        }
-        <input
-          ref={ref}
-          type={type}
-          defaultValue={defaultValue} 
-          name={name} 
-          placeholder={placeholder} 
-          autoFocus={autoFocus}
-          disabled={disabled}
-          onInput={onInput}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onKeyDown={handleKeyDown}
-          onKeyPress={onKeyPress}
-          onKeyUp={onKeyUp}
-          onChange={onChange}
-          style={{textAlign: align}} />
-        {
-          loading ?
-            <Spinner size={iconSize} /> :
-            subfix ?
-              <span className={`${classPrefix}--caret`}>
-                {
-                  React.isValidElement(subfix) ?
-                    React.cloneElement(subfix, { size: iconSize }) :
-                    subfix
-                }
-              </span> :
-              null
-        }
+        <div className={inputClassNames} style={inputStyle}>
+          {prefix ? (
+            <span className={`${classPrefix}--prefix`}>{React.isValidElement(prefix) ? React.cloneElement(prefix, { size: iconSize }) : prefix}</span>
+          ) : null}
+          <input
+            ref={ref}
+            type={type}
+            defaultValue={defaultValue}
+            name={name}
+            placeholder={placeholder}
+            autoFocus={autoFocus}
+            disabled={disabled}
+            onInput={onInput}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            onKeyDown={handleKeyDown}
+            onKeyPress={onKeyPress}
+            onKeyUp={onKeyUp}
+            onChange={onChange}
+            style={{ textAlign: align }}
+          />
+          {loading ? (
+            <Spinner size={iconSize} />
+          ) : subfix ? (
+            <span className={`${classPrefix}--caret`}>{React.isValidElement(subfix) ? React.cloneElement(subfix, { size: iconSize }) : subfix}</span>
+          ) : null}
+        </div>
       </div>
-    </div>
-  );
-});
+    );
+  },
+);

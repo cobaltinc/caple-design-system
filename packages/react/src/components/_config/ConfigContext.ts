@@ -7,7 +7,7 @@ export interface ConfigContextState {
 }
 
 const ConfigContext: Context<ConfigContextState> = createContext({
-  prefix: config.prefix
+  prefix: config.prefix,
 });
 
 export default ConfigContext;

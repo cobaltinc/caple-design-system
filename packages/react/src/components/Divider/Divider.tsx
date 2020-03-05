@@ -14,7 +14,5 @@ export default ({ type = 'horizontal', className = '', style }: DividerProps) =>
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-divider`;
   const classNames = classnames(`${classPrefix}`, `${classPrefix}-${type}`, className);
-  return (
-    <hr className={classNames} style={style} />
-  );
+  return <hr className={classNames} style={style} />;
 };

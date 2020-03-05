@@ -34,7 +34,8 @@ $link-prefix: '#{$prefix}-link';
     text-decoration: underline;
   }
 
-  &:not([href]):not(a), &.#{$link-prefix}--disabled {
+  &:not([href]):not(a),
+  &.#{$link-prefix}--disabled {
     color: $ink-light;
     cursor: not-allowed;
     pointer-events: none;

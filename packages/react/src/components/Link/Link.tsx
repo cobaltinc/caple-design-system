@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import './Link.style.scss';
 
-export type LinkSizeType = 'small' | 'normal' | 'large'
+export type LinkSizeType = 'small' | 'normal' | 'large';
 
 export interface LinkProps {
   children: React.ReactNode;
@@ -21,7 +21,7 @@ export default ({ children, size = 'normal', href, disabled = false, onClick, cl
   const classPrefix = `${prefix}-link`;
   const classNames = classnames(classPrefix, className, {
     [`${classPrefix}--size-${size}`]: typeof size === 'string',
-    [`${classPrefix}--disabled`]: disabled
+    [`${classPrefix}--disabled`]: disabled,
   });
   const Tag = disabled ? 'span' : 'a';
   return (

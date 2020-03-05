@@ -21,7 +21,20 @@ export interface CollapseProps {
   style?: React.CSSProperties;
 }
 
-export default ({ children, title, defaultExpand = false, animate = true, titleColor, indicatorTitle, indicatorColor = '#5C6AC4', caretColor, onOpen, onClose, className = '', style }: CollapseProps) => {
+export default ({
+  children,
+  title,
+  defaultExpand = false,
+  animate = true,
+  titleColor,
+  indicatorTitle,
+  indicatorColor = '#5C6AC4',
+  caretColor,
+  onOpen,
+  onClose,
+  className = '',
+  style,
+}: CollapseProps) => {
   const { useContext, useState } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-collapse`;
@@ -37,26 +50,26 @@ export default ({ children, title, defaultExpand = false, animate = true, titleC
     // TODO: transition 후 height 고정 버그 수정해야함
     children = (
       <ExpandTransition open={expand}>
-        <div className={`${classPrefix}--content`}>
-          {children}
-        </div>
+        <div className={`${classPrefix}--content`}>{children}</div>
       </ExpandTransition>
     );
   } else {
-    children = expand ?
-      <div className={`${classPrefix}--content`}>
-        {children}
-      </div> :
-      null;
+    children = expand ? <div className={`${classPrefix}--content`}>{children}</div> : null;
   }
 
   return (
     <div className={classNames} style={style}>
       <div className={`${classPrefix}--header`}>
-        <Text strong color={titleColor} className={`${classPrefix}--title`}>{title}</Text>
+        <Text strong color={titleColor} className={`${classPrefix}--title`}>
+          {title}
+        </Text>
         <div className={`${classPrefix}--collapse-dropdown`} onClick={onClick}>
-          {indicatorTitle ? <Text size="small" color={indicatorColor} className={`${classPrefix}--indicator`}>{indicatorTitle}</Text> : null}
-          <Icon type="caret-down" size={20} color={caretColor} className={classnames(`${classPrefix}--caret`, {[`reverse`]: expand})} />
+          {indicatorTitle ? (
+            <Text size="small" color={indicatorColor} className={`${classPrefix}--indicator`}>
+              {indicatorTitle}
+            </Text>
+          ) : null}
+          <Icon type="caret-down" size={20} color={caretColor} className={classnames(`${classPrefix}--caret`, { [`reverse`]: expand })} />
         </div>
       </div>
       {children}

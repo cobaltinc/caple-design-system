@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import './Text.style.scss';
 
-export type TextSizeType = 'small' | 'normal' | 'large'
+export type TextSizeType = 'small' | 'normal' | 'large';
 
 export interface TextProps {
   children: React.ReactNode;
@@ -22,21 +22,34 @@ export interface TextProps {
   style?: React.CSSProperties;
 }
 
-export default ({ children, size, paragraph = false, strong = false, underline = false, 
-                  delete: del = false, mark = false, code = false, color, 
-                  editable, placeholder, onChange, className = '', style }: TextProps) => {
+export default ({
+  children,
+  size,
+  paragraph = false,
+  strong = false,
+  underline = false,
+  delete: del = false,
+  mark = false,
+  code = false,
+  color,
+  editable,
+  placeholder,
+  onChange,
+  className = '',
+  style,
+}: TextProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-text`;
   const classNames = classnames(classPrefix, className, {
-    [`${classPrefix}--size-${size}`]: size !== undefined && typeof size === 'string'
+    [`${classPrefix}--size-${size}`]: size !== undefined && typeof size === 'string',
   });
   const Tag = paragraph ? 'p' : 'span';
 
   const fontStyle: React.CSSProperties = {
     fontWeight: strong ? 'bold' : 'normal',
     textDecoration: underline ? 'underline' : 'none',
-  }
+  };
 
   if (color) {
     fontStyle.color = color;
@@ -57,9 +70,9 @@ export default ({ children, size, paragraph = false, strong = false, underline =
 
   const onKeyDown = (event: React.KeyboardEvent<HTMLParagraphElement>) => {
     if (event.key === 'Enter') {
-      event.preventDefault()
+      event.preventDefault();
     }
-    onChange?.(event)
+    onChange?.(event);
   };
 
   const onPaste = (event: React.ClipboardEvent) => {
@@ -67,10 +80,18 @@ export default ({ children, size, paragraph = false, strong = false, underline =
 
     const pastedData = event.clipboardData.getData('text/plain');
     window.document.execCommand('insertText', false, pastedData);
-  }
+  };
 
   return (
-    <Tag onKeyDown={onKeyDown} onPaste={onPaste} contentEditable={editable} placeholder={placeholder} suppressContentEditableWarning={editable} className={classNames} style={{ ...style, ...fontStyle }}>
+    <Tag
+      onKeyDown={onKeyDown}
+      onPaste={onPaste}
+      contentEditable={editable}
+      placeholder={placeholder}
+      suppressContentEditableWarning={editable}
+      className={classNames}
+      style={{ ...style, ...fontStyle }}
+    >
       {children}
     </Tag>
   );

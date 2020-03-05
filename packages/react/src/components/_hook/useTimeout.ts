@@ -14,7 +14,7 @@ export default (callback: Callback, delay: number) => {
       if (savedCallback.current) {
         savedCallback.current();
       }
-    }
+    };
 
     const id = setTimeout(tick, delay);
     return () => clearTimeout(id);

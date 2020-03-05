@@ -35,7 +35,7 @@ export interface SelectProps {
 
 type ISelect<P> = React.FunctionComponent<P> & {
   Option: typeof SelectOption;
-}
+};
 
 type SelectedOption = {
   key: number;
@@ -43,10 +43,25 @@ type SelectedOption = {
   value: string;
 };
 
-const Select: ISelect<SelectProps> = ({ children, label, name, placeholder, size = 'normal', 
-  borderType = 'border', block, disabled = false, align = 'center', loading, onChange, 
-  className = '', style, labelClassName = '', labelStyle, inputClassName = '', inputStyle }: SelectProps) => {
-
+const Select: ISelect<SelectProps> = ({
+  children,
+  label,
+  name,
+  placeholder,
+  size = 'normal',
+  borderType = 'border',
+  block,
+  disabled = false,
+  align = 'center',
+  loading,
+  onChange,
+  className = '',
+  style,
+  labelClassName = '',
+  labelStyle,
+  inputClassName = '',
+  inputStyle,
+}: SelectProps) => {
   const { useContext, useState, useRef, useEffect } = React;
   const classPrefix = `${useContext(ConfigContext).prefix}-select`;
 
@@ -56,14 +71,10 @@ const Select: ISelect<SelectProps> = ({ children, label, name, placeholder, size
 
   const inputClassNames = classnames(classPrefix, inputClassName, `${classPrefix}--size-${size}`, `${classPrefix}--border-type-${borderType}`, {
     [`${classPrefix}--disabled`]: disabled,
-    [`${classPrefix}--focused`]: focused
+    [`${classPrefix}--focused`]: focused,
   });
 
-  const iconSize = 
-    size === 'mini' ? 14 :
-    size === 'small' ? 16 :
-    size === 'normal' ? 20 :
-    size === 'large' ? 24 : 30;
+  const iconSize = size === 'mini' ? 14 : size === 'small' ? 16 : size === 'normal' ? 20 : size === 'large' ? 24 : 30;
 
   const handleClick = () => {
     setFocused(!focused);
@@ -77,63 +88,64 @@ const Select: ISelect<SelectProps> = ({ children, label, name, placeholder, size
   useEffect(() => {
     if (handleClickOutside) {
       document.addEventListener('mousedown', handleClickOutside);
-      return () => { document.removeEventListener('mousedown', handleClickOutside); };
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
     }
   }, [handleClickOutside]);
 
   const options = convertReactNodeTo<typeof SelectOption>('Select', 'Select.Option', children);
 
   return (
-    <div className={classnames(`${classPrefix}--container`, className, {[`${classPrefix}--block`]: block})} style={style}>
-      {
-        label ?
-          <Text paragraph size="small" className={classnames(`${classPrefix}--label`, labelClassName)} style={labelStyle}>
-            {label}
-          </Text> :
-          null
-      }
-      
-      <div ref={inputRef} className={inputClassNames} style={{...inputStyle, textAlign: align}} onClick={handleClick}>
+    <div className={classnames(`${classPrefix}--container`, className, { [`${classPrefix}--block`]: block })} style={style}>
+      {label ? (
+        <Text paragraph size="small" className={classnames(`${classPrefix}--label`, labelClassName)} style={labelStyle}>
+          {label}
+        </Text>
+      ) : null}
+
+      <div ref={inputRef} className={inputClassNames} style={{ ...inputStyle, textAlign: align }} onClick={handleClick}>
         <input name={name} defaultValue={active?.value} disabled={disabled} />
         <div className={`${classPrefix}--value`} placeholder={placeholder}>
           {active?.title}
         </div>
-        {
-          loading ?
-            <Spinner size={iconSize} className={`${classPrefix}--caret`} /> :
-            <Icon type="caret-down" size={iconSize} className={classnames(`${classPrefix}--caret`, {[`reverse`]: focused})} />
-        }
+        {loading ? (
+          <Spinner size={iconSize} className={`${classPrefix}--caret`} />
+        ) : (
+          <Icon type="caret-down" size={iconSize} className={classnames(`${classPrefix}--caret`, { [`reverse`]: focused })} />
+        )}
       </div>
 
       <FadeTransition show={focused}>
         <div className={`${classPrefix}--options`}>
-          {
-            options
-              .map((element, index) => {
-                const props = (element as React.ReactElement<SelectOptionProps>).props;
-                const title = concatReactNodeToString(props.children);
+          {options.map((element, index) => {
+            const props = (element as React.ReactElement<SelectOptionProps>).props;
+            const title = concatReactNodeToString(props.children);
 
-                const handleOptionClick = () => {
-                  if (!disabled) {
-                    setActive({
-                      key: index,
-                      title,
-                      value: props.value
-                    });
-                    onChange?.(props.value);
-                  }
-                };
+            const handleOptionClick = () => {
+              if (!disabled) {
+                setActive({
+                  key: index,
+                  title,
+                  value: props.value,
+                });
+                onChange?.(props.value);
+              }
+            };
 
-                return (
-                  <div className={classnames(`${classPrefix}-option`, { 
-                      [`${classPrefix}-option--selected`]: active?.key === index,
-                      [`${classPrefix}-option--disabled`]: disabled
-                    })} key={index} onClick={handleOptionClick}>
-                    {props.children}
-                  </div>
-                );
-              })
-          }
+            return (
+              <div
+                className={classnames(`${classPrefix}-option`, {
+                  [`${classPrefix}-option--selected`]: active?.key === index,
+                  [`${classPrefix}-option--disabled`]: disabled,
+                })}
+                key={index}
+                onClick={handleOptionClick}
+              >
+                {props.children}
+              </div>
+            );
+          })}
         </div>
       </FadeTransition>
     </div>

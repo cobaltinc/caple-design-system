@@ -13,11 +13,11 @@ export interface SwitchProps {
   onChange?(check: boolean, value?: string): void;
   className?: string;
   style?: React.CSSProperties;
-};
+}
 
 type ISwitch<P> = React.FunctionComponent<P> & {
   Group: typeof SwitchGroup;
-}
+};
 
 const Switch: ISwitch<SwitchProps> = ({ title, value, name, checked = false, disabled = false, onChange, className = '', style }) => {
   const { useContext, useState } = React;

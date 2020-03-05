@@ -9,14 +9,14 @@ interface Props {
 const getHeight = (node: HTMLElement) => {
   const child = node && node.children[0];
   return child ? child.getBoundingClientRect().height : 0;
-}
+};
 
 export default ({ children, open }: Props) => {
   const { useContext, useState, useRef, useEffect } = React;
   const defaultStyle = {
     transition: `height 240ms cubic-bezier(0, 0, 0.25, 1)`,
     height: 'auto',
-  }
+  };
 
   const [height, setHeight] = useState<number | string>('auto');
   const element = useRef(null);
@@ -33,16 +33,16 @@ export default ({ children, open }: Props) => {
   if (open) {
     transitionStyles = {
       entering: { height: 0 },
-      entered:  { height: 0 },
-      exiting:  { height },
-      exited:  { height },
+      entered: { height: 0 },
+      exiting: { height },
+      exited: { height },
     };
   } else {
     transitionStyles = {
       entering: { height },
-      entered:  { height },
-      exiting:  { height: 0 },
-      exited:  { height: 0 },
+      entered: { height },
+      exiting: { height: 0 },
+      exited: { height: 0 },
     };
   }
 
@@ -56,8 +56,8 @@ export default ({ children, open }: Props) => {
 
   return (
     <Transition timeout={240} onEnter={handleExited} onExited={handleExited}>
-      { state => (
-        <div ref={element} style={{ ...defaultStyle, ...transitionStyles[state], overflow: (height !== 'auto' ?  'hidden' : undefined) }}>
+      {state => (
+        <div ref={element} style={{ ...defaultStyle, ...transitionStyles[state], overflow: height !== 'auto' ? 'hidden' : undefined }}>
           {children}
         </div>
       )}

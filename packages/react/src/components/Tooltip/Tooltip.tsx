@@ -6,24 +6,21 @@ import './Tooltip.style.scss';
 
 // TODO: child node의 width가 가변 단위이거나 block일 경우 width가 제대로 반영이 안됨. 수정해야 함.
 
-export type TooltipPlacementType = 
-  'topLeft' | 
-  'top' | 
-  'topRight' | 
-  'leftTop' | 
-  'left' | 
-  'leftBottom' | 
-  'rightTop' | 
-  'right' | 
-  'rightBottom' | 
-  'bottomLeft' | 
-  'bottom' | 
-  'bottomRight';
+export type TooltipPlacementType =
+  | 'topLeft'
+  | 'top'
+  | 'topRight'
+  | 'leftTop'
+  | 'left'
+  | 'leftBottom'
+  | 'rightTop'
+  | 'right'
+  | 'rightBottom'
+  | 'bottomLeft'
+  | 'bottom'
+  | 'bottomRight';
 
-export type ToolTipTriggerType =
-  'hover' |
-  'click' |
-  'focus'
+export type ToolTipTriggerType = 'hover' | 'click' | 'focus';
 
 export interface TooltipProps {
   children: React.ReactNode;
@@ -42,7 +39,7 @@ export default ({ children, placement = 'top', trigger = 'hover', title, width, 
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-tooltip`;
   const classNames = classnames(classPrefix, className, {
-    [`${classPrefix}--active`]: visible
+    [`${classPrefix}--active`]: visible,
   });
 
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -50,24 +47,29 @@ export default ({ children, placement = 'top', trigger = 'hover', title, width, 
   const handleMouseEnter = trigger === 'hover' ? () => setVisible(true) : undefined;
   const handleMouseLeave = trigger === 'hover' ? () => setVisible(false) : undefined;
   const handleClick = trigger === 'click' ? () => setVisible(!visible) : undefined;
-  const handleClickOutside = trigger === 'click' ? (event: MouseEvent) => {
-    if (wrapperRef.current && !wrapperRef.current.contains(event.target as HTMLElement)) {
-      setVisible(false);
-    }
-  } : undefined;
+  const handleClickOutside =
+    trigger === 'click'
+      ? (event: MouseEvent) => {
+          if (wrapperRef.current && !wrapperRef.current.contains(event.target as HTMLElement)) {
+            setVisible(false);
+          }
+        }
+      : undefined;
   const handleFocus = trigger === 'focus' ? () => setVisible(true) : undefined;
   const handleBlur = trigger === 'focus' ? () => setVisible(false) : undefined;
 
   useEffect(() => {
     if (handleClickOutside) {
       document.addEventListener('mousedown', handleClickOutside);
-      return () => { document.removeEventListener('mousedown', handleClickOutside); };
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
     }
   }, [handleClickOutside]);
 
   const widthStyle: React.CSSProperties = {
     width: width ? width : 'auto',
-    whiteSpace: width ? 'normal' : 'nowrap'
+    whiteSpace: width ? 'normal' : 'nowrap',
   };
 
   return (

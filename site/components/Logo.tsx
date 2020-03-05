@@ -4,7 +4,5 @@ interface Props {
 }
 
 export default ({ orientation, height }: Props) => {
-  return (
-    <img src={`/svgs/logo_${orientation}.svg`} style={{height}} />
-  );
+  return <img src={`/svgs/logo_${orientation}.svg`} style={{ height }} />;
 };

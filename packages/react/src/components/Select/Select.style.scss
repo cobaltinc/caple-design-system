@@ -15,12 +15,12 @@ $select-prefix: '#{$prefix}-select';
     display: block;
     width: auto;
   }
-  
+
   .#{$select-prefix}--label {
     margin-bottom: 2px;
     vertical-align: middle;
   }
-  
+
   .#{$select-prefix} {
     display: inline-flex;
     width: 100%;
@@ -75,7 +75,7 @@ $select-prefix: '#{$prefix}-select';
         box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
       }
       &.#{$select-prefix}--disabled {
-        background: #F9FAFB;
+        background: #f9fafb;
         border: 1px solid $sky;
       }
     }

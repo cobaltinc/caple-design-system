@@ -11,11 +11,9 @@ export default () => {
 
   return (
     <Menu>
-      {
-        menus.components.map((menu, index) => (
-          <Menu.Item title={menu.title} onClick={() => router.push(menu.path)} key={index} />
-        ))
-      }
+      {menus.components.map((menu, index) => (
+        <Menu.Item title={menu.title} onClick={() => router.push(menu.path)} key={index} />
+      ))}
     </Menu>
   );
 };

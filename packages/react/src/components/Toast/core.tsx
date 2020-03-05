@@ -30,7 +30,7 @@ class ToastCore {
       // TODO: 다른 좋은 방법 찾기
       // tslint:disable-next-line: jsx-no-bind
       <ToastManager bind={this.bind.bind(this)} />,
-      this.portal
+      this.portal,
     );
   }
 

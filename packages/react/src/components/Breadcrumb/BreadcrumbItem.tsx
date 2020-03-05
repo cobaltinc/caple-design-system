@@ -28,18 +28,19 @@ const BreadcrumbItem = ({ children, href, onClick, hasSeperator, className = '',
   return (
     <span className={classNames}>
       <a href={href} className={`${classPrefix}--text`} style={style} onClick={onClick}>
-        { 
-          isIcon ? 
-            React.cloneElement(children as React.ReactElement<IconProps | IconFeatherProps>, { size: 20, color: '#637381' }) :
-            <Text strong size="large">{concatReactNodeToString(children)}</Text>
-        }
+        {isIcon ? (
+          React.cloneElement(children as React.ReactElement<IconProps | IconFeatherProps>, { size: 20, color: '#637381' })
+        ) : (
+          <Text strong size="large">
+            {concatReactNodeToString(children)}
+          </Text>
+        )}
       </a>
-      {
-        hasSeperator ?
-          <span className={`${classPrefix}--separator`}>
-            <Icon type="chenvron-right" color="#C4CDD5" />
-          </span> : null
-      } 
+      {hasSeperator ? (
+        <span className={`${classPrefix}--separator`}>
+          <Icon type="chenvron-right" color="#C4CDD5" />
+        </span>
+      ) : null}
     </span>
   );
 };

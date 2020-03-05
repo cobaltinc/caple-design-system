@@ -6,7 +6,7 @@ import { useTimeout } from '../_hook';
 import { FadeTransition } from '../_transition';
 import './Toast.style.scss';
 
-export type ToastType = 'default' | 'success' | 'error' | 'warning'
+export type ToastType = 'default' | 'success' | 'error' | 'warning';
 
 export interface ToastProps {
   id: string;
@@ -35,9 +35,7 @@ export default ({ message, type = 'default', duration, onDone }: ToastProps) => 
       <div className={`${classPrefix}--container`}>
         <div className={classNames}>
           <Icon type={iconType} color={iconColor} size={38} className={`${classPrefix}--icon`} />
-          <span className={`${classPrefix}--message`}>
-            {message}
-          </span>
+          <span className={`${classPrefix}--message`}>{message}</span>
         </div>
       </div>
     </FadeTransition>

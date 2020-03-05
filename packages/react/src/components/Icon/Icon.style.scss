@@ -12,5 +12,9 @@ $icon-prefix: '#{$prefix}-icon';
     animation: #{$icon-prefix}-spin 2500ms infinite linear;
   }
 
-  @keyframes #{$icon-prefix}-spin { 100% { transform: rotate(360deg); } }
+  @keyframes #{$icon-prefix}-spin {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }

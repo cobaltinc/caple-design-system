@@ -16,31 +16,31 @@ export interface IconProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
   className?: string;
   style?: React.CSSProperties;
-};
+}
 
-const Icon = ({ type, component, size = 16, rotate, spin = false, color = "#212B36", onClick, className = '', style }: IconProps) => {
+const Icon = ({ type, component, size = 16, rotate, spin = false, color = '#212B36', onClick, className = '', style }: IconProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-icon`;
   const classNames = classnames(classPrefix, className, {
-    [`${classPrefix}--spin`]: spin
+    [`${classPrefix}--spin`]: spin,
   });
 
   const shapeStyle = {
     width: size,
     height: size,
-    transform: rotate ? `rotate(${rotate}deg)` : undefined
+    transform: rotate ? `rotate(${rotate}deg)` : undefined,
   };
 
   let IconComponent = null;
   if (type && kebabToPascal(type) in Icons) {
     IconComponent = (Icons as any)[kebabToPascal(type)];
-    IconComponent = <IconComponent size={size} color={color} />
+    IconComponent = <IconComponent size={size} color={color} />;
   } else if (component) {
     const iconStyle = {
       fill: color,
       width: size,
-      height: size
+      height: size,
     };
     IconComponent = React.cloneElement(component, { style: iconStyle });
   } else {

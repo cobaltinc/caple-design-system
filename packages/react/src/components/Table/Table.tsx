@@ -13,7 +13,7 @@ export interface TableProps {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
-};
+}
 
 type ITable<P> = React.FunctionComponent<P> & {
   Head: typeof TableHead;
@@ -21,7 +21,7 @@ type ITable<P> = React.FunctionComponent<P> & {
   Foot: typeof TableFoot;
   Row: typeof TableRow;
   Cell: typeof TableCell;
-}
+};
 
 const Table: ITable<TableProps> = ({ children, className = '', style }: TableProps) => {
   const { useContext } = React;
@@ -30,12 +30,8 @@ const Table: ITable<TableProps> = ({ children, className = '', style }: TablePro
   const classNames = classnames(classPrefix, className);
 
   const cells = convertReactNodeTo<TableHeadProps | TableBodyProps | TableFootProps>('Table', 'Table.Head, Table.Body or Table.Foot', children);
-  
-  return (
-    <table className={classNames}>
-      {cells}
-    </table>
-  );
+
+  return <table className={classNames}>{cells}</table>;
 };
 
 Table.Head = TableHead;

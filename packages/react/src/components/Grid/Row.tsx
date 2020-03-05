@@ -27,12 +27,12 @@ export default ({ children, gutter = 0, justify = 'start', align = 'top', classN
       marginTop: `-${verticalGutter / 2}px`,
       marginBottom: `${verticalGutter / 2}px`,
       marginLeft: `-${horizontalGutter / 2}px`,
-      marginRight: `-${horizontalGutter / 2}px`
+      marginRight: `-${horizontalGutter / 2}px`,
     };
   } else {
     gutterStyle = {
       marginLeft: `-${gutter / 2}px`,
-      marginRight: `-${gutter / 2}px`
+      marginRight: `-${gutter / 2}px`,
     };
   }
 

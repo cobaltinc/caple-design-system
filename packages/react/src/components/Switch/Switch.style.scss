@@ -52,7 +52,7 @@ $switch-group-prefix: '#{$prefix}-switch-group';
     &:checked + .#{$switch-prefix} {
       color: $indigo;
       border-color: $indigo;
-      background: #FFFFFF;
+      background: #ffffff;
       box-shadow: 0px 1px 0px rgba(22, 29, 37, 0.05);
       z-index: 2;
 

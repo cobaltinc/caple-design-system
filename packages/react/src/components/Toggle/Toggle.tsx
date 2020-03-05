@@ -22,7 +22,7 @@ export default ({ value, name, on = false, size = 'normal', error = false, disab
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-toggle`;
   const classNames = classnames(classPrefix, className, {
-    [`${classPrefix}--disabled`]: disabled
+    [`${classPrefix}--disabled`]: disabled,
   });
 
   const [check, setCheck] = useState(on);

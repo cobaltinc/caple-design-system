@@ -19,13 +19,9 @@ export default ({ children, className = '', style }: TableHeadProps) => {
 
   const cells = convertReactNodeTo<TableCellProps>('Table.Head', 'Table.Cell', children).map((element: any) => {
     return React.cloneElement(element, {
-      type: 'th'
+      type: 'th',
     });
   });
-  
-  return (
-    <thead className={classNames}>
-      {cells}
-    </thead>
-  );
+
+  return <thead className={classNames}>{cells}</thead>;
 };

@@ -21,15 +21,10 @@ export default ({ regionCode, delimiter = '-', ...props }: InputPhoneNumberProps
       new Cleave(inputRef.current, {
         phone: true,
         phoneRegionCode: regionCode,
-        delimiter
-      })
+        delimiter,
+      });
     }
   }, [inputRef]);
 
-  return (
-    <Input
-      ref={inputRef}
-      type="tel"
-      {...props} />
-  );
+  return <Input ref={inputRef} type="tel" {...props} />;
 };

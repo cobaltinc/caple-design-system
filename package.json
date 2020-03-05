@@ -13,6 +13,12 @@
     "nohoist": []
   },
   "scripts": {
+    "build": "lerna run build --stream --prefix --npm-client yarn",
+    "clean": "lerna run clean && lerna clean --yes && rimraf node_modules",
+    "format": "prettier --write '**/*.{js,md,scss,ts,tsx}' '!**/{dist,storybook}/**'",
+    "format:diff": "prettier --list-different '**/*.{js,md,scss,ts,tsx}' '!**/{dist,storybook}/**'",
+    "lint": "tslint packages",
+    "lint:docs": "alex 'packages/**/*.md' -q"
   },
   "resolutions": {
     "react": "~16.12.0",
@@ -21,6 +27,11 @@
     "react-test-renderer": "~16.12.0"
   },
   "devDependencies": {
-    "prettier": "1.19.1"
+    "alex": "^8.0.0",
+    "prettier": "1.19.1",
+    "lerna": "^3.20.2",
+    "tslint": "6.0.0",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-react": "4.2.0"
   }
 }

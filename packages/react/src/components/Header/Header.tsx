@@ -18,9 +18,19 @@ export interface HeaderProps {
   style?: React.CSSProperties;
 }
 
-export default ({ children, level, strong = false, underline = false, 
-                  delete: del = false, color,
-                  editable, placeholder, onChange, className = '', style }: HeaderProps) => {
+export default ({
+  children,
+  level,
+  strong = false,
+  underline = false,
+  delete: del = false,
+  color,
+  editable,
+  placeholder,
+  onChange,
+  className = '',
+  style,
+}: HeaderProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-header`;
@@ -35,7 +45,7 @@ export default ({ children, level, strong = false, underline = false,
   const fontStyle: React.CSSProperties = {
     fontWeight: strong ? 'bold' : 'normal',
     textDecoration: underline ? 'underline' : undefined,
-  }
+  };
 
   if (color) {
     fontStyle.color = color;
@@ -46,9 +56,9 @@ export default ({ children, level, strong = false, underline = false,
 
   const onKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter') {
-      event.preventDefault()
+      event.preventDefault();
     }
-    onChange?.(event)
+    onChange?.(event);
   };
 
   const onPaste = (event: React.ClipboardEvent) => {
@@ -56,10 +66,18 @@ export default ({ children, level, strong = false, underline = false,
 
     const pastedData = event.clipboardData.getData('text/plain');
     window.document.execCommand('insertText', false, pastedData);
-  }
+  };
 
   return (
-    <Tag onKeyDown={onKeyDown} onPaste={onPaste} contentEditable={editable} placeholder={placeholder} suppressContentEditableWarning={editable} className={classNames} style={{ ...style, ...fontStyle }}>
+    <Tag
+      onKeyDown={onKeyDown}
+      onPaste={onPaste}
+      contentEditable={editable}
+      placeholder={placeholder}
+      suppressContentEditableWarning={editable}
+      className={classNames}
+      style={{ ...style, ...fontStyle }}
+    >
       {children}
     </Tag>
   );

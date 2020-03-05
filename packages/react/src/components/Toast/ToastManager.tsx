@@ -3,10 +3,10 @@ import Toast, { ToastType, ToastProps } from './Toast';
 import { GUID } from '../../utils';
 import './Toast.style.scss';
 
-// export type ToastPlacementType = 
-//   'topLeft' | 
+// export type ToastPlacementType =
+//   'topLeft' |
 //   'topRight' |
-//   'bottomLeft' | 
+//   'bottomLeft' |
 //   'bottomRight';
 
 export interface ToastManagerProps {
@@ -20,7 +20,7 @@ export type ToastOptionType = {
 
 const ToastArea = ({ bind }: ToastManagerProps) => {
   const { useState } = React;
-  const [toasts, setToasts] = useState<ToastProps[]>([])
+  const [toasts, setToasts] = useState<ToastProps[]>([]);
 
   const createToast = (message: string, option: ToastOptionType) => {
     const guid = GUID.generate();
@@ -28,13 +28,13 @@ const ToastArea = ({ bind }: ToastManagerProps) => {
       id: guid,
       message,
       type: option.type,
-      duration: option.duration
-    }
+      duration: option.duration,
+    };
     setToasts(oldToasts => [...oldToasts, newToast]);
   };
 
   const removeToast = (id: string) => {
-    setToasts(oldToasts => oldToasts.filter((toast) => toast.id !== id));
+    setToasts(oldToasts => oldToasts.filter(toast => toast.id !== id));
   };
 
   useEffect(() => {
@@ -43,12 +43,10 @@ const ToastArea = ({ bind }: ToastManagerProps) => {
 
   return (
     <>
-      {
-        toasts.map((toast) => {
-          const { id, message, type, duration } = toast;
-          return <Toast id={id} message={message} type={type} duration={duration} key={id} onDone={() => removeToast(id)} />
-        })
-      }
+      {toasts.map(toast => {
+        const { id, message, type, duration } = toast;
+        return <Toast id={id} message={message} type={type} duration={duration} key={id} onDone={() => removeToast(id)} />;
+      })}
     </>
   );
 };

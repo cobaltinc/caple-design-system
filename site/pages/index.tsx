@@ -6,4 +6,4 @@ export default () => {
       <Icons.AlertCircle size={50} color="red" />
     </div>
   );
-}
+};

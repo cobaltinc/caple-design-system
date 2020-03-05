@@ -38,10 +38,10 @@ export default ({ size = 80, shape = 'circle', src, text, alt, className = '', s
     const transformStyle = {
       msTransform: transformString,
       WebkitTransform: transformString,
-      transform: transformString
+      transform: transformString,
     };
     const textStyle = {
-      lineHeight: `${size}px`
+      lineHeight: `${size}px`,
     };
 
     children = (
@@ -55,7 +55,7 @@ export default ({ size = 80, shape = 'circle', src, text, alt, className = '', s
 
   const sizeStyle = {
     width: size,
-    height: size
+    height: size,
   };
   return (
     <span className={classNames} style={{ ...sizeStyle, ...style }}>

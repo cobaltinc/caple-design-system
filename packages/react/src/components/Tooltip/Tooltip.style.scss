@@ -32,25 +32,25 @@ $tooltip-prefix: '#{$prefix}-tooltip';
     user-select: none;
     pointer-events: none;
 
-    &[class^="top"] {
+    &[class^='top'] {
       top: -12px;
       left: 50%;
       transform: translate(-50%) rotate(180deg);
     }
 
-    &[class^="bottom"] {
+    &[class^='bottom'] {
       bottom: -12px;
       left: 50%;
       transform: translate(-50%);
     }
 
-    &[class^="right"] {
+    &[class^='right'] {
       right: -18px;
       top: 50%;
       transform: translateY(-50%) rotate(-90deg);
     }
 
-    &[class^="left"] {
+    &[class^='left'] {
       left: -18px;
       top: 50%;
       transform: translateY(-50%) rotate(90deg);
@@ -71,7 +71,7 @@ $tooltip-prefix: '#{$prefix}-tooltip';
     pointer-events: none;
 
     // Top
-    &[class^="top"] {
+    &[class^='top'] {
       bottom: 100%;
       margin-bottom: 12px;
     }
@@ -90,7 +90,7 @@ $tooltip-prefix: '#{$prefix}-tooltip';
     }
 
     // Bottom
-    &[class^="bottom"] {
+    &[class^='bottom'] {
       top: 100%;
       margin-top: 12px;
     }
@@ -109,7 +109,7 @@ $tooltip-prefix: '#{$prefix}-tooltip';
     }
 
     // Right
-    &[class^="right"] {
+    &[class^='right'] {
       left: 100%;
       margin-left: 12px;
     }
@@ -128,7 +128,7 @@ $tooltip-prefix: '#{$prefix}-tooltip';
     }
 
     // Left
-    &[class^="left"] {
+    &[class^='left'] {
       right: 100%;
       margin-right: 12px;
     }

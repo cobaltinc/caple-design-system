@@ -35,7 +35,7 @@ $menu-item-prefix: '#{$prefix}-menu-item';
       opacity: 0.5;
       cursor: not-allowed;
     }
-  
+
     &:not(.nohover):not(.disabled):hover {
       background-color: #dfe8fb;
     }
@@ -44,7 +44,7 @@ $menu-item-prefix: '#{$prefix}-menu-item';
       margin-right: 8px;
       vertical-align: middle;
     }
-  
+
     .#{$menu-item-prefix}--title {
       font-size: 14px;
       vertical-align: middle;

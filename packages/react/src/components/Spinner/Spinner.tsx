@@ -19,11 +19,11 @@ export default ({ children, size = 24, color = '#919EAB', dimColor = 'white', cl
   const classNames = classnames(`${classPrefix}`, className);
   const sizeStyle = {
     width: size,
-    height: size
-  }
+    height: size,
+  };
 
   const spinner = (
-    <i className={classNames} style={{...sizeStyle, ...style }}>
+    <i className={classNames} style={{ ...sizeStyle, ...style }}>
       <svg viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" style={sizeStyle}>
         <g fill="none" fillRule="evenodd">
           <g transform="translate(1 1)">
@@ -39,13 +39,13 @@ export default ({ children, size = 24, color = '#919EAB', dimColor = 'white', cl
     </i>
   );
 
-  return (
-    children ?
-      <div className={`${classPrefix}--container`}>
-        {children}
-        <div className={`${classPrefix}--dim`} style={{ backgroundColor: dimColor }} />
-        {spinner}
-      </div> :
-      spinner
+  return children ? (
+    <div className={`${classPrefix}--container`}>
+      {children}
+      <div className={`${classPrefix}--dim`} style={{ backgroundColor: dimColor }} />
+      {spinner}
+    </div>
+  ) : (
+    spinner
   );
 };

@@ -9,7 +9,6 @@ export interface InputPasswordProps extends InputProps {
 }
 
 export default ({ toggle, ...props }: InputPasswordProps) => {
-
   const { useContext, useState } = React;
   const classPrefix = `${useContext(ConfigContext).prefix}-input`;
 
@@ -22,7 +21,14 @@ export default ({ toggle, ...props }: InputPasswordProps) => {
   return (
     <Input
       type={visible ? 'text' : 'password'}
-      subfix={toggle ? <Icon type={visible ? 'gear' : 'close'} className={`${classPrefix}--password-toggle`} color="#919EAB" onClick={handleClick} /> : undefined}
-      {...props} />
+      subfix={
+        toggle ? (
+          <Icon type={visible ? 'gear' : 'close'} className={`${classPrefix}--password-toggle`} color="#919EAB" onClick={handleClick} />
+        ) : (
+          undefined
+        )
+      }
+      {...props}
+    />
   );
 };

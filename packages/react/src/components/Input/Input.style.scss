@@ -14,12 +14,12 @@ $input-prefix: '#{$prefix}-input';
     display: block;
     width: auto;
   }
-  
+
   .#{$input-prefix}--label {
     margin-bottom: 2px;
     vertical-align: middle;
   }
-  
+
   .#{$input-prefix} {
     display: inline-flex;
     width: 100%;
@@ -27,7 +27,7 @@ $input-prefix: '#{$prefix}-input';
     color: $ink;
     box-sizing: border-box;
     transition: border $duration-moderate, box-shadow $duration-moderate;
-    
+
     &::placeholder {
       color: $ink-lighter;
     }
@@ -48,7 +48,7 @@ $input-prefix: '#{$prefix}-input';
       height: 30px;
       padding: 0 8px;
       font-size: 12px;
-      
+
       input {
         margin: 0 6px;
         height: 26px;
@@ -59,7 +59,7 @@ $input-prefix: '#{$prefix}-input';
       height: 36px;
       padding: 0 10px;
       font-size: 12px;
-      
+
       input {
         margin: 0 6px;
         height: 32px;
@@ -70,7 +70,7 @@ $input-prefix: '#{$prefix}-input';
       height: 44px;
       padding: 0 10px;
       font-size: 13px;
-      
+
       input {
         margin: 0 8px;
         height: 40px;
@@ -101,7 +101,7 @@ $input-prefix: '#{$prefix}-input';
         box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
       }
       &.#{$input-prefix}--disabled {
-        background: #F9FAFB;
+        background: #f9fafb;
         border: 1px solid $sky;
       }
     }
@@ -120,7 +120,8 @@ $input-prefix: '#{$prefix}-input';
       border: none;
     }
 
-    .#{$input-prefix}--prefix, .#{$input-prefix}--subfix {
+    .#{$input-prefix}--prefix,
+    .#{$input-prefix}--subfix {
       vertical-align: middle;
     }
 
@@ -140,12 +141,12 @@ $input-prefix: '#{$prefix}-input';
         margin: 0;
       }
 
-      &[type=number] {
-        -moz-appearance:textfield;
+      &[type='number'] {
+        -moz-appearance: textfield;
       }
 
       &:disabled {
-        color: #919EAB;
+        color: #919eab;
         cursor: not-allowed;
       }
     }

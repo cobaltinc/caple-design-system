@@ -13,20 +13,30 @@ export interface BadgeProps {
   textColor?: string;
   className?: string;
   style?: React.CSSProperties;
-};
+}
 
-export default ({ children, count, showZero = false, maxCount, dot = false, backgroundColor = '#DE3618', textColor = '#fff', className = '', style }: BadgeProps) => {
+export default ({
+  children,
+  count,
+  showZero = false,
+  maxCount,
+  dot = false,
+  backgroundColor = '#DE3618',
+  textColor = '#fff',
+  className = '',
+  style,
+}: BadgeProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-badge`;
   const classNames = classnames(classPrefix, className, {
-    [`${classPrefix}--dot`]: dot
+    [`${classPrefix}--dot`]: dot,
   });
 
   const colorStyle = {
     backgroundColor,
-    color: textColor
-  }
+    color: textColor,
+  };
 
   let badge = null;
   if (count) {
@@ -37,7 +47,11 @@ export default ({ children, count, showZero = false, maxCount, dot = false, back
     );
   } else {
     if (count !== undefined) {
-      badge = showZero ? <sup className={classNames} style={colorStyle}>0</sup> : null;
+      badge = showZero ? (
+        <sup className={classNames} style={colorStyle}>
+          0
+        </sup>
+      ) : null;
     } else if (dot) {
       badge = <sup className={classNames} style={colorStyle} />;
     }
@@ -48,5 +62,5 @@ export default ({ children, count, showZero = false, maxCount, dot = false, back
       {children}
       {badge}
     </span>
-  )
+  );
 };

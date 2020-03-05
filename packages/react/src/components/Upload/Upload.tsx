@@ -22,7 +22,7 @@ export default ({ children, name, value, accept, disabled = false, draggable = f
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-upload`;
   const classNames = classnames(classPrefix, className, {
-    [`${classPrefix}--disabled`]: disabled
+    [`${classPrefix}--disabled`]: disabled,
   });
 
   const [dragging, setDragging] = useState(false);
@@ -74,7 +74,15 @@ export default ({ children, name, value, accept, disabled = false, draggable = f
   };
 
   return (
-    <div className={classNames} style={style} onClick={onChooseFile} onDrop={onFileDrop} onDragEnter={onDragEnter} onDragLeave={onDragLeave} onDragOver={onDragOver}>
+    <div
+      className={classNames}
+      style={style}
+      onClick={onChooseFile}
+      onDrop={onFileDrop}
+      onDragEnter={onDragEnter}
+      onDragLeave={onDragLeave}
+      onDragOver={onDragOver}
+    >
       <input ref={inputRef} type="file" name={name} accept={accept} onChange={onFileChange} />
       {children(file, dragging)}
     </div>

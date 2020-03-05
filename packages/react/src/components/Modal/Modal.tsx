@@ -27,12 +27,12 @@ export default ({ children, width = 500, visible = false, closable = true, zInde
 
   const dimStyle = {
     display: show ? 'block' : 'none',
-    zIndex
+    zIndex,
   };
 
   const containerStyle = {
     width,
-    zIndex: zIndex + 1
+    zIndex: zIndex + 1,
   };
 
   useEffect(() => {
@@ -43,12 +43,12 @@ export default ({ children, width = 500, visible = false, closable = true, zInde
         setShow(false);
       }, 240);
     }
-  }, [visible])
+  }, [visible]);
 
   return (
     <FadeTransition show={visible}>
       <div className={`${classPrefix}--dim`} style={dimStyle} onClick={onClose}>
-        <div className={classNames} style={{...style, ...containerStyle}} onClick={(e) => e.stopPropagation()}>
+        <div className={classNames} style={{ ...style, ...containerStyle }} onClick={e => e.stopPropagation()}>
           <span onClick={onClose} className={`${classPrefix}--close`}>
             <Icon type="close" size={20} />
           </span>

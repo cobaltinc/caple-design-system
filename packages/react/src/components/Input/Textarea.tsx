@@ -20,7 +20,7 @@ export interface TextareaEvent {
   onKeyPress?: React.KeyboardEventHandler<HTMLTextAreaElement>;
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
   onPressEnter?: React.KeyboardEventHandler<HTMLTextAreaElement>;
-};
+}
 
 export interface TextareaProps extends TextareaEvent {
   value?: string;
@@ -41,13 +41,36 @@ export interface TextareaProps extends TextareaEvent {
   labelStyle?: React.CSSProperties;
   textareaClassName?: string;
   textareaStyle?: React.CSSProperties;
-};
+}
 
-export default ({ value, placeholder, label, name,
-  borderType = 'border', autoFocus, disabled = false, align, resizeType = 'vertical', rows = 1, autoSize = false, loading,
-  onInput, onFocus, onBlur, onKeyDown, onKeyUp, onKeyPress, onChange, onPressEnter,
-  className = '', style, labelClassName = '', labelStyle, textareaClassName = '', textareaStyle }: TextareaProps) => {
-
+export default ({
+  value,
+  placeholder,
+  label,
+  name,
+  borderType = 'border',
+  autoFocus,
+  disabled = false,
+  align,
+  resizeType = 'vertical',
+  rows = 1,
+  autoSize = false,
+  loading,
+  onInput,
+  onFocus,
+  onBlur,
+  onKeyDown,
+  onKeyUp,
+  onKeyPress,
+  onChange,
+  onPressEnter,
+  className = '',
+  style,
+  labelClassName = '',
+  labelStyle,
+  textareaClassName = '',
+  textareaStyle,
+}: TextareaProps) => {
   const { useContext, useState, useRef, useEffect } = React;
   const classPrefix = `${useContext(ConfigContext).prefix}-textarea`;
 
@@ -57,17 +80,17 @@ export default ({ value, placeholder, label, name,
 
   const textareaClassNames = classnames(classPrefix, textareaClassName, `${classPrefix}--border-type-${borderType}`, {
     [`${classPrefix}--disabled`]: disabled,
-    [`${classPrefix}--focused`]: focused
+    [`${classPrefix}--focused`]: focused,
   });
 
   const handleFocus = (event: React.FocusEvent<HTMLTextAreaElement>) => {
     setFocused(true);
-    onFocus?.(event)
+    onFocus?.(event);
   };
 
   const handleBlur = (event: React.FocusEvent<HTMLTextAreaElement>) => {
     setFocused(false);
-    onBlur?.(event)
+    onBlur?.(event);
   };
 
   const resize = () => {
@@ -77,7 +100,7 @@ export default ({ value, placeholder, label, name,
         setResizeStyle(styles);
       }
     });
-  }
+  };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.keyCode === 13) {
@@ -93,19 +116,17 @@ export default ({ value, placeholder, label, name,
 
   return (
     <div className={classnames(`${classPrefix}--container`, className)} style={style}>
-      {
-        label ?
-          <Text paragraph size="small" className={classnames(`${classPrefix}--label`, labelClassName)} style={labelStyle}>
-            {label}
-          </Text> :
-          null
-      }
+      {label ? (
+        <Text paragraph size="small" className={classnames(`${classPrefix}--label`, labelClassName)} style={labelStyle}>
+          {label}
+        </Text>
+      ) : null}
 
       <textarea
         ref={textareaRef}
         defaultValue={value}
-        name={name} 
-        placeholder={placeholder} 
+        name={name}
+        placeholder={placeholder}
         rows={rows}
         autoFocus={autoFocus}
         disabled={disabled}
@@ -117,10 +138,9 @@ export default ({ value, placeholder, label, name,
         onKeyUp={onKeyUp}
         onChange={onChange}
         className={textareaClassNames}
-        style={{...textareaStyle, ...resizeStyle, textAlign: align, resize: resizeType}} />
-      {
-        loading ? <Spinner size={16} className={`${classPrefix}--loading`} /> : null
-      }
+        style={{ ...textareaStyle, ...resizeStyle, textAlign: align, resize: resizeType }}
+      />
+      {loading ? <Spinner size={16} className={`${classPrefix}--loading`} /> : null}
     </div>
   );
 };

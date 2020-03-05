@@ -21,16 +21,12 @@ export default ({ icon, title, disabled, active, onClick, className = '', style 
   const classPrefix = `${prefix}-menu-item`;
   const classNames = classnames(classPrefix, className, {
     [`${classPrefix}--active`]: active,
-    [`${classPrefix}--disabled`]: disabled
+    [`${classPrefix}--disabled`]: disabled,
   });
 
   return (
     <div className={classNames} style={style} onClick={onClick}>
-      {
-        icon ?
-          React.cloneElement(icon, { size: 20, className: `${classPrefix}--icon` }) :
-          null
-      }
+      {icon ? React.cloneElement(icon, { size: 20, className: `${classPrefix}--icon` }) : null}
       <span className={`${classPrefix}--title`}>{title}</span>
     </div>
   );

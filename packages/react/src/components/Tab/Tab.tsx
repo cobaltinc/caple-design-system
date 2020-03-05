@@ -9,13 +9,13 @@ export interface TabProps {
   children: React.ReactNode;
   active?: string;
   onChange?(title: string, index: number): void;
-  className?: string; 
+  className?: string;
   style?: React.CSSProperties;
 }
 
 export type ITab<P> = React.FunctionComponent<P> & {
   Item: typeof TabItem;
-}
+};
 
 const Tab: ITab<TabProps> = ({ children, active, onChange, className = '', style }: TabProps) => {
   const { useContext, useEffect, useState } = React;
@@ -50,34 +50,30 @@ const Tab: ITab<TabProps> = ({ children, active, onChange, className = '', style
 
   const onClick = (title: string, content: React.ReactNode, index: number) => {
     if (currentSelect === title) {
-      return
+      return;
     }
     setCurrentSelect(title);
     setCurrentContent(content);
     onChange?.(title, index);
-  }
-  
+  };
+
   return (
     <div className={classNames} style={style}>
       <div className={`${classPrefix}--panes`}>
-        {
-          React.Children.toArray(children).map((element, index) => {
-            const props = (element as React.ReactElement<TabItemProps>).props;
-            const tabItemClassNames = classnames(`${prefix}-tab-item`, props.className, {
-              [`${classPrefix}--active`]: currentSelect === props.title
-            });
+        {React.Children.toArray(children).map((element, index) => {
+          const props = (element as React.ReactElement<TabItemProps>).props;
+          const tabItemClassNames = classnames(`${prefix}-tab-item`, props.className, {
+            [`${classPrefix}--active`]: currentSelect === props.title,
+          });
 
-            return (
-              <div className={tabItemClassNames} style={props.style} onClick={() => onClick(props.title, props.children, index)} key={props.title}>
-                {props.title}
-              </div>
-            )
-          })
-        }
+          return (
+            <div className={tabItemClassNames} style={props.style} onClick={() => onClick(props.title, props.children, index)} key={props.title}>
+              {props.title}
+            </div>
+          );
+        })}
       </div>
-      <div className={`${classPrefix}--content`}>
-        {currentContent}
-      </div>
+      <div className={`${classPrefix}--content`}>{currentContent}</div>
     </div>
   );
 };

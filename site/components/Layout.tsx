@@ -1,21 +1,19 @@
 import React from 'react';
-import { Grid } from "@caple-ui/react";
+import { Grid } from '@caple-ui/react';
 import Logo from './Logo';
 import SideMenu from './SideMenu';
 
-const {
-  Row, Col
-} = Grid;
+const { Row, Col } = Grid;
 
 interface Props {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export default ({ children }: Props) => {
   return (
     <div className="container">
       <Row>
-        <Col span={4} style={{position: 'relative'}}>
+        <Col span={4} style={{ position: 'relative' }}>
           <aside>
             <Logo orientation="horizontal" height={50} />
             <nav>
@@ -24,9 +22,7 @@ export default ({ children }: Props) => {
           </aside>
         </Col>
         <Col span={12}>
-          <main>
-            {children}
-          </main>
+          <main>{children}</main>
         </Col>
       </Row>
 

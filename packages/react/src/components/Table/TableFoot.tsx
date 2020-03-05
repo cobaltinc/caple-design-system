@@ -14,10 +14,6 @@ export default ({ children, className = '', style }: TableFootProps) => {
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-table-tfoot`;
   const classNames = classnames(classPrefix, className);
-  
-  return (
-    <tfoot className={classNames}>
-      {children}
-    </tfoot>
-  );
+
+  return <tfoot className={classNames}>{children}</tfoot>;
 };

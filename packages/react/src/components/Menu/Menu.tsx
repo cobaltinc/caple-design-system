@@ -20,16 +20,14 @@ const Menu = ({ children, className = '', style }: MenuProps) => {
   let items = null;
 
   if (children) {
-    items = React.Children
-      .toArray(children)
-      .filter((element: any) => {
-        if (React.isValidElement<typeof MenuItem>(element) === false) {
-          warning('Menu', 'Only accepts Menu.Item as it\'s children.');
-          return false;
-        }
-    
-        return true;
-      })
+    items = React.Children.toArray(children).filter((element: any) => {
+      if (React.isValidElement<typeof MenuItem>(element) === false) {
+        warning('Menu', "Only accepts Menu.Item as it's children.");
+        return false;
+      }
+
+      return true;
+    });
   }
 
   return (

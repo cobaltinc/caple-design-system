@@ -7,18 +7,18 @@ $header-prefix: '#{$prefix}-header';
   display: block;
   margin: 0;
 
-  &[contenteditable=true] {
+  &[contenteditable='true'] {
     border-bottom: 1px solid black;
   }
 
-  &[contenteditable=true]:empty:before {
+  &[contenteditable='true']:empty:before {
     content: attr(placeholder);
     color: #d9d9de;
     border-bottom: 1px solid #d9d9de;
     cursor: text;
   }
 
-  &[contenteditable=true]:focus {
+  &[contenteditable='true']:focus {
     outline: none;
   }
 }

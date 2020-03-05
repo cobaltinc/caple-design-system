@@ -31,16 +31,16 @@ export default ({ children, span = 16, offset = 0, order, className = '', style 
               marginTop: `${verticalGutter / 2}px`,
               marginBottom: `${verticalGutter / 2}px`,
               marginLeft: `${horizontalGutter / 2}px`,
-              marginRight: `${horizontalGutter / 2}px`
+              marginRight: `${horizontalGutter / 2}px`,
             };
           } else {
             gutterStyle = {
               marginLeft: `${gutter / 2}px`,
-              marginRight: `${gutter / 2}px`
+              marginRight: `${gutter / 2}px`,
             };
           }
         }
-        
+
         return (
           <div className={classNames} style={{ ...style, ...gutterStyle }}>
             {children}

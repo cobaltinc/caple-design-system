@@ -18,10 +18,6 @@ export default ({ children, className = '', style }: TableBodyProps) => {
   const classNames = classnames(classPrefix, className);
 
   const rows = convertReactNodeTo<TableRowProps>('Table.Head', 'Table.Row', children);
-  
-  return (
-    <tbody className={classNames}>
-      {rows}
-    </tbody>
-  );
+
+  return <tbody className={classNames}>{rows}</tbody>;
 };

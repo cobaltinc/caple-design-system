@@ -5,7 +5,7 @@
 $tab-prefix: '#{$prefix}-tab';
 $tab-item-prefix: '#{$prefix}-tab-item';
 
-.#{$tab-prefix} { 
+.#{$tab-prefix} {
   width: 100%;
 
   .#{$tab-prefix}--panes {
@@ -25,7 +25,7 @@ $tab-item-prefix: '#{$prefix}-tab-item';
       background-color: #f9fafb;
       box-shadow: inset 0 -1px 0 0 #dfe3e8;
       cursor: pointer;
-  
+
       &.#{$tab-item-prefix}--active {
         font-weight: bold;
         color: #000323;
@@ -35,7 +35,7 @@ $tab-item-prefix: '#{$prefix}-tab-item';
         box-sizing: border-box;
       }
     }
-    
+
     @include clearfix;
   }
 

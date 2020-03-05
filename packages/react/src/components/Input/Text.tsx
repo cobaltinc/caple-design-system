@@ -21,15 +21,10 @@ export default (props: InputTextProps) => {
         blocks: props.blocks,
         delimiter: props.delimiter,
         uppercase: props.uppercase,
-        lowercase: props.lowercase
-      })
+        lowercase: props.lowercase,
+      });
     }
   }, [inputRef]);
 
-  return (
-    <Input
-      ref={inputRef}
-      type="text"
-      {...props} />
-  );
+  return <Input ref={inputRef} type="text" {...props} />;
 };

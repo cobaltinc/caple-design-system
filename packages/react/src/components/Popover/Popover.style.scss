@@ -30,25 +30,25 @@ $popover-prefix: '#{$prefix}-popover';
     user-select: none;
     pointer-events: none;
 
-    &[class^="top"] {
+    &[class^='top'] {
       top: -12px;
       left: 50%;
       transform: translate(-50%) rotate(180deg);
     }
 
-    &[class^="bottom"] {
+    &[class^='bottom'] {
       bottom: -12px;
       left: 50%;
       transform: translate(-50%);
     }
 
-    &[class^="right"] {
+    &[class^='right'] {
       right: -18px;
       top: 50%;
       transform: translateY(-50%) rotate(-90deg);
     }
 
-    &[class^="left"] {
+    &[class^='left'] {
       left: -18px;
       top: 50%;
       transform: translateY(-50%) rotate(90deg);
@@ -67,7 +67,7 @@ $popover-prefix: '#{$prefix}-popover';
     transition: opacity $duration-fast $ease-in;
 
     // Top
-    &[class^="top"] {
+    &[class^='top'] {
       bottom: 100%;
       margin-bottom: 12px;
     }
@@ -86,7 +86,7 @@ $popover-prefix: '#{$prefix}-popover';
     }
 
     // Bottom
-    &[class^="bottom"] {
+    &[class^='bottom'] {
       top: 100%;
       margin-top: 12px;
     }
@@ -105,7 +105,7 @@ $popover-prefix: '#{$prefix}-popover';
     }
 
     // Right
-    &[class^="right"] {
+    &[class^='right'] {
       left: 100%;
       margin-left: 12px;
     }
@@ -124,7 +124,7 @@ $popover-prefix: '#{$prefix}-popover';
     }
 
     // Left
-    &[class^="left"] {
+    &[class^='left'] {
       right: 100%;
       margin-right: 12px;
     }

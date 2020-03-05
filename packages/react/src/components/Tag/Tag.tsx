@@ -22,17 +22,13 @@ export default ({ name, size = 'normal', disabled = false, deletable = false, on
   const classPrefix = `${prefix}-tag`;
   const classNames = classnames(classPrefix, className, {
     [`${classPrefix}--size-${size}`]: typeof size === 'string',
-    [`${classPrefix}--disabled`]: disabled
+    [`${classPrefix}--disabled`]: disabled,
   });
 
   return (
     <div className={classNames} style={style} onClick={onClick}>
       {name}
-      {
-        deletable ?
-          <span className={`${classPrefix}--delete`}>X</span> :
-          null
-      }
+      {deletable ? <span className={`${classPrefix}--delete`}>X</span> : null}
     </div>
   );
 };

@@ -15,10 +15,6 @@ export default ({ children, type = 'td', className = '', style }: TableCellProps
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-table-cell`;
   const classNames = classnames(classPrefix, className);
-  
-  return (
-    <td className={classNames}>
-      {children}
-    </td>
-  );
+
+  return <td className={classNames}>{children}</td>;
 };

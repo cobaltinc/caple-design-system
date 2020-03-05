@@ -26,7 +26,7 @@ $textarea-prefix: '#{$prefix}-textarea';
     outline: none;
     box-sizing: border-box;
     transition: border $duration-moderate, box-shadow $duration-moderate;
-    
+
     &::placeholder {
       color: $ink-lighter;
     }
@@ -41,7 +41,7 @@ $textarea-prefix: '#{$prefix}-textarea';
         box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
       }
       &:disabled {
-        background: #F9FAFB;
+        background: #f9fafb;
         border: 1px solid $sky;
       }
     }
@@ -61,7 +61,7 @@ $textarea-prefix: '#{$prefix}-textarea';
     }
 
     &:disabled {
-      color: #919EAB;
+      color: #919eab;
       cursor: not-allowed;
     }
   }
