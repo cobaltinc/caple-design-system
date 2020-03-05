@@ -1,8 +1,8 @@
 # @caple-ui/icons-react
 
-> Iconography assets for React
-
 [![](https://badgen.net/npm/v/@caple-ui/icons-react?icon=npm)](https://www.npmjs.com/package/@caple-ui/icons-react)
+
+> Iconography assets for React
 
 ## :rocket: Getting Started
 
