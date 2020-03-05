@@ -7,7 +7,7 @@ import './Menu.style.scss';
 
 export interface MenuProps {
   children: React.ReactNode;
-  itemHeight: 56,
+  itemHeight?: 56,
   className?: string;
   style?: React.CSSProperties;
 }
