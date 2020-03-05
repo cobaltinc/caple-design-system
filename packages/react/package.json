@@ -1,10 +1,10 @@
 {
-  "name": "caple-ui-react",
+  "name": "@caple-ui/react",
   "version": "0.0.1",
   "author": "Cobalt. Inc.",
   "license": "MIT",
-  "repository": "https://github.com/cobaltinc/caple-ui.git",
-  "bugs": "https://github.com/cobaltinc/caple-ui/issues",
+  "repository": "https://github.com/cobaltinc/caple-design-system/tree/master/packages/react",
+  "bugs": "https://github.com/cobaltinc/caple-design-system/issues",
   "files": [
     "dist/**/*"
   ],
