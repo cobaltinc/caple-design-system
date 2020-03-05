@@ -1055,10 +1055,10 @@
     raf "^3.4.1"
     react-transition-group "4.3.0"
 
-"@caple-ui/react@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@caple-ui/react/-/react-0.0.3.tgz#2abbb9a492679debc06b1b2de0309aab48c14adc"
-  integrity sha512-U1sAqFSpDz0W03eY2kF/ZqRtoimdTKVjUBvro9MlpkOii9MaASG2TmNBU/+Wwp+qwqr6ud6DGaxDnIGGy1iY3Q==
+"@caple-ui/react@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@caple-ui/react/-/react-0.0.4.tgz#0bb85be80c3862aacb7ee4b7ad4691f0882d263f"
+  integrity sha512-DuyElvQKiCX60mhycRUhCBzFUSSP0eEWZaQ4QmBFe7Xfig7tM6KSxPsaKsR+1oCzR+i2mKUvK2sqzawWAXgHdQ==
   dependencies:
     "@caple-ui/icons-react" "*"
     classnames "2.2.6"

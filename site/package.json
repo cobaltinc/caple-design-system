@@ -13,7 +13,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
-    "@caple-ui/react": "^0.0.3",
+    "@caple-ui/react": "^0.0.4",
     "@mdx-js/mdx": "1.5.7",
     "@next/mdx": "9.2.2",
     "@types/cleave.js": "^1.4.1",
