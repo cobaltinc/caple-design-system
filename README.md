@@ -1,5 +1,7 @@
 <p align="center">
-  <img width="240" src="https://user-images.githubusercontent.com/3623695/75950595-f097e280-5eec-11ea-835d-647e7cebd2ae.png" />
+  <a href="https://design.caple.ai" target="_blank">
+    <img width="240" src="https://user-images.githubusercontent.com/3623695/75950595-f097e280-5eec-11ea-835d-647e7cebd2ae.png" />
+  </a>
 </p>
 
 <h1 align="center">Caple Design System</h1>
@@ -33,6 +35,9 @@ There are no packages for Vue.js and Angular yet. We plan to release them later.
 
 * See our documentation site [here](https://design.caple.ai) for full how-to docs and guidelines
 
+## :raised_hands: Contributing
+All contributions are welcome! Please check out our [Contribution Guidelines](.github/CONTRIBUTING.md) for detailed information on how you can lend a hand.
+
 ## :page_facing_up: License
 
-[MIT License](./LICENSE)
+Caple Design System is made available under the [MIT License](./LICENSE).
