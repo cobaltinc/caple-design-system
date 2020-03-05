@@ -1,6 +1,6 @@
 {
   "name": "@caple-ui/react",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "author": "Cobalt. Inc.",
   "license": "MIT",
   "repository": "https://github.com/cobaltinc/caple-design-system/tree/master/packages/react",
@@ -34,7 +34,7 @@
     "react-dom": "^16.12.0"
   },
   "dependencies": {
-    "@caple-ui/icons-react": "^0.0.1",
+    "@caple-ui/icons-react": "*",
     "classnames": "2.2.6",
     "cleave.js": "^1.5.4",
     "feather-icons": "4.26.0",
