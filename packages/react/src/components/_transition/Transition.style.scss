@@ -3,28 +3,26 @@
 
 $transition-prefix: '#{$prefix}-transition';
 
-:global {
-  /**
-   * Fade
-   */
-  .#{$transition-prefix}--fade-enter-done {
-    opacity: 1 !important;
-  }
-  .#{$transition-prefix}--fade-enter {
-    opacity: 0 !important;
-  }
-  .#{$transition-prefix}--fade-enter-active {
-    opacity: 1 !important;
-    transition: opacity $duration-moderate;
-  }
-  .#{$transition-prefix}--fade-exit {
-    opacity: 1 !important;
-  }
-  .#{$transition-prefix}--fade-exit-active {
-    opacity: 0 !important;
-    transition: opacity $duration-moderate;
-  }
-  .#{$transition-prefix}--fade-exit-done {
-    opacity: 0 !important;
-  }
+/**
+  * Fade
+  */
+.#{$transition-prefix}--fade-enter-done {
+  opacity: 1 !important;
+}
+.#{$transition-prefix}--fade-enter {
+  opacity: 0 !important;
+}
+.#{$transition-prefix}--fade-enter-active {
+  opacity: 1 !important;
+  transition: opacity $duration-moderate;
+}
+.#{$transition-prefix}--fade-exit {
+  opacity: 1 !important;
+}
+.#{$transition-prefix}--fade-exit-active {
+  opacity: 0 !important;
+  transition: opacity $duration-moderate;
+}
+.#{$transition-prefix}--fade-exit-done {
+  opacity: 0 !important;
 }

@@ -63,7 +63,7 @@ const Tab: ITab<TabProps> = ({ children, active, onChange, className = '', style
         {React.Children.toArray(children).map((element, index) => {
           const props = (element as React.ReactElement<TabItemProps>).props;
           const tabItemClassNames = classnames(`${prefix}-tab-item`, props.className, {
-            [`${classPrefix}--active`]: currentSelect === props.title,
+            [`${classPrefix}-item--active`]: currentSelect === props.title,
           });
 
           return (

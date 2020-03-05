@@ -7,11 +7,12 @@ import './Menu.style.scss';
 
 export interface MenuProps {
   children: React.ReactNode;
+  itemHeight: 56,
   className?: string;
   style?: React.CSSProperties;
 }
 
-const Menu = ({ children, className = '', style }: MenuProps) => {
+const Menu = ({ children, itemHeight, className = '', style }: MenuProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-menu`;
@@ -27,6 +28,8 @@ const Menu = ({ children, className = '', style }: MenuProps) => {
       }
 
       return true;
+    }).map((element: any) => {
+      return React.cloneElement(element, { style: { height: itemHeight } })
     });
   }
 

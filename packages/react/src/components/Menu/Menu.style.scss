@@ -18,8 +18,11 @@ $menu-item-prefix: '#{$prefix}-menu-item';
 
   .#{$menu-item-prefix} {
     position: relative;
+    display: inline-flex;
     width: 100%;
-    padding: 22px 20px;
+    height: 56px;
+    padding-left: 20px;
+    align-items: center;
     font-size: 14px;
     line-height: 17px;
     transition: color 0.2s ease 0s;
