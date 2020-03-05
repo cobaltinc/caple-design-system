@@ -28,8 +28,8 @@
   },
   "devDependencies": {
     "alex": "^8.0.0",
-    "prettier": "1.19.1",
     "lerna": "^3.20.2",
+    "prettier": "1.19.1",
     "tslint": "6.0.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-react": "4.2.0"
