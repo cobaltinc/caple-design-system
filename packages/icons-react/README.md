@@ -4,8 +4,6 @@
 
 [![](https://badgen.net/npm/v/@caple-ui/icons-react?icon=npm)](https://www.npmjs.com/package/@caple-ui/icons-react)
 
-> Caple Design System UI for React components.
-
 ## :rocket: Getting Started
 
 Run the following command using [npm](https://www.npmjs.com/):
