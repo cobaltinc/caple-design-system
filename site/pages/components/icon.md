@@ -5,31 +5,35 @@ import { Icon, Divider } from '@caple-ui/react';
 ## Examples
 
 ```jsx header=기본&nbsp;예제
-<Icon type="alert-circle" />
-<Icon type="close-circle" />
-<Icon type="check-circle" />
-<Icon type="arrow-left" />
-<Icon type="arrow-right" />
-<Icon type="chenvron-up" />
-<Icon type="chenvron-right" />
-<Icon type="chenvron-down" />
-<Icon type="chenvron-left" />
-<Icon type="caret-down" />
-<Icon type="caret-up" />
-<Icon type="caret-sort" />
-<Icon type="close" />
-<Icon type="edit" />
-<Icon type="gear" />
-<Icon type="reload" />
-<Icon type="star" />
-<Icon type="android" />
-<Icon type="apple" />
+<>
+  <Icon type="alert-circle" />
+  <Icon type="close-circle" />
+  <Icon type="check-circle" />
+  <Icon type="arrow-left" />
+  <Icon type="arrow-right" />
+  <Icon type="chenvron-up" />
+  <Icon type="chenvron-right" />
+  <Icon type="chenvron-down" />
+  <Icon type="chenvron-left" />
+  <Icon type="caret-down" />
+  <Icon type="caret-up" />
+  <Icon type="caret-sort" />
+  <Icon type="close" />
+  <Icon type="edit" />
+  <Icon type="gear" />
+  <Icon type="reload" />
+  <Icon type="star" />
+  <Icon type="android" />
+  <Icon type="apple" />
+</>
 ```
 
 ```jsx header=색상&nbsp;변경&nbsp;예제
-<Icon type="alert-circle" size={60} color="#637381" />
-<Icon type="close-circle" size={60} color="#BF1D08" />
-<Icon type="check-circle" size={60} color="#5C6AC4" />
+<>
+  <Icon type="alert-circle" size={60} color="#637381" />
+  <Icon type="close-circle" size={60} color="#BF1D08" />
+  <Icon type="check-circle" size={60} color="#5C6AC4" />
+</>
 ```
 
 ```jsx header=Spin&nbsp;예제
@@ -37,13 +41,15 @@ import { Icon, Divider } from '@caple-ui/react';
 ```
 
 ```jsx header=Feather&nbsp;예제
-<Icon.Feather type="bell" />
-<Icon.Feather type="clipboard" />
-<Icon.Feather type="cloud-rain" />
-<Icon.Feather type="git-branch" />
-<Icon.Feather type="wifi" />
-<Icon.Feather type="smile" />
-<Icon.Feather type="map" />
+<>
+  <Icon.Feather type="bell" />
+  <Icon.Feather type="clipboard" />
+  <Icon.Feather type="cloud-rain" />
+  <Icon.Feather type="git-branch" />
+  <Icon.Feather type="wifi" />
+  <Icon.Feather type="smile" />
+  <Icon.Feather type="map" />
+</>
 ```
 
 ## Props
@@ -68,9 +74,5 @@ import { Icon, Divider } from '@caple-ui/react';
 
   .caple-icon:not(:last-child) {
     margin-right: 10px;
-  }
-
-  .caple-card--header, .caple-collapse {
-    font-family: 'Spoqa Han Sans', -apple-system, BlinkMacSystemFont, 'Sans-serif';
   }
 `}</style>

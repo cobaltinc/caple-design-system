@@ -5,31 +5,41 @@ import { Input } from '@caple-ui/react';
 ## Examples
 
 ```jsx header=borderType&nbsp;예제
-<Input.Text block placeholder="Please enter your name." />
-<Input.Text block borderType="underline" placeholder="Please enter your name." />
+<>
+  <Input.Text block placeholder="Please enter your name." />
+  <Input.Text block borderType="underline" placeholder="Please enter your name." />
+</>
 ```
 
 ```jsx header=Size&nbsp;예제
-<Input.Text block size="mini" placeholder="Please enter your name." />
-<Input.Text block size="small" placeholder="Please enter your name." />
-<Input.Text block size="normal" placeholder="Please enter your name." />
-<Input.Text block size="large" placeholder="Please enter your name." />
-<Input.Text block size="xlarge" placeholder="Please enter your name." />
+<>
+  <Input.Text block size="mini" placeholder="Please enter your name." />
+  <Input.Text block size="small" placeholder="Please enter your name." />
+  <Input.Text block size="normal" placeholder="Please enter your name." />
+  <Input.Text block size="large" placeholder="Please enter your name." />
+  <Input.Text block size="xlarge" placeholder="Please enter your name." />
+</>
 ```
 
 ```jsx header=Disabled&nbsp;예제
-<Input.Text block disabled defaultValue="Lee Sun-Hyoup" />
-<Input.Text block disabled borderType="underline" defaultValue="Lee Sun-Hyoup" />
+<>
+  <Input.Text block disabled defaultValue="Lee Sun-Hyoup" />
+  <Input.Text block disabled borderType="underline" defaultValue="Lee Sun-Hyoup" />
+</>
 ```
 
 ```jsx header=Prefix,&nbsp;Subfix&nbsp;예제
-<Input.Text block prefix="PREFIX" placeholder="Please enter your name." />
-<Input.Text block subfix={<Icon type="reload" />} placeholder="Please enter your name." />
+<>
+  <Input.Text block prefix="PREFIX" placeholder="Please enter your name." />
+  <Input.Text block subfix={<Icon type="reload" />} placeholder="Please enter your name." />
+</>
 ```
 
 ```jsx header=Loading&nbsp;예제
-<Input.Text block loading />
-<Input.Text block loading borderType="underline" />
+<>
+  <Input.Text block loading />
+  <Input.Text block loading borderType="underline" />
+</>
 ```
 
 ```jsx header=Input.Text&nbsp;예제
@@ -75,9 +85,5 @@ import { Input } from '@caple-ui/react';
 
   .caple-input--container:not(:last-child) {
     margin-bottom: 20px;
-  }
-
-  .caple-input, .caple-card--header, .caple-collapse {
-    font-family: 'Spoqa Han Sans', -apple-system, BlinkMacSystemFont, 'Sans-serif';
   }
 `}</style>

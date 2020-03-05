@@ -33,15 +33,23 @@ export default ({ children, header, live = true, className }: Props) => {
         <LiveProvider
           theme={theme}
           code={children.trim()}
-          transformCode={code => '/** @jsx mdx */<div className="component-container">' + code + '</div>'}
+          transformCode={code => '/** @jsx mdx */' + code}
           scope={{ mdx, ...CapleUI }}
         >
           <CapleUI.Card header={header} footer={footer} footerStyle={{ paddingLeft: 20, paddingRight: 20 }}>
             <div style={{ paddingTop: 30, paddingBottom: 30 }}>
-              <LivePreview />
+              <div className="component-container">
+                <LivePreview />
+              </div>
             </div>
           </CapleUI.Card>
         </LiveProvider>
+
+        <style jsx global>{`
+          pre {
+            font-family: 'Spoqa Han Sans', -apple-system, BlinkMacSystemFont, 'Sans-serif' !important;
+          }
+        `}</style>
       </div>
     );
   }

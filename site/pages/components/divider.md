@@ -7,15 +7,19 @@ Divider 컴포넌트는
 ## Examples
 
 ```jsx header=Horizontal&nbsp;예제
-<Text>Up</Text>
-<Divider />
-<Text>Down</Text>
+<>
+  <Text>Up</Text>
+  <Divider />
+  <Text>Down</Text>
+</>
 ```
 
 ```jsx header=Vertical&nbsp;예제
-<Text>Left</Text>
-<Divider type="vertical" />
-<Text>Right</Text>
+<>
+  <Text>Left</Text>
+  <Divider type="vertical" />
+  <Text>Right</Text>
+</>
 ```
 
 ## Props
@@ -30,9 +34,5 @@ Divider 컴포넌트는
     padding-left: 40px;
     padding-right: 40px;
     text-align: center;
-  }
-
-  .caple-card--header, .caple-collapse {
-    font-family: 'Spoqa Han Sans', -apple-system, BlinkMacSystemFont, 'Sans-serif';
   }
 `}</style>

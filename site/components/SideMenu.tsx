@@ -12,7 +12,7 @@ export default () => {
   return (
     <Menu>
       {menus.components.map((menu, index) => (
-        <Menu.Item title={menu.title} onClick={() => router.push(menu.path)} key={index} />
+        <Menu.Item active={router.pathname.includes(menu.title.toLowerCase())} title={menu.title} onClick={() => router.push(menu.path)} key={index} />
       ))}
     </Menu>
   );

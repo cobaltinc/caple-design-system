@@ -100,8 +100,4 @@ Card 컴포넌트는
     width: 60%;
     margin: 0 auto;
   }
-
-  .caple-button, .caple-input, .caple-card--header, .caple-collapse {
-    font-family: 'Spoqa Han Sans', -apple-system, BlinkMacSystemFont, 'Sans-serif';
-  }
 `}</style>

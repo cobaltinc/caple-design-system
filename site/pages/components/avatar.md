@@ -9,26 +9,32 @@ Avatar 컴포넌트는 사람 또는 사물을 대표 이미지 혹은 문자로
 **src** 속성을 이용하여 이미지 Avatar 컴포넌트를 구성할 수 있습니다. 동시에 **size** 속성을 통해 이미지 크기를 정할 수 있습니다.
 
 ```jsx header=이미지&nbsp;아바타&nbsp;예제
-<Avatar src="https://avatars0.githubusercontent.com/u/3623695?s=460&v=4" />
-<Avatar size={60} src="https://avatars0.githubusercontent.com/u/3623695?s=460&v=4" />
-<Avatar size={40} src="https://avatars0.githubusercontent.com/u/3623695?s=460&v=4" />
-<Avatar size={20} src="https://avatars0.githubusercontent.com/u/3623695?s=460&v=4" />
+<>
+  <Avatar src="https://avatars0.githubusercontent.com/u/3623695?s=460&v=4" />
+  <Avatar size={60} src="https://avatars0.githubusercontent.com/u/3623695?s=460&v=4" />
+  <Avatar size={40} src="https://avatars0.githubusercontent.com/u/3623695?s=460&v=4" />
+  <Avatar size={20} src="https://avatars0.githubusercontent.com/u/3623695?s=460&v=4" />
+</>
 ```
 
 만약 이미지가 없으면 대표하는 텍스트를 통해 Avatar 컴포넌트를 만들 수 있습니다.
 
 ```jsx header=텍스트&nbsp;아바타&nbsp;예제
-<Avatar text="이선협" />
-<Avatar text="kciter" />
-<Avatar size={40} text="이선협" />
-<Avatar size={40} text="kciter" />
+<>
+  <Avatar text="이선협" />
+  <Avatar text="kciter" />
+  <Avatar size={40} text="이선협" />
+  <Avatar size={40} text="kciter" />
+</>
 ```
 
 Avatar 컴포넌트는 `shape` 속성을 통해 사각형과 원 모양으로 만들 수 있습니다.
 
 ```jsx header=모양&nbsp;예제
-<Avatar shape="square" src="https://avatars0.githubusercontent.com/u/3623695?s=460&v=4" />
-<Avatar shapr="circle" src="https://avatars0.githubusercontent.com/u/3623695?s=460&v=4" />
+<>
+  <Avatar shape="square" src="https://avatars0.githubusercontent.com/u/3623695?s=460&v=4" />
+  <Avatar shapr="circle" src="https://avatars0.githubusercontent.com/u/3623695?s=460&v=4" />
+</>
 ```
 
 ## Props
@@ -49,9 +55,5 @@ Avatar 컴포넌트는 `shape` 속성을 통해 사각형과 원 모양으로 �
 
   .caple-avatar:not(:last-child) {
     margin-right: 20px;
-  }
-
-  .caple-avatar, .caple-card--header, .caple-collapse {
-    font-family: 'Spoqa Han Sans', -apple-system, BlinkMacSystemFont, 'Sans-serif';
   }
 `}</style>

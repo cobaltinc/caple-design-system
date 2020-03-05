@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid } from '@caple-ui/react';
 import Logo from './Logo';
 import SideMenu from './SideMenu';
+import TopNav from './TopNav';
 
 const { Row, Col } = Grid;
 
@@ -12,26 +13,32 @@ interface Props {
 export default ({ children }: Props) => {
   return (
     <div className="container">
-      <Row>
-        <Col span={4} style={{ position: 'relative' }}>
-          <aside>
-            <Logo orientation="horizontal" height={50} />
-            <nav>
-              <SideMenu />
-            </nav>
-          </aside>
-        </Col>
-        <Col span={12}>
-          <main>{children}</main>
-        </Col>
-      </Row>
+      <TopNav />
+      <div className="content">
+        <Row>
+          <Col style={{ position: 'relative', maxWidth: 300 }}>
+            <aside>
+              <nav>
+                <SideMenu />
+              </nav>
+            </aside>
+          </Col>
+          <Col>
+            <main>{children}</main>
+          </Col>
+        </Row>
+      </div>
 
       <style jsx>{`
         .container {
-          max-width: 1250px;
+          width: 100%;
           min-height: 100vh;
-          margin: 0 auto;
-          padding: 0 16px;
+        }
+
+        .content {
+          position: relative;
+          padding-top: 56px;
+          box-sizing: border-box;
         }
 
         aside {
@@ -40,15 +47,17 @@ export default ({ children }: Props) => {
           display: flex;
           width: 300px;
           height: 100vh;
-          padding-top: 40px;
+          margin-top: 56px;
           align-items: start;
           flex-direction: column;
+          background-color: white;
           box-sizing: border-box;
         }
 
         nav {
           width: 100%;
           height: auto;
+          overflow-y: hidden;
         }
 
         nav:hover {
@@ -56,8 +65,10 @@ export default ({ children }: Props) => {
         }
 
         main {
-          height: 100vh;
-          padding: 40px;
+          padding: 20px;
+          margin: 0 auto;
+          max-width: 1000px;
+          width: 100%;
           box-sizing: border-box;
         }
       `}</style>

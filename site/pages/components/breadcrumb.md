@@ -9,23 +9,27 @@ Breadcrumb 컴포넌트는 페이지 내 현재 위치가 어디인지 계층 �
 Breadcrumb 컴포넌트와 Breadcrumb.Item 컴포넌트로 계층 구조를 표현할 수 있습니다.
 
 ```jsx header=기본&nbsp;예제
-<Breadcrumb>
-  <Breadcrumb.Item>Home</Breadcrumb.Item>
-  <Breadcrumb.Item>User Profile</Breadcrumb.Item>
-  <Breadcrumb.Item>Edit</Breadcrumb.Item>
-</Breadcrumb>
+<>
+  <Breadcrumb>
+    <Breadcrumb.Item>Home</Breadcrumb.Item>
+    <Breadcrumb.Item>User Profile</Breadcrumb.Item>
+    <Breadcrumb.Item>Edit</Breadcrumb.Item>
+  </Breadcrumb>
+</>
 ```
 
 텍스트 대신 아이콘으로 표현도 가능합니다.
 
 ```jsx header=아이콘&nbsp;사용&nbsp;예제
-<Breadcrumb>
-  <Breadcrumb.Item>
-    <Icon type="apple" />
-  </Breadcrumb.Item>
-  <Breadcrumb.Item>User Profile</Breadcrumb.Item>
-  <Breadcrumb.Item>Edit</Breadcrumb.Item>
-</Breadcrumb>
+<>
+  <Breadcrumb>
+    <Breadcrumb.Item>
+      <Icon type="apple" />
+    </Breadcrumb.Item>
+    <Breadcrumb.Item>User Profile</Breadcrumb.Item>
+    <Breadcrumb.Item>Edit</Breadcrumb.Item>
+  </Breadcrumb>
+</>
 ```
 
 ## Props
@@ -49,9 +53,5 @@ Breadcrumb 컴포넌트와 Breadcrumb.Item 컴포넌트로 계층 구조를 표�
 <style jsx global>{`
   .component-container {
     text-align: center;
-  }
-
-  .caple-breadcrumb, .caple-card--header, .caple-collapse {
-    font-family: 'Spoqa Han Sans', -apple-system, BlinkMacSystemFont, 'Sans-serif';
   }
 `}</style>

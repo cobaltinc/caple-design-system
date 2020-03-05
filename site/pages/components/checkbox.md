@@ -7,9 +7,11 @@ Checkbox 컴포넌트는
 ## Examples
 
 ```jsx header=기본&nbsp;예제
-<Checkbox />
-<Checkbox disabled />
-<Checkbox error />
+<>
+  <Checkbox />
+  <Checkbox disabled />
+  <Checkbox error />
+</>
 ```
 
 ```jsx header=Label&nbsp;예제
@@ -36,9 +38,5 @@ Checkbox 컴포넌트는
 
   .caple-checkbox:not(:last-child) {
     margin-right: 30px;
-  }
-
-  .caple-card--header, .caple-collapse {
-    font-family: 'Spoqa Han Sans', -apple-system, BlinkMacSystemFont, 'Sans-serif';
   }
 `}</style>

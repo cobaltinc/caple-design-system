@@ -10,35 +10,43 @@ Button 컴포넌트는 **basic**, **primary**, **destructive** 타입이 있습�
 **primary**는 확인 버튼, 로그인 버튼 등 특수한 상황에 사용됩니다. **destructive**는 사용자의 행동이 위험할 수 있을 때 사용되는 버튼입니다.
 
 ```jsx header=타입&nbsp;예제
-<Button type="basic">Basic</Button>
-<Button type="primary">Primary</Button>
-<Button type="destructive">Destructive</Button>
+<>
+  <Button type="basic">Basic</Button>
+  <Button type="primary">Primary</Button>
+  <Button type="destructive">Destructive</Button>
+</>
 ```
 
 Button 컴포넌트는 **mini**, **small**, **normal**, **lage**, **xlarge** 사이즈로 구성할 수 있습니다.
 
 ```jsx header=사이즈&nbsp;예제
-<Button type="basic" size="mini">Mini</Button>
-<Button type="basic" size="small">Small</Button>
-<Button type="basic" size="normal">Normal</Button>
-<Button type="basic" size="large">Large</Button>
-<Button type="basic" size="xlarge">xLarge</Button>
+<>
+  <Button type="basic" size="mini">Mini</Button>
+  <Button type="basic" size="small">Small</Button>
+  <Button type="basic" size="normal">Normal</Button>
+  <Button type="basic" size="large">Large</Button>
+  <Button type="basic" size="xlarge">xLarge</Button>
+</>
 ```
 
 Disabled 상태가 되면 UI가 변경되고 **onClick** 이벤트가 동작하지 않습니다.
 
 ```jsx header=Disabled&nbsp;예제
-<Button type="basic" disabled>Disabled Basic</Button>
-<Button type="primary" disabled>Disabled Primary</Button>
-<Button type="destructive" disabled>Disabled Destructive</Button>
+<>
+  <Button type="basic" disabled>Disabled Basic</Button>
+  <Button type="primary" disabled>Disabled Primary</Button>
+  <Button type="destructive" disabled>Disabled Destructive</Button>
+</>
 ```
 
 상황에 따라 Button 컴포넌트에 로딩 표시를 할 수 있습니다.
 
 ```jsx header=로딩&nbsp;예제
-<Button type="basic" loading>Basic</Button>
-<Button type="primary" loading>Primary</Button>
-<Button type="destructive" loading>Destructive</Button>
+<>
+  <Button type="basic" loading>Basic</Button>
+  <Button type="primary" loading>Primary</Button>
+  <Button type="destructive" loading>Destructive</Button>
+</>
 ```
 
 ## Props
@@ -61,9 +69,5 @@ Disabled 상태가 되면 UI가 변경되고 **onClick** 이벤트가 동작하�
 
   .caple-button:not(:last-child) {
     margin-right: 50px;
-  }
-
-  .caple-button, .caple-card--header, .caple-collapse {
-    font-family: 'Spoqa Han Sans', -apple-system, BlinkMacSystemFont, 'Sans-serif';
   }
 `}</style>
