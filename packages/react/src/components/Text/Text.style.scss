@@ -5,6 +5,8 @@
 $text-prefix: '#{$prefix}-text';
 
 .#{$text-prefix} {
+  vertical-align: middle;
+  
   mark {
     padding: 0;
     background-color: $blue-light;
