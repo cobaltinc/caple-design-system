@@ -21,7 +21,9 @@ export default ({ children, header, live = true, className }: Props) => {
     .concat()
     .toString();
 
-  if (live) {
+  console.log(language);
+
+  if (live && language?.includes('jsx')) {
     const footer = (
       <CapleUI.Collapse title="Code Editor" style={{ paddingTop: 18 }}>
         <LiveEditor style={{ outline: 'none', border: 'none', borderRadius: 4 }} />
@@ -55,10 +57,10 @@ export default ({ children, header, live = true, className }: Props) => {
   }
 
   return (
-    <Highlight {...defaultProps} code={codeString.trim()} language={language as Language}>
+    <Highlight {...defaultProps} theme={theme} code={codeString.trim()} language={language as Language}>
       {// tslint:disable-next-line: no-shadowed-variable
       ({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={{ ...style }}>
+        <pre className={className} style={{ ...style, padding: 16, borderRadius: 4 }}>
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (

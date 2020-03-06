@@ -1,24 +1,34 @@
 import React from 'react';
+import { NextComponentType, NextPageContext } from 'next';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { MDXProvider, MDXProviderComponents } from '@mdx-js/react';
-import { Header, Text, Divider, Table, Card } from '@caple-ui/react';
-import Layout from '@components/Layout';
+import { Header, Text, Divider, Table, Card, Link } from '@caple-ui/react';
+import DefaultLayout from 'layouts/DefaultLayout';
 import CodeBlock from '@components/CodeBlock';
 
-export default ({ Component, pageProps }: AppProps) => {
+type LayoutComponent = NextComponentType<NextPageContext, any, any> & {
+  Layout?: any;
+};
+
+interface Props extends AppProps {
+  Component: LayoutComponent;
+}
+
+export default ({ Component, pageProps }: Props) => {
   const mdComponents: MDXProviderComponents = {
     h1: props => <Header level={1} strong style={{ marginBottom: 40 }} {...props} />,
     h2: props => <Header level={2} style={{ marginTop: 50, marginBottom: 24 }} {...props} />,
     h3: props => <Header level={3} style={{ marginTop: 30, marginBottom: 16 }} {...props} />,
     h4: props => <Header level={4} style={{ marginTop: 30, marginBottom: 16 }} {...props} />,
     p: props => <Text style={{ marginTop: 20, marginBottom: 20 }} paragraph {...props} />,
+    a: props => <Link {...props} />,
     strong: props => <Text strong {...props} />,
     em: props => <Text mark {...props} />,
     inlineCode: props => <Text code {...props} />,
     hr: () => <Divider />,
     table: props => (
-      <Card style={{ padding: 20, marginBottom: 50 }}>
+      <Card header={props.header} style={{ padding: 20, marginBottom: 50 }}>
         <Table {...props} />
       </Card>
     ),
@@ -28,6 +38,8 @@ export default ({ Component, pageProps }: AppProps) => {
     td: props => <Table.Cell {...props} />,
     code: CodeBlock,
   };
+
+  const Layout = Component.Layout || DefaultLayout;
 
   return (
     <>

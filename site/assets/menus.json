@@ -1,4 +1,18 @@
 {
+  "introduction": [{
+    "title": "Introduction",
+    "path": "/introduction"
+  }, {
+    "title": "Getting Started",
+    "path": "/getting-started"
+  }],
+  "styleguide": [{
+    "title": "Brand",
+    "path": "/styleguide/brand"
+  }, {
+    "title": "Color",
+    "path": "/styleguide/color"
+  }],
   "components": [{
     "title": "Avatar",
     "path": "/components/avatar"

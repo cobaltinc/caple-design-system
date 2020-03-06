@@ -46,7 +46,7 @@ Avatar 컴포넌트는 `shape` 속성을 통해 사각형과 원 모양으로 �
 | **text** | Text Avatar에 적용되는 텍스트 | string | - | false |
 | **alt** | Image Avatar에 적용되는 Alternate | string | - | false |
 | **className** | Avatar에 적용되는 className | string | - | false |
-| **style** | Avatar에 적용되는 style | CSSProperties | - | false |
+| **style** | Avatar에 적용되는 style | CSSProperties | - | false |{header="Avatar"}
 
 <style jsx global>{`
   .component-container {

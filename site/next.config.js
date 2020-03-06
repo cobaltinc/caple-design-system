@@ -3,10 +3,16 @@ require('dotenv').config();
 const path = require('path');
 const webpack = require('webpack');
 const withPlugins = require('next-compose-plugins');
+const withCss = require('@zeit/next-css');
 const withSass = require('@zeit/next-sass');
+const withImages = require('next-images');
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [require('remark-attr'), require('remark-emoji')],
+  },
 });
+
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const nextConfig = {
@@ -25,6 +31,7 @@ const nextConfig = {
       '@components': path.join(__dirname, 'components'),
       '@utils': path.join(__dirname, 'utils'),
       '@assets': path.join(__dirname, 'assets'),
+      '@layouts': path.join(__dirname, 'layouts'),
       ...config.resolve.alias,
     };
 
@@ -36,14 +43,27 @@ const nextConfig = {
 
     return config;
   },
+  exportPathMap: function(defaultPathMap) {
+    const pathMap = Object.assign({}, defaultPathMap);
+    delete pathMap['/index'];
+    return pathMap;
+  },
 };
 
 module.exports = withPlugins(
   [
+    withImages,
     [
       withMDX,
       {
         pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
+      },
+    ],
+    [
+      withCss,
+      {
+        importLoaders: 1,
+        localIdentName: '[local]___[hash:base64:5]',
       },
     ],
     [

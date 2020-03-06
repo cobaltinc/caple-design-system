@@ -1,8 +1,7 @@
 import React from 'react';
 import { Grid } from '@caple-ui/react';
-import Logo from './Logo';
-import SideMenu from './SideMenu';
-import TopNav from './TopNav';
+import SideMenu from '@components/SideMenu';
+import TopNav from '@components/TopNav';
 
 const { Row, Col } = Grid;
 

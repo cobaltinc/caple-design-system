@@ -1,9 +1,14 @@
+import Link from 'next/link';
 import Logo from "./Logo"
 
 export default () => {
   return (
     <header>
-      <Logo orientation="horizontal" height={36} />
+      <Link href="/">
+        <a>
+          <Logo height={36} showText />
+        </a>
+      </Link>
 
       <style jsx>{`
         header {
