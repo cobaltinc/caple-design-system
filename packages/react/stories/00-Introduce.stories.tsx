@@ -24,6 +24,20 @@ export const Default = () => {
     'Header', 
     'Icon', 
     'Input',
+    'Link',
+    'Menu',
+    'Modal',
+    'Popover',
+    'Select',
+    'Spacer',
+    'Spinner',
+    'Switch',
+    'Tab',
+    'Text',
+    'Toast',
+    'Toggle',
+    'Tooltip',
+    'Upload',
   ];
 
   return (

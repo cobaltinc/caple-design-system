@@ -24,14 +24,14 @@
   },
   "scripts": {
     "build": "yarn clean && rollup -c",
-    "build-storybook": "build-storybook",
-    "clean": "rimraf dist storybook-static",
+    "build:storybook": "build-storybook -o .out",
+    "clean": "rimraf dist .out",
     "prepublish": "yarn build",
     "lint": "tslint --project .",
     "type-check": "tsc",
     "start": "yarn storybook",
     "storybook": "start-storybook -p 6006",
-    "deploy-storybook": "storybook-to-ghpages"
+    "deploy-storybook": "rimraf .out && yarn build:storybook && echo 'design.caple.ai' > '.out/CNAME' && storybook-to-ghpages --existing-output-dir=.out"
   },
   "peerDependencies": {
     "react": "^16.12.0",
