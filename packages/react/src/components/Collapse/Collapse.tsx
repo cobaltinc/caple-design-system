@@ -6,14 +6,19 @@ import Text from '../Text';
 import Icon from '../Icon';
 import './Collapse.style.scss';
 
+export type CaretText = {
+  openText: string;
+  closeText: string;
+}
+
 export interface CollapseProps {
   children: React.ReactNode;
   title: string;
   defaultExpand?: boolean;
   animate?: boolean;
   titleColor?: string;
-  indicatorTitle?: string;
-  indicatorColor?: string;
+  caretText?: CaretText;
+  caretTextColor?: string;
   caretColor?: string;
   onOpen?(): void;
   onClose?(): void;
@@ -27,8 +32,8 @@ export default ({
   defaultExpand = false,
   animate = true,
   titleColor,
-  indicatorTitle,
-  indicatorColor = '#5C6AC4',
+  caretText,
+  caretTextColor = '#5C6AC4',
   caretColor,
   onOpen,
   onClose,
@@ -64,9 +69,9 @@ export default ({
           {title}
         </Text>
         <div className={`${classPrefix}--collapse-dropdown`} onClick={onClick}>
-          {indicatorTitle ? (
-            <Text size="small" color={indicatorColor} className={`${classPrefix}--indicator`}>
-              {indicatorTitle}
+          {caretText ? (
+            <Text size="small" color={caretTextColor} className={`${classPrefix}--text`}>
+              {expand ? caretText.closeText : caretText.openText}
             </Text>
           ) : null}
           <Icon type="caret-down" size={20} color={caretColor} className={classnames(`${classPrefix}--caret`, { [`reverse`]: expand })} />

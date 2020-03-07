@@ -1,5 +1,4 @@
 @import '../../styles/base/core';
-@import '../../styles/helpers/mixins';
 @import '../../styles/variables/motion';
 
 $collapse-prefix: '#{$prefix}-collapse';
@@ -13,18 +12,16 @@ $collapse-prefix: '#{$prefix}-collapse';
     display: inline-flex;
     width: 100%;
     align-items: center;
+    justify-content: space-between;
 
     .#{$collapse-prefix}--title {
-      float: left;
-      width: 100%;
       vertical-align: middle;
     }
 
     .#{$collapse-prefix}--collapse-dropdown {
-      float: right;
       cursor: pointer;
 
-      .#{$collapse-prefix}--indicator {
+      .#{$collapse-prefix}--text {
         margin-right: 10px;
       }
 
@@ -38,8 +35,6 @@ $collapse-prefix: '#{$prefix}-collapse';
         }
       }
     }
-
-    @include clearfix;
   }
 
   .#{$collapse-prefix}--content {
