@@ -1,0 +1,16 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/spacing';
+
+$spacer-prefix: '#{$prefix}-spacer';
+
+.#{$spacer-prefix} {
+  &.#{$spacer-prefix}--type-vertical {
+    display: inline-block;
+    height: 1px;
+  }
+
+  &.#{$spacer-prefix}--type-horizontal {
+    display: block;
+    width: 100%;
+  }
+}
