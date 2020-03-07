@@ -7,13 +7,13 @@ export type SpacerSizeType = 'small' | 'normal' | 'large';
 export type SpacerOrientationType = 'horizontal' | 'vertical';
 
 export interface SpacerProps {
-  type: SpacerOrientationType;
+  type?: SpacerOrientationType;
   size?: SpacerSizeType | number;
   className?: string;
   style?: React.CSSProperties;
 }
 
-export default ({ type, size = 'normal', className = '', style }: SpacerProps) => {
+export default ({ type = 'horizontal', size = 'normal', className = '', style }: SpacerProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-spacer`;

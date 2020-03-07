@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   Header,
-  Text
+  Text,
+  Spacer
 } from '../src';
 
 import * as Icons from '@caple-ui/icons-react';
@@ -11,41 +12,26 @@ export default {
 };
 
 export const Typography = () => {
-  const Section = ({ children }: any) => (
-    <div style={{margin: 30}}>
-      {children}
-    </div>
-  )
   return (
-    <>
-      <Section>
-        <Header level={1} strong>DisplayXLarge</Header>
-      </Section>
-      <Section>
-        <Header level={2} strong>DisplayLarge</Header>
-      </Section>
-      <Section>
-        <Header level={3}>DisplayMedium</Header>
-      </Section>
-      <Section>
-        <Header level={4}>DisplaySmall</Header>
-      </Section>
-      <Section>
-        <Text size="large" strong>Heading</Text>
-      </Section>
-      <Section>
-        <Text size="small" strong>SubHeading</Text>
-      </Section>
-      <Section>
-        <Text size="normal" strong>TitleBody</Text>
-      </Section>
-      <Section>
-        <Text size="normal">Body</Text>
-      </Section>
-      <Section>
-        <Text size="small">Caption</Text>
-      </Section>
-    </>
+    <div style={{padding: 20}}>
+      <Header level={1} strong>DisplayXLarge</Header>
+      <Spacer type="horizontal" size={30} />
+      <Header level={2} strong>DisplayLarge</Header>
+      <Spacer type="horizontal" size={30} />
+      <Header level={3}>DisplayMedium</Header>
+      <Spacer type="horizontal" size={30} />
+      <Header level={4}>DisplaySmall</Header>
+      <Spacer type="horizontal" size={30} />
+      <Text size="large" strong>Heading</Text>
+      <Spacer type="horizontal" size={30} />
+      <Text size="small" strong>SubHeading</Text>
+      <Spacer type="horizontal" size={30} />
+      <Text size="normal" strong>TitleBody</Text>
+      <Spacer type="horizontal" size={30} />
+      <Text size="normal">Body</Text>
+      <Spacer type="horizontal" size={30} />
+      <Text size="small">Caption</Text>
+    </div>
   );
 };
 
@@ -53,8 +39,8 @@ export const Color = () => {
   const Palette = ({ name, color }: any) => (
     <div style={{display: 'inline-block', width: 100, height: 100, marginRight: 10, textAlign: 'center', borderRadius: 4, backgroundColor: '#fff', border: '1px solid #c4cdd5', overflow: 'hidden', fontSize: 12}}>
       <div style={{width: '100%', height: 60, backgroundColor: color, marginBottom: 6}} />
-      <div style={{marginBottom: 2}}><strong>{name}</strong></div>
-      {color}
+      <div style={{marginBottom: 2}}><Text strong size="small">{name}</Text></div>
+      <Text size="small">{color}</Text>
     </div>
   );
   return (
@@ -127,7 +113,7 @@ export const Icon = () => {
       <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: 60, borderBottom: '1px solid #c4cdd6', marginBottom: 6}}>
         {children}
       </div>
-      <strong>{name}</strong>
+      <Text strong size="small">{name}</Text>
     </div>
   );
 

@@ -91,6 +91,7 @@ $select-prefix: '#{$prefix}-select';
       }
     }
     &.#{$select-prefix}--border-type-none {
+      padding: 0;
       border: none;
     }
 
@@ -109,6 +110,10 @@ $select-prefix: '#{$prefix}-select';
       display: none;
       width: 0;
       height: 0;
+    }
+
+    &.#{$select-prefix}--disabled {
+      cursor: not-allowed;
     }
   }
 

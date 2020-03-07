@@ -77,6 +77,10 @@ const Select: ISelect<SelectProps> = ({
   const iconSize = size === 'mini' ? 14 : size === 'small' ? 16 : size === 'normal' ? 20 : size === 'large' ? 24 : 30;
 
   const handleClick = () => {
+    if (disabled) {
+      return;
+    }
+    
     setFocused(!focused);
   };
   const handleClickOutside = (event: MouseEvent) => {

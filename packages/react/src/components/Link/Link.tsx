@@ -9,13 +9,14 @@ export interface LinkProps {
   children: React.ReactNode;
   size?: LinkSizeType | number;
   href?: string;
+  target?: string;
   disabled?: boolean;
-  onClick?: React.MouseEventHandler<HTMLElement>;
+  onClick?: React.MouseEventHandler;
   className?: string;
   style?: React.CSSProperties;
 }
 
-export default ({ children, size = 'normal', href, disabled = false, onClick, className = '', style }: LinkProps) => {
+export default ({ children, size = 'normal', href, target = '_blank', disabled = false, onClick, className = '', style }: LinkProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-link`;
@@ -25,7 +26,7 @@ export default ({ children, size = 'normal', href, disabled = false, onClick, cl
   });
   const Tag = disabled ? 'span' : 'a';
   return (
-    <Tag href={disabled ? undefined : href} className={classNames} style={style} onClick={onClick}>
+    <Tag href={disabled ? undefined : href} target={disabled ? undefined : target} className={classNames} style={style} onClick={onClick}>
       {children}
     </Tag>
   );

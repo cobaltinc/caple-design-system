@@ -13,7 +13,7 @@ export interface ColProps {
   style?: React.CSSProperties;
 }
 
-export default ({ children, span = 16, offset = 0, order, className = '', style }: ColProps) => {
+export default ({ children, span = 0, offset = 0, order, className = '', style }: ColProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-col`;

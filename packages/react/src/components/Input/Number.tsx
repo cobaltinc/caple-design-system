@@ -6,7 +6,7 @@ import './Input.style.scss';
 export type InputNumberThousandsGroupStyle = 'thousand' | 'lakh' | 'wan' | 'none';
 
 export interface InputNumberProps extends InputProps {
-  value?: number;
+  defaultValue?: number;
   group?: InputNumberThousandsGroupStyle;
 }
 

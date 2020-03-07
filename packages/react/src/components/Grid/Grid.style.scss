@@ -36,6 +36,9 @@ $col-prefix: '#{$prefix}-col';
   box-sizing: border-box;
 
   &.#{$col-prefix}--col-1 {
+    width: auto;
+  }
+  &.#{$col-prefix}--col-1 {
     width: 6.25%;
   }
   &.#{$col-prefix}--col-2 {

@@ -10,10 +10,10 @@ export default {
 export const Default = () => {
   return (
     <div style={{padding: 30}}>
-      <Header level={1}>Header</Header>
-      <Header level={2}>Header</Header>
-      <Header level={3}>Header</Header>
-      <Header level={4}>Header</Header>
+      <Header level={1}>Level 1</Header>
+      <Header level={2}>Level 2</Header>
+      <Header level={3}>Level 3</Header>
+      <Header level={4}>Level 4</Header>
     </div>
   )
 };
@@ -42,7 +42,7 @@ export const Color = () => {
 export const Editable = () => {
   return (
     <div style={{padding: 30}}>
-      <Header placeholder="Editable Header" level={1} editable />
+      <Header editable placeholder="Editable Header" level={1} />
     </div>
   )
 };

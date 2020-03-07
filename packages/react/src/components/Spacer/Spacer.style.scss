@@ -7,6 +7,26 @@ $spacer-prefix: '#{$prefix}-spacer';
   &.#{$spacer-prefix}--type-vertical {
     display: inline-block;
     height: 1px;
+
+    &.#{$spacer-prefix}--size-mini {
+      width: 6px;
+    }
+
+    &.#{$spacer-prefix}--size-small {
+      width: 8px;
+    }
+
+    &.#{$spacer-prefix}--size-normal {
+      width: 10px;
+    }
+
+    &.#{$spacer-prefix}--size-large {
+      width: 14px;
+    }
+
+    &.#{$spacer-prefix}--size-xlarge {
+      width: 20px;
+    }
   }
 
   &.#{$spacer-prefix}--type-horizontal {

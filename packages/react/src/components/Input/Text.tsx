@@ -10,18 +10,18 @@ export interface InputTextProps extends InputProps {
   lowercase?: boolean;
 }
 
-export default (props: InputTextProps) => {
+export default ({ blocks, delimiter, uppercase, lowercase, ...props }: InputTextProps) => {
   const { useRef, useEffect } = React;
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (inputRef.current) {
+    if (inputRef.current && blocks) {
       // tslint:disable-next-line: no-unused-expression
       new Cleave(inputRef.current, {
-        blocks: props.blocks,
-        delimiter: props.delimiter,
-        uppercase: props.uppercase,
-        lowercase: props.lowercase,
+        blocks,
+        delimiter,
+        uppercase,
+        lowercase,
       });
     }
   }, [inputRef]);

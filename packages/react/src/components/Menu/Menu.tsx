@@ -1,37 +1,48 @@
 import React from 'react';
 import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
-import MenuItem from './MenuItem';
-import { warning } from '../../utils';
+import MenuItem, { MenuItemProps } from './MenuItem';
+import { warning, convertReactNodeTo } from '../../utils';
 import './Menu.style.scss';
 
 export interface MenuProps {
   children: React.ReactNode;
-  itemHeight?: 56,
+  defaultActive?: string;
+  itemHeight?: number,
+  onMenuChange?(active: string): void;
   className?: string;
   style?: React.CSSProperties;
 }
 
-const Menu = ({ children, itemHeight, className = '', style }: MenuProps) => {
-  const { useContext } = React;
+const Menu = ({ children, defaultActive, itemHeight = 56, onMenuChange, className = '', style }: MenuProps) => {
+  const { useContext, useState } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-menu`;
   const classNames = classnames(classPrefix, className);
 
-  let items = null;
+  const [active, setActive] = useState(defaultActive);
 
-  if (children) {
-    items = React.Children.toArray(children).filter((element: any) => {
-      if (React.isValidElement<typeof MenuItem>(element) === false) {
-        warning('Menu', "Only accepts Menu.Item as it's children.");
-        return false;
-      }
-
-      return true;
-    }).map((element: any) => {
-      return React.cloneElement(element, { style: { height: itemHeight } })
+  const items = convertReactNodeTo<MenuItemProps>('Menu', 'Menu.Item', children)
+    .map((element: any) => {
+      const menuItem = element as React.ReactElement<MenuItemProps>;
+      return React.cloneElement(element, { 
+        active: menuItem.props.title === active,
+        style: { height: itemHeight, ...menuItem.props.style },
+        onClick: (e: React.MouseEvent<HTMLDivElement>) => {
+          menuItem.props.onClick?.(e);
+          setActive(menuItem.props.title);
+          onMenuChange?.(menuItem.props.title);
+        }
+      })
+    })
+    .map((element: any) => {
+      const menuItem = element as React.ReactElement<MenuItemProps>;
+      return (
+        <div key={menuItem.props.title}>
+          {MenuItem.render(menuItem.props)}
+        </div>
+      );
     });
-  }
 
   return (
     <div className={classNames} style={style}>

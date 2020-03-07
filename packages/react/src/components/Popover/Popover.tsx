@@ -26,15 +26,17 @@ export interface PopoverProps {
   children: React.ReactNode;
   content: React.ReactNode;
   placement?: PlacementType;
+  defaultVisible?: boolean;
+  onVisibleChange?(visible: boolean): void;
   trigger?: PopoverTriggerType;
   width?: number;
   className?: string;
   style?: React.CSSProperties;
 }
 
-export default ({ children, content, trigger = 'click', placement = 'bottom', width, className = '', style }: PopoverProps) => {
+export default ({ children, content, trigger = 'click', placement = 'bottom', defaultVisible = false, onVisibleChange, width, className = '', style }: PopoverProps) => {
   const { useState, useEffect, useContext, useRef } = React;
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(defaultVisible);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const { prefix } = useContext(ConfigContext);
@@ -65,6 +67,14 @@ export default ({ children, content, trigger = 'click', placement = 'bottom', wi
       };
     }
   }, [handleClickOutside]);
+
+  useEffect(() => {
+    onVisibleChange?.(visible);
+  }, [visible]);
+
+  useEffect(() => {
+    setVisible(defaultVisible);
+  }, [defaultVisible]);
 
   const contentStyle: React.CSSProperties = {
     width: width ? width : 'auto',

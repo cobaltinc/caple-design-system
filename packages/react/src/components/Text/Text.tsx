@@ -6,7 +6,7 @@ import './Text.style.scss';
 export type TextSizeType = 'small' | 'normal' | 'large';
 
 export interface TextProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   size?: TextSizeType | number;
   paragraph?: boolean;
   strong?: boolean;
@@ -38,13 +38,14 @@ export default ({
   className = '',
   style,
 }: TextProps) => {
-  const { useContext } = React;
+  const { useContext, useRef } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-text`;
   const classNames = classnames(classPrefix, className, {
     [`${classPrefix}--size-${size}`]: size !== undefined && typeof size === 'string',
   });
   const Tag = paragraph ? 'p' : 'span';
+  const ref = useRef<HTMLParagraphElement>(null);
 
   const fontStyle: React.CSSProperties = {
     fontWeight: strong ? 'bold' : 'normal',
@@ -72,7 +73,14 @@ export default ({
     if (event.key === 'Enter') {
       event.preventDefault();
     }
+  };
+
+  const handleKeyUp = (event: React.KeyboardEvent<HTMLParagraphElement>) => {
     onChange?.(event);
+
+    if (editable && ref.current) {
+      ref.current.setAttribute('data-value', ref.current.innerText);
+    }
   };
 
   const onPaste = (event: React.ClipboardEvent) => {
@@ -84,7 +92,9 @@ export default ({
 
   return (
     <Tag
+      ref={ref}
       onKeyDown={onKeyDown}
+      onKeyUp={handleKeyUp}
       onPaste={onPaste}
       contentEditable={editable}
       placeholder={placeholder}

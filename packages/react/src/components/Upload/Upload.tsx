@@ -4,7 +4,7 @@ import ConfigContext from '../_config/ConfigContext';
 import './Upload.style.scss';
 
 export interface UploadProps {
-  children(file?: File, dragging?: boolean): React.ReactNode;
+  children: ((file?: File, dragging?: boolean) => React.ReactNode) | React.ReactNode;
   name?: string;
   value?: File;
   accept?: string;
@@ -84,7 +84,7 @@ export default ({ children, name, value, accept, disabled = false, draggable = f
       onDragOver={onDragOver}
     >
       <input ref={inputRef} type="file" name={name} accept={accept} onChange={onFileChange} />
-      {children(file, dragging)}
+      {typeof children === 'function' ? children?.(file, dragging) : children}
     </div>
   );
 };

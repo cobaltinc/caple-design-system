@@ -95,13 +95,14 @@ $input-prefix: '#{$prefix}-input';
       border: solid 1px $sky-dark;
       border-radius: 3px;
       box-shadow: inset 0px 1px 2px rgba(102, 113, 123, 0.21);
+      background-color: #fff;
 
       &.#{$input-prefix}--focused {
         border: 1px solid $indigo;
         box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
       }
       &.#{$input-prefix}--disabled {
-        background: #f9fafb;
+        background-color: #f9fafb;
         border: 1px solid $sky;
       }
     }
@@ -117,6 +118,7 @@ $input-prefix: '#{$prefix}-input';
       }
     }
     &.#{$input-prefix}--border-type-none {
+      padding: 0;
       border: none;
     }
 

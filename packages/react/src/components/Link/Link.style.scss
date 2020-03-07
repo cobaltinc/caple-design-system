@@ -11,6 +11,7 @@ $link-prefix: '#{$prefix}-link';
   color: $indigo;
   outline: none;
   transition: color $duration-fast $ease-in;
+  cursor: pointer;
 
   &.#{$link-prefix}--size-large {
     font-size: $text-size-large;

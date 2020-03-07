@@ -42,7 +42,8 @@ export default ({
 
   return (
     <button className={classNames} style={style} disabled={!!disabled} onClick={onClick}>
-      {loading ? <Spinner color={spinnerColor} size={spinnerSize} /> : children}
+      {loading ? <Spinner color={spinnerColor} size={spinnerSize} /> : null}
+      <div style={{opacity: loading ? 0 : 1, height: loading ? 0 : 'auto'}}>{children}</div>
     </button>
   );
 };
