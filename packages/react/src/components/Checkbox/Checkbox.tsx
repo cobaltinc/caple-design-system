@@ -8,6 +8,7 @@ export interface CheckboxProps {
   label?: string;
   value?: string;
   checked?: boolean;
+  block?: boolean;
   error?: boolean;
   disabled?: boolean;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
@@ -15,7 +16,7 @@ export interface CheckboxProps {
   style?: React.CSSProperties;
 }
 
-export default ({ name, label, value, checked = false, error = false, disabled = false, onChange, className = '', style }: CheckboxProps) => {
+export default ({ name, label, value, checked = false, block = false, error = false, disabled = false, onChange, className = '', style }: CheckboxProps) => {
   const { useState, useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-checkbox`;
@@ -28,6 +29,7 @@ export default ({ name, label, value, checked = false, error = false, disabled =
 
   const classNames = classnames(classPrefix, className, {
     [`${classPrefix}--disabled`]: disabled,
+    [`${classPrefix}--block`]: block,
   });
 
   return (

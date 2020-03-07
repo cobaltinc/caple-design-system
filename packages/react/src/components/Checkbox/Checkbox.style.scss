@@ -32,4 +32,8 @@ $checkbox-prefix: '#{$prefix}-checkbox';
   &.#{$checkbox-prefix}--disabled {
     cursor: not-allowed;
   }
+
+  &.#{$checkbox-prefix}--block {
+    display: flex;
+  }
 }
