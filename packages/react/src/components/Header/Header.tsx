@@ -5,7 +5,7 @@ import { warning } from '../../utils';
 import './Header.style.scss';
 
 export interface HeaderProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   level: number;
   strong?: boolean;
   underline?: boolean;
