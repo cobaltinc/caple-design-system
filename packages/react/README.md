@@ -1,6 +1,7 @@
 # @caple-ui/react
 
 [![](https://badgen.net/npm/v/@caple-ui/react?icon=npm)](https://www.npmjs.com/package/@caple-ui/react)
+[![NPM downloads](http://img.shields.io/npm/dm/@caple-ui/react.svg)](http://npmjs.com/@caple-ui/react)
 
 > Caple Design System UI for React components.
 
