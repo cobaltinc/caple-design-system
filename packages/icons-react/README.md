@@ -1,6 +1,7 @@
 # @caple-ui/icons-react
 
 [![](https://badgen.net/npm/v/@caple-ui/icons-react?icon=npm)](https://www.npmjs.com/package/@caple-ui/icons-react)
+[![NPM downloads](http://img.shields.io/npm/dm/@caple-ui/icons-react.svg)](http://npmjs.com/@caple-ui/icons-react)
 
 > Iconography assets for React
 
