@@ -23,5 +23,5 @@ export default ({ children, className = '', style }: TableHeadProps) => {
     });
   });
 
-  return <thead className={classNames}>{cells}</thead>;
+  return <thead className={classNames}><tr>{cells}</tr></thead>;
 };

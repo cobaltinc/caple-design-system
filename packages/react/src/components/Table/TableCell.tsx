@@ -5,7 +5,7 @@ import './Table.style.scss';
 
 export interface TableCellProps {
   children: React.ReactNode;
-  type: 'td' | 'th';
+  type?: 'td' | 'th';
   className?: string;
   style?: React.CSSProperties;
 }
@@ -16,5 +16,7 @@ export default ({ children, type = 'td', className = '', style }: TableCellProps
   const classPrefix = `${prefix}-table-cell`;
   const classNames = classnames(classPrefix, className);
 
-  return <td className={classNames}>{children}</td>;
+  const Tag = type;
+
+  return <Tag className={classNames}>{children}</Tag>;
 };
