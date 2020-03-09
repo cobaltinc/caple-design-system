@@ -6,6 +6,9 @@ $col-prefix: '#{$prefix}-col';
 .#{$row-prefix} {
   position: relative;
   display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
   box-sizing: border-box;
 
   &.#{$row-prefix}--justify-center {
@@ -32,11 +35,12 @@ $col-prefix: '#{$prefix}-col';
 }
 
 .#{$col-prefix} {
-  // float: left;
+  max-width: 100%;
   box-sizing: border-box;
 
-  &.#{$col-prefix}--col-1 {
-    width: auto;
+  &.#{$col-prefix}--col-0 {
+    flex-grow: 1;
+    flex-basis: 0;
   }
   &.#{$col-prefix}--col-1 {
     width: 6.25%;

@@ -98,7 +98,22 @@ const Select: ISelect<SelectProps> = ({
     }
   }, [handleClickOutside]);
 
-  const options = convertReactNodeTo<typeof SelectOption>('Select', 'Select.Option', children);
+  const options = convertReactNodeTo<typeof SelectOption>('Select', 'Select.Option', children).map((element, index) => {
+    const props = (element as React.ReactElement<SelectOptionProps>).props;
+    const title = concatReactNodeToString(props.children);
+    const handleOptionClick = () => {
+      if (!disabled) {
+        setActive({
+          key: index,
+          title,
+          value: props.value,
+        });
+        onChange?.(props.value);
+      }
+    };
+
+    return SelectOption.render({ ...props, key: index, selected: active?.key === index, onClick: handleOptionClick });
+  });
 
   return (
     <div className={classnames(`${classPrefix}--container`, className, { [`${classPrefix}--block`]: block })} style={style}>
@@ -121,36 +136,10 @@ const Select: ISelect<SelectProps> = ({
       </div>
 
       <FadeTransition show={focused}>
+        {focused ?
         <div className={`${classPrefix}--options`}>
-          {options.map((element, index) => {
-            const props = (element as React.ReactElement<SelectOptionProps>).props;
-            const title = concatReactNodeToString(props.children);
-
-            const handleOptionClick = () => {
-              if (!disabled) {
-                setActive({
-                  key: index,
-                  title,
-                  value: props.value,
-                });
-                onChange?.(props.value);
-              }
-            };
-
-            return (
-              <div
-                className={classnames(`${classPrefix}-option`, {
-                  [`${classPrefix}-option--selected`]: active?.key === index,
-                  [`${classPrefix}-option--disabled`]: disabled,
-                })}
-                key={index}
-                onClick={handleOptionClick}
-              >
-                {props.children}
-              </div>
-            );
-          })}
-        </div>
+          {options}
+        </div> : null}
       </FadeTransition>
     </div>
   );

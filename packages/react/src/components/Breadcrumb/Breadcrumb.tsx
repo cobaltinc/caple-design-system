@@ -1,8 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
-import BreadcrumbItem from './BreadcrumbItem';
+import BreadcrumbItem, { BreadcrumbItemProps } from './BreadcrumbItem';
 import ConfigContext from '../_config/ConfigContext';
-import { warning } from '../../utils';
+import { convertReactNodeTo } from '../../utils';
 import './Breadcrumb.style.scss';
 
 export interface BreadcrumbProps {
@@ -21,19 +21,10 @@ const Breadcrumb: IBreadcrumb<BreadcrumbProps> = ({ children, className = '', st
   const classPrefix = `${prefix}-breadcrumb`;
   const classNames = classnames(classPrefix, className);
 
-  const crumbs = React.Children.toArray(children)
-    .filter((element: any) => {
-      if (React.isValidElement<typeof BreadcrumbItem>(element) === false) {
-        warning('Breadcrumb', "Only accepts Breadcrumb.Item as it's children.");
-        return false;
-      }
-
-      return true;
-    })
+  const crumbs = convertReactNodeTo<BreadcrumbItemProps>('Breadcrumb', 'Breadcrumb.Item', children)
     .map((element: any, index, elements) => {
-      return React.cloneElement(element, {
-        hasSeperator: index !== elements.length - 1,
-      });
+      const props = (element as React.ReactElement<BreadcrumbItemProps>).props;
+      return BreadcrumbItem.render({ ...props, key: index, hasSeperator: index !== elements.length - 1 });
     });
 
   return (

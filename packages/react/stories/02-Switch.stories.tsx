@@ -10,7 +10,7 @@ export default {
 export const Default = () => {
   return (
     <div style={{padding: 30}}>
-      <Switch title="Switch" value="value" />
+      <Switch title="Switch" value="value" onChange={(check, value) => console.log(check, value)} />
     </div>
   )
 };

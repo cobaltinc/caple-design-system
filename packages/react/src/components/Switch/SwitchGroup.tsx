@@ -84,7 +84,7 @@ export default ({ children, multiple = false, onChange, className = '', style }:
 
         return (
           <label className={`${switchClassPrefix}--container`} key={index}>
-            <input type="radio" defaultChecked={checkes[index]} value={props.value} name={props.name} />
+            <input type="checkbox" name={props.name} checked={checkes[index]} value={props.value} onChange={() => null} />
             <button
               className={classnames(switchClassPrefix, props.className)}
               style={props.style}

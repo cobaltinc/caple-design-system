@@ -34,8 +34,8 @@ const Switch: ISwitch<SwitchProps> = ({ title, value, name, checked = false, dis
 
   return (
     <label className={`${classPrefix}--container`}>
-      <input type="radio" defaultChecked={check} value={value} name={name} />
-      <button className={classNames} style={style} disabled={!!disabled} onClick={handleClick}>
+      <input type="checkbox" name={name} checked={check} disabled={disabled} value={value} onChange={() => null} />
+      <button className={classNames} style={style} disabled={disabled} onClick={handleClick}>
         {title}
       </button>
     </label>

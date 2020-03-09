@@ -28,15 +28,15 @@ export default ({ children, span = 0, offset = 0, order, className = '', style }
             const horizontalGutter = gutter[0];
             const verticalGutter = gutter[1];
             gutterStyle = {
-              marginTop: `${verticalGutter / 2}px`,
-              marginBottom: `${verticalGutter / 2}px`,
-              marginLeft: `${horizontalGutter / 2}px`,
-              marginRight: `${horizontalGutter / 2}px`,
+              paddingTop: `${verticalGutter / 2}px`,
+              paddingBottom: `${verticalGutter / 2}px`,
+              paddingLeft: `${horizontalGutter / 2}px`,
+              paddingRight: `${horizontalGutter / 2}px`,
             };
           } else {
             gutterStyle = {
-              marginLeft: `${gutter / 2}px`,
-              marginRight: `${gutter / 2}px`,
+              paddingLeft: `${gutter / 2}px`,
+              paddingRight: `${gutter / 2}px`,
             };
           }
         }

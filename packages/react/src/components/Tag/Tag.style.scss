@@ -6,13 +6,14 @@
 $tag-prefix: '#{$prefix}-tag';
 
 .#{$tag-prefix} {
-  display: inline-block;
+  display: inline-flex;
   padding: 6px 8px;
+  align-items: center;
   color: $indigo;
   border-radius: 2px;
   border: 1px solid $indigo;
   transition: color $duration-fast $ease-in, border $duration-fast $ease-in;
-  cursor: pointer;
+  cursor: default;
 
   &.#{$tag-prefix}--size-large {
     font-size: $text-size-large;
@@ -29,25 +30,21 @@ $tag-prefix: '#{$prefix}-tag';
     border: 1px solid $indigo-dark;
   }
 
-  &:active {
-    color: $indigo-darker;
-    border: 1px solid $indigo-darker;
-  }
-
   &.#{$tag-prefix}--disabled {
     color: $ink-light;
     border: 1px solid $ink-light;
     cursor: not-allowed;
-    pointer-events: none;
-    touch-action: none;
   }
 
   .#{$tag-prefix}--delete {
     margin-left: 4px;
-    transition: transform $duration-fast;
+    vertical-align: middle;
+    opacity: 0.8;
+    transition: opacity $duration-fast;
+    cursor: pointer;
 
     &:hover {
-      transform: scale(1.1);
+      opacity: 1;
     }
   }
 }

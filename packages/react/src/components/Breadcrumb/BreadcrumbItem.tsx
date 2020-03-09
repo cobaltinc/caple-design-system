@@ -12,12 +12,20 @@ export interface BreadcrumbItemProps {
   children: React.ReactNode;
   href?: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
-  hasSeperator?: boolean;
   className?: string;
   style?: React.CSSProperties;
+};
+
+export interface BreadcrumbItemRenderProps {
+  key: string | number;
+  hasSeperator: boolean;
 }
 
-const BreadcrumbItem = ({ children, href, onClick, hasSeperator, className = '', style }: BreadcrumbItemProps) => {
+const BreadcrumbItem = (_: BreadcrumbItemProps) => {
+  return null;
+};
+
+BreadcrumbItem.render = ({ children, href, onClick, key, hasSeperator, className = '', style }: BreadcrumbItemProps & BreadcrumbItemRenderProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-breadcrumb-item`;
@@ -26,7 +34,7 @@ const BreadcrumbItem = ({ children, href, onClick, hasSeperator, className = '',
   const isIcon = React.isValidElement<IconProps | IconFeatherProps>(children);
 
   return (
-    <span className={classNames}>
+    <span key={key} className={classNames}>
       <a href={href} className={`${classPrefix}--text`} style={style} onClick={onClick}>
         {isIcon ? (
           React.cloneElement(children as React.ReactElement<IconProps | IconFeatherProps>, { size: 20, color: '#637381' })
