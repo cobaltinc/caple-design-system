@@ -49,14 +49,14 @@ export const ${toPascalCase(icon)} = (props: any) => {
   const { color, size, ...otherProps } = props;
   return (
     <svg ${attrsToString(defaultAttrs)}>
-    ${kebabToCamel(
-      readFileSync(`./src/svgs/${icon}.svg`)
-        .toString()
-        .split('\n')
-        .splice(1)
-        .join('\n')
-        .trim(),
-    )}
+      ${kebabToCamel(
+        readFileSync(`./src/svgs/${icon}.svg`)
+          .toString()
+          .split('\n')
+          .splice(1)
+          .join('\n\t\t')
+          .trim(),
+      )}
   );
 };`;
     })
