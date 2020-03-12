@@ -44,7 +44,7 @@ module.exports = [
         },
       }),
       sass({
-        insert: true,
+        output: true,
       }),
       strip(),
       url(),
