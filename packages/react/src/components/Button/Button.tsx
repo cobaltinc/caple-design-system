@@ -12,6 +12,7 @@ export interface ButtonProps {
   type?: ButtonType;
   size?: ButtonSizeType;
   block?: boolean;
+  ghost?: boolean;
   disabled?: boolean;
   loading?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -23,9 +24,10 @@ export default ({
   children,
   type = 'basic',
   size = 'normal',
-  block = false,
-  disabled = false,
-  loading = false,
+  block,
+  ghost,
+  disabled,
+  loading,
   onClick,
   className = '',
   style,
@@ -34,6 +36,7 @@ export default ({
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-button`;
   const classNames = classnames(classPrefix, `${classPrefix}--type-${type}`, `${classPrefix}--size-${size}`, className, {
+    [`${classPrefix}--ghost`]: ghost,
     [`${classPrefix}--block`]: block,
   });
 
@@ -41,7 +44,7 @@ export default ({
   const spinnerSize = size === 'mini' ? 13 : size === 'small' ? 14 : size === 'normal' ? 18 : size === 'large' ? 26 : 32;
 
   return (
-    <button className={classNames} style={style} disabled={!!disabled} onClick={onClick}>
+    <button className={classNames} style={style} disabled={disabled} onClick={onClick}>
       {loading ? <Spinner color={spinnerColor} size={spinnerSize} /> : null}
       <div style={{opacity: loading ? 0 : 1, height: loading ? 0 : 'auto'}}>{children}</div>
     </button>
