@@ -24,6 +24,7 @@
   },
   "exclude": [
     "node_modules",
+    "stories",
     "dist"
   ],
   "include": [

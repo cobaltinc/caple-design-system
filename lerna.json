@@ -11,6 +11,7 @@
     "**/docs/**",
     "**/e2e/**",
     "**/examples/**",
+    "**/stories/**",
     "**/*.md"
   ],
   "packages": [
