@@ -1,13 +1,16 @@
 import React from 'react';
 import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
-import './Menu.style.scss';
+import Text from '../Text';
 import { IconProps } from '../Icon/Icon';
 import { IconFeatherProps } from '../Icon/IconFeather';
+import './Menu.style.scss';
 
 export interface MenuItemProps {
   icon?: React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
+  iconSize?: number;
   title: string;
+  fontSize?: number;
   disabled?: boolean;
   active?: boolean;
   onClick?(event: React.MouseEvent<HTMLDivElement>): void;
@@ -19,7 +22,7 @@ const MenuItem = (props: MenuItemProps) => {
   return MenuItem.render(props);
 };
 
-MenuItem.render = ({ icon, title, disabled, active, onClick, className = '', style }: MenuItemProps) => {
+MenuItem.render = ({ icon, iconSize = 20, fontSize = 14, title, disabled, active, onClick, className = '', style }: MenuItemProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-menu-item`;
@@ -30,8 +33,8 @@ MenuItem.render = ({ icon, title, disabled, active, onClick, className = '', sty
 
   return (
     <div className={classNames} style={style} onClick={onClick}>
-      {icon ? React.cloneElement(icon, { size: 20, className: `${classPrefix}--icon` }) : null}
-      <span className={`${classPrefix}--title`}>{title}</span>
+      {icon ? React.cloneElement(icon, { size: iconSize, className: `${classPrefix}--icon` }) : null}
+      <Text size={fontSize} className={`${classPrefix}--title`}>{title}</Text>
     </div>
   );
 };
