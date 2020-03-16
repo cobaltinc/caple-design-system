@@ -5,11 +5,12 @@ import Spinner from '../Spinner';
 import './Button.style.scss';
 
 export type ButtonType = 'basic' | 'primary' | 'destructive';
+export type ButtonHtmlType = 'button' | 'submit' | 'reset';
 export type ButtonSizeType = 'mini' | 'small' | 'normal' | 'large' | 'xlarge';
 
 export interface ButtonProps {
   children: React.ReactNode;
-  htmlType?: string;
+  htmlType?: ButtonHtmlType;
   type?: ButtonType;
   size?: ButtonSizeType;
   block?: boolean;
