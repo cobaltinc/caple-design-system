@@ -1,5 +1,6 @@
 @import '../../styles/base/core';
 @import '../../styles/variables/color';
+@import '../../styles/variables/motion';
 
 $button-prefix: '#{$prefix}-button';
 
@@ -11,6 +12,7 @@ $button-prefix: '#{$prefix}-button';
   border: none;
   outline: none;
   cursor: pointer;
+  transition: box-shadow $duration-moderate;
 
   &.#{$button-prefix}--type-basic {
     color: #212b36;
@@ -31,6 +33,28 @@ $button-prefix: '#{$prefix}-button';
       border: solid 1px #dfe3e8;
       background-image: none;
       background-color: #f9fafb;
+    }
+
+    &.#{$button-prefix}--ghost {
+      color: $ink-light;
+      border: solid 1px $ink-light;
+      background-image: none;
+      background-color: transparent;
+
+      &:hover {
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+      }
+  
+      &:active {
+        color: $ink;
+        border: solid 1px $ink;
+      }
+
+      &:disabled {
+        color: $ink-lightest;
+        border: solid 1px $ink-lightest;
+        box-shadow: none;
+      }
     }
   }
   &.#{$button-prefix}--type-primary {
@@ -54,6 +78,28 @@ $button-prefix: '#{$prefix}-button';
       background-image: none;
       background-color: #bec3e7;
     }
+
+    &.#{$button-prefix}--ghost {
+      color: $indigo;
+      border: solid 1px $indigo;
+      background-image: none;
+      background-color: transparent;
+
+      &:hover {
+        box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+      }
+  
+      &:active {
+        color: #3e4bb1;
+        border: solid 1px #3e4bb1;
+      }
+
+      &:disabled {
+        color: $indigo-light;
+        border: solid 1px $indigo-light;
+        box-shadow: none;
+      }
+    }
   }
   &.#{$button-prefix}--type-destructive {
     color: white;
@@ -72,6 +118,28 @@ $button-prefix: '#{$prefix}-button';
     &:disabled {
       border: solid 1px #db9586;
       background-image: linear-gradient(to bottom, #fdac9a, #f2a594);
+    }
+
+    &.#{$button-prefix}--ghost {
+      color: #e33719;
+      border: solid 1px #e33719;
+      background-image: none;
+      background-color: transparent;
+
+      &:hover {
+        box-shadow: 0 0 0 2px rgba(255, 24, 24, 0.2);
+      }
+  
+      &:active {
+        color: #bc2206;
+        border: solid 1px #bc2206;
+      }
+
+      &:disabled {
+        color: $red-light;
+        border: solid 1px $red-light;
+        box-shadow: none;
+      }
     }
   }
 

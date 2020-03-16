@@ -74,6 +74,56 @@ export const Size = () => {
   )
 };
 
+export const Ghost = () => {
+  return (
+    <div style={{padding: 30}}>
+      <Header level={4}>Basic</Header>
+      <Button type="basic" size="mini" ghost>Mini</Button>
+      <Spacer type="vertical" size={20} />
+      <Button type="basic" size="small" ghost>Small</Button>
+      <Spacer type="vertical" size={20} />
+      <Button type="basic" size="normal" ghost>Normal</Button>
+      <Spacer type="vertical" size={20} />
+      <Button type="basic" size="large" ghost>Large</Button>
+      <Spacer type="vertical" size={20} />
+      <Button type="basic" size="xlarge" ghost>xLarge</Button>
+      <Spacer type="vertical" size={20} />
+      <Button type="basic" size="normal" ghost disabled>Normal Disabled</Button>
+
+      <Spacer type="horizontal" size={20} />
+      
+      <Header level={4}>Primary</Header>
+      <Button type="primary" size="mini" ghost>Mini</Button>
+      <Spacer type="vertical" size={20} />
+      <Button type="primary" size="small" ghost>Small</Button>
+      <Spacer type="vertical" size={20} />
+      <Button type="primary" size="normal" ghost>Normal</Button>
+      <Spacer type="vertical" size={20} />
+      <Button type="primary" size="large" ghost>Large</Button>
+      <Spacer type="vertical" size={20} />
+      <Button type="primary" size="xlarge" ghost>xLarge</Button>
+      <Spacer type="vertical" size={20} />
+      <Button type="primary" size="normal" ghost disabled>Primary Disabled</Button>
+
+      <Spacer type="horizontal" size={20} />
+      
+      <Header level={4}>Destructive</Header>
+      <Button type="destructive" size="mini" ghost>Mini</Button>
+      <Spacer type="vertical" size={20} />
+      <Button type="destructive" size="small" ghost>Small</Button>
+      <Spacer type="vertical" size={20} />
+      <Button type="destructive" size="normal" ghost>Normal</Button>
+      <Spacer type="vertical" size={20} />
+      <Button type="destructive" size="large" ghost>Large</Button>
+      <Spacer type="vertical" size={20} />
+      <Button type="destructive" size="xlarge" ghost>xLarge</Button>
+      <Spacer type="vertical" size={20} />
+      <Button type="destructive" size="normal" ghost disabled>Destructive Disabled</Button>
+    </div>
+  )
+};
+
+
 export const Disabled = () => {
   return (
     <div style={{padding: 30}}>

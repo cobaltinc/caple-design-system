@@ -1,1 +1,4 @@
-**/scripts/**
+stories/
+src/
+.storybook
+docs/
