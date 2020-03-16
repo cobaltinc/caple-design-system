@@ -9,6 +9,7 @@ export type ButtonSizeType = 'mini' | 'small' | 'normal' | 'large' | 'xlarge';
 
 export interface ButtonProps {
   children: React.ReactNode;
+  htmlType?: string;
   type?: ButtonType;
   size?: ButtonSizeType;
   block?: boolean;
@@ -22,6 +23,7 @@ export interface ButtonProps {
 
 export default ({
   children,
+  htmlType,
   type = 'basic',
   size = 'normal',
   block,
@@ -44,9 +46,9 @@ export default ({
   const spinnerSize = size === 'mini' ? 13 : size === 'small' ? 14 : size === 'normal' ? 18 : size === 'large' ? 26 : 32;
 
   return (
-    <button className={classNames} style={style} disabled={disabled} onClick={onClick}>
+    <button type={htmlType} className={classNames} style={style} disabled={disabled} onClick={onClick}>
       {loading ? <Spinner color={spinnerColor} size={spinnerSize} /> : null}
-      <div style={{opacity: loading ? 0 : 1, height: loading ? 0 : 'auto'}}>{children}</div>
+      <div style={{ opacity: loading ? 0 : 1, height: loading ? 0 : 'auto' }}>{children}</div>
     </button>
   );
 };
