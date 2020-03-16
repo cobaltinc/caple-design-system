@@ -105,6 +105,14 @@ $input-prefix: '#{$prefix}-input';
         background-color: #f9fafb;
         border: 1px solid $sky;
       }
+      &.#{$input-prefix}--error {
+        background-color: #FBEAE5;
+        border: 1px solid #DE3617;
+
+        &.#{$input-prefix}--focused {
+          box-shadow: 0 0 0 2px rgba(255, 24, 24, 0.2);
+        }
+      }
     }
     &.#{$input-prefix}--border-type-underline {
       padding: 0;
@@ -115,6 +123,9 @@ $input-prefix: '#{$prefix}-input';
       }
       &.#{$input-prefix}--disabled {
         border-color: $sky;
+      }
+      &.#{$input-prefix}--error {
+        border-color: #DE3617;
       }
     }
     &.#{$input-prefix}--border-type-none {

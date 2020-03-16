@@ -36,6 +36,7 @@ export interface InputProps extends InputEvent {
   align?: InputAlignType;
   prefix?: string | React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
   subfix?: string | React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
+  error?: boolean;
   loading?: boolean;
   className?: string;
   style?: React.CSSProperties;
@@ -65,6 +66,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
       align,
       prefix,
       subfix,
+      error,
       loading,
       onInput,
       onFocus,
@@ -91,6 +93,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
     const inputClassNames = classnames(classPrefix, inputClassName, `${classPrefix}--size-${size}`, `${classPrefix}--border-type-${borderType}`, {
       [`${classPrefix}--disabled`]: disabled,
       [`${classPrefix}--focused`]: focused,
+      [`${classPrefix}--error`]: error,
     });
 
     const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {

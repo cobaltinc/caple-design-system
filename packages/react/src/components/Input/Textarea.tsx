@@ -34,6 +34,7 @@ export interface TextareaProps extends TextareaEvent {
   resizeType?: TextareaResizeType;
   rows?: number;
   autoSize?: boolean;
+  error?: boolean;
   loading?: boolean;
   className?: string;
   style?: React.CSSProperties;
@@ -50,11 +51,12 @@ export default ({
   name,
   borderType = 'border',
   autoFocus,
-  disabled = false,
+  disabled,
   align,
   resizeType = 'vertical',
   rows = 1,
   autoSize = false,
+  error,
   loading,
   onInput,
   onFocus,
@@ -81,6 +83,7 @@ export default ({
   const textareaClassNames = classnames(classPrefix, textareaClassName, `${classPrefix}--border-type-${borderType}`, {
     [`${classPrefix}--disabled`]: disabled,
     [`${classPrefix}--focused`]: focused,
+    [`${classPrefix}--error`]: error,
   });
 
   const handleFocus = (event: React.FocusEvent<HTMLTextAreaElement>) => {
