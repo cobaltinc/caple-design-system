@@ -9,8 +9,8 @@ export default {
   title: 'Grid',
 };
 
-const Container = ({ name = 'Col', height = 16 }) => (
-  <div style={{padding: `${height / 2}px 0`, textAlign: 'center', color: '#fff', backgroundColor: '#5c6ac4', borderRadius: 8}}>
+const Container = ({ name = 'Col', height = 16, color = '#5c6ac4' }) => (
+  <div style={{padding: `${height / 2}px 0`, textAlign: 'center', color: '#fff', backgroundColor: color, borderRadius: 8}}>
     {name}
   </div>
 );
@@ -42,19 +42,39 @@ export const AutoWidth = () => {
   return (
     <div style={{padding: 30}}>
       <Row>
-        <Col>
+        <Col auto>
           <Container />
         </Col>
-        <Col>
+        <Col auto>
           <Container />
         </Col>
-        <Col>
+        <Col auto>
           <Container />
         </Col>
-        <Col>
+        <Col auto>
           <Container />
         </Col>
-        <Col>
+        <Col auto>
+          <Container />
+        </Col>
+      </Row>
+
+      <Spacer size={40} />
+
+      <Row>
+        <Col span={7}>
+          <Container />
+        </Col>
+        <Col auto>
+          <Container />
+        </Col>
+        <Col span={1}>
+          <Container />
+        </Col>
+        <Col auto>
+          <Container />
+        </Col>
+        <Col auto>
           <Container />
         </Col>
       </Row>
@@ -62,6 +82,68 @@ export const AutoWidth = () => {
   )
 };
 
+export const Flex = () => {
+  const { Row, Col } = Grid;
+  return (
+    <div style={{padding: 30}}>
+      <Row>
+        <Col flex="200px">
+          <Container name="200px" />
+        </Col>
+        <Col flex="auto">
+          <Container name="Auto" />
+        </Col>
+      </Row>
+
+      <Spacer size={40} />
+
+      <Row>
+        <Col flex={3}>
+          <Container name="3 / 10" />
+        </Col>
+        <Col flex={7}>
+          <Container name="7 / 10" />
+        </Col>
+      </Row>
+
+      <Spacer size={40} />
+
+      <Row>
+        <Col flex="1 1 200px">
+          <Container name="1 1 200px" />
+        </Col>
+        <Col flex="0 1 300px">
+          <Container name="0 1 300px" />
+        </Col>
+      </Row>
+    </div>
+  )
+};
+
+export const Order = () => {
+  const { Row, Col } = Grid;
+  return (
+    <div style={{padding: 30}}>
+      <Row>
+        <Col span={1} order={3}>
+          <Container name="Col-1, Order 3" />
+        </Col>
+        <Col span={2} order={1}>
+          <Container name="Col-2, Order 1" />
+        </Col>
+        <Col span={3} order={5}>
+          <Container name="Col-3, Order 5" />
+        </Col>
+        <Col span={4} order={2}>
+          <Container name="Col-4, Order 2" />
+        </Col>
+        <Col span={6} order={4}>
+          <Container name="Col-6, Order 4" />
+        </Col>
+      </Row>
+    </div>
+  )
+};
 
 export const Gutter = () => {
   const { Row, Col } = Grid;
@@ -244,6 +326,45 @@ export const Align = () => {
       </Row>
 
       <Spacer size={40} />
+    </div>
+  )
+};
+
+export const Responsive = () => {
+  const { Row, Col } = Grid;
+  return (
+    <div style={{padding: 30}}>
+      <Row>
+        <Col xs={1} sm={2} md={4} lg={7} xl={5} xxl={6}>
+          <Container name="Col" />
+        </Col>
+        <Col xs={2} sm={3} md={4} lg={7} xl={5} xxl={1}>
+          <Container name="Col" />
+        </Col>
+        <Col xs={3} sm={5} md={4} lg={1} xl={3} xxl={6}>
+          <Container name="Col" />
+        </Col>
+        <Col xs={10} sm={6} md={4} lg={1} xl={3} xxl={3}>
+          <Container name="Col" />
+        </Col>
+      </Row>
+
+      <Spacer size={40} />
+
+      <Row>
+        <Col xs={{span: 1, order: 2}} span={4}>
+          <Container name="Col" color="#a00" />
+        </Col>
+        <Col xs={{span: 2, order: 1}} span={4}>
+          <Container name="Col" color="#0a0" />
+        </Col>
+        <Col xs={{span: 3, order: 4}} span={4}>
+          <Container name="Col" color="#00a" />
+        </Col>
+        <Col xs={{span: 4, order: 3}} span={4}>
+          <Container name="Col" />
+        </Col>
+      </Row>
     </div>
   )
 };
