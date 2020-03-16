@@ -25,8 +25,19 @@ export default ({ children, size = 'normal', href, target = '_blank', disabled =
     [`${classPrefix}--disabled`]: disabled,
   });
   const Tag = disabled ? 'span' : 'a';
+
+  const fontStyle: React.CSSProperties = {
+    fontSize: typeof size === 'number' ? size : undefined,
+  };
+
   return (
-    <Tag href={disabled ? undefined : href} target={disabled ? undefined : target} className={classNames} style={style} onClick={onClick}>
+    <Tag
+      href={disabled ? undefined : href}
+      target={disabled ? undefined : target}
+      className={classNames}
+      style={{ ...style, ...fontStyle }}
+      onClick={onClick}
+    >
       {children}
     </Tag>
   );
