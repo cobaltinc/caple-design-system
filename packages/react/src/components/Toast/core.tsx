@@ -13,14 +13,6 @@ class ToastCore {
   createToast?(message: string, option: ToastOptionType): void;
   portal: Element | null = null;
 
-  constructor() {
-    if (window) {
-      window.onload = () => {
-        this.createPortal();
-      };
-    }
-  }
-
   createPortal() {
     const portalId = `${config.prefix}-toast-portal`;
     const portalElement = document.getElementById(portalId);
@@ -47,6 +39,7 @@ class ToastCore {
   }
 
   show(message: string, option: ToastOptionType = { type: 'default', duration: 4500 }) {
+    this.createPortal();
     this.createToast?.(message, option);
   }
 

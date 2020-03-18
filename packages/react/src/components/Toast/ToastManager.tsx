@@ -37,9 +37,7 @@ const ToastArea = ({ bind }: ToastManagerProps) => {
     setToasts(oldToasts => oldToasts.filter(toast => toast.id !== id));
   };
 
-  useEffect(() => {
-    bind(createToast);
-  }, []);
+  bind(createToast);
 
   return (
     <>
