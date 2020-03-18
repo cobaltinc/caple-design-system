@@ -17,7 +17,7 @@ interface ModalProps {
   style?: React.CSSProperties;
 }
 
-export default ({ children, width = 500, visible = false, closable = true, zIndex = 1000, onClose, className = '', style }: ModalProps) => {
+export default ({ children, width = 500, height, visible = false, closable = true, zIndex = 1000, onClose, className = '', style }: ModalProps) => {
   const { useContext, useEffect, useState } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-modal`;
@@ -32,6 +32,7 @@ export default ({ children, width = 500, visible = false, closable = true, zInde
 
   const containerStyle = {
     width,
+    height,
     zIndex: zIndex + 1,
   };
 

@@ -22,34 +22,24 @@ export interface ButtonProps {
   style?: React.CSSProperties;
 }
 
-export default ({
-  children,
-  htmlType,
-  type = 'basic',
-  size = 'normal',
-  block,
-  ghost,
-  disabled,
-  loading,
-  onClick,
-  className = '',
-  style,
-}: ButtonProps) => {
-  const { useContext } = React;
-  const { prefix } = useContext(ConfigContext);
-  const classPrefix = `${prefix}-button`;
-  const classNames = classnames(classPrefix, `${classPrefix}--type-${type}`, `${classPrefix}--size-${size}`, className, {
-    [`${classPrefix}--ghost`]: ghost,
-    [`${classPrefix}--block`]: block,
-  });
+export default React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ children, htmlType, type = 'basic', size = 'normal', block, ghost, disabled, loading, onClick, className = '', style }, ref) => {
+    const { useContext } = React;
+    const { prefix } = useContext(ConfigContext);
+    const classPrefix = `${prefix}-button`;
+    const classNames = classnames(classPrefix, `${classPrefix}--type-${type}`, `${classPrefix}--size-${size}`, className, {
+      [`${classPrefix}--ghost`]: ghost,
+      [`${classPrefix}--block`]: block,
+    });
 
-  const spinnerColor = type === 'basic' ? '#637381' : 'white';
-  const spinnerSize = size === 'mini' ? 13 : size === 'small' ? 14 : size === 'normal' ? 18 : size === 'large' ? 26 : 32;
+    const spinnerColor = type === 'basic' ? '#637381' : 'white';
+    const spinnerSize = size === 'mini' ? 13 : size === 'small' ? 14 : size === 'normal' ? 18 : size === 'large' ? 26 : 32;
 
-  return (
-    <button type={htmlType} className={classNames} style={style} disabled={disabled} onClick={onClick}>
-      {loading ? <Spinner color={spinnerColor} size={spinnerSize} /> : null}
-      <div style={{ opacity: loading ? 0 : 1, height: loading ? 0 : 'auto' }}>{children}</div>
-    </button>
-  );
-};
+    return (
+      <button ref={ref} type={htmlType} className={classNames} style={style} disabled={disabled} onClick={onClick}>
+        {loading ? <Spinner color={spinnerColor} size={spinnerSize} /> : null}
+        <div style={{ opacity: loading ? 0 : 1, height: loading ? 0 : 'auto' }}>{children}</div>
+      </button>
+    );
+  },
+);

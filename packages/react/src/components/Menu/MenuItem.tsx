@@ -22,7 +22,7 @@ const MenuItem = (props: MenuItemProps) => {
   return MenuItem.render(props);
 };
 
-MenuItem.render = ({ icon, iconSize = 20, fontSize = 14, title, disabled, active, onClick, className = '', style }: MenuItemProps) => {
+MenuItem.render = ({ icon, iconSize = 24, fontSize = 14, title, disabled, active, onClick, className = '', style }: MenuItemProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-menu-item`;
@@ -34,7 +34,9 @@ MenuItem.render = ({ icon, iconSize = 20, fontSize = 14, title, disabled, active
   return (
     <div className={classNames} style={style} onClick={onClick}>
       {icon ? React.cloneElement(icon, { size: iconSize, className: `${classPrefix}--icon` }) : null}
-      <Text size={fontSize} className={`${classPrefix}--title`}>{title}</Text>
+      <Text size={fontSize} className={`${classPrefix}--title`}>
+        {title}
+      </Text>
     </div>
   );
 };

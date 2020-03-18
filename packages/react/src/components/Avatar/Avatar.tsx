@@ -13,7 +13,7 @@ export interface AvatarProps {
   style?: React.CSSProperties;
 }
 
-export default ({ size = 80, shape = 'circle', src, text, alt, className = '', style }: AvatarProps) => {
+export default React.forwardRef<HTMLSpanElement, AvatarProps>(({ size = 80, shape = 'circle', src, text, alt, className = '', style }, ref) => {
   const { useContext, useState, useRef, useEffect } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-avatar`;
@@ -58,8 +58,8 @@ export default ({ size = 80, shape = 'circle', src, text, alt, className = '', s
     height: size,
   };
   return (
-    <span className={classNames} style={{ ...sizeStyle, ...style }}>
+    <span ref={ref} className={classNames} style={{ ...sizeStyle, ...style }}>
       {children}
     </span>
   );
-};
+});

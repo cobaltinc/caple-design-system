@@ -8,6 +8,7 @@ $link-prefix: '#{$prefix}-link';
 .#{$link-prefix} {
   display: inline;
   text-decoration: none;
+  vertical-align: middle;
   color: $indigo;
   outline: none;
   transition: color $duration-fast $ease-in;
