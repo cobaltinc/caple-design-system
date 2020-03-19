@@ -31,6 +31,7 @@ export const Default = () => {
     'Select',
     'Spacer',
     'Spinner',
+    'Step',
     'Switch',
     'Tab',
     'Text',

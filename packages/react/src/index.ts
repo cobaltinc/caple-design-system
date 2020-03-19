@@ -27,6 +27,7 @@ export { default as Popover } from './components/Popover';
 export { default as Select } from './components/Select';
 export { default as Spacer } from './components/Spacer';
 export { default as Spinner } from './components/Spinner';
+export { default as Step } from './components/Step';
 export { default as Switch } from './components/Switch';
 export { default as Tab } from './components/Tab';
 export { default as Table } from './components/Table';

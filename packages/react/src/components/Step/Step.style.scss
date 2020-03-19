@@ -1,0 +1,74 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/color';
+
+$step-prefix: '#{$prefix}-step';
+
+.#{$step-prefix} {
+  display: inline-flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  overflow: hidden;
+
+  .#{$step-prefix}-item--line {
+    position: relative;
+    display: block;
+    width: 100%;
+    flex: 1;
+    list-style-type: none;
+
+    &:before {
+      content: '';
+      position: absolute;
+      // left: -14px;
+      // right: -14px;
+      top: 10px;
+      display: block;
+      // width: calc(100% + 28px);
+      width: 100%;
+      height: 1px;
+      background-color: $border;
+      z-index: 0;
+    }
+
+    &:last-child {
+      display: none;
+    }
+  }
+
+  .#{$step-prefix}-item.#{$step-prefix}-item--done + .#{$step-prefix}-item--line {
+    &:before {
+      background-color: $indigo;
+    }
+  }
+
+  .#{$step-prefix}-item {
+    position: relative;
+    display: block;
+    color: $border;
+    list-style-type: none;
+
+    .#{$step-prefix}-item--icon {
+      position: relative;
+      display: block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: $border;
+      margin: 4px auto 7px auto;
+      z-index: 1;
+    }
+
+    &.#{$step-prefix}-item--done, &.#{$step-prefix}-item--active {
+      color: $indigo;
+
+      .#{$step-prefix}-item--icon {
+        width: 20px;
+        height: 20px;
+        background-color: $indigo;
+        margin: 0 auto 5px auto;
+      }
+    }
+  }
+}
