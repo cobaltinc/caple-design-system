@@ -17,4 +17,8 @@ $icon-prefix: '#{$prefix}-icon';
       transform: rotate(360deg);
     }
   }
+
+  svg {
+    display: block;
+  }
 }

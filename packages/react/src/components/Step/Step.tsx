@@ -24,14 +24,19 @@ const Step: ISwitch<StepProps> = ({ children, active = 0, loading, onChange, cla
   const classPrefix = `${prefix}-step`;
   const classNames = classnames(classPrefix, className);
 
-  const items = convertReactNodeTo<StepItemProps>('Step', 'Step.Item', children)
-    .map((element: any, index) => {
-      const props = (element as React.ReactElement<StepItemProps>).props;
-      return StepItem.render({ ...props, done: index + 1 < active, active: active === index + 1, loading: active === index + 1 && loading, key: index + 1 });
+  const items = convertReactNodeTo<StepItemProps>('Step', 'Step.Item', children).map((element: any, index) => {
+    const props = (element as React.ReactElement<StepItemProps>).props;
+    return StepItem.render({
+      ...props,
+      done: index + 1 < active,
+      active: active === index + 1,
+      loading: active === index + 1 && loading,
+      key: index + 1,
     });
+  });
 
   return (
-    <ul className={classNames}>
+    <ul className={classNames} style={style}>
       {items}
     </ul>
   );
