@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Menu
-} from '../src';
+import { Menu } from '../src';
 
 export default {
   title: 'Menu',
@@ -9,7 +7,7 @@ export default {
 
 export const Default = () => {
   return (
-    <div style={{padding: 30, maxWidth: 500}}>
+    <div style={{ padding: 30, maxWidth: 500 }}>
       <Menu>
         <Menu.Item title="Menu 1" />
         <Menu.Item title="Menu 2" />
@@ -18,12 +16,12 @@ export const Default = () => {
         <Menu.Item title="Menu 5" />
       </Menu>
     </div>
-  )
+  );
 };
 
 export const Disabled = () => {
   return (
-    <div style={{padding: 30, maxWidth: 500}}>
+    <div style={{ padding: 30, maxWidth: 500 }}>
       <Menu>
         <Menu.Item title="Menu 1" disabled />
         <Menu.Item title="Menu 2" disabled />
@@ -32,12 +30,12 @@ export const Disabled = () => {
         <Menu.Item title="Menu 5" />
       </Menu>
     </div>
-  )
+  );
 };
 
 export const Active = () => {
   return (
-    <div style={{padding: 30, maxWidth: 500}}>
+    <div style={{ padding: 30, maxWidth: 500 }}>
       <Menu defaultActive="Menu 3">
         <Menu.Item title="Menu 1" />
         <Menu.Item title="Menu 2" />
@@ -46,16 +44,16 @@ export const Active = () => {
         <Menu.Item title="Menu 5" />
       </Menu>
     </div>
-  )
+  );
 };
 
 export const Styling = () => {
   const menuItemStyle: React.CSSProperties = {
     color: 'red',
-    paddingLeft: 10
+    paddingLeft: 10,
   };
   return (
-    <div style={{padding: 30, maxWidth: 500}}>
+    <div style={{ padding: 30, maxWidth: 500 }}>
       <Menu defaultActive="Menu 3" itemHeight={30}>
         <Menu.Item title="Menu 1" style={menuItemStyle} />
         <Menu.Item title="Menu 2" style={menuItemStyle} />
@@ -64,5 +62,5 @@ export const Styling = () => {
         <Menu.Item title="Menu 5" style={menuItemStyle} />
       </Menu>
     </div>
-  )
+  );
 };

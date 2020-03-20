@@ -1,24 +1,18 @@
 import React from 'react';
-import {
-  Grid,
-  Header,
-  Spacer
-} from '../src';
+import { Grid, Header, Spacer } from '../src';
 
 export default {
   title: 'Grid',
 };
 
 const Container = ({ name = 'Col', height = 16, color = '#5c6ac4' }) => (
-  <div style={{padding: `${height / 2}px 0`, textAlign: 'center', color: '#fff', backgroundColor: color, borderRadius: 8}}>
-    {name}
-  </div>
+  <div style={{ padding: `${height / 2}px 0`, textAlign: 'center', color: '#fff', backgroundColor: color, borderRadius: 8 }}>{name}</div>
 );
 
 export const Default = () => {
   const { Row, Col } = Grid;
   return (
-    <div style={{padding: 30}}>
+    <div style={{ padding: 30 }}>
       <Row>
         <Col span={4}>
           <Container name="Col-4" />
@@ -34,13 +28,13 @@ export const Default = () => {
         </Col>
       </Row>
     </div>
-  )
+  );
 };
 
 export const AutoWidth = () => {
   const { Row, Col } = Grid;
   return (
-    <div style={{padding: 30}}>
+    <div style={{ padding: 30 }}>
       <Row>
         <Col auto>
           <Container />
@@ -79,13 +73,13 @@ export const AutoWidth = () => {
         </Col>
       </Row>
     </div>
-  )
+  );
 };
 
 export const Flex = () => {
   const { Row, Col } = Grid;
   return (
-    <div style={{padding: 30}}>
+    <div style={{ padding: 30 }}>
       <Row>
         <Col flex="200px">
           <Container name="200px" />
@@ -117,13 +111,13 @@ export const Flex = () => {
         </Col>
       </Row>
     </div>
-  )
+  );
 };
 
 export const Order = () => {
   const { Row, Col } = Grid;
   return (
-    <div style={{padding: 30}}>
+    <div style={{ padding: 30 }}>
       <Row>
         <Col span={1} order={3}>
           <Container name="Col-1, Order 3" />
@@ -142,14 +136,16 @@ export const Order = () => {
         </Col>
       </Row>
     </div>
-  )
+  );
 };
 
 export const Gutter = () => {
   const { Row, Col } = Grid;
   return (
-    <div style={{padding: 30}}>
-      <Header level={3} style={{marginBottom: 10}}>Horizontal Gutter</Header>
+    <div style={{ padding: 30 }}>
+      <Header level={3} style={{ marginBottom: 10 }}>
+        Horizontal Gutter
+      </Header>
       <Row gutter={20}>
         <Col span={4}>
           <Container name="Col-4" />
@@ -167,7 +163,9 @@ export const Gutter = () => {
 
       <Spacer size={40} />
 
-      <Header level={3} style={{marginBottom: 10}}>Vertical Gutter</Header>
+      <Header level={3} style={{ marginBottom: 10 }}>
+        Vertical Gutter
+      </Header>
       <Row gutter={[0, 20]}>
         <Col span={4}>
           <Container name="Col-4" />
@@ -194,7 +192,9 @@ export const Gutter = () => {
 
       <Spacer size={40} />
 
-      <Header level={3} style={{marginBottom: 10}}>Both</Header>
+      <Header level={3} style={{ marginBottom: 10 }}>
+        Both
+      </Header>
       <Row gutter={[20, 20]}>
         <Col span={12}>
           <Container name="Col-12" />
@@ -216,14 +216,16 @@ export const Gutter = () => {
         </Col>
       </Row>
     </div>
-  )
+  );
 };
 
 export const Justify = () => {
   const { Row, Col } = Grid;
   return (
-    <div style={{padding: 30}}>
-      <Header level={3} style={{marginBottom: 10}}>Start</Header>
+    <div style={{ padding: 30 }}>
+      <Header level={3} style={{ marginBottom: 10 }}>
+        Start
+      </Header>
       <Row justify="start">
         <Col span={4}>
           <Container name="Col-4" />
@@ -235,7 +237,9 @@ export const Justify = () => {
 
       <Spacer size={40} />
 
-      <Header level={3} style={{marginBottom: 10}}>End</Header>
+      <Header level={3} style={{ marginBottom: 10 }}>
+        End
+      </Header>
       <Row justify="end">
         <Col span={4}>
           <Container name="Col-4" />
@@ -247,7 +251,9 @@ export const Justify = () => {
 
       <Spacer size={40} />
 
-      <Header level={3} style={{marginBottom: 10}}>Center</Header>
+      <Header level={3} style={{ marginBottom: 10 }}>
+        Center
+      </Header>
       <Row justify="center">
         <Col span={4}>
           <Container name="Col-4" />
@@ -259,7 +265,9 @@ export const Justify = () => {
 
       <Spacer size={40} />
 
-      <Header level={3} style={{marginBottom: 10}}>Space Around</Header>
+      <Header level={3} style={{ marginBottom: 10 }}>
+        Space Around
+      </Header>
       <Row justify="space-around">
         <Col span={4}>
           <Container name="Col-4" />
@@ -274,7 +282,9 @@ export const Justify = () => {
 
       <Spacer size={40} />
 
-      <Header level={3} style={{marginBottom: 10}}>Space Between</Header>
+      <Header level={3} style={{ marginBottom: 10 }}>
+        Space Between
+      </Header>
       <Row justify="space-between">
         <Col span={4}>
           <Container name="Col-4" />
@@ -284,15 +294,17 @@ export const Justify = () => {
         </Col>
       </Row>
     </div>
-  )
+  );
 };
 
 export const Align = () => {
   const { Row, Col } = Grid;
   return (
-    <div style={{padding: 30}}>
-      <Header level={3} style={{marginBottom: 10}}>Top</Header>
-      <Row align="top" gutter={20} style={{height: 100, backgroundColor: '#dfe3e8'}}>
+    <div style={{ padding: 30 }}>
+      <Header level={3} style={{ marginBottom: 10 }}>
+        Top
+      </Header>
+      <Row align="top" gutter={20} style={{ height: 100, backgroundColor: '#dfe3e8' }}>
         <Col span={4}>
           <Container name="Col-4" height={20} />
         </Col>
@@ -303,8 +315,10 @@ export const Align = () => {
 
       <Spacer size={40} />
 
-      <Header level={3} style={{marginBottom: 10}}>Middle</Header>
-      <Row align="middle" gutter={20} style={{height: 100, backgroundColor: '#dfe3e8'}}>
+      <Header level={3} style={{ marginBottom: 10 }}>
+        Middle
+      </Header>
+      <Row align="middle" gutter={20} style={{ height: 100, backgroundColor: '#dfe3e8' }}>
         <Col span={4}>
           <Container name="Col-4" height={20} />
         </Col>
@@ -315,8 +329,10 @@ export const Align = () => {
 
       <Spacer size={40} />
 
-      <Header level={3} style={{marginBottom: 10}}>Bottom</Header>
-      <Row align="bottom" gutter={20} style={{height: 100, backgroundColor: '#dfe3e8'}}>
+      <Header level={3} style={{ marginBottom: 10 }}>
+        Bottom
+      </Header>
+      <Row align="bottom" gutter={20} style={{ height: 100, backgroundColor: '#dfe3e8' }}>
         <Col span={4}>
           <Container name="Col-4" height={20} />
         </Col>
@@ -327,13 +343,13 @@ export const Align = () => {
 
       <Spacer size={40} />
     </div>
-  )
+  );
 };
 
 export const Responsive = () => {
   const { Row, Col } = Grid;
   return (
-    <div style={{padding: 30}}>
+    <div style={{ padding: 30 }}>
       <Row>
         <Col xs={1} sm={2} md={4} lg={7} xl={5} xxl={6}>
           <Container name="Col" />
@@ -352,19 +368,19 @@ export const Responsive = () => {
       <Spacer size={40} />
 
       <Row>
-        <Col xs={{span: 1, order: 2}} span={4}>
+        <Col xs={{ span: 1, order: 2 }} span={4}>
           <Container name="Col" color="#a00" />
         </Col>
-        <Col xs={{span: 2, order: 1}} span={4}>
+        <Col xs={{ span: 2, order: 1 }} span={4}>
           <Container name="Col" color="#0a0" />
         </Col>
-        <Col xs={{span: 3, order: 4}} span={4}>
+        <Col xs={{ span: 3, order: 4 }} span={4}>
           <Container name="Col" color="#00a" />
         </Col>
-        <Col xs={{span: 4, order: 3}} span={4}>
+        <Col xs={{ span: 4, order: 3 }} span={4}>
           <Container name="Col" />
         </Col>
       </Row>
     </div>
-  )
+  );
 };

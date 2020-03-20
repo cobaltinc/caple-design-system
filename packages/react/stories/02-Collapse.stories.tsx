@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  Collapse,
-  Table
-} from '../src';
+import { Collapse, Table } from '../src';
 
 export default {
   title: 'Collapse',
@@ -10,7 +7,7 @@ export default {
 
 export const Default = () => {
   return (
-    <div style={{padding: 30, maxWidth: 600}}>
+    <div style={{ padding: 30, maxWidth: 600 }}>
       <Collapse title="User List">
         <Table>
           <Table.Head>
@@ -59,12 +56,12 @@ export const Default = () => {
         </Table>
       </Collapse>
     </div>
-  )
+  );
 };
 
 export const DefaultExpand = () => {
   return (
-    <div style={{padding: 30, maxWidth: 600}}>
+    <div style={{ padding: 30, maxWidth: 600 }}>
       <Collapse title="User List" defaultExpand>
         <Table>
           <Table.Head>
@@ -113,12 +110,12 @@ export const DefaultExpand = () => {
         </Table>
       </Collapse>
     </div>
-  )
+  );
 };
 
 export const Animate = () => {
   return (
-    <div style={{padding: 30, maxWidth: 600}}>
+    <div style={{ padding: 30, maxWidth: 600 }}>
       <Collapse title="Animation" animate>
         <Table>
           <Table.Head>
@@ -215,13 +212,13 @@ export const Animate = () => {
         </Table>
       </Collapse>
     </div>
-  )
+  );
 };
 
 export const CaretText = () => {
   return (
-    <div style={{padding: 30, maxWidth: 600}}>
-      <Collapse title="User List" caretText={{openText: 'Open', closeText: 'Close'}}>
+    <div style={{ padding: 30, maxWidth: 600 }}>
+      <Collapse title="User List" caretText={{ openText: 'Open', closeText: 'Close' }}>
         <Table>
           <Table.Head>
             <Table.Cell>ID</Table.Cell>
@@ -269,13 +266,13 @@ export const CaretText = () => {
         </Table>
       </Collapse>
     </div>
-  )
+  );
 };
 
 export const Color = () => {
   return (
-    <div style={{padding: 30, maxWidth: 600}}>
-      <Collapse title="User List" caretText={{openText: 'Open', closeText: 'Close'}} caretTextColor="green" titleColor="red" caretColor="blue">
+    <div style={{ padding: 30, maxWidth: 600 }}>
+      <Collapse title="User List" caretText={{ openText: 'Open', closeText: 'Close' }} caretTextColor="green" titleColor="red" caretColor="blue">
         <Table>
           <Table.Head>
             <Table.Cell>ID</Table.Cell>
@@ -323,5 +320,5 @@ export const Color = () => {
         </Table>
       </Collapse>
     </div>
-  )
+  );
 };

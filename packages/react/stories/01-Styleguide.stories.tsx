@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  Header,
-  Text,
-  Spacer
-} from '../src';
+import { Header, Text, Spacer } from '../src';
 
 import * as Icons from '@caple-ui/icons-react';
 
@@ -13,20 +9,30 @@ export default {
 
 export const Typography = () => {
   return (
-    <div style={{padding: 20}}>
-      <Header level={1} strong>DisplayXLarge</Header>
+    <div style={{ padding: 20 }}>
+      <Header level={1} strong>
+        DisplayXLarge
+      </Header>
       <Spacer type="horizontal" size={30} />
-      <Header level={2} strong>DisplayLarge</Header>
+      <Header level={2} strong>
+        DisplayLarge
+      </Header>
       <Spacer type="horizontal" size={30} />
       <Header level={3}>DisplayMedium</Header>
       <Spacer type="horizontal" size={30} />
       <Header level={4}>DisplaySmall</Header>
       <Spacer type="horizontal" size={30} />
-      <Text size="large" strong>Heading</Text>
+      <Text size="large" strong>
+        Heading
+      </Text>
       <Spacer type="horizontal" size={30} />
-      <Text size="small" strong>SubHeading</Text>
+      <Text size="small" strong>
+        SubHeading
+      </Text>
       <Spacer type="horizontal" size={30} />
-      <Text size="normal" strong>TitleBody</Text>
+      <Text size="normal" strong>
+        TitleBody
+      </Text>
       <Spacer type="horizontal" size={30} />
       <Text size="normal">Body</Text>
       <Spacer type="horizontal" size={30} />
@@ -37,16 +43,33 @@ export const Typography = () => {
 
 export const Color = () => {
   const Palette = ({ name, color }: any) => (
-    <div style={{display: 'inline-block', width: 100, height: 100, marginRight: 10, textAlign: 'center', borderRadius: 4, backgroundColor: '#fff', border: '1px solid #c4cdd5', overflow: 'hidden', fontSize: 12}}>
-      <div style={{width: '100%', height: 60, backgroundColor: color, marginBottom: 6}} />
-      <div style={{marginBottom: 2}}><Text strong size="small">{name}</Text></div>
+    <div
+      style={{
+        display: 'inline-block',
+        width: 100,
+        height: 100,
+        marginRight: 10,
+        textAlign: 'center',
+        borderRadius: 4,
+        backgroundColor: '#fff',
+        border: '1px solid #c4cdd5',
+        overflow: 'hidden',
+        fontSize: 12,
+      }}
+    >
+      <div style={{ width: '100%', height: 60, backgroundColor: color, marginBottom: 6 }} />
+      <div style={{ marginBottom: 2 }}>
+        <Text strong size="small">
+          {name}
+        </Text>
+      </div>
       <Text size="small">{color}</Text>
     </div>
   );
   return (
-    <div style={{padding: 20}}>
+    <div style={{ padding: 20 }}>
       <Header level={4}>Indigo</Header>
-      <div style={{padding: '20px 0'}}>
+      <div style={{ padding: '20px 0' }}>
         <Palette name="Indigo Lighter" color="#f4f5fa" />
         <Palette name="Indigo Light" color="#b3bcf5" />
         <Palette name="Indigo" color="#5c6ac4" />
@@ -55,7 +78,7 @@ export const Color = () => {
       </div>
 
       <Header level={4}>Red</Header>
-      <div style={{padding: '20px 0'}}>
+      <div style={{ padding: '20px 0' }}>
         <Palette name="Red Lighter" color="#fbeae5" />
         <Palette name="Red Light" color="#fa9a88" />
         <Palette name="Red" color="#de3618" />
@@ -64,7 +87,7 @@ export const Color = () => {
       </div>
 
       <Header level={4}>Blue</Header>
-      <div style={{padding: '20px 0'}}>
+      <div style={{ padding: '20px 0' }}>
         <Palette name="Blue Lighter" color="#ebf5fa" />
         <Palette name="Blue Light" color="#b4e0fa" />
         <Palette name="Blue" color="#006fbb" />
@@ -73,7 +96,7 @@ export const Color = () => {
       </div>
 
       <Header level={4}>Ink</Header>
-      <div style={{padding: '20px 0'}}>
+      <div style={{ padding: '20px 0' }}>
         <Palette name="Ink Lightest" color="#919eab" />
         <Palette name="Ink Lighter" color="#637381" />
         <Palette name="Ink Light" color="#454f5b" />
@@ -81,54 +104,69 @@ export const Color = () => {
       </div>
 
       <Header level={4}>Sky</Header>
-      <div style={{padding: '20px 0'}}>
+      <div style={{ padding: '20px 0' }}>
         <Palette name="Sky Lighter" color="#f9fafb" />
         <Palette name="Sky Light" color="#f4f6f8" />
         <Palette name="Sky" color="#dfe3e8" />
         <Palette name="Sky Dark" color="#c4cdd5" />
       </div>
     </div>
-  )
+  );
 };
 
 export const Spacing = () => {
-  return (
-    <div>
-      Not yet
-    </div>
-  )
+  return <div>Not yet</div>;
 };
 
 export const Motion = () => {
-  return (
-    <div>
-      Not yet
-    </div>
-  )
+  return <div>Not yet</div>;
 };
 
 export const Icon = () => {
   const DisplayStand = ({ children, name }: any) => (
-    <div style={{display: 'inline-block', width: 100, height: 88, margin: 10, textAlign: 'center', borderRadius: 4, backgroundColor: '#fff', border: '1px solid #c4cdd5', overflow: 'hidden', fontSize: 12}}>
-      <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: 60, borderBottom: '1px solid #c4cdd6', marginBottom: 6}}>
+    <div
+      style={{
+        display: 'inline-block',
+        width: 100,
+        height: 88,
+        margin: 10,
+        textAlign: 'center',
+        borderRadius: 4,
+        backgroundColor: '#fff',
+        border: '1px solid #c4cdd5',
+        overflow: 'hidden',
+        fontSize: 12,
+      }}
+    >
+      <div
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '100%',
+          height: 60,
+          borderBottom: '1px solid #c4cdd6',
+          marginBottom: 6,
+        }}
+      >
         {children}
       </div>
-      <Text strong size="small">{name}</Text>
+      <Text strong size="small">
+        {name}
+      </Text>
     </div>
   );
 
   return (
-    <div style={{padding: 20}}>
-      {
-        Object.keys(Icons).map((key, index) => {
-          const IconComponent = (Icons as any)[key];
-          return (
-            <DisplayStand name={key} key={index}>
-              <IconComponent size={40} color="#212b36" />
-            </DisplayStand>
-          )
-        })
-      }
+    <div style={{ padding: 20 }}>
+      {Object.keys(Icons).map((key, index) => {
+        const IconComponent = (Icons as any)[key];
+        return (
+          <DisplayStand name={key} key={index}>
+            <IconComponent size={40} color="#212b36" />
+          </DisplayStand>
+        );
+      })}
     </div>
-  )
+  );
 };

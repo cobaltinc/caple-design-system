@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Select, Spacer
-} from '../src';
+import { Select, Spacer } from '../src';
 
 export default {
   title: 'Select',
@@ -9,19 +7,19 @@ export default {
 
 export const Default = () => {
   return (
-    <div style={{padding: 30, maxWidth: 300}}>
+    <div style={{ padding: 30, maxWidth: 300 }}>
       <Select placeholder="Select your option">
         <Select.Option value="1">Option 1</Select.Option>
         <Select.Option value="2">Option 2</Select.Option>
         <Select.Option value="3">Option 3</Select.Option>
       </Select>
     </div>
-  )
+  );
 };
 
 export const Size = () => {
   return (
-    <div style={{padding: 30, maxWidth: 300}}>
+    <div style={{ padding: 30, maxWidth: 300 }}>
       <Select placeholder="Select your option" size="mini">
         <Select.Option value="1">Option 1</Select.Option>
         <Select.Option value="2">Option 2</Select.Option>
@@ -60,12 +58,12 @@ export const Size = () => {
         <Select.Option value="3">Option 3</Select.Option>
       </Select>
     </div>
-  )
+  );
 };
 
 export const BorderType = () => {
   return (
-    <div style={{padding: 30, maxWidth: 300}}>
+    <div style={{ padding: 30, maxWidth: 300 }}>
       <Select placeholder="Select your option">
         <Select.Option value="1">Option 1</Select.Option>
         <Select.Option value="2">Option 2</Select.Option>
@@ -88,41 +86,45 @@ export const BorderType = () => {
         <Select.Option value="3">Option 3</Select.Option>
       </Select>
     </div>
-  )
+  );
 };
 
 export const Loading = () => {
   return (
-    <div style={{padding: 30, maxWidth: 300}}>
+    <div style={{ padding: 30, maxWidth: 300 }}>
       <Select placeholder="Select your option" loading>
         <Select.Option value="1">Option 1</Select.Option>
         <Select.Option value="2">Option 2</Select.Option>
         <Select.Option value="3">Option 3</Select.Option>
       </Select>
     </div>
-  )
+  );
 };
 
 export const Disabled = () => {
   return (
-    <div style={{padding: 30, maxWidth: 300}}>
+    <div style={{ padding: 30, maxWidth: 300 }}>
       <Select placeholder="Select your option" disabled>
         <Select.Option value="1">Option 1</Select.Option>
         <Select.Option value="2">Option 2</Select.Option>
         <Select.Option value="3">Option 3</Select.Option>
       </Select>
     </div>
-  )
+  );
 };
 
 export const OptionDisabled = () => {
   return (
-    <div style={{padding: 30, maxWidth: 300}}>
+    <div style={{ padding: 30, maxWidth: 300 }}>
       <Select placeholder="Select your option">
-        <Select.Option value="1" disabled>Option 1</Select.Option>
+        <Select.Option value="1" disabled>
+          Option 1
+        </Select.Option>
         <Select.Option value="2">Option 2</Select.Option>
-        <Select.Option value="3" disabled>Option 3</Select.Option>
+        <Select.Option value="3" disabled>
+          Option 3
+        </Select.Option>
       </Select>
     </div>
-  )
+  );
 };

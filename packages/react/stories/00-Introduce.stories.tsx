@@ -1,10 +1,6 @@
 import React from 'react';
 import { linkTo } from '@storybook/addon-links';
-import {
-  Header,
-  Text,
-  Link
-} from '../src';
+import { Header, Text, Link } from '../src';
 
 export default {
   title: 'Introduce',
@@ -12,17 +8,17 @@ export default {
 
 export const Default = () => {
   const components = [
-    'Avatar', 
-    'Badge', 
-    'Breadcrumb', 
-    'Button', 
-    'Card', 
-    'Checkbox', 
-    'Collapse', 
-    'Divider', 
-    'Grid', 
-    'Header', 
-    'Icon', 
+    'Avatar',
+    'Badge',
+    'Breadcrumb',
+    'Button',
+    'Card',
+    'Checkbox',
+    'Collapse',
+    'Divider',
+    'Grid',
+    'Header',
+    'Icon',
     'Input',
     'Link',
     'Menu',
@@ -42,13 +38,11 @@ export const Default = () => {
   ];
 
   return (
-    <div style={{padding: 20}}>
+    <div style={{ padding: 20 }}>
       <Header level={2}>Styleguide</Header>
       <Text paragraph>
-        Caple Design Language as its foundation, 
-        the system consists of working code, 
-        design tools and resources, 
-        human interface guidelines by Cobalt, Inc.
+        Caple Design Language as its foundation, the system consists of working code, design tools and resources, human interface guidelines by
+        Cobalt, Inc.
       </Text>
       <ul>
         <li>
@@ -69,17 +63,13 @@ export const Default = () => {
       </ul>
 
       <Header level={2}>Components</Header>
-      <Text paragraph>
-        Caple Design System UI for React components.
-      </Text>
+      <Text paragraph>Caple Design System UI for React components.</Text>
       <ul>
-        {
-          components.map((component, index) => (
-            <li key={index}>
-              <Link onClick={linkTo(component)}>{component}</Link>
-            </li>
-          ))
-        }
+        {components.map((component, index) => (
+          <li key={index}>
+            <Link onClick={linkTo(component)}>{component}</Link>
+          </li>
+        ))}
       </ul>
     </div>
   );

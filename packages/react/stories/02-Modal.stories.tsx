@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Modal,
-  Button,
-  Header,
-  Input,
-  Spacer,
-  Grid
-} from '../src';
+import { Modal, Button, Header, Input, Spacer, Grid } from '../src';
 
 const { Row, Col } = Grid;
 
@@ -16,7 +9,7 @@ export default {
 
 interface ModalContentProps {
   onSubmit(): void;
-};
+}
 
 const ModalContent = ({ onSubmit }: ModalContentProps) => {
   const { useState } = React;
@@ -31,7 +24,7 @@ const ModalContent = ({ onSubmit }: ModalContentProps) => {
   };
 
   return (
-    <div style={{padding: 30}}>
+    <div style={{ padding: 30 }}>
       <Header level={4}>Form</Header>
       <Spacer size={30} />
       <Input.Text placeholder="Please enter your email." />
@@ -40,7 +33,9 @@ const ModalContent = ({ onSubmit }: ModalContentProps) => {
       <Spacer size={10} />
       <Row justify="end">
         <Col>
-          <Button type="primary" onClick={handleSubmit} loading={loading}>Submit</Button>
+          <Button type="primary" onClick={handleSubmit} loading={loading}>
+            Submit
+          </Button>
         </Col>
       </Row>
     </div>
@@ -56,11 +51,11 @@ export const Default = () => {
   };
 
   return (
-    <div style={{padding: 30}}>
+    <div style={{ padding: 30 }}>
       <Button onClick={() => setVisible(true)}>Show Modal</Button>
       <Modal visible={visible} onClose={() => setVisible(false)}>
         <ModalContent onSubmit={handleSubmit} />
       </Modal>
     </div>
-  )
+  );
 };
