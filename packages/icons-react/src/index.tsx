@@ -127,6 +127,15 @@ export const ChenvronUp = (props: any) => {
   );
 };
 
+export const Circle = (props: any) => {
+  const { color, size, ...otherProps } = props;
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 32 32" fill={color} {...otherProps}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M15.8 28.6C8.73076 28.6 3 22.8692 3 15.8C3 8.73076 8.73076 3 15.8 3C22.8692 3 28.6 8.73076 28.6 15.8C28.6 22.8692 22.8692 28.6 15.8 28.6Z" />
+		</svg>
+  );
+};
+
 export const CloseCircle = (props: any) => {
   const { color, size, ...otherProps } = props;
   return (
