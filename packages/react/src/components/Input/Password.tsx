@@ -23,7 +23,7 @@ export default ({ toggle, ...props }: InputPasswordProps) => {
       type={visible ? 'text' : 'password'}
       subfix={
         toggle ? (
-          <Icon type={visible ? 'gear' : 'close'} className={`${classPrefix}--password-toggle`} color="#919EAB" onClick={handleClick} />
+          <Icon type={visible ? 'eye' : 'eye-close'} className={`${classPrefix}--password-toggle`} color="#919EAB" onClick={handleClick} />
         ) : (
           undefined
         )
