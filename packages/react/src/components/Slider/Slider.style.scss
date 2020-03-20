@@ -1,0 +1,63 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/color';
+
+$slider-prefix: '#{$prefix}-slider';
+
+.#{$slider-prefix} {
+  position: relative;
+  width: 100%;
+  height: 16px;
+
+  .#{$slider-prefix}--rail {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: $border;
+  }
+
+  .#{$slider-prefix}--track {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 0;
+    height: 4px;
+    border-radius: 2px;
+    background-color: $indigo;
+  }
+
+  .#{$slider-prefix}--handle {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    transform: translate(-50%, -50%);
+    border: 2px solid $indigo;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+  }
+
+  .#{$slider-prefix}--tooltip {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    transform: translate(-50%, -50%);
+  }
+
+  &.#{$slider-prefix}--disabled {
+    .#{$slider-prefix}--track {
+      background-color: $ink-lightest;
+    }
+
+    .#{$slider-prefix}--handle {
+      border-color: $ink-lightest;
+      cursor: not-allowed;
+    }
+  }
+}
