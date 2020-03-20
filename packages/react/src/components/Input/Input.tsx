@@ -92,7 +92,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
 
     const [focused, setFocused] = useState(false);
 
-    const inputClassNames = classnames(classPrefix, inputClassName, `${classPrefix}--size-${size}`, `${classPrefix}--border-type-${borderType}`, {
+    const classNames = classnames(classPrefix, `${classPrefix}--size-${size}`, `${classPrefix}--border-type-${borderType}`, {
       [`${classPrefix}--disabled`]: disabled,
       [`${classPrefix}--focused`]: focused,
       [`${classPrefix}--error`]: error,
@@ -125,7 +125,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
           </Text>
         ) : null}
 
-        <div className={inputClassNames} style={inputStyle}>
+        <div className={classNames} style={inputStyle}>
           {prefix ? (
             <span className={`${classPrefix}--prefix`}>{React.isValidElement(prefix) ? React.cloneElement(prefix, { size: iconSize }) : prefix}</span>
           ) : null}
@@ -144,7 +144,8 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
             onKeyPress={onKeyPress}
             onKeyUp={onKeyUp}
             onChange={onChange}
-            style={{ textAlign: align }}
+            className={inputClassName}
+            style={{ ...inputStyle, textAlign: align }}
           />
           {loading ? (
             <Spinner size={iconSize} />
