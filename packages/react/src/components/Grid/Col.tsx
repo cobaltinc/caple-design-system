@@ -9,7 +9,7 @@ export type ColSizeType = {
   offset?: number;
   flex?: string | number | 'auto';
   order?: number;
-}
+};
 
 export interface ColProps {
   children?: React.ReactNode;
@@ -35,13 +35,13 @@ export default ({ children, span, offset, auto, flex, order, className = '', sty
   let classNames = classnames(classPrefix, className, {
     [`${classPrefix}--col-${span}`]: span,
     [`${classPrefix}--offset-${offset}`]: offset,
-    [`${classPrefix}--order-${order}`]: order
+    [`${classPrefix}--order-${order}`]: order,
   });
 
   ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].forEach(size => {
     const sizeValue = (props as any)[size];
     if (typeof sizeValue === 'number') {
-      classNames = classnames(classNames, `${classPrefix}--${size}-col-${sizeValue}`)
+      classNames = classnames(classNames, `${classPrefix}--${size}-col-${sizeValue}`);
     } else if (typeof sizeValue === 'object') {
       console.log(sizeValue);
       classNames = classnames(classNames, {
@@ -82,11 +82,11 @@ export default ({ children, span, offset, auto, flex, order, className = '', sty
             };
           } else if (typeof flex === 'number') {
             flexStyle = {
-              flex: `${flex} ${flex} auto`,
-            }
+              flex: `${flex} ${flex} 0`,
+            };
           } else {
             flexStyle = {
-              flex: auto ? 'auto' : flex,
+              flex: auto ? '1 1 0' : flex,
             };
           }
         }

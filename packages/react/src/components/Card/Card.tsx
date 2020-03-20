@@ -14,7 +14,7 @@ export type CollapsibleConfig = {
 };
 
 export interface CardProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   header?: string | React.ReactNode;
   footer?: React.ReactNode;
   collapsible?: boolean | CollapsibleConfig;
