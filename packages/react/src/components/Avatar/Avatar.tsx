@@ -3,9 +3,11 @@ import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import './Avatar.style.scss';
 
+export type AvatarShapeType = 'circle' | 'square';
+
 export interface AvatarProps {
   size?: number;
-  shape?: 'circle' | 'square';
+  shape?: AvatarShapeType;
   src?: string;
   text?: string;
   alt?: string;

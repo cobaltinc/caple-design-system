@@ -25,6 +25,7 @@ export { default as Menu } from './components/Menu';
 export { default as Modal } from './components/Modal';
 export { default as Popover } from './components/Popover';
 export { default as Select } from './components/Select';
+export { default as Skeleton } from './components/Skeleton';
 export { default as Slider } from './components/Slider';
 export { default as Spacer } from './components/Spacer';
 export { default as Spinner } from './components/Spinner';

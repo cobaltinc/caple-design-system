@@ -25,6 +25,8 @@ export const Default = () => {
     'Modal',
     'Popover',
     'Select',
+    'Skeleton',
+    'Slider',
     'Spacer',
     'Spinner',
     'Step',
