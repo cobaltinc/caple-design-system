@@ -16,8 +16,8 @@ $input-prefix: '#{$prefix}-input';
   }
 
   .#{$input-prefix}--label {
-    margin-bottom: 2px;
-    vertical-align: middle;
+    display: block;
+    margin-bottom: 4px;
   }
 
   .#{$input-prefix} {
@@ -38,7 +38,6 @@ $input-prefix: '#{$prefix}-input';
       font-size: 11px;
 
       input {
-        margin: 0 6px;
         margin-top: -1px;
         height: 20px;
         font-size: 11px;
@@ -50,7 +49,6 @@ $input-prefix: '#{$prefix}-input';
       font-size: 12px;
 
       input {
-        margin: 0 6px;
         height: 26px;
         font-size: 12px;
       }
@@ -61,7 +59,6 @@ $input-prefix: '#{$prefix}-input';
       font-size: 12px;
 
       input {
-        margin: 0 6px;
         height: 32px;
         font-size: 12px;
       }
@@ -72,7 +69,6 @@ $input-prefix: '#{$prefix}-input';
       font-size: 13px;
 
       input {
-        margin: 0 8px;
         height: 40px;
         font-size: 13px;
       }
@@ -84,7 +80,6 @@ $input-prefix: '#{$prefix}-input';
       font-weight: bold;
 
       input {
-        margin: 0 10px;
         height: 46px;
         font-size: 14px;
         font-weight: bold;
@@ -138,6 +133,14 @@ $input-prefix: '#{$prefix}-input';
       vertical-align: middle;
     }
 
+    .#{$input-prefix}--prefix {
+      margin-right: 4px;
+    }
+
+    .#{$input-prefix}--subfix {
+      margin-left: 4px;
+    }
+
     input {
       width: 100%;
       padding: 0;
@@ -174,5 +177,12 @@ $input-prefix: '#{$prefix}-input';
         }
       }
     }
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active  {
+    box-shadow: 0 0 0 30px white inset !important;
   }
 }

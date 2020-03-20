@@ -27,6 +27,7 @@ export interface InputProps extends InputEvent {
   defaultValue?: string | number;
   placeholder?: string;
   label?: string;
+  labelColor?: string;
   name?: string;
   size?: InputSizeType;
   borderType?: InputBorderType;
@@ -56,6 +57,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
       defaultValue,
       placeholder,
       label,
+      labelColor,
       name,
       type,
       size = 'normal',
@@ -118,7 +120,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
     return (
       <div className={classnames(`${classPrefix}--container`, className, { [`${classPrefix}--block`]: block })} style={style}>
         {label ? (
-          <Text paragraph size="small" className={classnames(`${classPrefix}--label`, labelClassName)} style={labelStyle}>
+          <Text size="small" color={labelColor} className={classnames(`${classPrefix}--label`, labelClassName)} style={labelStyle}>
             {label}
           </Text>
         ) : null}
