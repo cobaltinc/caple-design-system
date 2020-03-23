@@ -1,0 +1,109 @@
+///
+/// Color
+/// Author: Lee Sun-Hyoup <kciter@cobalt.run>
+///
+
+@mixin caple-colors {
+  /**
+   * Style
+   */
+  $background: #f9fafe !default !global;
+  $border: #cfd8eb !default !global;
+ 
+ /**
+  * Indigo
+  */
+  $indigo-lighter: #f4f5fa !default !global;
+  $indigo-light: #b3bcf5 !default !global;
+  $indigo: #5c6ac4 !default !global;
+  $indigo-dark: #404c9a !default !global;
+  $indigo-darker: #000639 !default !global;
+ 
+ /**
+  * Red
+  */
+  $red-lighter: #fbeae5 !default !global;
+  $red-light: #fa9a88 !default !global;
+  $red: #de3618 !default !global;
+  $red-dark: #bf1d08 !default !global;
+  $red-darker: #330202 !default !global;
+ 
+ /**
+  * Blue
+  */
+  $blue-lighter: #ebf5fa !default !global;
+  $blue-light: #b4e0fa !default !global;
+  $blue: #006fbb !default !global;
+  $blue-dark: #084e8a !default !global;
+  $blue-darker: #001429 !default !global;
+ 
+ /**
+  * Ink
+  */
+  $ink-lightest: #919eab !default !global;
+  $ink-lighter: #637381 !default !global;
+  $ink-light: #454f5b !default !global;
+  $ink: #212b36 !default !global;
+ 
+ /**
+  * Sky
+  */
+  $sky-lighter: #f9fafb !default !global;
+  $sky-light: #f4f6f8 !default !global;
+  $sky: #dfe3e8 !default !global;
+  $sky-dark: #c4cdd5 !default !global;
+ 
+ /**
+  * Pink
+  */
+  $pink-lighter: #F3E5F5 !default !global;
+  $pink-light: #F48FB1 !default !global;
+  $pink: #F06292 !default !global;
+  $pink-dark: #D81A60 !default !global;
+  $pink-darker: #AD1458 !default !global;
+ 
+ /**
+  * Amber
+  */
+  $amber-lighter: #FFF8E1 !default !global;
+  $amber-light: #FFE082 !default !global;
+  $amber: #FFCA28 !default !global;
+  $amber-dark: #FFA001 !default !global;
+  $amber-darker: #FF6F00 !default !global;
+ 
+ /**
+  * Incarnadine
+  */
+  $incarnadine-lighter: #FDF7F5 !default !global;
+  $incarnadine-light: #F5DBD0 !default !global;
+  $incarnadine: #ECB8A2 !default !global;
+  $incarnadine-dark: #A58071 !default !global;
+  $incarnadine-darker: #5E4940 !default !global;
+ 
+ /**
+  * Lightgreen
+  */
+  $lightgreen-lighter: #F5FBEE !default !global;
+  $lightgreen-light: #D1EEAB !default !global;
+  $lightgreen: #A3DE57 !default !global;
+  $lightgreen-dark: #729B3C !default !global;
+  $lightgreen-darker: #30421A !default !global;
+ 
+ /**
+  * Cyan
+  */
+  $cyan-lighter: #E0F2F1 !default !global;
+  $cyan-light: #80DEEA !default !global;
+  $cyan: #26C6DA !default !global;
+  $cyan-dark: #00ACC2 !default !global;
+  $cyan-darker: #00838F !default !global;
+ 
+ /**
+  * Purple
+  */
+  $purple-lighter: #F3E5F5 !default !global;
+  $purple-light: #CE93D8 !default !global;
+  $purple: #AB47BC !default !global;
+  $purple-dark: #8E24AA !default !global;
+  $purple-darker: #6A1B9A !default !global;
+}
