@@ -2,7 +2,7 @@ import React from 'react';
 import { Skeleton, Spacer } from '../src';
 
 export default {
-  title: 'Skeleton',
+  title: 'Component|Skeleton',
 };
 
 export const Default = () => {

@@ -5,7 +5,7 @@ import * as Colors from '@caple-ui/colors';
 import * as Icons from '@caple-ui/icons-react';
 
 export default {
-  title: 'Styleguide',
+  title: 'Introduction|Styleguide',
 };
 
 export const Typography = () => {

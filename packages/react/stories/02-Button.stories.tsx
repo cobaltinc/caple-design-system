@@ -4,7 +4,7 @@ import { Button, Header, Spacer } from '../src';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Button',
+  title: 'Component|Button',
 };
 
 export const Default = () => {

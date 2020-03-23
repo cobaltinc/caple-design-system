@@ -2,7 +2,7 @@ import React from 'react';
 import { Spacer, Button } from '../src';
 
 export default {
-  title: 'Spacer',
+  title: 'Component|Spacer',
 };
 
 export const Default = () => {

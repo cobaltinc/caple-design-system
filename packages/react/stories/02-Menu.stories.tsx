@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu } from '../src';
 
 export default {
-  title: 'Menu',
+  title: 'Component|Menu',
 };
 
 export const Default = () => {

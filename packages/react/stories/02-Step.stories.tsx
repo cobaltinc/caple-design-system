@@ -2,7 +2,7 @@ import React from 'react';
 import { Step } from '../src';
 
 export default {
-  title: 'Step',
+  title: 'Component|Step',
 };
 
 export const Default = () => {

@@ -3,7 +3,7 @@ import { linkTo } from '@storybook/addon-links';
 import { Header, Text, Link } from '../src';
 
 export default {
-  title: 'Introduce',
+  title: 'Introduction|Quick View',
 };
 
 export const Default = () => {

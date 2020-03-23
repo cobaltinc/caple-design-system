@@ -1,8 +1,8 @@
 import React from 'react';
-import { Header, Text, Spacer, Input, Icon } from '../src';
+import { Spacer, Input, Icon } from '../src';
 
 export default {
-  title: 'Input',
+  title: 'Component|Input',
 };
 
 export const Default = () => {

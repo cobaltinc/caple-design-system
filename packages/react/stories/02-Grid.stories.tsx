@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Header, Spacer } from '../src';
 
 export default {
-  title: 'Grid',
+  title: 'Component|Grid',
 };
 
 const Container = ({ name = 'Col', height = 16, color = '#5c6ac4' }) => (

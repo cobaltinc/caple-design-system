@@ -2,7 +2,7 @@ import React from 'react';
 import { Table } from '../src';
 
 export default {
-  title: 'Table',
+  title: 'Component|Table',
 };
 
 export const Default = () => {

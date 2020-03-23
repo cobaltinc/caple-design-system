@@ -2,7 +2,7 @@ import React from 'react';
 import { Spinner, Card } from '../src';
 
 export default {
-  title: 'Spinner',
+  title: 'Component|Spinner',
 };
 
 export const Default = () => {

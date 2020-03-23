@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch } from '../src';
 
 export default {
-  title: 'Switch',
+  title: 'Component|Switch',
 };
 
 export const Default = () => {

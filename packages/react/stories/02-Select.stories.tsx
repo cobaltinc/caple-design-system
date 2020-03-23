@@ -2,7 +2,7 @@ import React from 'react';
 import { Select, Spacer } from '../src';
 
 export default {
-  title: 'Select',
+  title: 'Component|Select',
 };
 
 export const Default = () => {

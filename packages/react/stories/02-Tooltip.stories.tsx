@@ -1,8 +1,8 @@
 import React from 'react';
-import { Tooltip, Text, Button, Input, Spacer } from '../src';
+import { Tooltip, Button, Input, Spacer } from '../src';
 
 export default {
-  title: 'Tooltip',
+  title: 'Component|Tooltip',
 };
 
 export const Default = () => {

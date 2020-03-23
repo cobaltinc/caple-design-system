@@ -2,7 +2,7 @@ import React from 'react';
 import { Breadcrumb, Icon } from '../src';
 
 export default {
-  title: 'Breadcrumb',
+  title: 'Component|Breadcrumb',
 };
 
 export const Default = () => {

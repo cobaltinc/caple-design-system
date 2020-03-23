@@ -2,7 +2,7 @@ import React from 'react';
 import { Header } from '../src';
 
 export default {
-  title: 'Header',
+  title: 'Component|Header',
 };
 
 export const Default = () => {

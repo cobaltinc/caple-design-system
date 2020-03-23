@@ -2,7 +2,7 @@ import React from 'react';
 import { Collapse, Table } from '../src';
 
 export default {
-  title: 'Collapse',
+  title: 'Component|Collapse',
 };
 
 const Content = () => (

@@ -68,6 +68,7 @@ const Select: ISelect<SelectProps> = ({
   const [focused, setFocused] = useState(false);
   const [active, setActive] = useState<SelectedOption>();
   const inputRef = useRef<HTMLDivElement>(null);
+  const selectRef = useRef<HTMLSelectElement>(null);
 
   const inputClassNames = classnames(classPrefix, inputClassName, `${classPrefix}--size-${size}`, `${classPrefix}--border-type-${borderType}`, {
     [`${classPrefix}--disabled`]: disabled,
@@ -82,6 +83,9 @@ const Select: ISelect<SelectProps> = ({
     }
 
     setFocused(!focused);
+
+    console.log(selectRef.current);
+    selectRef.current?.click();
   };
   const handleClickOutside = (event: MouseEvent) => {
     if (inputRef.current && !inputRef.current.contains(event.target as HTMLElement)) {
@@ -124,7 +128,17 @@ const Select: ISelect<SelectProps> = ({
       ) : null}
 
       <div ref={inputRef} className={inputClassNames} style={{ ...inputStyle, textAlign: align }} onClick={handleClick}>
-        <input name={name} defaultValue={active?.value} disabled={disabled} />
+        <select ref={selectRef} name={name} defaultValue={active?.value} disabled={disabled}>
+          {options.map((option, index) => {
+            const props = (option as React.ReactElement<SelectOptionProps>).props;
+            const title = concatReactNodeToString(props.children);
+            return (
+              <option value={props.value} key={index}>
+                {title}
+              </option>
+            );
+          })}
+        </select>
         <div className={`${classPrefix}--value`} placeholder={placeholder}>
           {active?.title}
         </div>

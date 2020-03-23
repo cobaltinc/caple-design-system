@@ -2,7 +2,7 @@ import React from 'react';
 import { Tab } from '../src';
 
 export default {
-  title: 'Tab',
+  title: 'Component|Tab',
 };
 
 export const Default = () => {
