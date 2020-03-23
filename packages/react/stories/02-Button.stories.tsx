@@ -152,7 +152,7 @@ export const Ghost = () => {
       </Button>
       <Spacer type="vertical" size={20} />
       <Button type="core" size="normal" ghost disabled>
-        Primary Disabled
+        Core Disabled
       </Button>
 
       <Spacer type="horizontal" size={20} />
@@ -179,7 +179,7 @@ export const Ghost = () => {
       </Button>
       <Spacer type="vertical" size={20} />
       <Button type="error" size="normal" ghost disabled>
-        Destructive Disabled
+        Error Disabled
       </Button>
     </div>
   );
