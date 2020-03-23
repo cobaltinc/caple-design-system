@@ -4,7 +4,7 @@ import ConfigContext from '../_config/ConfigContext';
 import Spinner from '../Spinner';
 import './Button.style.scss';
 
-export type ButtonType = 'basic' | 'primary' | 'destructive';
+export type ButtonType = 'basic' | 'core' | 'error';
 export type ButtonHtmlType = 'button' | 'submit' | 'reset';
 export type ButtonSizeType = 'mini' | 'small' | 'normal' | 'large' | 'xlarge';
 

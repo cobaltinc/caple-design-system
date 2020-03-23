@@ -57,7 +57,7 @@ $button-prefix: '#{$prefix}-button';
       }
     }
   }
-  &.#{$button-prefix}--type-primary {
+  &.#{$button-prefix}--type-core {
     color: white;
     border: solid 1px #4f5dba;
     background-image: linear-gradient(to bottom, #606fc7, #5865c1);
@@ -101,7 +101,7 @@ $button-prefix: '#{$prefix}-button';
       }
     }
   }
-  &.#{$button-prefix}--type-destructive {
+  &.#{$button-prefix}--type-error {
     color: white;
     border: solid 1px #bf0711;
     background-image: linear-gradient(to bottom, #e33719, #d63418);
