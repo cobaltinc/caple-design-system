@@ -5,7 +5,6 @@ import typescript from 'rollup-plugin-typescript2';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import strip from '@rollup/plugin-strip';
-import sass from 'rollup-plugin-sass';
 import url from 'rollup-plugin-url';
 import svgr from '@svgr/rollup';
 import pkg from './package.json';
@@ -42,9 +41,6 @@ module.exports = [
           'node_modules/react/react.js': ['Children', 'Component', 'PropTypes', 'createElement'],
           'node_modules/react-dom/index.js': ['render'],
         },
-      }),
-      sass({
-        insert: true,
       }),
       strip(),
       url(),
