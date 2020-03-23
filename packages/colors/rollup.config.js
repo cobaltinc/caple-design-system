@@ -35,9 +35,7 @@ module.exports = [
       commonjs({
         include: ['../../node_modules/**'],
       }),
-      sass({
-        insert: true,
-      }),
+      sass(),
       strip(),
     ],
   },
