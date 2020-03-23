@@ -14,17 +14,17 @@ export const Default = () => {
   return (
     <div style={{ padding: 30 }}>
       <Row>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
       </Row>
     </div>
@@ -131,8 +131,8 @@ export const Order = () => {
         <Col span={4} order={2}>
           <Container name="Col-4, Order 2" />
         </Col>
-        <Col span={6} order={4}>
-          <Container name="Col-6, Order 4" />
+        <Col span={2} order={4}>
+          <Container name="Col-2, Order 4" />
         </Col>
       </Row>
     </div>
@@ -147,17 +147,17 @@ export const Gutter = () => {
         Horizontal Gutter
       </Header>
       <Row gutter={20}>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
       </Row>
 
@@ -167,26 +167,26 @@ export const Gutter = () => {
         Vertical Gutter
       </Header>
       <Row gutter={[0, 20]}>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
-        <Col span={8}>
-          <Container name="Col-8" />
+        <Col span={6}>
+          <Container name="Col-6" />
         </Col>
       </Row>
 
@@ -208,11 +208,11 @@ export const Gutter = () => {
         <Col span={4}>
           <Container name="Col-4" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={6}>
+          <Container name="Col-6" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={6}>
+          <Container name="Col-6" />
         </Col>
       </Row>
     </div>
@@ -227,11 +227,11 @@ export const Justify = () => {
         Start
       </Header>
       <Row justify="start">
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
       </Row>
 
@@ -241,11 +241,11 @@ export const Justify = () => {
         End
       </Header>
       <Row justify="end">
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
       </Row>
 
@@ -255,11 +255,11 @@ export const Justify = () => {
         Center
       </Header>
       <Row justify="center">
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
       </Row>
 
@@ -269,14 +269,14 @@ export const Justify = () => {
         Space Around
       </Header>
       <Row justify="space-around">
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
       </Row>
 
@@ -286,11 +286,11 @@ export const Justify = () => {
         Space Between
       </Header>
       <Row justify="space-between">
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
-        <Col span={4}>
-          <Container name="Col-4" />
+        <Col span={3}>
+          <Container name="Col-3" />
         </Col>
       </Row>
     </div>
@@ -351,16 +351,16 @@ export const Responsive = () => {
   return (
     <div style={{ padding: 30 }}>
       <Row>
-        <Col xs={1} sm={2} md={4} lg={7} xl={5} xxl={6}>
+        <Col xs={1} sm={2} md={4} lg={9} xl={5} xxl={6}>
           <Container name="Col" />
         </Col>
-        <Col xs={2} sm={3} md={4} lg={7} xl={5} xxl={1}>
+        <Col xs={2} sm={3} md={4} lg={1} xl={5} xxl={1}>
           <Container name="Col" />
         </Col>
-        <Col xs={3} sm={5} md={4} lg={1} xl={3} xxl={6}>
+        <Col xs={3} sm={5} md={2} lg={1} xl={1} xxl={3}>
           <Container name="Col" />
         </Col>
-        <Col xs={10} sm={6} md={4} lg={1} xl={3} xxl={3}>
+        <Col xs={6} sm={2} md={2} lg={1} xl={1} xxl={2}>
           <Container name="Col" />
         </Col>
       </Row>
@@ -368,16 +368,16 @@ export const Responsive = () => {
       <Spacer size={40} />
 
       <Row>
-        <Col xs={{ span: 1, order: 2 }} span={4}>
+        <Col xs={{ span: 1, order: 2 }} span={3}>
           <Container name="Col" color="#a00" />
         </Col>
-        <Col xs={{ span: 2, order: 1 }} span={4}>
+        <Col xs={{ span: 2, order: 1 }} span={3}>
           <Container name="Col" color="#0a0" />
         </Col>
-        <Col xs={{ span: 3, order: 4 }} span={4}>
+        <Col xs={{ span: 3, order: 4 }} span={3}>
           <Container name="Col" color="#00a" />
         </Col>
-        <Col xs={{ span: 4, order: 3 }} span={4}>
+        <Col xs={{ span: 4, order: 3 }} span={3}>
           <Container name="Col" />
         </Col>
       </Row>
