@@ -47,7 +47,7 @@ export const Color = () => {
     <div
       style={{
         display: 'inline-block',
-        width: 100,
+        width: 150,
         height: 100,
         marginRight: 10,
         textAlign: 'center',
