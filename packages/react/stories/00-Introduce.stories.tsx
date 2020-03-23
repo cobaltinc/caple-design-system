@@ -32,6 +32,7 @@ export const Default = () => {
     'Step',
     'Switch',
     'Tab',
+    'Table',
     'Text',
     'Toast',
     'Toggle',

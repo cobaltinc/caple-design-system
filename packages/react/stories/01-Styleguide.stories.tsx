@@ -176,7 +176,23 @@ export const Color = () => {
 };
 
 export const Spacing = () => {
-  return <div>Not yet</div>;
+  const Box = ({ size }: { size: number }) => <div style={{ width: size, height: size, backgroundColor: Colors.RedDark }} />;
+  return (
+    <div style={{ padding: 20 }}>
+      <Header level={3}>Tiny (8px)</Header>
+      <Box size={8} />
+
+      <Spacer size="normal" />
+
+      <Header level={3}>Small (16px)</Header>
+      <Box size={16} />
+
+      <Spacer size="normal" />
+
+      <Header level={3}>Normal (24px)</Header>
+      <Box size={24} />
+    </div>
+  );
 };
 
 export const Motion = () => {

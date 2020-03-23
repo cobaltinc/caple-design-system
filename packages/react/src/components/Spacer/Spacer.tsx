@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import './Spacer.style.scss';
 
-export type SpacerSizeType = 'tiny' | 'normal' | 'large';
+export type SpacerSizeType = 'tiny' | 'small' | 'normal';
 export type SpacerOrientationType = 'horizontal' | 'vertical';
 
 export interface SpacerProps {
