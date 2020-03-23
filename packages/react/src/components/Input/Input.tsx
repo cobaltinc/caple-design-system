@@ -125,7 +125,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
           </Text>
         ) : null}
 
-        <div className={classNames} style={inputStyle}>
+        <div className={classNames}>
           {prefix ? (
             <span className={`${classPrefix}--prefix`}>{React.isValidElement(prefix) ? React.cloneElement(prefix, { size: iconSize }) : prefix}</span>
           ) : null}
