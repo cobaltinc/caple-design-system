@@ -19,6 +19,15 @@ export const Default = () => {
   );
 };
 
+export const Placeholder = () => {
+  const src = null;
+  return (
+    <div style={{ padding: 30 }}>
+      <Avatar src={src} placeholder="https://picsum.photos/200" />
+    </div>
+  );
+};
+
 export const Text = () => {
   return (
     <div style={{ padding: 30 }}>

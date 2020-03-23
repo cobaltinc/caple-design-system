@@ -9,59 +9,64 @@ export interface AvatarProps {
   size?: number;
   shape?: AvatarShapeType;
   src?: string;
+  placeholder?: string;
   text?: string;
   alt?: string;
   className?: string;
   style?: React.CSSProperties;
 }
 
-export default React.forwardRef<HTMLSpanElement, AvatarProps>(({ size = 80, shape = 'circle', src, text, alt, className = '', style }, ref) => {
-  const { useContext, useState, useRef, useEffect } = React;
-  const { prefix } = useContext(ConfigContext);
-  const classPrefix = `${prefix}-avatar`;
-  const classNames = classnames(`${classPrefix}`, `${classPrefix}--shape-${shape}`, className);
+export default React.forwardRef<HTMLSpanElement, AvatarProps>(
+  ({ size = 80, shape = 'circle', src, placeholder, text, alt, className = '', style }, ref) => {
+    const { useContext, useState, useRef, useEffect } = React;
+    const { prefix } = useContext(ConfigContext);
+    const classPrefix = `${prefix}-avatar`;
+    const classNames = classnames(`${classPrefix}`, `${classPrefix}--shape-${shape}`, className);
 
-  let children = null;
+    let children = null;
 
-  const span = useRef<HTMLSpanElement>(null);
-  const [scale, setScale] = useState(0.0);
+    const span = useRef<HTMLSpanElement>(null);
+    const [scale, setScale] = useState(0.0);
 
-  useEffect(() => {
-    if (span.current) {
-      const textWidth = span.current.offsetWidth;
-      setScale(size - 8 < textWidth ? (size - 8) / textWidth : 1);
+    useEffect(() => {
+      if (span.current) {
+        const textWidth = span.current.offsetWidth;
+        setScale(size - 8 < textWidth ? (size - 8) / textWidth : 1);
+      }
+    });
+
+    if (src) {
+      children = <img className={`${classPrefix}--image`} src={src} alt={alt} />;
+    } else if (placeholder) {
+      children = <img className={`${classPrefix}--image`} src={placeholder} alt={alt} />;
+    } else if (text) {
+      const transformString = `scale(${scale}) translateX(-50%)`;
+      const transformStyle = {
+        msTransform: transformString,
+        WebkitTransform: transformString,
+        transform: transformString,
+      };
+      const textStyle = {
+        lineHeight: `${size}px`,
+      };
+
+      children = (
+        <span className={`${classPrefix}--text`} style={{ ...transformStyle, ...textStyle }} ref={span}>
+          {text}
+        </span>
+      );
+    } else {
+      children = null;
     }
-  });
 
-  if (src) {
-    children = <img className={`${classPrefix}--image`} src={src} alt={alt} />;
-  } else if (text) {
-    const transformString = `scale(${scale}) translateX(-50%)`;
-    const transformStyle = {
-      msTransform: transformString,
-      WebkitTransform: transformString,
-      transform: transformString,
+    const sizeStyle = {
+      width: size,
+      height: size,
     };
-    const textStyle = {
-      lineHeight: `${size}px`,
-    };
-
-    children = (
-      <span className={`${classPrefix}--text`} style={{ ...transformStyle, ...textStyle }} ref={span}>
-        {text}
+    return (
+      <span ref={ref} className={classNames} style={{ ...sizeStyle, ...style }}>
+        {children}
       </span>
     );
-  } else {
-    children = null;
-  }
-
-  const sizeStyle = {
-    width: size,
-    height: size,
-  };
-  return (
-    <span ref={ref} className={classNames} style={{ ...sizeStyle, ...style }}>
-      {children}
-    </span>
-  );
-});
+  },
+);
