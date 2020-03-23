@@ -31,8 +31,8 @@ export const Size = () => {
   return (
     <div style={{ padding: 30 }}>
       <Header level={4}>Basic</Header>
-      <Button type="basic" size="mini">
-        Mini
+      <Button type="basic" size="tiny">
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
       <Button type="basic" size="small">
@@ -54,8 +54,8 @@ export const Size = () => {
       <Spacer type="horizontal" size={20} />
 
       <Header level={4}>Core</Header>
-      <Button type="core" size="mini">
-        Mini
+      <Button type="core" size="tiny">
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
       <Button type="core" size="small">
@@ -77,8 +77,8 @@ export const Size = () => {
       <Spacer type="horizontal" size={20} />
 
       <Header level={4}>Error</Header>
-      <Button type="error" size="mini">
-        Mini
+      <Button type="error" size="tiny">
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
       <Button type="error" size="small">
@@ -104,8 +104,8 @@ export const Ghost = () => {
   return (
     <div style={{ padding: 30 }}>
       <Header level={4}>Basic</Header>
-      <Button type="basic" size="mini" ghost>
-        Mini
+      <Button type="basic" size="tiny" ghost>
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
       <Button type="basic" size="small" ghost>
@@ -131,8 +131,8 @@ export const Ghost = () => {
       <Spacer type="horizontal" size={20} />
 
       <Header level={4}>Core</Header>
-      <Button type="core" size="mini" ghost>
-        Mini
+      <Button type="core" size="tiny" ghost>
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
       <Button type="core" size="small" ghost>
@@ -158,8 +158,8 @@ export const Ghost = () => {
       <Spacer type="horizontal" size={20} />
 
       <Header level={4}>Error</Header>
-      <Button type="error" size="mini" ghost>
-        Mini
+      <Button type="error" size="tiny" ghost>
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
       <Button type="error" size="small" ghost>
@@ -189,8 +189,8 @@ export const Disabled = () => {
   return (
     <div style={{ padding: 30 }}>
       <Header level={4}>Basic</Header>
-      <Button type="basic" size="mini" disabled>
-        Mini
+      <Button type="basic" size="tiny" disabled>
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
       <Button type="basic" size="small" disabled>
@@ -212,8 +212,8 @@ export const Disabled = () => {
       <Spacer type="horizontal" size={20} />
 
       <Header level={4}>Core</Header>
-      <Button type="core" size="mini" disabled>
-        Mini
+      <Button type="core" size="tiny" disabled>
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
       <Button type="core" size="small" disabled>
@@ -235,8 +235,8 @@ export const Disabled = () => {
       <Spacer type="horizontal" size={20} />
 
       <Header level={4}>Error</Header>
-      <Button type="error" size="mini" disabled>
-        Mini
+      <Button type="error" size="tiny" disabled>
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
       <Button type="error" size="small" disabled>
@@ -262,8 +262,8 @@ export const Loading = () => {
   return (
     <div style={{ padding: 30 }}>
       <Header level={4}>Basic</Header>
-      <Button type="basic" size="mini" loading>
-        Mini
+      <Button type="basic" size="tiny" loading>
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
       <Button type="basic" size="small" loading>
@@ -285,8 +285,8 @@ export const Loading = () => {
       <Spacer type="horizontal" size={20} />
 
       <Header level={4}>Core</Header>
-      <Button type="core" size="mini" loading>
-        Mini
+      <Button type="core" size="tiny" loading>
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
       <Button type="core" size="small" loading>
@@ -308,8 +308,8 @@ export const Loading = () => {
       <Spacer type="horizontal" size={20} />
 
       <Header level={4}>Error</Header>
-      <Button type="error" size="mini" loading>
-        Mini
+      <Button type="error" size="tiny" loading>
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
       <Button type="error" size="small" loading>
@@ -335,8 +335,8 @@ export const Block = () => {
   return (
     <div style={{ padding: 30 }}>
       <Header level={4}>Basic</Header>
-      <Button type="basic" size="mini" block>
-        Mini
+      <Button type="basic" size="tiny" block>
+        Tiny
       </Button>
       <Spacer type="horizontal" size={20} />
       <Button type="basic" size="small" block>
@@ -358,8 +358,8 @@ export const Block = () => {
       <Spacer type="horizontal" size={20} />
 
       <Header level={4}>Core</Header>
-      <Button type="core" size="mini" block>
-        Mini
+      <Button type="core" size="tiny" block>
+        Tiny
       </Button>
       <Spacer type="horizontal" size={20} />
       <Button type="core" size="small" block>
@@ -381,8 +381,8 @@ export const Block = () => {
       <Spacer type="horizontal" size={20} />
 
       <Header level={4}>Error</Header>
-      <Button type="error" size="mini" block>
-        Mini
+      <Button type="error" size="tiny" block>
+        Tiny
       </Button>
       <Spacer type="horizontal" size={20} />
       <Button type="error" size="small" block>

@@ -37,7 +37,7 @@ $select-prefix: '#{$prefix}-select';
       }
     }
 
-    &.#{$select-prefix}--size-mini {
+    &.#{$select-prefix}--size-tiny {
       height: 24px;
       padding: 0 6px;
       font-size: 11px;

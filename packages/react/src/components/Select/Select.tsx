@@ -9,7 +9,7 @@ import { FadeTransition } from '../_transition';
 import { convertReactNodeTo, concatReactNodeToString } from '../../utils';
 import './Select.style.scss';
 
-export type SelectSizeType = 'mini' | 'small' | 'normal' | 'large' | 'xlarge';
+export type SelectSizeType = 'tiny' | 'small' | 'normal' | 'large' | 'xlarge';
 export type SelectAlignType = 'left' | 'center' | 'right';
 export type SelectBorderType = 'border' | 'underline' | 'none';
 
@@ -74,13 +74,13 @@ const Select: ISelect<SelectProps> = ({
     [`${classPrefix}--focused`]: focused,
   });
 
-  const iconSize = size === 'mini' ? 14 : size === 'small' ? 16 : size === 'normal' ? 20 : size === 'large' ? 24 : 30;
+  const iconSize = size === 'tiny' ? 14 : size === 'small' ? 16 : size === 'normal' ? 20 : size === 'large' ? 24 : 30;
 
   const handleClick = () => {
     if (disabled) {
       return;
     }
-    
+
     setFocused(!focused);
   };
   const handleClickOutside = (event: MouseEvent) => {
@@ -135,12 +135,7 @@ const Select: ISelect<SelectProps> = ({
         )}
       </div>
 
-      <FadeTransition show={focused}>
-        {focused ?
-        <div className={`${classPrefix}--options`}>
-          {options}
-        </div> : null}
-      </FadeTransition>
+      <FadeTransition show={focused}>{focused ? <div className={`${classPrefix}--options`}>{options}</div> : null}</FadeTransition>
     </div>
   );
 };

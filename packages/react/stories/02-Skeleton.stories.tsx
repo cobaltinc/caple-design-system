@@ -36,7 +36,7 @@ export const Box = () => {
 export const Button = () => {
   return (
     <div style={{ padding: 30 }}>
-      <Skeleton.Button size="mini" />
+      <Skeleton.Button size="tiny" />
       <Spacer size={24} />
       <Skeleton.Button size="small" />
       <Spacer size={24} />
@@ -52,7 +52,7 @@ export const Button = () => {
 export const Input = () => {
   return (
     <div style={{ width: 300, padding: 30 }}>
-      <Skeleton.Input size="mini" />
+      <Skeleton.Input size="tiny" />
       <Spacer size={24} />
       <Skeleton.Input size="small" />
       <Spacer size={24} />

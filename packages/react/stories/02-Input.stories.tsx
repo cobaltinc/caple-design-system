@@ -16,7 +16,7 @@ export const Default = () => {
 export const Size = () => {
   return (
     <div style={{ padding: 20, maxWidth: 500 }}>
-      <Input.Text size="mini" placeholder="Please enter your name." />
+      <Input.Text size="tiny" placeholder="Please enter your name." />
       <Spacer type="horizontal" size={20} />
       <Input.Text size="small" placeholder="Please enter your name." />
       <Spacer type="horizontal" size={20} />
@@ -108,7 +108,7 @@ export const InputTextarea = () => {
 export const Loading = () => {
   return (
     <div style={{ padding: 20, maxWidth: 500 }}>
-      <Input.Text size="mini" placeholder="Please enter your name." loading />
+      <Input.Text size="tiny" placeholder="Please enter your name." loading />
       <Spacer type="horizontal" size={20} />
       <Input.Text size="small" placeholder="Please enter your name." loading />
       <Spacer type="horizontal" size={20} />

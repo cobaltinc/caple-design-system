@@ -6,7 +6,7 @@ import './Button.style.scss';
 
 export type ButtonType = 'basic' | 'core' | 'error';
 export type ButtonHtmlType = 'button' | 'submit' | 'reset';
-export type ButtonSizeType = 'mini' | 'small' | 'normal' | 'large' | 'xlarge';
+export type ButtonSizeType = 'tiny' | 'small' | 'normal' | 'large' | 'xlarge';
 
 export interface ButtonProps {
   children: React.ReactNode;
@@ -33,7 +33,7 @@ export default React.forwardRef<HTMLButtonElement, ButtonProps>(
     });
 
     const spinnerColor = type === 'basic' ? '#637381' : 'white';
-    const spinnerSize = size === 'mini' ? 13 : size === 'small' ? 14 : size === 'normal' ? 18 : size === 'large' ? 26 : 32;
+    const spinnerSize = size === 'tiny' ? 13 : size === 'small' ? 14 : size === 'normal' ? 18 : size === 'large' ? 20 : 24;
 
     return (
       <button ref={ref} type={htmlType} className={classNames} style={style} disabled={disabled} onClick={onClick}>

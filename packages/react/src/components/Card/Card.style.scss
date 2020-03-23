@@ -1,6 +1,7 @@
 @import '../../styles/base/core';
 @import '../../styles/helpers/mixins';
 @import '../../styles/variables/motion';
+@import '../../styles/variables/color';
 
 $card-prefix: '#{$prefix}-card';
 
@@ -11,7 +12,7 @@ $card-prefix: '#{$prefix}-card';
 
   .#{$card-prefix}--header {
     min-height: 56px;
-    box-shadow: inset 0 -1px 0 0 #dfe3e8;
+    box-shadow: inset 0 -1px 0 0 $sky;
 
     .#{$card-prefix}--title {
       display: inline-flex;
@@ -51,6 +52,6 @@ $card-prefix: '#{$prefix}-card';
 
   .#{$card-prefix}--footer {
     min-height: 56px;
-    box-shadow: inset 0 1px 0 0 #dfe3e8;
+    box-shadow: inset 0 1px 0 0 $sky;
   }
 }
