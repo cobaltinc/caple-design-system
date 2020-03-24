@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
+import { SkyDark } from '@caple-ui/colors';
 import './Avatar.style.scss';
 
 export type AvatarShapeType = 'circle' | 'square';
@@ -51,7 +52,7 @@ export default React.forwardRef<HTMLSpanElement, AvatarProps>(
       };
 
       children = (
-        <span className={`${classPrefix}--text`} style={{ ...transformStyle, ...textStyle }} ref={span}>
+        <span className={`${classPrefix}--text`} style={{ ...transformStyle, ...textStyle, backgroundColor: SkyDark }} ref={span}>
           {text}
         </span>
       );

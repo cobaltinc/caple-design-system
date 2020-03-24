@@ -10,8 +10,6 @@ $avatar-prefix: '#{$prefix}-avatar';
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
-  color: white;
-  background: $sky-dark;
   overflow: hidden;
 
   &.#{$avatar-prefix}--shape-circle {
@@ -25,6 +23,7 @@ $avatar-prefix: '#{$prefix}-avatar';
     position: absolute;
     left: 50%;
     transform-origin: 0 center;
+    color: white;
   }
 
   .#{$avatar-prefix}--image {
