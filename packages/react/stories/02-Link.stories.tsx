@@ -3,7 +3,7 @@ import { Link } from '../src';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Link',
+  title: 'Component|Link',
 };
 
 export const Default = () => {

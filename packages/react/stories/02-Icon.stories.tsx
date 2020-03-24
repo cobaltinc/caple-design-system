@@ -5,7 +5,7 @@ import * as Icons from '@caple-ui/icons-react';
 import FeatherIcons from 'feather-icons/dist/icons.json';
 
 export default {
-  title: 'Icon',
+  title: 'Component|Icon',
 };
 
 export const Default = () => {

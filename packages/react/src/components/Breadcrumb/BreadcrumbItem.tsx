@@ -6,6 +6,7 @@ import Text from '../Text';
 import { IconProps } from '../Icon/Icon';
 import { IconFeatherProps } from '../Icon/IconFeather';
 import { concatReactNodeToString } from '../../utils';
+import { InkLighter, SkyDark } from '@caple-ui/colors';
 import './Breadcrumb.style.scss';
 
 export interface BreadcrumbItemProps {
@@ -14,7 +15,7 @@ export interface BreadcrumbItemProps {
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
   className?: string;
   style?: React.CSSProperties;
-};
+}
 
 export interface BreadcrumbItemRenderProps {
   key: string | number;
@@ -37,7 +38,7 @@ BreadcrumbItem.render = ({ children, href, onClick, key, hasSeperator, className
     <span key={key} className={classNames}>
       <a href={href} className={`${classPrefix}--text`} style={style} onClick={onClick}>
         {isIcon ? (
-          React.cloneElement(children as React.ReactElement<IconProps | IconFeatherProps>, { size: 20, color: '#637381' })
+          React.cloneElement(children as React.ReactElement<IconProps | IconFeatherProps>, { size: 20, color: InkLighter })
         ) : (
           <Text strong size="large">
             {concatReactNodeToString(children)}
@@ -46,7 +47,7 @@ BreadcrumbItem.render = ({ children, href, onClick, key, hasSeperator, className
       </a>
       {hasSeperator ? (
         <span className={`${classPrefix}--separator`}>
-          <Icon type="chenvron-right" color="#C4CDD5" />
+          <Icon type="chenvron-right" color={SkyDark} />
         </span>
       ) : null}
     </span>

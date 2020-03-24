@@ -4,7 +4,7 @@ import { Modal, Button, Header, Input, Spacer, Grid } from '../src';
 const { Row, Col } = Grid;
 
 export default {
-  title: 'Modal',
+  title: 'Component|Modal',
 };
 
 interface ModalContentProps {
@@ -33,7 +33,7 @@ const ModalContent = ({ onSubmit }: ModalContentProps) => {
       <Spacer size={10} />
       <Row justify="end">
         <Col>
-          <Button type="primary" onClick={handleSubmit} loading={loading}>
+          <Button type="core" onClick={handleSubmit} loading={loading}>
             Submit
           </Button>
         </Col>

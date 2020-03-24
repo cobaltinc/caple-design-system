@@ -2,7 +2,7 @@ import React from 'react';
 import { Toast, Button, Spacer } from '../src';
 
 export default {
-  title: 'Toast',
+  title: 'Component|Toast',
 };
 
 export const Default = () => {

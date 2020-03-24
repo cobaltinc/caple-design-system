@@ -2,7 +2,7 @@ import React from 'react';
 import { Avatar, Badge, Spacer } from '../src';
 
 export default {
-  title: 'Avatar',
+  title: 'Component|Avatar',
 };
 
 export const Default = () => {
@@ -15,6 +15,15 @@ export const Default = () => {
       <Avatar size={40} src="https://picsum.photos/200" />
       <Spacer type="vertical" size={10} />
       <Avatar size={20} src="https://picsum.photos/200" />
+    </div>
+  );
+};
+
+export const Placeholder = () => {
+  const src = null;
+  return (
+    <div style={{ padding: 30 }}>
+      <Avatar src={src} placeholder="https://picsum.photos/200" />
     </div>
   );
 };

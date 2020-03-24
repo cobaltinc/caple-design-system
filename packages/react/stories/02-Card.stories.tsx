@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Checkbox, Button, Input, Spacer, Header } from '../src';
 
 export default {
-  title: 'Card',
+  title: 'Component|Card',
 };
 
 export const Default = () => {
@@ -33,7 +33,7 @@ export const CardHeader = () => {
 
 export const CardFooter = () => {
   const footerButton = (
-    <Button type="primary" style={{ margin: 10 }}>
+    <Button type="core" style={{ margin: 10 }}>
       Save
     </Button>
   );

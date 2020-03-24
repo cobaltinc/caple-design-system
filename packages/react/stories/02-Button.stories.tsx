@@ -4,7 +4,7 @@ import { Button, Header, Spacer } from '../src';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Button',
+  title: 'Component|Button',
 };
 
 export const Default = () => {
@@ -20,9 +20,9 @@ export const Type = () => {
     <div style={{ padding: 30 }}>
       <Button type="basic">Basic</Button>
       <Spacer type="vertical" size={20} />
-      <Button type="primary">Primary</Button>
+      <Button type="core">Core</Button>
       <Spacer type="vertical" size={20} />
-      <Button type="destructive">Destructive</Button>
+      <Button type="error">Error</Button>
     </div>
   );
 };
@@ -31,8 +31,8 @@ export const Size = () => {
   return (
     <div style={{ padding: 30 }}>
       <Header level={4}>Basic</Header>
-      <Button type="basic" size="mini">
-        Mini
+      <Button type="basic" size="tiny">
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
       <Button type="basic" size="small">
@@ -53,47 +53,47 @@ export const Size = () => {
 
       <Spacer type="horizontal" size={20} />
 
-      <Header level={4}>Primary</Header>
-      <Button type="primary" size="mini">
-        Mini
+      <Header level={4}>Core</Header>
+      <Button type="core" size="tiny">
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="primary" size="small">
+      <Button type="core" size="small">
         Small
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="primary" size="normal">
+      <Button type="core" size="normal">
         Normal
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="primary" size="large">
+      <Button type="core" size="large">
         Large
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="primary" size="xlarge">
+      <Button type="core" size="xlarge">
         xLarge
       </Button>
 
       <Spacer type="horizontal" size={20} />
 
-      <Header level={4}>Destructive</Header>
-      <Button type="destructive" size="mini">
-        Mini
+      <Header level={4}>Error</Header>
+      <Button type="error" size="tiny">
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="destructive" size="small">
+      <Button type="error" size="small">
         Small
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="destructive" size="normal">
+      <Button type="error" size="normal">
         Normal
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="destructive" size="large">
+      <Button type="error" size="large">
         Large
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="destructive" size="xlarge">
+      <Button type="error" size="xlarge">
         xLarge
       </Button>
     </div>
@@ -104,8 +104,8 @@ export const Ghost = () => {
   return (
     <div style={{ padding: 30 }}>
       <Header level={4}>Basic</Header>
-      <Button type="basic" size="mini" ghost>
-        Mini
+      <Button type="basic" size="tiny" ghost>
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
       <Button type="basic" size="small" ghost>
@@ -130,56 +130,56 @@ export const Ghost = () => {
 
       <Spacer type="horizontal" size={20} />
 
-      <Header level={4}>Primary</Header>
-      <Button type="primary" size="mini" ghost>
-        Mini
+      <Header level={4}>Core</Header>
+      <Button type="core" size="tiny" ghost>
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="primary" size="small" ghost>
+      <Button type="core" size="small" ghost>
         Small
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="primary" size="normal" ghost>
+      <Button type="core" size="normal" ghost>
         Normal
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="primary" size="large" ghost>
+      <Button type="core" size="large" ghost>
         Large
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="primary" size="xlarge" ghost>
+      <Button type="core" size="xlarge" ghost>
         xLarge
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="primary" size="normal" ghost disabled>
-        Primary Disabled
+      <Button type="core" size="normal" ghost disabled>
+        Core Disabled
       </Button>
 
       <Spacer type="horizontal" size={20} />
 
-      <Header level={4}>Destructive</Header>
-      <Button type="destructive" size="mini" ghost>
-        Mini
+      <Header level={4}>Error</Header>
+      <Button type="error" size="tiny" ghost>
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="destructive" size="small" ghost>
+      <Button type="error" size="small" ghost>
         Small
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="destructive" size="normal" ghost>
+      <Button type="error" size="normal" ghost>
         Normal
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="destructive" size="large" ghost>
+      <Button type="error" size="large" ghost>
         Large
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="destructive" size="xlarge" ghost>
+      <Button type="error" size="xlarge" ghost>
         xLarge
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="destructive" size="normal" ghost disabled>
-        Destructive Disabled
+      <Button type="error" size="normal" ghost disabled>
+        Error Disabled
       </Button>
     </div>
   );
@@ -189,8 +189,8 @@ export const Disabled = () => {
   return (
     <div style={{ padding: 30 }}>
       <Header level={4}>Basic</Header>
-      <Button type="basic" size="mini" disabled>
-        Mini
+      <Button type="basic" size="tiny" disabled>
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
       <Button type="basic" size="small" disabled>
@@ -211,47 +211,47 @@ export const Disabled = () => {
 
       <Spacer type="horizontal" size={20} />
 
-      <Header level={4}>Primary</Header>
-      <Button type="primary" size="mini" disabled>
-        Mini
+      <Header level={4}>Core</Header>
+      <Button type="core" size="tiny" disabled>
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="primary" size="small" disabled>
+      <Button type="core" size="small" disabled>
         Small
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="primary" size="normal" disabled>
+      <Button type="core" size="normal" disabled>
         Normal
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="primary" size="large" disabled>
+      <Button type="core" size="large" disabled>
         Large
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="primary" size="xlarge" disabled>
+      <Button type="core" size="xlarge" disabled>
         xLarge
       </Button>
 
       <Spacer type="horizontal" size={20} />
 
-      <Header level={4}>Destructive</Header>
-      <Button type="destructive" size="mini" disabled>
-        Mini
+      <Header level={4}>Error</Header>
+      <Button type="error" size="tiny" disabled>
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="destructive" size="small" disabled>
+      <Button type="error" size="small" disabled>
         Small
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="destructive" size="normal" disabled>
+      <Button type="error" size="normal" disabled>
         Normal
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="destructive" size="large" disabled>
+      <Button type="error" size="large" disabled>
         Large
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="destructive" size="xlarge" disabled>
+      <Button type="error" size="xlarge" disabled>
         xLarge
       </Button>
     </div>
@@ -262,8 +262,8 @@ export const Loading = () => {
   return (
     <div style={{ padding: 30 }}>
       <Header level={4}>Basic</Header>
-      <Button type="basic" size="mini" loading>
-        Mini
+      <Button type="basic" size="tiny" loading>
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
       <Button type="basic" size="small" loading>
@@ -284,47 +284,47 @@ export const Loading = () => {
 
       <Spacer type="horizontal" size={20} />
 
-      <Header level={4}>Primary</Header>
-      <Button type="primary" size="mini" loading>
-        Mini
+      <Header level={4}>Core</Header>
+      <Button type="core" size="tiny" loading>
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="primary" size="small" loading>
+      <Button type="core" size="small" loading>
         Small
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="primary" size="normal" loading>
+      <Button type="core" size="normal" loading>
         Normal
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="primary" size="large" loading>
+      <Button type="core" size="large" loading>
         Large
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="primary" size="xlarge" loading>
+      <Button type="core" size="xlarge" loading>
         xLarge
       </Button>
 
       <Spacer type="horizontal" size={20} />
 
-      <Header level={4}>Destructive</Header>
-      <Button type="destructive" size="mini" loading>
-        Mini
+      <Header level={4}>Error</Header>
+      <Button type="error" size="tiny" loading>
+        Tiny
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="destructive" size="small" loading>
+      <Button type="error" size="small" loading>
         Small
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="destructive" size="normal" loading>
+      <Button type="error" size="normal" loading>
         Normal
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="destructive" size="large" loading>
+      <Button type="error" size="large" loading>
         Large
       </Button>
       <Spacer type="vertical" size={20} />
-      <Button type="destructive" size="xlarge" loading>
+      <Button type="error" size="xlarge" loading>
         xLarge
       </Button>
     </div>
@@ -335,8 +335,8 @@ export const Block = () => {
   return (
     <div style={{ padding: 30 }}>
       <Header level={4}>Basic</Header>
-      <Button type="basic" size="mini" block>
-        Mini
+      <Button type="basic" size="tiny" block>
+        Tiny
       </Button>
       <Spacer type="horizontal" size={20} />
       <Button type="basic" size="small" block>
@@ -357,47 +357,47 @@ export const Block = () => {
 
       <Spacer type="horizontal" size={20} />
 
-      <Header level={4}>Primary</Header>
-      <Button type="primary" size="mini" block>
-        Mini
+      <Header level={4}>Core</Header>
+      <Button type="core" size="tiny" block>
+        Tiny
       </Button>
       <Spacer type="horizontal" size={20} />
-      <Button type="primary" size="small" block>
+      <Button type="core" size="small" block>
         Small
       </Button>
       <Spacer type="horizontal" size={20} />
-      <Button type="primary" size="normal" block>
+      <Button type="core" size="normal" block>
         Normal
       </Button>
       <Spacer type="horizontal" size={20} />
-      <Button type="primary" size="large" block>
+      <Button type="core" size="large" block>
         Large
       </Button>
       <Spacer type="horizontal" size={20} />
-      <Button type="primary" size="xlarge" block>
+      <Button type="core" size="xlarge" block>
         xLarge
       </Button>
 
       <Spacer type="horizontal" size={20} />
 
-      <Header level={4}>Destructive</Header>
-      <Button type="destructive" size="mini" block>
-        Mini
+      <Header level={4}>Error</Header>
+      <Button type="error" size="tiny" block>
+        Tiny
       </Button>
       <Spacer type="horizontal" size={20} />
-      <Button type="destructive" size="small" block>
+      <Button type="error" size="small" block>
         Small
       </Button>
       <Spacer type="horizontal" size={20} />
-      <Button type="destructive" size="normal" block>
+      <Button type="error" size="normal" block>
         Normal
       </Button>
       <Spacer type="horizontal" size={20} />
-      <Button type="destructive" size="large" block>
+      <Button type="error" size="large" block>
         Large
       </Button>
       <Spacer type="horizontal" size={20} />
-      <Button type="destructive" size="xlarge" block>
+      <Button type="error" size="xlarge" block>
         xLarge
       </Button>
     </div>

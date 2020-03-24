@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
+import { Red } from '@caple-ui/colors';
 import './Badge.style.scss';
 
 export interface BadgeProps {
@@ -21,7 +22,7 @@ export default ({
   showZero = false,
   maxCount,
   dot = false,
-  backgroundColor = '#DE3618',
+  backgroundColor = Red,
   textColor = '#fff',
   className = '',
   style,

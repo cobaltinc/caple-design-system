@@ -2,7 +2,7 @@ import React from 'react';
 import { Avatar, Badge, Spacer, Icon } from '../src';
 
 export default {
-  title: 'Badge',
+  title: 'Component|Badge',
 };
 
 export const Default = () => {

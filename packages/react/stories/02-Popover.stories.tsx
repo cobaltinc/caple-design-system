@@ -2,7 +2,7 @@ import React from 'react';
 import { Popover, Text, Button, Input, Spacer } from '../src';
 
 export default {
-  title: 'Popover',
+  title: 'Component|Popover',
 };
 
 const CommonPopoverContent = () => (

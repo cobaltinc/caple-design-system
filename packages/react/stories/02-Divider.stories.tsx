@@ -2,7 +2,7 @@ import React from 'react';
 import { Divider, Text } from '../src';
 
 export default {
-  title: 'Divider',
+  title: 'Component|Divider',
 };
 
 export const Default = () => {

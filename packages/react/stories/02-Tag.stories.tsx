@@ -2,7 +2,7 @@ import React from 'react';
 import { Tag } from '../src';
 
 export default {
-  title: 'Tag',
+  title: 'Component|Tag',
 };
 
 export const Default = () => {

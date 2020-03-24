@@ -17,7 +17,7 @@ export default ({ size = 'normal', block, className = '', style }: SkeletonButto
   const classPrefix = `${prefix}-skeleton`;
   const classNames = classnames(classPrefix, className);
 
-  const height = size === 'mini' ? 24 : size === 'small' ? 30 : size === 'normal' ? 36 : size === 'large' ? 44 : 50;
+  const height = size === 'tiny' ? 24 : size === 'small' ? 30 : size === 'normal' ? 36 : size === 'large' ? 44 : 50;
 
   const sizeStyle = {
     display: block ? 'block' : undefined,

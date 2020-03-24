@@ -1,8 +1,8 @@
 import React from 'react';
-import { Upload, Button, Text } from '../src';
+import { Upload, Button } from '../src';
 
 export default {
-  title: 'Upload',
+  title: 'Component|Upload',
 };
 
 export const Default = () => {

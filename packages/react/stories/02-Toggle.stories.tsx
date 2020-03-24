@@ -2,7 +2,7 @@ import React from 'react';
 import { Toggle, Spacer } from '../src';
 
 export default {
-  title: 'Toggle',
+  title: 'Component|Toggle',
 };
 
 export const Default = () => {

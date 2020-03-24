@@ -4,6 +4,8 @@
 $row-prefix: '#{$prefix}-row';
 $col-prefix: '#{$prefix}-col';
 
+$grid-count: 12;
+
 .#{$row-prefix} {
   position: relative;
   display: flex;
@@ -39,13 +41,13 @@ $col-prefix: '#{$prefix}-col';
   max-width: 100%;
   box-sizing: border-box;
 
-  @for $i from 0 to 16 {
+  @for $i from 0 to $grid-count + 1 {
     &.#{$col-prefix}--col-#{$i} {
-      width: #{percentage($i / 16)};
+      width: #{percentage($i / $grid-count)};
     }
 
     &.#{$col-prefix}--col-offset-#{$i} {
-      margin-left: #{percentage($i / 16)};
+      margin-left: #{percentage($i / $grid-count)};
     }
 
     &.#{$col-prefix}--order-#{$i} {
@@ -54,13 +56,13 @@ $col-prefix: '#{$prefix}-col';
   }
 
   @media (max-width: $screen-xs-max) {
-    @for $i from 0 to 16 {
+    @for $i from 0 to $grid-count + 1 {
       &.#{$col-prefix}--xs-col-#{$i} {
-        width: #{percentage($i / 16)};
+        width: #{percentage($i / $grid-count)};
       }
   
       &.#{$col-prefix}--xs-col-offset-#{$i} {
-        margin-left: #{percentage($i / 16)};
+        margin-left: #{percentage($i / $grid-count)};
       }
 
       &.#{$col-prefix}--xs-order-#{$i} {
@@ -70,13 +72,13 @@ $col-prefix: '#{$prefix}-col';
   }
 
   @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-    @for $i from 0 to 16 {
+    @for $i from 0 to $grid-count + 1 {
       &.#{$col-prefix}--sm-col-#{$i} {
-        width: #{percentage($i / 16)};
+        width: #{percentage($i / $grid-count)};
       }
   
       &.#{$col-prefix}--sm-col-offset-#{$i} {
-        margin-left: #{percentage($i / 16)};
+        margin-left: #{percentage($i / $grid-count)};
       }
 
       &.#{$col-prefix}--sm-order-#{$i} {
@@ -86,13 +88,13 @@ $col-prefix: '#{$prefix}-col';
   }
 
   @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-    @for $i from 0 to 16 {
+    @for $i from 0 to $grid-count + 1 {
       &.#{$col-prefix}--md-col-#{$i} {
-        width: #{percentage($i / 16)};
+        width: #{percentage($i / $grid-count)};
       }
   
       &.#{$col-prefix}--md-col-offset-#{$i} {
-        margin-left: #{percentage($i / 16)};
+        margin-left: #{percentage($i / $grid-count)};
       }
 
       &.#{$col-prefix}--md-order-#{$i} {
@@ -102,13 +104,13 @@ $col-prefix: '#{$prefix}-col';
   }
 
   @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
-    @for $i from 0 to 16 {
+    @for $i from 0 to $grid-count + 1 {
       &.#{$col-prefix}--lg-col-#{$i} {
-        width: #{percentage($i / 16)};
+        width: #{percentage($i / $grid-count)};
       }
   
       &.#{$col-prefix}--lg-col-offset-#{$i} {
-        margin-left: #{percentage($i / 16)};
+        margin-left: #{percentage($i / $grid-count)};
       }
 
       &.#{$col-prefix}--lg-order-#{$i} {
@@ -118,13 +120,13 @@ $col-prefix: '#{$prefix}-col';
   }
 
   @media (min-width: $screen-xl-min) and (max-width: $screen-lg-max) {
-    @for $i from 0 to 16 {
+    @for $i from 0 to $grid-count + 1 {
       &.#{$col-prefix}--xl-col-#{$i} {
-        width: #{percentage($i / 16)};
+        width: #{percentage($i / $grid-count)};
       }
   
       &.#{$col-prefix}--xl-col-offset-#{$i} {
-        margin-left: #{percentage($i / 16)};
+        margin-left: #{percentage($i / $grid-count)};
       }
 
       &.#{$col-prefix}--xl-order-#{$i} {
@@ -134,13 +136,13 @@ $col-prefix: '#{$prefix}-col';
   }
 
   @media (min-width: $screen-xxl-min) {
-    @for $i from 0 to 16 {
+    @for $i from 0 to $grid-count + 1 {
       &.#{$col-prefix}--xxl-col-#{$i} {
-        width: #{percentage($i / 16)};
+        width: #{percentage($i / $grid-count)};
       }
   
       &.#{$col-prefix}--xxl-col-offset-#{$i} {
-        margin-left: #{percentage($i / 16)};
+        margin-left: #{percentage($i / $grid-count)};
       }
 
       &.#{$col-prefix}--xxl-order-#{$i} {

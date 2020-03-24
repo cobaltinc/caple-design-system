@@ -4,12 +4,13 @@ import ConfigContext from '../_config/ConfigContext';
 import { ExpandTransition } from '../_transition';
 import Text from '../Text';
 import Icon from '../Icon';
+import { Indigo } from '@caple-ui/colors';
 import './Collapse.style.scss';
 
 export type CaretText = {
   openText: string;
   closeText: string;
-}
+};
 
 export interface CollapseProps {
   children: React.ReactNode;
@@ -33,7 +34,7 @@ export default ({
   animate = true,
   titleColor,
   caretText,
-  caretTextColor = '#5C6AC4',
+  caretTextColor = Indigo,
   caretColor,
   onOpen,
   onClose,

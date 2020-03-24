@@ -8,7 +8,7 @@ import { IconFeatherProps } from '../Icon/IconFeather';
 import './Input.style.scss';
 
 export type InputType = 'email' | 'number' | 'text' | 'password' | 'date' | 'time' | 'datetime' | 'url' | 'tel';
-export type InputSizeType = 'mini' | 'small' | 'normal' | 'large' | 'xlarge';
+export type InputSizeType = 'tiny' | 'small' | 'normal' | 'large' | 'xlarge';
 export type InputBorderType = 'border' | 'underline' | 'none';
 export type InputAlignType = 'left' | 'center' | 'right';
 
@@ -115,7 +115,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
       onKeyDown?.(event);
     };
 
-    const iconSize = size === 'mini' ? 14 : size === 'small' ? 16 : size === 'normal' ? 20 : size === 'large' ? 24 : 30;
+    const iconSize = size === 'tiny' ? 14 : size === 'small' ? 16 : size === 'normal' ? 20 : size === 'large' ? 24 : 30;
 
     return (
       <div className={classnames(`${classPrefix}--container`, className, { [`${classPrefix}--block`]: block })} style={style}>

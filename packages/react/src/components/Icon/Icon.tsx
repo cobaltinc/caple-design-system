@@ -4,6 +4,7 @@ import ConfigContext from '../_config/ConfigContext';
 import { warning, kebabToPascal } from '../../utils';
 import * as Icons from '@caple-ui/icons-react';
 import IconFeather from './IconFeather';
+import { Ink } from '@caple-ui/colors';
 import './Icon.style.scss';
 
 export interface IconProps {
@@ -18,7 +19,7 @@ export interface IconProps {
   style?: React.CSSProperties;
 }
 
-const Icon = ({ type, component, size = 16, rotate, spin = false, color = '#212B36', onClick, className = '', style }: IconProps) => {
+const Icon = ({ type, component, size = 16, rotate, spin = false, color = Ink, onClick, className = '', style }: IconProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-icon`;

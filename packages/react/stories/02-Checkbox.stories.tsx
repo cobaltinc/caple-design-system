@@ -1,8 +1,8 @@
 import React from 'react';
-import { Checkbox, Header, Spacer } from '../src';
+import { Checkbox, Header } from '../src';
 
 export default {
-  title: 'Checkbox',
+  title: 'Component|Checkbox',
 };
 
 export const Default = () => {

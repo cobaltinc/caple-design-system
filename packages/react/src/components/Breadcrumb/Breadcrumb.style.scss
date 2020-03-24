@@ -1,4 +1,5 @@
 @import '../../styles/base/core';
+@import '../../styles/variables/color';
 
 $breadcrumb-prefix: '#{$prefix}-breadcrumb';
 
@@ -14,16 +15,16 @@ $breadcrumb-prefix: '#{$prefix}-breadcrumb';
       height: 20px;
       margin-top: -2px;
       align-items: center;
-      color: #637381;
+      color: $ink-lighter;
       vertical-align: middle;
       cursor: pointer;
 
       &:hover {
-        color: #454f5b;
+        color: $ink-light;
       }
 
       svg:hover {
-        fill: #454f5b !important;
+        fill: $ink-light !important;
       }
     }
 

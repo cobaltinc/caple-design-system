@@ -1,11 +1,12 @@
 @import '../../styles/base/core';
+@import '../../styles/variables/color';
 
 $divider-prefix: '#{$prefix}-divider';
 
 .#{$divider-prefix} {
   border: none;
   outline: none;
-  background-color: #e0e4e9;
+  background-color: $border;
 
   &.#{$divider-prefix}-horizontal {
     display: block;

@@ -28,6 +28,7 @@ There are no packages for Vue.js and Angular yet. We plan to release them later.
 
 | Package name                                      | Description                                 |
 | ------------------------------------------------- | ------------------------------------------- |
+| [`@caple-ui/colors`](./packages/colors)           | Caple Design System colors                  |
 | [`@caple-ui/icons-react`](./packages/icons-react) | Iconography assets for React                |
 | [`@caple-ui/react`](./packages/react)             | Caple Design System UI for React components |
 
