@@ -6,7 +6,7 @@ $text-prefix: '#{$prefix}-text';
 
 .#{$text-prefix} {
   vertical-align: middle;
-  
+
   mark {
     padding: 0;
     background-color: $blue-light;
@@ -31,19 +31,6 @@ $text-prefix: '#{$prefix}-text';
   }
   &.#{$text-prefix}--size-small {
     font-size: $text-size-small;
-  }
-
-  &[contenteditable='true']:not(:empty):not(:focus) {
-    position: relative;
-    &:before {
-      content: attr(data-value);
-      position: absolute;
-      top: 4px;
-      left: 0;
-      color: transparent;
-      border-bottom: 1px solid $ink;
-      cursor: text;
-    }
   }
 
   &[contenteditable='true']:empty:before {

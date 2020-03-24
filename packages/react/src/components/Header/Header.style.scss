@@ -8,19 +8,6 @@ $header-prefix: '#{$prefix}-header';
   display: block;
   margin: 0;
 
-  &[contenteditable='true']:not(:empty):not(:focus) {
-    position: relative;
-    &:before {
-      content: attr(data-value);
-      position: absolute;
-      top: 4px;
-      left: 0;
-      color: transparent;
-      border-bottom: 1px solid $ink;
-      cursor: text;
-    }
-  }
-
   &[contenteditable='true']:empty:before {
     content: attr(placeholder);
     color: #d9d9de;

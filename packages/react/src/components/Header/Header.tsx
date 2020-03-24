@@ -35,12 +35,10 @@ export default ({
   className = '',
   style,
 }: HeaderProps) => {
-  const { useContext, useRef } = React;
+  const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-header`;
   const classNames = classnames(classPrefix, className);
-
-  const ref = useRef<HTMLHeadingElement>(null);
 
   let Tag = `h${level}` as 'h1';
   if (level < 1 || level > 4) {
@@ -68,10 +66,6 @@ export default ({
 
   const handleKeyUp = (event: React.KeyboardEvent) => {
     onChange?.(event);
-
-    if (editable && ref.current) {
-      ref.current.setAttribute('data-value', ref.current.innerText);
-    }
   };
 
   const handlePaste = (event: React.ClipboardEvent) => {
@@ -83,7 +77,6 @@ export default ({
 
   return (
     <Tag
-      ref={ref}
       onKeyDown={handleKeyDown}
       onKeyUp={handleKeyUp}
       onPaste={handlePaste}
