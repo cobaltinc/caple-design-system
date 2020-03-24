@@ -49,19 +49,19 @@ export const Default = () => {
       </Text>
       <ul>
         <li>
-          <Link onClick={linkTo('Styleguide', 'Typography')}>Typography</Link>
+          <Link onClick={linkTo('Introduction|Styleguide', 'Typography')}>Typography</Link>
         </li>
         <li>
-          <Link onClick={linkTo('Styleguide', 'Color')}>Color</Link>
+          <Link onClick={linkTo('Introduction|Styleguide', 'Color')}>Color</Link>
         </li>
         <li>
-          <Link onClick={linkTo('Styleguide', 'Spacing')}>Spacing</Link>
+          <Link onClick={linkTo('Introduction|Styleguide', 'Spacing')}>Spacing</Link>
         </li>
         <li>
-          <Link onClick={linkTo('Styleguide', 'Motion')}>Motion</Link>
+          <Link onClick={linkTo('Introduction|Styleguide', 'Motion')}>Motion</Link>
         </li>
         <li>
-          <Link onClick={linkTo('Styleguide', 'Icon')}>Icon</Link>
+          <Link onClick={linkTo('Introduction|Styleguide', 'Icon')}>Icon</Link>
         </li>
       </ul>
 
@@ -70,7 +70,7 @@ export const Default = () => {
       <ul>
         {components.map((component, index) => (
           <li key={index}>
-            <Link onClick={linkTo(component)}>{component}</Link>
+            <Link onClick={linkTo(`Component|${component}`)}>{component}</Link>
           </li>
         ))}
       </ul>

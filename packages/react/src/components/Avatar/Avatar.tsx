@@ -36,6 +36,11 @@ export default React.forwardRef<HTMLSpanElement, AvatarProps>(
       }
     });
 
+    const avatarStyle: { [key: string]: any } = {
+      width: size,
+      height: size,
+    };
+
     if (src) {
       children = <img className={`${classPrefix}--image`} src={src} alt={alt} />;
     } else if (placeholder) {
@@ -51,21 +56,20 @@ export default React.forwardRef<HTMLSpanElement, AvatarProps>(
         lineHeight: `${size}px`,
       };
 
+      avatarStyle.backgroundColor = SkyDark;
+
       children = (
-        <span className={`${classPrefix}--text`} style={{ ...transformStyle, ...textStyle, backgroundColor: SkyDark }} ref={span}>
+        <span className={`${classPrefix}--text`} style={{ ...transformStyle, ...textStyle }} ref={span}>
           {text}
         </span>
       );
     } else {
       children = null;
+      avatarStyle.backgroundColor = SkyDark;
     }
 
-    const sizeStyle = {
-      width: size,
-      height: size,
-    };
     return (
-      <span ref={ref} className={classNames} style={{ ...sizeStyle, ...style }}>
+      <span ref={ref} className={classNames} style={{ ...avatarStyle, ...style }}>
         {children}
       </span>
     );
