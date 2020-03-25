@@ -35,8 +35,17 @@ export default React.forwardRef<HTMLButtonElement, ButtonProps>(
     const spinnerColor = type === 'basic' ? '#637381' : 'white';
     const spinnerSize = size === 'tiny' ? 13 : size === 'small' ? 14 : size === 'normal' ? 18 : size === 'large' ? 20 : 24;
 
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (disabled || loading) {
+        e.preventDefault();
+        return;
+      }
+
+      onClick?.(e);
+    };
+
     return (
-      <button ref={ref} type={htmlType} className={classNames} style={style} disabled={disabled} onClick={onClick}>
+      <button ref={ref} type={htmlType} className={classNames} style={style} disabled={disabled} onClick={handleClick}>
         {loading ? <Spinner color={spinnerColor} size={spinnerSize} /> : null}
         <div style={{ opacity: loading ? 0 : 1, height: loading ? 0 : 'auto' }}>{children}</div>
       </button>
