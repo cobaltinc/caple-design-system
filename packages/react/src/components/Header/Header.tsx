@@ -13,9 +13,12 @@ export interface HeaderProps {
   color?: string;
   editable?: boolean;
   placeholder?: string;
-  onChange?: React.KeyboardEventHandler;
-  onFocus?: React.FocusEventHandler;
-  onBlur?: React.FocusEventHandler;
+  onKeyDown?: React.KeyboardEventHandler<HTMLHeadingElement>;
+  onKeyUp?: React.KeyboardEventHandler<HTMLHeadingElement>;
+  onInput?: React.FormEventHandler<HTMLHeadingElement>;
+  onFocus?: React.FocusEventHandler<HTMLHeadingElement>;
+  onBlur?: React.FocusEventHandler<HTMLHeadingElement>;
+  onPressEnter?: React.KeyboardEventHandler<HTMLHeadingElement>;
   className?: string;
   style?: React.CSSProperties;
 }
@@ -29,9 +32,12 @@ export default ({
   color,
   editable,
   placeholder,
-  onChange,
+  onKeyDown,
+  onKeyUp,
+  onInput,
   onFocus,
   onBlur,
+  onPressEnter,
   className = '',
   style,
 }: HeaderProps) => {
@@ -58,14 +64,13 @@ export default ({
     children = <del>{children}</del>;
   }
 
-  const handleKeyDown = (event: React.KeyboardEvent) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLHeadingElement>) => {
+    onKeyDown?.(event);
+
     if (event.key === 'Enter') {
+      onPressEnter?.(event);
       event.preventDefault();
     }
-  };
-
-  const handleKeyUp = (event: React.KeyboardEvent) => {
-    onChange?.(event);
   };
 
   const handlePaste = (event: React.ClipboardEvent) => {
@@ -78,10 +83,11 @@ export default ({
   return (
     <Tag
       onKeyDown={handleKeyDown}
-      onKeyUp={handleKeyUp}
+      onKeyUp={onKeyUp}
       onPaste={handlePaste}
       onFocus={onFocus}
       onBlur={onBlur}
+      onInput={onInput}
       contentEditable={editable}
       placeholder={placeholder}
       suppressContentEditableWarning={editable}

@@ -10,8 +10,8 @@ $header-prefix: '#{$prefix}-header';
 
   &[contenteditable='true']:empty:before {
     content: attr(placeholder);
-    color: #d9d9de;
-    border-bottom: 1px solid #d9d9de;
+    color: $sky-dark;
+    border-bottom: 1px solid $sky-dark;
     cursor: text;
   }
 

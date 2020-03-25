@@ -35,12 +35,13 @@ $text-prefix: '#{$prefix}-text';
 
   &[contenteditable='true']:empty:before {
     content: attr(placeholder);
-    color: $ink-lightest;
-    border-bottom: 1px solid $ink-lightest;
+    color: $sky-dark;
+    border-bottom: 1px solid $sky-dark;
     cursor: text;
   }
 
   &[contenteditable='true']:focus {
+    display: inline-block;
     outline: none;
   }
 }

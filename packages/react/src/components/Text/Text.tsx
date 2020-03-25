@@ -17,9 +17,12 @@ export interface TextProps {
   color?: string;
   editable?: boolean;
   placeholder?: string;
-  onChange?: React.KeyboardEventHandler<HTMLParagraphElement>;
-  onFocus?: React.FocusEventHandler;
-  onBlur?: React.FocusEventHandler;
+  onKeyDown?: React.KeyboardEventHandler<HTMLSpanElement>;
+  onKeyUp?: React.KeyboardEventHandler<HTMLSpanElement>;
+  onInput?: React.FormEventHandler<HTMLSpanElement>;
+  onFocus?: React.FocusEventHandler<HTMLSpanElement>;
+  onBlur?: React.FocusEventHandler<HTMLSpanElement>;
+  onPressEnter?: React.KeyboardEventHandler<HTMLSpanElement>;
   className?: string;
   style?: React.CSSProperties;
 }
@@ -36,9 +39,12 @@ export default ({
   color,
   editable,
   placeholder,
-  onChange,
+  onKeyDown,
+  onKeyUp,
+  onInput,
   onFocus,
   onBlur,
+  onPressEnter,
   className = '',
   style,
 }: TextProps) => {
@@ -72,17 +78,16 @@ export default ({
     fontStyle.fontSize = size;
   }
 
-  const onKeyDown = (event: React.KeyboardEvent<HTMLParagraphElement>) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLSpanElement>) => {
+    onKeyDown?.(event);
+
     if (event.key === 'Enter') {
+      onPressEnter?.(event);
       event.preventDefault();
     }
   };
 
-  const handleKeyUp = (event: React.KeyboardEvent<HTMLParagraphElement>) => {
-    onChange?.(event);
-  };
-
-  const onPaste = (event: React.ClipboardEvent) => {
+  const handlePaste = (event: React.ClipboardEvent) => {
     event.preventDefault();
 
     const pastedData = event.clipboardData.getData('text/plain');
@@ -91,11 +96,12 @@ export default ({
 
   return (
     <Tag
-      onKeyDown={onKeyDown}
-      onKeyUp={handleKeyUp}
-      onPaste={onPaste}
+      onKeyDown={handleKeyDown}
+      onKeyUp={onKeyUp}
+      onPaste={handlePaste}
       onFocus={onFocus}
       onBlur={onBlur}
+      onInput={onInput}
       contentEditable={editable}
       placeholder={placeholder}
       suppressContentEditableWarning={editable}
