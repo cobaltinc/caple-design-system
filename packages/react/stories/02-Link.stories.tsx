@@ -16,10 +16,54 @@ export const Default = () => {
   );
 };
 
+export const Size = () => {
+  return (
+    <div style={{ padding: 30 }}>
+      <Link size="small" href="https://design.caple.ai" target="_blank">
+        https://design.caple.ai
+      </Link>
+
+      <br />
+
+      <Link size="normal" href="https://design.caple.ai" target="_blank">
+        https://design.caple.ai
+      </Link>
+
+      <br />
+
+      <Link size="large" href="https://design.caple.ai" target="_blank">
+        https://design.caple.ai
+      </Link>
+    </div>
+  );
+};
+
 export const Disabled = () => {
   return (
     <div style={{ padding: 30 }}>
       <Link href="https://design.caple.ai" target="_blank" disabled>
+        https://design.caple.ai
+      </Link>
+    </div>
+  );
+};
+
+export const Loading = () => {
+  return (
+    <div style={{ padding: 30 }}>
+      <Link size="small" href="https://design.caple.ai" target="_blank" loading>
+        https://design.caple.ai
+      </Link>
+
+      <br />
+
+      <Link size="normal" href="https://design.caple.ai" target="_blank" loading>
+        https://design.caple.ai
+      </Link>
+
+      <br />
+
+      <Link size="large" href="https://design.caple.ai" target="_blank" loading>
         https://design.caple.ai
       </Link>
     </div>
