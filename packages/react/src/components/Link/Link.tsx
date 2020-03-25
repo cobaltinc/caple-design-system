@@ -51,7 +51,7 @@ export default React.forwardRef<HTMLAnchorElement, LinkProps>(
           href={disabled ? undefined : href}
           target={disabled ? undefined : target}
           className={classNames}
-          style={{ ...style, ...fontStyle }}
+          style={{ ...style, ...fontStyle, opacity: loading ? '0.6' : undefined }}
           onClick={handleClick}
         >
           {children}
