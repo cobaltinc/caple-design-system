@@ -11,7 +11,6 @@ $header-prefix: '#{$prefix}-header';
   &[contenteditable='true']:empty:before {
     content: attr(placeholder);
     color: $sky-dark;
-    border-bottom: 1px solid $sky-dark;
     cursor: text;
   }
 
