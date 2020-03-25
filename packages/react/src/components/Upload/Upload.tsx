@@ -29,14 +29,14 @@ export default ({ children, name, value, accept, disabled = false, draggable = f
   const [file, setFile] = useState(value);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const onFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     const changedFile = files?.[0];
     setFile(changedFile);
     onChange?.(changedFile);
   };
 
-  const onFileDrop = (event: React.DragEvent<HTMLDivElement>) => {
+  const handleFileDrop = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     event.stopPropagation();
     const files = event.dataTransfer.files;
@@ -46,7 +46,7 @@ export default ({ children, name, value, accept, disabled = false, draggable = f
     setDragging(false);
   };
 
-  const onDragEnter = (event: React.DragEvent<HTMLDivElement>) => {
+  const handleDragEnter = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     event.stopPropagation();
     dragCounter += 1;
@@ -55,7 +55,7 @@ export default ({ children, name, value, accept, disabled = false, draggable = f
     }
   };
 
-  const onDragLeave = (event: React.DragEvent<HTMLDivElement>) => {
+  const handleDragLeave = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     event.stopPropagation();
     dragCounter -= 1;
@@ -69,7 +69,7 @@ export default ({ children, name, value, accept, disabled = false, draggable = f
     event.stopPropagation();
   };
 
-  const onChooseFile = () => {
+  const handleChooseFile = () => {
     inputRef.current?.click();
   };
 
@@ -77,13 +77,13 @@ export default ({ children, name, value, accept, disabled = false, draggable = f
     <div
       className={classNames}
       style={style}
-      onClick={onChooseFile}
-      onDrop={onFileDrop}
-      onDragEnter={onDragEnter}
-      onDragLeave={onDragLeave}
+      onClick={handleChooseFile}
+      onDrop={handleFileDrop}
+      onDragEnter={handleDragEnter}
+      onDragLeave={handleDragLeave}
       onDragOver={onDragOver}
     >
-      <input ref={inputRef} type="file" name={name} accept={accept} onChange={onFileChange} />
+      <input ref={inputRef} type="file" name={name} accept={accept} onChange={handleFileChange} />
       {typeof children === 'function' ? children?.(file, dragging) : children}
     </div>
   );
