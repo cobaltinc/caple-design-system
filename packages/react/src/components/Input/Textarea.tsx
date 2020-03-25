@@ -23,7 +23,7 @@ export interface TextareaEvent {
 }
 
 export interface TextareaProps extends TextareaEvent {
-  value?: string;
+  defaultValue?: string | number;
   placeholder?: string;
   label?: string;
   name?: string;
@@ -45,7 +45,7 @@ export interface TextareaProps extends TextareaEvent {
 }
 
 export default ({
-  value,
+  defaultValue,
   placeholder,
   label,
   name,
@@ -127,7 +127,7 @@ export default ({
 
       <textarea
         ref={textareaRef}
-        defaultValue={value}
+        defaultValue={defaultValue}
         name={name}
         placeholder={placeholder}
         rows={rows}
