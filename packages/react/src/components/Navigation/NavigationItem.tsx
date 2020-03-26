@@ -4,7 +4,7 @@ import ConfigContext from '../_config/ConfigContext';
 import Text from '../Text';
 import { IconProps } from '../Icon/Icon';
 import { IconFeatherProps } from '../Icon/IconFeather';
-import './Menu.style.scss';
+import './Navigation.style.scss';
 
 export interface MenuItemProps {
   icon?: React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
