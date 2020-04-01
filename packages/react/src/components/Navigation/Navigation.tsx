@@ -1,43 +1,64 @@
 import React from 'react';
 import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
-import MenuItem, { MenuItemProps } from './NavigationItem';
+import NavigationItem, { NavigationItemProps } from './NavigationItem';
+import NavigationSubItem, { NavigationSubItemProps } from './NavigationSubItem';
 import { convertReactNodeTo } from '../../utils';
 import './Navigation.style.scss';
 
-export interface MenuProps {
+export interface NavigationProps {
   children: React.ReactNode;
   defaultActive?: string;
-  itemHeight?: number;
-  onMenuChange?(active: string): void;
+  onChange?(active: string): void;
   className?: string;
   style?: React.CSSProperties;
 }
 
-const Menu = ({ children, defaultActive, itemHeight = 56, onMenuChange, className = '', style }: MenuProps) => {
+const Navigation = ({ children, defaultActive, onChange, className = '', style }: NavigationProps) => {
   const { useContext, useState } = React;
   const { prefix } = useContext(ConfigContext);
-  const classPrefix = `${prefix}-menu`;
+  const classPrefix = `${prefix}-navigation`;
   const classNames = classnames(classPrefix, className);
 
   const [active, setActive] = useState(defaultActive);
 
-  const items = convertReactNodeTo<MenuItemProps>('Menu', 'Menu.Item', children)
-    .map((element: any) => {
-      const menuItem = element as React.ReactElement<MenuItemProps>;
-      return React.cloneElement(element, {
-        active: menuItem.props.title === active,
-        style: { height: itemHeight, ...menuItem.props.style },
+  const items = convertReactNodeTo<NavigationItemProps>('Navigation', 'Navigation.Item', children)
+    .map((itemElement: any) => {
+      const item = itemElement as React.ReactElement<NavigationItemProps>;
+      const itemKey = item.key?.toString() || item.props.title;
+
+      return React.cloneElement<NavigationItemProps>(itemElement, {
+        children: convertReactNodeTo<NavigationSubItemProps>('Navigation.Item', 'Navigation.SubItem', item.props.children)
+          .map((subItemElement: any) => {
+            const subItem = subItemElement as React.ReactElement<NavigationSubItemProps>;
+            const subItemKey = subItem.key?.toString() || subItem.props.title;
+
+            return React.cloneElement<NavigationSubItemProps>(subItemElement, {
+              onClick: (e: React.MouseEvent<HTMLDivElement>) => {
+                subItem.props.onClick?.(e);
+                setActive(subItemKey);
+                onChange?.(subItemKey);
+              },
+            });
+          })
+          .map(subItem => {
+            return (
+              <React.Fragment key={subItem.key!!}>
+                {NavigationSubItem.render({ active: subItem.key!!.toString().includes(active!!), ...subItem.props })}
+              </React.Fragment>
+            );
+          }),
         onClick: (e: React.MouseEvent<HTMLDivElement>) => {
-          menuItem.props.onClick?.(e);
-          setActive(menuItem.props.title);
-          onMenuChange?.(menuItem.props.title);
+          item.props.onClick?.(e);
+          setActive(itemKey);
+          onChange?.(itemKey);
         },
       });
     })
-    .map((element: any) => {
-      const menuItem = element as React.ReactElement<MenuItemProps>;
-      return <div key={menuItem.props.title}>{MenuItem.render(menuItem.props)}</div>;
+    .map(item => {
+      return (
+        <React.Fragment key={item.key!!}>{NavigationItem.render({ active: item.key!!.toString().includes(active!!), ...item.props })}</React.Fragment>
+      );
     });
 
   return (
@@ -47,6 +68,7 @@ const Menu = ({ children, defaultActive, itemHeight = 56, onMenuChange, classNam
   );
 };
 
-Menu.Item = MenuItem;
+Navigation.Item = NavigationItem;
+Navigation.SubItem = NavigationSubItem;
 
-export default Menu;
+export default Navigation;

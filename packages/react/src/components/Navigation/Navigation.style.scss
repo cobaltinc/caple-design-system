@@ -3,38 +3,39 @@
 @import '../../styles/variables/typography';
 @import '../../styles/variables/motion';
 
-$menu-prefix: '#{$prefix}-menu';
-$menu-item-prefix: '#{$prefix}-menu-item';
+$navigation-prefix: '#{$prefix}-navigation';
+$navigation-item-prefix: '#{$prefix}-navigation-item';
+$navigation-sub-item-prefix: '#{$prefix}-navigation-sub-item';
 
-.#{$menu-prefix} {
+.#{$navigation-prefix} {
   display: inline-flex;
   width: 100%;
-  padding: 8px 0;
+  padding: 0;
   justify-content: center;
   justify-items: center;
   flex-direction: column;
   text-align: left;
   overflow: hidden;
 
-  .#{$menu-item-prefix} {
+  .#{$navigation-item-prefix} {
     position: relative;
     display: inline-flex;
     width: 100%;
     height: 56px;
     padding-left: 20px;
     align-items: center;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 17px;
     transition: color 0.2s ease 0s;
     cursor: pointer;
     user-select: none;
     box-sizing: border-box;
 
-    &.#{$menu-item-prefix}--active {
+    &.#{$navigation-item-prefix}--active {
       background-color: #cfd8eb;
     }
 
-    &.#{$menu-item-prefix}--disabled {
+    &.#{$navigation-item-prefix}--disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }
@@ -43,13 +44,62 @@ $menu-item-prefix: '#{$prefix}-menu-item';
       background-color: #dfe8fb;
     }
 
-    .#{$menu-item-prefix}--icon {
+    .#{$navigation-item-prefix}--icon {
       margin-right: 8px;
       vertical-align: middle;
     }
 
-    .#{$menu-item-prefix}--title {
+    .#{$navigation-item-prefix}--title {
       vertical-align: middle;
+    }
+  }
+
+  .#{$navigation-sub-item-prefix} {
+    position: relative;
+    display: inline-flex;
+    height: 32px;
+    padding-left: 52px;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+
+    .#{$navigation-sub-item-prefix}--title {
+      vertical-align: middle;
+      font-size: 11px;
+      color: $ink-light;
+    }
+
+    &:hover {
+      .#{$navigation-sub-item-prefix}--title {
+        color: $ink;
+      }
+    }
+
+    &.#{$navigation-sub-item-prefix}--active {
+      .#{$navigation-sub-item-prefix}--title {
+        font-weight: bold;
+        color: $indigo;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 40px;
+        display: block;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: $indigo;
+      }
+    }
+
+    &.#{$navigation-sub-item-prefix}--disabled {
+      cursor: not-allowed;
+
+      .#{$navigation-sub-item-prefix}--title {
+        color: $ink-lightest;
+      }
     }
   }
 }

@@ -6,39 +6,60 @@ import { IconProps } from '../Icon/Icon';
 import { IconFeatherProps } from '../Icon/IconFeather';
 import './Navigation.style.scss';
 
-export interface MenuItemProps {
+export interface NavigationItemProps {
+  children?: React.ReactNode;
   icon?: React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
-  iconSize?: number;
   title: string;
-  fontSize?: number;
+  key: string;
   disabled?: boolean;
-  active?: boolean;
   onClick?(event: React.MouseEvent<HTMLDivElement>): void;
   className?: string;
   style?: React.CSSProperties;
 }
 
-const MenuItem = (props: MenuItemProps) => {
-  return MenuItem.render(props);
+export interface NavigationItemRenderProps {
+  active: boolean;
+}
+
+const NavigationItem = (_: NavigationItemProps) => {
+  return null;
 };
 
-MenuItem.render = ({ icon, iconSize = 24, fontSize = 14, title, disabled, active, onClick, className = '', style }: MenuItemProps) => {
+NavigationItem.render = ({
+  children,
+  icon,
+  title,
+  disabled,
+  active,
+  onClick,
+  className = '',
+  style,
+}: NavigationItemProps & NavigationItemRenderProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
-  const classPrefix = `${prefix}-menu-item`;
+  const classPrefix = `${prefix}-navigation-item`;
   const classNames = classnames(classPrefix, className, {
     [`${classPrefix}--active`]: active,
     [`${classPrefix}--disabled`]: disabled,
   });
 
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (disabled) return;
+    onClick?.(e);
+  };
+
   return (
-    <div className={classNames} style={style} onClick={onClick}>
-      {icon ? React.cloneElement(icon, { size: iconSize, className: `${classPrefix}--icon` }) : null}
-      <Text size={fontSize} className={`${classPrefix}--title`}>
-        {title}
-      </Text>
-    </div>
+    <>
+      <div className={classNames} style={style} onClick={handleClick}>
+        {icon ? React.cloneElement(icon, { size: 24, className: `${classPrefix}--icon` }) : null}
+        <Text size="small" className={`${classPrefix}--title`}>
+          {title}
+        </Text>
+      </div>
+
+      {children}
+    </>
   );
 };
 
-export default MenuItem;
+export default NavigationItem;

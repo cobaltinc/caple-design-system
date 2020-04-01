@@ -57,8 +57,8 @@ export default ({
   const Tag = paragraph ? 'p' : 'span';
 
   const fontStyle: React.CSSProperties = {
-    fontWeight: strong ? 'bold' : 'normal',
-    textDecoration: underline ? 'underline' : 'none',
+    fontWeight: strong ? 'bold' : undefined,
+    textDecoration: underline ? 'underline' : undefined,
   };
 
   if (color) {
