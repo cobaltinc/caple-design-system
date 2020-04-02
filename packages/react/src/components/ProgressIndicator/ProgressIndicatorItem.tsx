@@ -36,7 +36,7 @@ ProgressIndicatorItem.render = ({
 }: ProgressIndicatorItemProps & ProgressIndicatorItemRenderProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
-  const classPrefix = `${prefix}-step-item`;
+  const classPrefix = `${prefix}-progress-indicator-item`;
   const classNames = classnames(classPrefix, className, {
     [`${classPrefix}--done`]: done,
     [`${classPrefix}--active`]: active,

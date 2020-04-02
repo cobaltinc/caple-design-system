@@ -1,9 +1,9 @@
 @import '../../styles/base/core';
 @import '../../styles/variables/color';
 
-$step-prefix: '#{$prefix}-step';
+$progress-indicator-prefix: '#{$prefix}-progress-indicator';
 
-.#{$step-prefix} {
+.#{$progress-indicator-prefix} {
   display: inline-flex;
   width: 100%;
   margin: 0;
@@ -11,25 +11,25 @@ $step-prefix: '#{$prefix}-step';
   justify-content: space-between;
   overflow: hidden;
 
-  .#{$step-prefix}-item.#{$step-prefix}-item--done + .#{$step-prefix}-item--line {
+  .#{$progress-indicator-prefix}-item.#{$progress-indicator-prefix}-item--done + .#{$progress-indicator-prefix}-item--line {
     &:before {
       background-color: $indigo;
     }
   }
 
-  .#{$step-prefix}-item {
+  .#{$progress-indicator-prefix}-item {
     position: relative;
     display: block;
     flex: 1;
     color: $border;
     list-style-type: none;
 
-    .#{$step-prefix}-item--content {
+    .#{$progress-indicator-prefix}-item--content {
       width: 100%;
       max-width: 100px;
       text-align: center;
 
-      .#{$step-prefix}-item--icon {
+      .#{$progress-indicator-prefix}-item--icon {
         position: relative;
         display: flex;
         width: 14px;
@@ -43,7 +43,7 @@ $step-prefix: '#{$prefix}-step';
       }
     }
 
-    .#{$step-prefix}-item--line {
+    .#{$progress-indicator-prefix}-item--line {
       position: absolute;
       top: 10px;
       left: 0;
@@ -60,10 +60,10 @@ $step-prefix: '#{$prefix}-step';
       }
     }
 
-    &.#{$step-prefix}-item--done, &.#{$step-prefix}-item--active {
+    &.#{$progress-indicator-prefix}-item--done, &.#{$progress-indicator-prefix}-item--active {
       color: $indigo;
 
-      .#{$step-prefix}-item--icon {
+      .#{$progress-indicator-prefix}-item--icon {
         width: 20px;
         height: 20px;
         background-color: $indigo;
@@ -71,8 +71,8 @@ $step-prefix: '#{$prefix}-step';
       }
     }
 
-    &.#{$step-prefix}-item--done {
-      .#{$step-prefix}-item--line {
+    &.#{$progress-indicator-prefix}-item--done {
+      .#{$progress-indicator-prefix}-item--line {
         &:after {
           background-color: $indigo;
         }
@@ -81,7 +81,7 @@ $step-prefix: '#{$prefix}-step';
 
     &:last-child {
       flex: 0 0 100px;
-      .#{$step-prefix}-item--line {
+      .#{$progress-indicator-prefix}-item--line {
         display: none;
       }
     }

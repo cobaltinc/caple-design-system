@@ -30,7 +30,7 @@ export const Default = () => {
     'Slider',
     'Spacer',
     'Spinner',
-    'Step',
+    'Stepper',
     'Switch',
     'Tab',
     'Table',

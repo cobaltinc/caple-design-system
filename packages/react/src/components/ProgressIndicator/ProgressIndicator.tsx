@@ -17,7 +17,7 @@ export interface ProgressIndicatorProps {
 const ProgressIndicator = ({ children, active = 0, loading, onChange, className = '', style }: ProgressIndicatorProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
-  const classPrefix = `${prefix}-step`;
+  const classPrefix = `${prefix}-progress-indicator`;
   const classNames = classnames(classPrefix, className);
 
   const items = convertReactNodeTo<ProgressIndicatorItemProps>('ProgressIndicator', 'ProgressIndicator.Item', children).map((element: any, index) => {

@@ -30,6 +30,7 @@ export { default as Skeleton } from './components/Skeleton';
 export { default as Slider } from './components/Slider';
 export { default as Spacer } from './components/Spacer';
 export { default as Spinner } from './components/Spinner';
+export { default as Stepper } from './components/Stepper';
 export { default as Switch } from './components/Switch';
 export { default as Tab } from './components/Tab';
 export { default as Table } from './components/Table';

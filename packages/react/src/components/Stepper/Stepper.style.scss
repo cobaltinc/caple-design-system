@@ -1,0 +1,95 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/color';
+
+$stepper-prefix: '#{$prefix}-stepper';
+
+ul.#{$stepper-prefix} {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  list-style-type: none;
+  background-color: white;
+
+  li.#{$stepper-prefix}-item {
+    position: relative;
+    display: inline-flex;
+    height: 34px;
+    flex: 1 1 0;
+    justify-content: center;
+    align-items: center;
+    color: $border;
+    border: 1px solid $border;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    cursor: default;
+
+    .#{$stepper-prefix}-item--icon {
+      margin-right: 8px;
+      svg {
+        fill: $border;
+      }
+    }
+
+    &:first-child {
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
+    }
+
+    &:last-child {
+      &:before,
+      &:after {
+        display: none;
+      }
+    }
+
+    &:not(:first-child) {
+      margin-left: -2px;
+      border-left: none;
+    }
+
+    &:not(:last-child) {
+      border-right: none;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      right: -12px;
+      border-top: 1px solid $border;
+      height: 10px;
+      width: 22px;
+      transform: rotate(56deg);
+      border-top-right-radius: 2px;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: -12px;
+      bottom: 6px;
+      border-bottom: 1px solid $border;
+      height: 10px;
+      width: 22px;
+      transform: rotate(-56deg);
+      border-bottom-right-radius: 2px;
+    }
+
+    &.#{$stepper-prefix}-item--done,
+    &.#{$stepper-prefix}-item--active {
+      color: $indigo;
+      border-color: $indigo;
+
+      &:before,
+      &:after {
+        border-color: $indigo;
+      }
+
+      .#{$stepper-prefix}-item--icon {
+        svg {
+          fill: $indigo;
+        }
+      }
+    }
+  }
+}
