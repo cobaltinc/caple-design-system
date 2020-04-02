@@ -9,11 +9,12 @@ import './Navigation.style.scss';
 export interface NavigationProps {
   children: React.ReactNode;
   defaultActive?: string;
-  onChange?(active: string): void;
+  onChange?(active?: string): void;
   className?: string;
   style?: React.CSSProperties;
 }
 
+// TODO: Need Refactoring
 const Navigation = ({ children, defaultActive, onChange, className = '', style }: NavigationProps) => {
   const { useContext, useState } = React;
   const { prefix } = useContext(ConfigContext);
@@ -25,13 +26,13 @@ const Navigation = ({ children, defaultActive, onChange, className = '', style }
   const items = convertReactNodeTo<NavigationItemProps>('Navigation', 'Navigation.Item', children)
     .map((itemElement: any) => {
       const item = itemElement as React.ReactElement<NavigationItemProps>;
-      const itemKey = item.key?.toString() || item.props.title;
+      const itemKey = item.key?.toString().replace(/[.$]/g, '');
 
       return React.cloneElement<NavigationItemProps>(itemElement, {
         children: convertReactNodeTo<NavigationSubItemProps>('Navigation.Item', 'Navigation.SubItem', item.props.children)
           .map((subItemElement: any) => {
             const subItem = subItemElement as React.ReactElement<NavigationSubItemProps>;
-            const subItemKey = subItem.key?.toString() || subItem.props.title;
+            const subItemKey = subItem.key!!.toString().replace(/[.$]/g, '');
 
             return React.cloneElement<NavigationSubItemProps>(subItemElement, {
               onClick: (e: React.MouseEvent<HTMLDivElement>) => {
@@ -42,10 +43,9 @@ const Navigation = ({ children, defaultActive, onChange, className = '', style }
             });
           })
           .map(subItem => {
+            const subItemKey = subItem.key!!.toString().replace(/[.$]/g, '');
             return (
-              <React.Fragment key={subItem.key!!}>
-                {NavigationSubItem.render({ active: subItem.key!!.toString().includes(active!!), ...subItem.props })}
-              </React.Fragment>
+              <React.Fragment key={subItem.key!!}>{NavigationSubItem.render({ active: subItemKey === active, ...subItem.props })}</React.Fragment>
             );
           }),
         onClick: (e: React.MouseEvent<HTMLDivElement>) => {
@@ -56,9 +56,13 @@ const Navigation = ({ children, defaultActive, onChange, className = '', style }
       });
     })
     .map(item => {
-      return (
-        <React.Fragment key={item.key!!}>{NavigationItem.render({ active: item.key!!.toString().includes(active!!), ...item.props })}</React.Fragment>
-      );
+      let isActive = item.key?.toString().replace(/[.$]/g, '') === active;
+      convertReactNodeTo<NavigationSubItemProps>('Navigation.Item', 'Navigation.SubItem', item.props.children).forEach(subItemElement => {
+        const subItem = subItemElement as React.ReactElement<NavigationSubItemProps>;
+        const subItemKey = subItem.key?.toString().replace(/[.$]/g, '');
+        if (subItemKey === active) isActive = true;
+      });
+      return <React.Fragment key={item.key!!}>{NavigationItem.render({ active: isActive, ...item.props })}</React.Fragment>;
     });
 
   return (

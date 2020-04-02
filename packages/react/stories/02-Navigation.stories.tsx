@@ -64,14 +64,17 @@ export const WithIcon = () => {
 export const SubItem = () => {
   return (
     <div style={{ padding: 30, maxWidth: 500 }}>
-      <Navigation style={{ backgroundColor: 'white' }}>
+      <Navigation defaultActive="subitem2" style={{ backgroundColor: 'white' }}>
         <Navigation.Item icon={<Icon type="star" />} title="Navigation 1" key="navigation1">
           <Navigation.SubItem title="SubItem 1" key="subitem1" />
           <Navigation.SubItem title="SubItem 2" key="subitem2" />
           <Navigation.SubItem title="SubItem 3" key="subitem3" disabled />
         </Navigation.Item>
         <Navigation.Item icon={<Icon type="gear" />} title="Navigation 2" key="navigation2" />
-        <Navigation.Item icon={<Icon type="android" />} title="Navigation 3" key="navigation3" />
+        <Navigation.Item icon={<Icon type="android" />} title="Navigation 3" key="navigation3">
+          <Navigation.SubItem title="SubItem 1" key="subitem4" />
+          <Navigation.SubItem title="SubItem 2" key="subitem5" />
+        </Navigation.Item>
         <Navigation.Item icon={<Icon type="apple" />} title="Navigation 4" key="navigation4" />
         <Navigation.Item icon={<Icon type="phone" />} title="Navigation 5" key="navigation5" />
       </Navigation>
