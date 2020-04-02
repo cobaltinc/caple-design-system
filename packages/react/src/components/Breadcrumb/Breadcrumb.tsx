@@ -11,21 +11,16 @@ export interface BreadcrumbProps {
   style?: React.CSSProperties;
 }
 
-type IBreadcrumb<P> = React.FunctionComponent<P> & {
-  Item: typeof BreadcrumbItem;
-};
-
-const Breadcrumb: IBreadcrumb<BreadcrumbProps> = ({ children, className = '', style }: BreadcrumbProps) => {
+const Breadcrumb = ({ children, className = '', style }: BreadcrumbProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-breadcrumb`;
   const classNames = classnames(classPrefix, className);
 
-  const crumbs = convertReactNodeTo<BreadcrumbItemProps>('Breadcrumb', 'Breadcrumb.Item', children)
-    .map((element: any, index, elements) => {
-      const props = (element as React.ReactElement<BreadcrumbItemProps>).props;
-      return BreadcrumbItem.render({ ...props, key: index, hasSeperator: index !== elements.length - 1 });
-    });
+  const crumbs = convertReactNodeTo<BreadcrumbItemProps>('Breadcrumb', 'Breadcrumb.Item', children).map((element: any, index, elements) => {
+    const props = (element as React.ReactElement<BreadcrumbItemProps>).props;
+    return BreadcrumbItem.render({ ...props, key: index, hasSeperator: index !== elements.length - 1 });
+  });
 
   return (
     <div className={classNames} style={style}>

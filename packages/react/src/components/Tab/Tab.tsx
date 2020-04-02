@@ -13,11 +13,7 @@ export interface TabProps {
   style?: React.CSSProperties;
 }
 
-export type ITab<P> = React.FunctionComponent<P> & {
-  Item: typeof TabItem;
-};
-
-const Tab: ITab<TabProps> = ({ children, active, onChange, className = '', style }: TabProps) => {
+const Tab = ({ children, active, onChange, className = '', style }: TabProps) => {
   const { useContext, useEffect, useState } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-tab`;
@@ -59,14 +55,17 @@ const Tab: ITab<TabProps> = ({ children, active, onChange, className = '', style
 
   const tabItems = convertReactNodeTo<TabItemProps>('Tab', 'Tab.Item', children).map((element, index) => {
     const props = (element as React.ReactElement<TabItemProps>).props;
-    return TabItem.render({ ...props, key: index, active: currentSelect === props.title, onClick: () => handleTabItemClick(props.title, props.children, index) });
+    return TabItem.render({
+      ...props,
+      key: index,
+      active: currentSelect === props.title,
+      onClick: () => handleTabItemClick(props.title, props.children, index),
+    });
   });
 
   return (
     <div className={classNames} style={style}>
-      <div className={`${classPrefix}--panes`}>
-        {tabItems}
-      </div>
+      <div className={`${classPrefix}--panes`}>{tabItems}</div>
       <div className={`${classPrefix}--content`}>{currentContent}</div>
     </div>
   );

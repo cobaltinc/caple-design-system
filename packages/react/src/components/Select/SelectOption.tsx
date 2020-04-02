@@ -9,13 +9,13 @@ export interface SelectOptionProps {
   disabled?: boolean;
 }
 
-interface SelectOptionsRenderProps {
+export interface SelectOptionsRenderProps {
   key: string | number;
   selected: boolean;
   onClick(): void;
-};
+}
 
-const SelectOption =  (_: SelectOptionProps) => {
+const SelectOption = (_: SelectOptionProps) => {
   return null;
 };
 

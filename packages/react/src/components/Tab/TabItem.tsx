@@ -7,13 +7,13 @@ export interface TabItemProps {
   title: string;
   className?: string;
   style?: React.CSSProperties;
-};
+}
 
-interface TabItemRenderProps {
+export interface TabItemRenderProps {
   key: string | number;
   active: boolean;
   onClick(): void;
-};
+}
 
 const TabItem = (_: TabItemProps) => {
   return null;

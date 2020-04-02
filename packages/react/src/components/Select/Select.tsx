@@ -33,17 +33,13 @@ export interface SelectProps {
   inputStyle?: React.CSSProperties;
 }
 
-type ISelect<P> = React.FunctionComponent<P> & {
-  Option: typeof SelectOption;
-};
-
 type SelectedOption = {
   key: number;
   title: string;
   value: string;
 };
 
-const Select: ISelect<SelectProps> = ({
+const Select = ({
   children,
   label,
   name,
@@ -84,7 +80,6 @@ const Select: ISelect<SelectProps> = ({
 
     setFocused(!focused);
 
-    console.log(selectRef.current);
     selectRef.current?.click();
   };
   const handleClickOutside = (event: MouseEvent) => {
