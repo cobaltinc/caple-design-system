@@ -24,6 +24,7 @@ export const Default = () => {
     'Modal',
     'Navigation',
     'Popover',
+    'ProgressIndicator',
     'Select',
     'Skeleton',
     'Slider',

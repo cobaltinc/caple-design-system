@@ -1,11 +1,11 @@
 import React from 'react';
 import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
-import StepItem, { StepItemProps } from './StepItem';
+import ProgressIndicatorItem, { ProgressIndicatorItemProps } from './ProgressIndicatorItem';
 import { convertReactNodeTo } from '../../utils';
-import './Step.style.scss';
+import './ProgressIndicator.style.scss';
 
-export interface StepProps {
+export interface ProgressIndicatorProps {
   children: React.ReactNode;
   active?: number;
   loading?: boolean;
@@ -14,19 +14,15 @@ export interface StepProps {
   style?: React.CSSProperties;
 }
 
-type ISwitch<P> = React.FunctionComponent<P> & {
-  Item: typeof StepItem;
-};
-
-const Step: ISwitch<StepProps> = ({ children, active = 0, loading, onChange, className = '', style }) => {
+const ProgressIndicator = ({ children, active = 0, loading, onChange, className = '', style }: ProgressIndicatorProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-step`;
   const classNames = classnames(classPrefix, className);
 
-  const items = convertReactNodeTo<StepItemProps>('Step', 'Step.Item', children).map((element: any, index) => {
-    const props = (element as React.ReactElement<StepItemProps>).props;
-    return StepItem.render({
+  const items = convertReactNodeTo<ProgressIndicatorItemProps>('ProgressIndicator', 'ProgressIndicator.Item', children).map((element: any, index) => {
+    const props = (element as React.ReactElement<ProgressIndicatorItemProps>).props;
+    return ProgressIndicatorItem.render({
       ...props,
       done: index + 1 < active,
       active: active === index + 1,
@@ -42,6 +38,6 @@ const Step: ISwitch<StepProps> = ({ children, active = 0, loading, onChange, cla
   );
 };
 
-Step.Item = StepItem;
+ProgressIndicator.Item = ProgressIndicatorItem;
 
-export default Step;
+export default ProgressIndicator;

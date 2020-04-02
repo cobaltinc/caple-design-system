@@ -4,30 +4,36 @@ import ConfigContext from '../_config/ConfigContext';
 import Icon from '../Icon';
 import Spinner from '../Spinner';
 import Text from '../Text';
-import { IconProps } from '../Icon/Icon';
-import { IconFeatherProps } from '../Icon/IconFeather';
-import { concatReactNodeToString } from '../../utils';
-import './Step.style.scss';
+import './ProgressIndicator.style.scss';
 
-export interface StepItemProps {
+export interface ProgressIndicatorItemProps {
   title: string;
   onClick?: React.MouseEventHandler;
   className?: string;
   style?: React.CSSProperties;
 }
 
-export interface StepItemRenderProps {
+export interface ProgressIndicatorItemRenderProps {
   key: number;
   done: boolean;
   active: boolean;
   loading?: boolean;
 }
 
-const StepItem = (_: StepItemProps) => {
+const ProgressIndicatorItem = (_: ProgressIndicatorItemProps) => {
   return null;
 };
 
-StepItem.render = ({ title, onClick, key, done, active, loading, className = '', style }: StepItemProps & StepItemRenderProps) => {
+ProgressIndicatorItem.render = ({
+  title,
+  onClick,
+  key,
+  done,
+  active,
+  loading,
+  className = '',
+  style,
+}: ProgressIndicatorItemProps & ProgressIndicatorItemRenderProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-step-item`;
@@ -55,4 +61,4 @@ StepItem.render = ({ title, onClick, key, done, active, loading, className = '',
   );
 };
 
-export default StepItem;
+export default ProgressIndicatorItem;
