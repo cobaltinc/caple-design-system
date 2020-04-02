@@ -12,6 +12,7 @@ export { default as Avatar } from './components/Avatar';
 export { default as Badge } from './components/Badge';
 export { default as Breadcrumb } from './components/Breadcrumb';
 export { default as Button } from './components/Button';
+export { default as Callout } from './components/Callout';
 export { default as Card } from './components/Card';
 export { default as Checkbox } from './components/Checkbox';
 export { default as Collapse } from './components/Collapse';

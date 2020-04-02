@@ -12,6 +12,7 @@ export const Default = () => {
     'Badge',
     'Breadcrumb',
     'Button',
+    'Callout',
     'Card',
     'Checkbox',
     'Collapse',

@@ -1,0 +1,25 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/color';
+
+$callout-prefix: '#{$prefix}-callout';
+
+.#{$callout-prefix} {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  padding: 16px;
+  align-items: center;
+  border: 1px solid $border;
+  border-radius: 3px;
+  background-color: white;
+  box-sizing: border-box;
+
+  .#{$callout-prefix}--icon {
+    width: 40px;
+  }
+  .#{$callout-prefix}--content {
+    margin-left: 16px;
+    word-break: break-all;
+    flex: 1 1 0;
+  }
+}
