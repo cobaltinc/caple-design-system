@@ -28,20 +28,6 @@ export const Placeholder = () => {
   );
 };
 
-export const Text = () => {
-  return (
-    <div style={{ padding: 30 }}>
-      <Avatar text="Caple" />
-      <Spacer type="vertical" size={10} />
-      <Avatar size={60} text="Caple" />
-      <Spacer type="vertical" size={10} />
-      <Avatar size={40} text="Caple" />
-      <Spacer type="vertical" size={10} />
-      <Avatar size={20} text="Caple" />
-    </div>
-  );
-};
-
 export const Shape = () => {
   return (
     <div style={{ padding: 30 }}>

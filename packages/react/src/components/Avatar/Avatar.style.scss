@@ -1,5 +1,6 @@
 @import '../../styles/base/core';
 @import '../../styles/variables/color';
+@import '../../styles/variables/motion';
 
 $avatar-prefix: '#{$prefix}-avatar';
 
@@ -19,17 +20,16 @@ $avatar-prefix: '#{$prefix}-avatar';
     border-radius: 4px;
   }
 
-  .#{$avatar-prefix}--text {
-    position: absolute;
-    left: 50%;
-    transform-origin: 0 center;
-    color: white;
-  }
-
   .#{$avatar-prefix}--image {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
+    transition: opacity $duration-fast $ease-in;
+
+    &.#{$avatar-prefix}--image-loaded {
+      opacity: 1;
+    }
   }
 }
