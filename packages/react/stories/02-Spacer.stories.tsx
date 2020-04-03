@@ -24,3 +24,31 @@ export const Vertical = () => {
     </div>
   );
 };
+
+export const HorizontalWithChildren = () => {
+  return (
+    <div style={{ padding: 30 }}>
+      <Spacer size="normal">
+        <Button>Button 1</Button>
+        <Button>Button 2</Button>
+        <Button>Button 3</Button>
+        <Button>Button 4</Button>
+        <Button>Button 5</Button>
+      </Spacer>
+    </div>
+  );
+};
+
+export const VerticalWithChildren = () => {
+  return (
+    <div style={{ padding: 30, width: 300 }}>
+      <Spacer type="vertical" size="normal">
+        <Button block>Button 1</Button>
+        <Button block>Button 2</Button>
+        <Button block>Button 3</Button>
+        <Button block>Button 4</Button>
+        <Button block>Button 5</Button>
+      </Spacer>
+    </div>
+  );
+};
