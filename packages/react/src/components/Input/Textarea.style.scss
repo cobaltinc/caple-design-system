@@ -41,7 +41,7 @@ $textarea-prefix: '#{$prefix}-textarea';
         border: 1px solid $indigo;
         box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
       }
-      &:disabled {
+      &:not(.#{$textarea-prefix}--readonly):disabled {
         background: #f9fafb;
         border: 1px solid $sky;
       }
@@ -61,7 +61,7 @@ $textarea-prefix: '#{$prefix}-textarea';
       &:focus {
         border-color: $indigo;
       }
-      &:disabled {
+      &:not(.#{$textarea-prefix}--readonly):disabled {
         border-color: $sky;
       }
       &.#{$textarea-prefix}--error {
@@ -72,7 +72,7 @@ $textarea-prefix: '#{$prefix}-textarea';
       border: none;
     }
 
-    &:disabled {
+    &:not(.#{$textarea-prefix}--readonly):disabled {
       color: #919eab;
       cursor: not-allowed;
     }

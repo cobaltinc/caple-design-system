@@ -30,6 +30,7 @@ export interface TextareaProps extends TextareaEvent {
   borderType?: TextareaBorderType;
   autoFocus?: boolean;
   disabled?: boolean;
+  readonly?: boolean;
   align?: TextareaAlignType;
   resizeType?: TextareaResizeType;
   rows?: number;
@@ -52,6 +53,7 @@ export default ({
   borderType = 'border',
   autoFocus,
   disabled,
+  readonly,
   align,
   resizeType = 'vertical',
   rows = 1,
@@ -82,6 +84,7 @@ export default ({
 
   const textareaClassNames = classnames(classPrefix, textareaClassName, `${classPrefix}--border-type-${borderType}`, {
     [`${classPrefix}--disabled`]: disabled,
+    [`${classPrefix}--readonly`]: readonly,
     [`${classPrefix}--focused`]: focused,
     [`${classPrefix}--error`]: error,
   });
@@ -132,7 +135,7 @@ export default ({
         placeholder={placeholder}
         rows={rows}
         autoFocus={autoFocus}
-        disabled={disabled}
+        disabled={disabled || readonly}
         onInput={onInput}
         onFocus={handleFocus}
         onBlur={handleBlur}

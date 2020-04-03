@@ -141,6 +141,20 @@ export const Disabled = () => {
   );
 };
 
+export const Readonly = () => {
+  return (
+    <div style={{ padding: 20, maxWidth: 500 }}>
+      <Input.Text borderType="border" defaultValue="This is value" readonly />
+      <Spacer type="horizontal" size={20} />
+      <Input.Text borderType="underline" defaultValue="This is value" readonly />
+      <Spacer type="horizontal" size={20} />
+      <Input.Text borderType="none" defaultValue="This is value" readonly />
+      <Spacer type="horizontal" size={20} />
+      <Input.Textarea rows={4} placeholder="Please tell me your story." readonly />
+    </div>
+  );
+};
+
 export const Error = () => {
   return (
     <div style={{ padding: 20, maxWidth: 500 }}>

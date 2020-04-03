@@ -160,8 +160,10 @@ $input-prefix: '#{$prefix}-input';
       &[type='number'] {
         -moz-appearance: textfield;
       }
+    }
 
-      &:disabled {
+    &:not(.#{$input-prefix}--readonly) {
+      input:disabled {
         color: #919eab;
         cursor: not-allowed;
       }

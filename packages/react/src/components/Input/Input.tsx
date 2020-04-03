@@ -34,6 +34,7 @@ export interface InputProps extends InputEvent {
   autoFocus?: boolean;
   block?: boolean;
   disabled?: boolean;
+  readonly?: boolean;
   align?: InputAlignType;
   prefix?: string | React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
   subfix?: string | React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
@@ -63,8 +64,9 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
       size = 'normal',
       borderType = 'border',
       autoFocus,
-      block = false,
-      disabled = false,
+      block,
+      disabled,
+      readonly,
       align,
       prefix,
       subfix,
@@ -94,6 +96,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
 
     const classNames = classnames(classPrefix, `${classPrefix}--size-${size}`, `${classPrefix}--border-type-${borderType}`, {
       [`${classPrefix}--disabled`]: disabled,
+      [`${classPrefix}--readonly`]: readonly,
       [`${classPrefix}--focused`]: focused,
       [`${classPrefix}--error`]: error,
     });
@@ -136,7 +139,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
             name={name}
             placeholder={placeholder}
             autoFocus={autoFocus}
-            disabled={disabled}
+            disabled={disabled || readonly}
             onInput={onInput}
             onFocus={handleFocus}
             onBlur={handleBlur}
