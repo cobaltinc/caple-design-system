@@ -19,7 +19,11 @@ const Breadcrumb = ({ children, className = '', style }: BreadcrumbProps) => {
 
   const crumbs = convertReactNodeTo<BreadcrumbItemProps>('Breadcrumb', 'Breadcrumb.Item', children).map((element: any, index, elements) => {
     const props = (element as React.ReactElement<BreadcrumbItemProps>).props;
-    return BreadcrumbItem.render({ ...props, key: index, hasSeperator: index !== elements.length - 1 });
+    return (
+      <React.Fragment key={index}>
+        {BreadcrumbItem.render({ ...props, active: index === elements.length - 1, hasSeperator: index !== elements.length - 1 })}
+      </React.Fragment>
+    );
   });
 
   return (

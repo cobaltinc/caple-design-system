@@ -18,7 +18,7 @@ export interface BreadcrumbItemProps {
 }
 
 export interface BreadcrumbItemRenderProps {
-  key: string | number;
+  active: boolean;
   hasSeperator: boolean;
 }
 
@@ -26,7 +26,15 @@ const BreadcrumbItem = (_: BreadcrumbItemProps) => {
   return null;
 };
 
-BreadcrumbItem.render = ({ children, href, onClick, key, hasSeperator, className = '', style }: BreadcrumbItemProps & BreadcrumbItemRenderProps) => {
+BreadcrumbItem.render = ({
+  children,
+  href,
+  onClick,
+  className = '',
+  style,
+  active,
+  hasSeperator,
+}: BreadcrumbItemProps & BreadcrumbItemRenderProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-breadcrumb-item`;
@@ -35,21 +43,17 @@ BreadcrumbItem.render = ({ children, href, onClick, key, hasSeperator, className
   const isIcon = React.isValidElement<IconProps | IconFeatherProps>(children);
 
   return (
-    <span key={key} className={classNames}>
-      <a href={href} className={`${classPrefix}--text`} style={style} onClick={onClick}>
+    <span className={classNames} style={style}>
+      <a href={href} className={`${classPrefix}--text`} onClick={onClick}>
         {isIcon ? (
           React.cloneElement(children as React.ReactElement<IconProps | IconFeatherProps>, { size: 20, color: InkLighter })
         ) : (
-          <Text strong size="large">
+          <Text strong={active} size="large">
             {concatReactNodeToString(children)}
           </Text>
         )}
       </a>
-      {hasSeperator ? (
-        <span className={`${classPrefix}--separator`}>
-          <Icon type="chenvron-right" color={SkyDark} />
-        </span>
-      ) : null}
+      {hasSeperator ? <Icon type="chenvron-right" color={SkyDark} className={`${classPrefix}--separator`} /> : null}
     </span>
   );
 };

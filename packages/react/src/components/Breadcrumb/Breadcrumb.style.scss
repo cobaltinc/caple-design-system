@@ -5,16 +5,13 @@ $breadcrumb-prefix: '#{$prefix}-breadcrumb';
 
 .#{$breadcrumb-prefix} {
   .#{$breadcrumb-prefix}-item {
-    display: inline-block;
+    display: inline-flex;
     height: 20px;
-    font-weight: bold;
+    align-items: center;
     vertical-align: middle;
 
     .#{$breadcrumb-prefix}-item--text {
-      display: inline-flex;
-      height: 20px;
       margin-top: -2px;
-      align-items: center;
       color: $ink-lighter;
       vertical-align: middle;
       cursor: pointer;
@@ -29,10 +26,7 @@ $breadcrumb-prefix: '#{$prefix}-breadcrumb';
     }
 
     .#{$breadcrumb-prefix}-item--separator {
-      display: inline-flex;
-      height: 20px;
       padding: 0 8px;
-      align-items: center;
       vertical-align: middle;
     }
   }
