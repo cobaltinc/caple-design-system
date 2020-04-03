@@ -1,0 +1,84 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/color';
+
+$menu-prefix: '#{$prefix}-menu';
+$menu-divider-prefix: '#{$prefix}-menu-divider';
+$menu-item-prefix: '#{$prefix}-menu-item';
+
+.#{$menu-prefix} {
+  display: block;
+  padding: 8px 0;
+  background-color: white;
+  list-style-type: none;
+
+  .#{$menu-item-prefix} {
+    padding: 8px 16px;
+    color: $ink-light;
+    border-radius: 4px;
+    cursor: pointer;
+
+    .#{$menu-item-prefix}--icon {
+      margin-right: 8px;
+      svg {
+        fill: $ink-light;
+      }
+    }
+
+    .#{$menu-item-prefix}--icon-feather {
+      margin-right: 8px;
+      svg {
+        stroke: $ink-light;
+      }
+    }
+
+    .#{$menu-item-prefix}--badge {
+      float: right;
+      margin-right: 8px;
+    }
+
+    &:hover {
+      color: $ink;
+
+      .#{$menu-item-prefix}--icon {
+        svg {
+          fill: $ink;
+        }
+      }
+
+      .#{$menu-item-prefix}--icon-feather {
+        svg {
+          stroke: $ink;
+        }
+      }
+    }
+
+    &.#{$menu-item-prefix}--disabled {
+      color: $border;
+      cursor: not-allowed;
+
+      .#{$menu-item-prefix}--icon {
+        svg {
+          fill: $border;
+        }
+      }
+
+      .#{$menu-item-prefix}--icon-feather {
+        svg {
+          stroke: $border;
+        }
+      }
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+
+  .#{$menu-divider-prefix} {
+    height: 1px;
+    margin: 8px 0;
+    background-color: $border;
+  }
+}

@@ -22,6 +22,7 @@ export { default as Header } from './components/Header';
 export { default as Icon } from './components/Icon';
 export { default as Input } from './components/Input';
 export { default as Link } from './components/Link';
+export { default as Menu } from './components/Menu';
 export { default as Modal } from './components/Modal';
 export { default as Navigation } from './components/Navigation';
 export { default as Popover } from './components/Popover';

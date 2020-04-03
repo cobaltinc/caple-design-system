@@ -5,6 +5,7 @@ $badge-prefix: '#{$prefix}-badge';
 .#{$badge-prefix}--container {
   position: relative;
   display: inline-block;
+  vertical-align: middle;
 
   .#{$badge-prefix} {
     position: absolute;
