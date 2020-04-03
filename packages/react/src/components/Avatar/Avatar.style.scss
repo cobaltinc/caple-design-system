@@ -16,8 +16,11 @@ $avatar-prefix: '#{$prefix}-avatar';
   &.#{$avatar-prefix}--shape-circle {
     border-radius: 50%;
   }
-  &.#{$avatar-prefix}--shape-square {
+  &.#{$avatar-prefix}--shape-round {
     border-radius: 4px;
+  }
+  &.#{$avatar-prefix}--shape-square {
+    border-radius: 0;
   }
 
   .#{$avatar-prefix}--image {

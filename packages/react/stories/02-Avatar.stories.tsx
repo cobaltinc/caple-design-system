@@ -33,6 +33,8 @@ export const Shape = () => {
     <div style={{ padding: 30 }}>
       <Avatar src="https://picsum.photos/200" shape="square" />
       <Spacer type="vertical" size={10} />
+      <Avatar src="https://picsum.photos/200" shape="round" />
+      <Spacer type="vertical" size={10} />
       <Avatar src="https://picsum.photos/200" shape="circle" />
     </div>
   );
