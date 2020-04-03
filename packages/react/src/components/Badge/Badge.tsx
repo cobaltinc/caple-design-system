@@ -5,7 +5,7 @@ import { Red } from '@caple-ui/colors';
 import './Badge.style.scss';
 
 export interface BadgeProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   count?: number;
   showZero?: boolean;
   maxCount?: number;
@@ -59,7 +59,7 @@ export default ({
   }
 
   return (
-    <span className={`${classPrefix}--container`}>
+    <span className={`${classPrefix}--container`} style={style}>
       {children}
       {badge}
     </span>

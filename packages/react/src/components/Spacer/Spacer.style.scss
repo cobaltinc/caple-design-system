@@ -5,24 +5,6 @@ $spacer-prefix: '#{$prefix}-spacer';
 
 .#{$spacer-prefix} {
   &.#{$spacer-prefix}--type-vertical {
-    display: inline-block;
-    height: 1px;
-    vertical-align: middle;
-
-    &.#{$spacer-prefix}--size-tiny {
-      width: 8px;
-    }
-
-    &.#{$spacer-prefix}--size-small {
-      width: 16px;
-    }
-
-    &.#{$spacer-prefix}--size-normal {
-      width: 24px;
-    }
-  }
-
-  &.#{$spacer-prefix}--type-horizontal {
     display: block;
     width: 100%;
 
@@ -36,6 +18,23 @@ $spacer-prefix: '#{$prefix}-spacer';
 
     &.#{$spacer-prefix}--size-normal {
       height: 24px;
+    }
+  }
+
+  &.#{$spacer-prefix}--type-horizontal {
+    display: inline-block;
+    vertical-align: middle;
+
+    &.#{$spacer-prefix}--size-tiny {
+      width: 8px;
+    }
+
+    &.#{$spacer-prefix}--size-small {
+      width: 16px;
+    }
+
+    &.#{$spacer-prefix}--size-normal {
+      width: 24px;
     }
   }
 }
