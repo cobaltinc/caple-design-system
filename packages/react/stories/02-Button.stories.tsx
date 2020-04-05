@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Header, Spacer } from '../src';
+import { Button, Header, Spacer, Icon, Text } from '../src';
 
 import { action } from '@storybook/addon-actions';
 
@@ -21,7 +21,7 @@ export const Type = () => {
       <Spacer size="normal">
         <Button type="basic">Basic</Button>
         <Button type="core">Core</Button>
-        <Button type="error">Error</Button>
+        <Button type="warning">Warning</Button>
       </Spacer>
     </div>
   );
@@ -72,24 +72,93 @@ export const Size = () => {
 
       <Spacer type="horizontal" size={20} />
 
-      <Header level={4}>Error</Header>
+      <Header level={4}>Warning</Header>
       <Spacer size="normal">
-        <Button type="error" size="tiny">
+        <Button type="warning" size="tiny">
           Tiny
         </Button>
-        <Button type="error" size="small">
+        <Button type="warning" size="small">
           Small
         </Button>
-        <Button type="error" size="normal">
+        <Button type="warning" size="normal">
           Normal
         </Button>
-        <Button type="error" size="large">
+        <Button type="warning" size="large">
           Large
         </Button>
-        <Button type="error" size="xlarge">
+        <Button type="warning" size="xlarge">
           xLarge
         </Button>
       </Spacer>
+    </div>
+  );
+};
+
+export const WithIcon = () => {
+  return (
+    <div style={{ padding: 30 }}>
+      <Header level={4}>Basic</Header>
+      <Spacer size="normal">
+        <Button size="tiny" icon={<Icon type="gear" />}>
+          Settings
+        </Button>
+        <Button size="small" icon={<Icon type="gear" />}>
+          Settings
+        </Button>
+        <Button size="normal" icon={<Icon type="gear" />}>
+          Settings
+        </Button>
+        <Button size="large" icon={<Icon type="gear" />}>
+          Settings
+        </Button>
+        <Button size="xlarge" icon={<Icon type="gear" />}>
+          Settings
+        </Button>
+      </Spacer>
+
+      <Spacer type="horizontal" size={20} />
+
+      <Header level={4}>Core</Header>
+      <Spacer size="normal">
+        <Button type="core" size="tiny" icon={<Icon type="gear" />}>
+          Settings
+        </Button>
+        <Button type="core" size="small" icon={<Icon type="gear" />}>
+          Settings
+        </Button>
+        <Button type="core" size="normal" icon={<Icon type="gear" />}>
+          Settings
+        </Button>
+        <Button type="core" size="large" icon={<Icon type="gear" />}>
+          Settings
+        </Button>
+        <Button type="core" size="xlarge" icon={<Icon type="gear" />}>
+          Settings
+        </Button>
+      </Spacer>
+
+      <Spacer type="horizontal" size={20} />
+
+      <Header level={4}>Warning</Header>
+      <Spacer size="normal">
+        <Button type="warning" size="tiny" icon={<Icon type="gear" />}>
+          Settings
+        </Button>
+        <Button type="warning" size="small" icon={<Icon type="gear" />}>
+          Settings
+        </Button>
+        <Button type="warning" size="normal" icon={<Icon type="gear" />}>
+          Settings
+        </Button>
+        <Button type="warning" size="large" icon={<Icon type="gear" />}>
+          Settings
+        </Button>
+        <Button type="warning" size="xlarge" icon={<Icon type="gear" />}>
+          Settings
+        </Button>
+      </Spacer>
+
+      <Spacer type="horizontal" size={20} />
     </div>
   );
 };
@@ -99,22 +168,22 @@ export const Ghost = () => {
     <div style={{ padding: 30 }}>
       <Header level={4}>Basic</Header>
       <Spacer size="normal">
-        <Button type="basic" size="tiny" ghost>
+        <Button type="basic" size="tiny" icon={<Icon type="gear" />} ghost>
           Tiny
         </Button>
-        <Button type="basic" size="small" ghost>
+        <Button type="basic" size="small" icon={<Icon type="gear" />} ghost>
           Small
         </Button>
-        <Button type="basic" size="normal" ghost>
+        <Button type="basic" size="normal" icon={<Icon type="gear" />} ghost>
           Normal
         </Button>
-        <Button type="basic" size="large" ghost>
+        <Button type="basic" size="large" icon={<Icon type="gear" />} ghost>
           Large
         </Button>
-        <Button type="basic" size="xlarge" ghost>
+        <Button type="basic" size="xlarge" icon={<Icon type="gear" />} ghost>
           xLarge
         </Button>
-        <Button type="basic" size="normal" ghost disabled>
+        <Button type="basic" size="normal" icon={<Icon type="gear" />} ghost disabled>
           Normal Disabled
         </Button>
       </Spacer>
@@ -123,47 +192,47 @@ export const Ghost = () => {
 
       <Header level={4}>Core</Header>
       <Spacer size="normal">
-        <Button type="core" size="tiny" ghost>
+        <Button type="core" size="tiny" icon={<Icon type="gear" />} ghost>
           Tiny
         </Button>
-        <Button type="core" size="small" ghost>
+        <Button type="core" size="small" icon={<Icon type="gear" />} ghost>
           Small
         </Button>
-        <Button type="core" size="normal" ghost>
+        <Button type="core" size="normal" icon={<Icon type="gear" />} ghost>
           Normal
         </Button>
-        <Button type="core" size="large" ghost>
+        <Button type="core" size="large" icon={<Icon type="gear" />} ghost>
           Large
         </Button>
-        <Button type="core" size="xlarge" ghost>
+        <Button type="core" size="xlarge" icon={<Icon type="gear" />} ghost>
           xLarge
         </Button>
-        <Button type="core" size="normal" ghost disabled>
+        <Button type="core" size="normal" icon={<Icon type="gear" />} ghost disabled>
           Core Disabled
         </Button>
       </Spacer>
 
       <Spacer type="horizontal" size={20} />
 
-      <Header level={4}>Error</Header>
+      <Header level={4}>Warning</Header>
       <Spacer size="normal">
-        <Button type="error" size="tiny" ghost>
+        <Button type="warning" size="tiny" icon={<Icon type="gear" />} ghost>
           Tiny
         </Button>
-        <Button type="error" size="small" ghost>
+        <Button type="warning" size="small" icon={<Icon type="gear" />} ghost>
           Small
         </Button>
-        <Button type="error" size="normal" ghost>
+        <Button type="warning" size="normal" icon={<Icon type="gear" />} ghost>
           Normal
         </Button>
-        <Button type="error" size="large" ghost>
+        <Button type="warning" size="large" icon={<Icon type="gear" />} ghost>
           Large
         </Button>
-        <Button type="error" size="xlarge" ghost>
+        <Button type="warning" size="xlarge" icon={<Icon type="gear" />} ghost>
           xLarge
         </Button>
-        <Button type="error" size="normal" ghost disabled>
-          Error Disabled
+        <Button type="warning" size="normal" icon={<Icon type="gear" />} ghost disabled>
+          Warning Disabled
         </Button>
       </Spacer>
     </div>
@@ -175,19 +244,19 @@ export const Disabled = () => {
     <div style={{ padding: 30 }}>
       <Header level={4}>Basic</Header>
       <Spacer size="normal">
-        <Button type="basic" size="tiny" disabled>
+        <Button type="basic" size="tiny" icon={<Icon type="gear" />} disabled>
           Tiny
         </Button>
-        <Button type="basic" size="small" disabled>
+        <Button type="basic" size="small" icon={<Icon type="gear" />} disabled>
           Small
         </Button>
-        <Button type="basic" size="normal" disabled>
+        <Button type="basic" size="normal" icon={<Icon type="gear" />} disabled>
           Normal
         </Button>
-        <Button type="basic" size="large" disabled>
+        <Button type="basic" size="large" icon={<Icon type="gear" />} disabled>
           Large
         </Button>
-        <Button type="basic" size="xlarge" disabled>
+        <Button type="basic" size="xlarge" icon={<Icon type="gear" />} disabled>
           xLarge
         </Button>
       </Spacer>
@@ -196,40 +265,40 @@ export const Disabled = () => {
 
       <Header level={4}>Core</Header>
       <Spacer size="normal">
-        <Button type="core" size="tiny" disabled>
+        <Button type="core" size="tiny" icon={<Icon type="gear" />} disabled>
           Tiny
         </Button>
-        <Button type="core" size="small" disabled>
+        <Button type="core" size="small" icon={<Icon type="gear" />} disabled>
           Small
         </Button>
-        <Button type="core" size="normal" disabled>
+        <Button type="core" size="normal" icon={<Icon type="gear" />} disabled>
           Normal
         </Button>
-        <Button type="core" size="large" disabled>
+        <Button type="core" size="large" icon={<Icon type="gear" />} disabled>
           Large
         </Button>
-        <Button type="core" size="xlarge" disabled>
+        <Button type="core" size="xlarge" icon={<Icon type="gear" />} disabled>
           xLarge
         </Button>
       </Spacer>
 
       <Spacer type="horizontal" size={20} />
 
-      <Header level={4}>Error</Header>
+      <Header level={4}>Warning</Header>
       <Spacer size="normal">
-        <Button type="error" size="tiny" disabled>
+        <Button type="warning" size="tiny" icon={<Icon type="gear" />} disabled>
           Tiny
         </Button>
-        <Button type="error" size="small" disabled>
+        <Button type="warning" size="small" icon={<Icon type="gear" />} disabled>
           Small
         </Button>
-        <Button type="error" size="normal" disabled>
+        <Button type="warning" size="normal" icon={<Icon type="gear" />} disabled>
           Normal
         </Button>
-        <Button type="error" size="large" disabled>
+        <Button type="warning" size="large" icon={<Icon type="gear" />} disabled>
           Large
         </Button>
-        <Button type="error" size="xlarge" disabled>
+        <Button type="warning" size="xlarge" icon={<Icon type="gear" />} disabled>
           xLarge
         </Button>
       </Spacer>
@@ -282,21 +351,21 @@ export const Loading = () => {
 
       <Spacer type="horizontal" size={20} />
 
-      <Header level={4}>Error</Header>
+      <Header level={4}>Warning</Header>
       <Spacer size="normal">
-        <Button type="error" size="tiny" loading>
+        <Button type="warning" size="tiny" loading>
           Tiny
         </Button>
-        <Button type="error" size="small" loading>
+        <Button type="warning" size="small" loading>
           Small
         </Button>
-        <Button type="error" size="normal" loading>
+        <Button type="warning" size="normal" loading>
           Normal
         </Button>
-        <Button type="error" size="large" loading>
+        <Button type="warning" size="large" loading>
           Large
         </Button>
-        <Button type="error" size="xlarge" loading>
+        <Button type="warning" size="xlarge" loading>
           xLarge
         </Button>
       </Spacer>
@@ -349,21 +418,21 @@ export const Block = () => {
 
       <Spacer type="horizontal" size={20} />
 
-      <Header level={4}>Error</Header>
+      <Header level={4}>Warning</Header>
       <Spacer type="vertical" size="normal">
-        <Button type="error" size="tiny" block>
+        <Button type="warning" size="tiny" block>
           Tiny
         </Button>
-        <Button type="error" size="small" block>
+        <Button type="warning" size="small" block>
           Small
         </Button>
-        <Button type="error" size="normal" block>
+        <Button type="warning" size="normal" block>
           Normal
         </Button>
-        <Button type="error" size="large" block>
+        <Button type="warning" size="large" block>
           Large
         </Button>
-        <Button type="error" size="xlarge" block>
+        <Button type="warning" size="xlarge" block>
           xLarge
         </Button>
       </Spacer>

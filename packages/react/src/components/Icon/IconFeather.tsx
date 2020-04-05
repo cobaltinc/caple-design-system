@@ -14,7 +14,7 @@ export default ({ type, size = 16, rotate = 0, spin = false, strokeWidth = 2, co
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-icon`;
-  const classNames = classnames(classPrefix, className, {
+  const classNames = classnames(classPrefix, `${classPrefix}-feather`, className, {
     [`${classPrefix}--spin`]: spin,
   });
 

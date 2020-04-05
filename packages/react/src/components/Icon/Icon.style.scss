@@ -8,6 +8,31 @@ $icon-prefix: '#{$prefix}-icon';
   vertical-align: middle;
   transition: all $duration-moderate;
 
+  &.#{$icon-prefix}--size-tiny {
+    width: 12px;
+    height: 12px;
+  }
+
+  &.#{$icon-prefix}--size-small {
+    width: 14px;
+    height: 14px;
+  }
+
+  &.#{$icon-prefix}--size-normal {
+    width: 14px;
+    height: 14px;
+  }
+
+  &.#{$icon-prefix}--size-large {
+    width: 16px;
+    height: 16px;
+  }
+
+  &.#{$icon-prefix}--size-xlarge {
+    width: 20px;
+    height: 20px;
+  }
+
   &.#{$icon-prefix}--spin {
     animation: #{$icon-prefix}-spin 2500ms infinite linear;
   }

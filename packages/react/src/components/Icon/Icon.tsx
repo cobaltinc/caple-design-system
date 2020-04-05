@@ -7,10 +7,12 @@ import IconFeather from './IconFeather';
 import { Ink } from '@caple-ui/colors';
 import './Icon.style.scss';
 
+export type IconSize = 'tiny' | 'small' | 'normal' | 'large' | 'xlarge';
+
 export interface IconProps {
   type?: string;
   component?: React.ReactElement;
-  size?: number;
+  size?: number | IconSize;
   rotate?: number;
   spin?: boolean;
   color?: string;
@@ -25,23 +27,24 @@ const Icon = ({ type, component, size = 16, rotate, spin = false, color = Ink, o
   const classPrefix = `${prefix}-icon`;
   const classNames = classnames(classPrefix, className, {
     [`${classPrefix}--spin`]: spin,
+    [`${classPrefix}--size-${size}`]: typeof size === 'string',
   });
 
   const shapeStyle = {
-    width: size,
-    height: size,
+    width: typeof size === 'number' ? size : undefined,
+    height: typeof size === 'number' ? size : undefined,
     transform: rotate ? `rotate(${rotate}deg)` : undefined,
   };
 
   let IconComponent = null;
   if (type && kebabToPascal(type) in Icons) {
     IconComponent = (Icons as any)[kebabToPascal(type)];
-    IconComponent = <IconComponent size={size} color={color} />;
+    IconComponent = <IconComponent color={color} />;
   } else if (component) {
     const iconStyle = {
       fill: color,
-      width: size,
-      height: size,
+      width: typeof size === 'number' ? size : undefined,
+      height: typeof size === 'number' ? size : undefined,
     };
     IconComponent = React.cloneElement(component, { style: iconStyle });
   } else {

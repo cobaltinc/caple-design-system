@@ -14,6 +14,13 @@ $button-prefix: '#{$prefix}-button';
   cursor: pointer;
   transition: box-shadow $duration-moderate;
 
+  .#{$button-prefix}--text {
+    vertical-align: middle;
+  }
+  .#{$prefix}-icon + .#{$button-prefix}--text {
+    margin-left: 8px;
+  }
+
   &.#{$button-prefix}--type-basic {
     color: #212b36;
     border: solid 1px #c4cdd5;
@@ -29,10 +36,14 @@ $button-prefix: '#{$prefix}-button';
     }
 
     &:disabled {
-      color: #919eab;
+      color: $ink-lightest;
       border: solid 1px #dfe3e8;
       background-image: none;
       background-color: #f9fafb;
+
+      .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+        fill: $ink-lightest;
+      }
     }
 
     &.#{$button-prefix}--ghost {
@@ -41,6 +52,10 @@ $button-prefix: '#{$prefix}-button';
       background-image: none;
       background-color: transparent;
 
+      .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+        fill: $ink-light;
+      }
+
       &:hover {
         box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
       }
@@ -48,12 +63,20 @@ $button-prefix: '#{$prefix}-button';
       &:active {
         color: $ink;
         border: solid 1px $ink;
+
+        .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+          fill: $ink;
+        }
       }
 
       &:disabled {
         color: $ink-lightest;
         border: solid 1px $ink-lightest;
         box-shadow: none;
+
+        .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+          fill: $ink-lightest;
+        }
       }
     }
   }
@@ -62,6 +85,10 @@ $button-prefix: '#{$prefix}-button';
     border: solid 1px #4f5dba;
     background-image: linear-gradient(to bottom, #606fc7, #5865c1);
     box-shadow: 0 1px 0 0 rgba(22, 29, 37, 0.1), inset 0 1px 0 1px rgba(255, 255, 255, 0.06);
+
+    .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+      fill: white;
+    }
 
     &:hover {
       border: solid 1px #3e4bb1;
@@ -85,6 +112,10 @@ $button-prefix: '#{$prefix}-button';
       background-image: none;
       background-color: transparent;
 
+      .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+        fill: $indigo;
+      }
+
       &:hover {
         box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
       }
@@ -92,20 +123,32 @@ $button-prefix: '#{$prefix}-button';
       &:active {
         color: #3e4bb1;
         border: solid 1px #3e4bb1;
+
+        .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+          fill: #3e4bb1;
+        }
       }
 
       &:disabled {
         color: $indigo-light;
         border: solid 1px $indigo-light;
         box-shadow: none;
+
+        .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+          fill: $indigo-light;
+        }
       }
     }
   }
-  &.#{$button-prefix}--type-error {
+  &.#{$button-prefix}--type-warning {
     color: white;
     border: solid 1px #bf0711;
     background-image: linear-gradient(to bottom, #e33719, #d63418);
     box-shadow: 0 1px 0 0 rgba(22, 29, 37, 0.1), inset 0 1px 0 1px rgba(255, 255, 255, 0.09);
+
+    .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+      fill: white;
+    }
 
     &:hover {
       background-image: linear-gradient(to bottom, #d93518, #cc3216);
@@ -126,6 +169,10 @@ $button-prefix: '#{$prefix}-button';
       background-image: none;
       background-color: transparent;
 
+      .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+        fill: #e33719;
+      }
+
       &:hover {
         box-shadow: 0 0 0 2px rgba(255, 24, 24, 0.2);
       }
@@ -133,12 +180,20 @@ $button-prefix: '#{$prefix}-button';
       &:active {
         color: #bc2206;
         border: solid 1px #bc2206;
+
+        .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+          fill: #bc2206;
+        }
       }
 
       &:disabled {
         color: $red-light;
         border: solid 1px $red-light;
         box-shadow: none;
+
+        .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+          fill: $red-light;
+        }
       }
     }
   }
@@ -147,21 +202,25 @@ $button-prefix: '#{$prefix}-button';
     height: 24px;
     padding: 0 6px;
     font-size: 11px;
+    line-height: 1.2;
   }
   &.#{$button-prefix}--size-small {
     height: 30px;
     padding: 0 8px;
     font-size: 12px;
+    line-height: 1.3;
   }
   &.#{$button-prefix}--size-normal {
     height: 36px;
     padding: 0 10px;
     font-size: 12px;
+    line-height: 1.4;
   }
   &.#{$button-prefix}--size-large {
     height: 44px;
     padding: 0 14px;
     font-size: 13px;
+    line-height: 1.5;
   }
   &.#{$button-prefix}--size-xlarge {
     height: 50px;

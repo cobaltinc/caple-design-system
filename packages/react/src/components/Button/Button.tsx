@@ -3,13 +3,17 @@ import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import Spinner from '../Spinner';
 import './Button.style.scss';
+import { IconProps } from '../Icon/Icon';
+import { IconFeatherProps } from '../Icon/IconFeather';
+import { Indigo } from '@caple-ui/colors';
 
-export type ButtonType = 'basic' | 'core' | 'error';
+export type ButtonType = 'basic' | 'core' | 'warning';
 export type ButtonHtmlType = 'button' | 'submit' | 'reset';
 export type ButtonSizeType = 'tiny' | 'small' | 'normal' | 'large' | 'xlarge';
 
 export interface ButtonProps {
   children: React.ReactNode;
+  icon?: React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
   htmlType?: ButtonHtmlType;
   type?: ButtonType;
   size?: ButtonSizeType;
@@ -23,7 +27,7 @@ export interface ButtonProps {
 }
 
 export default React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, htmlType, type = 'basic', size = 'normal', block, ghost, disabled, loading, onClick, className = '', style }, ref) => {
+  ({ children, icon, htmlType, type = 'basic', size = 'normal', block, ghost, disabled, loading, onClick, className = '', style }, ref) => {
     const { useContext } = React;
     const { prefix } = useContext(ConfigContext);
     const classPrefix = `${prefix}-button`;
@@ -47,7 +51,10 @@ export default React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button ref={ref} type={htmlType} className={classNames} style={style} disabled={disabled} onClick={handleClick}>
         {loading ? <Spinner color={spinnerColor} size={spinnerSize} /> : null}
-        <div style={{ opacity: loading ? 0 : 1, height: loading ? 0 : 'auto' }}>{children}</div>
+        <div style={{ opacity: loading ? 0 : 1, height: loading ? 0 : 'auto' }}>
+          {icon ? React.cloneElement(icon, { size }) : null}
+          <span className={`${classPrefix}--text`}>{children}</span>
+        </div>
       </button>
     );
   },
