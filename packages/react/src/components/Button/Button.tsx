@@ -2,17 +2,16 @@ import React from 'react';
 import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import Spinner from '../Spinner';
-import './Button.style.scss';
 import { IconProps } from '../Icon/Icon';
 import { IconFeatherProps } from '../Icon/IconFeather';
-import { Indigo } from '@caple-ui/colors';
+import './Button.style.scss';
 
 export type ButtonType = 'basic' | 'core' | 'warning';
 export type ButtonHtmlType = 'button' | 'submit' | 'reset';
 export type ButtonSizeType = 'tiny' | 'small' | 'normal' | 'large' | 'xlarge';
 
 export interface ButtonProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   icon?: React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
   htmlType?: ButtonHtmlType;
   type?: ButtonType;
@@ -53,7 +52,7 @@ export default React.forwardRef<HTMLButtonElement, ButtonProps>(
         {loading ? <Spinner color={spinnerColor} size={spinnerSize} /> : null}
         <div style={{ opacity: loading ? 0 : 1, height: loading ? 0 : 'auto' }}>
           {icon ? React.cloneElement(icon, { size }) : null}
-          <span className={`${classPrefix}--text`}>{children}</span>
+          {children ? <span className={`${classPrefix}--text`}>{children}</span> : null}
         </div>
       </button>
     );

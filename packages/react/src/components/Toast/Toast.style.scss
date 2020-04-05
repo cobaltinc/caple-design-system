@@ -7,7 +7,7 @@ $toast-prefix: '#{$prefix}-toast';
 
 ##{$toast-prefix}-portal {
   position: fixed;
-  bottom: 30px;
+  top: 30px;
   right: 30px;
   max-width: 420px;
   z-index: 2000;
@@ -18,7 +18,7 @@ $toast-prefix: '#{$prefix}-toast';
   transform: translate3d(0, -0, -0) scale(1);
   transition: all 0.4s ease;
   position: absolute;
-  bottom: 0;
+  top: 0;
   height: 72px;
   right: 0;
 
