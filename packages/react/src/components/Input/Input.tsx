@@ -127,6 +127,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setCurrentValue(event.target.value);
+      onChange?.(event);
     };
 
     const iconSize = size === 'tiny' ? 14 : size === 'small' ? 16 : size === 'normal' ? 20 : size === 'large' ? 24 : 30;
