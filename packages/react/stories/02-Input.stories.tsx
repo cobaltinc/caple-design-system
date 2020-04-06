@@ -6,9 +6,12 @@ export default {
 };
 
 export const Default = () => {
+  const { useState } = React;
+  const [value, setValue] = useState('123');
   return (
     <div style={{ padding: 20, maxWidth: 500 }}>
-      <Input.Text />
+      <Input.Text value={value} />
+      <button onClick={() => setValue('456')}>TEST</button>
     </div>
   );
 };

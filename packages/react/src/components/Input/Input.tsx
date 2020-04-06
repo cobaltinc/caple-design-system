@@ -24,6 +24,7 @@ export interface InputEvent {
 }
 
 export interface InputProps extends InputEvent {
+  value?: string | number;
   defaultValue?: string | number;
   placeholder?: string;
   label?: string;
@@ -55,6 +56,7 @@ interface Props {
 export default React.forwardRef<HTMLInputElement, InputProps & Props>(
   (
     {
+      value,
       defaultValue,
       placeholder,
       label,
@@ -89,10 +91,15 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
     },
     ref,
   ) => {
-    const { useContext, useState } = React;
+    const { useContext, useState, useEffect } = React;
     const classPrefix = `${useContext(ConfigContext).prefix}-input`;
 
     const [focused, setFocused] = useState(false);
+    const [currentValue, setCurrentValue] = useState(value);
+
+    useEffect(() => {
+      setCurrentValue(value);
+    }, [value]);
 
     const classNames = classnames(classPrefix, `${classPrefix}--size-${size}`, `${classPrefix}--border-type-${borderType}`, {
       [`${classPrefix}--disabled`]: disabled,
@@ -118,6 +125,10 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
       onKeyDown?.(event);
     };
 
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setCurrentValue(event.target.value);
+    };
+
     const iconSize = size === 'tiny' ? 14 : size === 'small' ? 16 : size === 'normal' ? 20 : size === 'large' ? 24 : 30;
 
     return (
@@ -135,6 +146,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
           <input
             ref={ref}
             type={type}
+            value={currentValue}
             defaultValue={defaultValue}
             name={name}
             placeholder={placeholder}
@@ -146,7 +158,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
             onKeyDown={handleKeyDown}
             onKeyPress={onKeyPress}
             onKeyUp={onKeyUp}
-            onChange={onChange}
+            onChange={handleChange}
             className={inputClassName}
             style={{ ...inputStyle, textAlign: align }}
           />
