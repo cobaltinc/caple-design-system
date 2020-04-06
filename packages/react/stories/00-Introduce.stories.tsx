@@ -24,6 +24,7 @@ export const Default = () => {
     'Link',
     'Modal',
     'Navigation',
+    'Pagination',
     'Popover',
     'ProgressIndicator',
     'Select',

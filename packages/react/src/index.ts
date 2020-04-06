@@ -25,6 +25,7 @@ export { default as Link } from './components/Link';
 export { default as Menu } from './components/Menu';
 export { default as Modal } from './components/Modal';
 export { default as Navigation } from './components/Navigation';
+export { default as Pagination } from './components/Pagination';
 export { default as Popover } from './components/Popover';
 export { default as ProgressIndicator } from './components/ProgressIndicator';
 export { default as Select } from './components/Select';

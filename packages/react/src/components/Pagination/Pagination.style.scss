@@ -1,0 +1,36 @@
+@import '../../styles/base/core';
+
+$pagination-prefix: '#{$prefix}-pagination';
+
+.#{$pagination-prefix} {
+  display: flex;
+  align-items: center;
+
+  .#{$pagination-prefix}--page {
+    display: inline-block;
+    padding: 0 16px;
+    font-size: 16px;
+    font-weight: bold;
+    vertical-align: middle;
+    color: #8a93a4;
+    cursor: pointer;
+
+    &.#{$pagination-prefix}--active {
+      color: #5d6bc5;
+    }
+  }
+  .#{$pagination-prefix}--arrow {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    vertical-align: middle;
+
+    &:first-of-type {
+      margin-right: 8px;
+    }
+
+    &:last-of-type {
+      margin-left: 8px;
+    }
+  }
+}
