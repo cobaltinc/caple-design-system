@@ -56,7 +56,7 @@ interface Props {
 export default React.forwardRef<HTMLInputElement, InputProps & Props>(
   (
     {
-      value,
+      value = '',
       defaultValue,
       placeholder,
       label,
