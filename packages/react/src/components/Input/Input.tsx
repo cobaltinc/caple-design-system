@@ -56,7 +56,7 @@ interface Props {
 export default React.forwardRef<HTMLInputElement, InputProps & Props>(
   (
     {
-      value = '',
+      value,
       defaultValue,
       placeholder,
       label,
@@ -147,7 +147,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
           <input
             ref={ref}
             type={type}
-            value={currentValue}
+            value={value ? currentValue : undefined}
             defaultValue={defaultValue}
             name={name}
             placeholder={placeholder}
