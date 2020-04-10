@@ -16,11 +16,12 @@ export type SelectBorderType = 'border' | 'underline' | 'none';
 export interface SelectProps {
   children: React.ReactNode;
   label?: string;
+  labelColor?: string;
   name?: string;
   placeholder?: string;
   size?: SelectSizeType;
   borderType?: SelectBorderType;
-  block?: string;
+  block?: boolean;
   disabled?: boolean;
   align?: SelectAlignType;
   loading?: boolean;
@@ -42,6 +43,7 @@ type SelectedOption = {
 const Select = ({
   children,
   label,
+  labelColor,
   name,
   placeholder,
   size = 'normal',
@@ -117,7 +119,7 @@ const Select = ({
   return (
     <div className={classnames(`${classPrefix}--container`, className, { [`${classPrefix}--block`]: block })} style={style}>
       {label ? (
-        <Text paragraph size="small" className={classnames(`${classPrefix}--label`, labelClassName)} style={labelStyle}>
+        <Text size="small" color={labelColor} className={classnames(`${classPrefix}--label`, labelClassName)} style={labelStyle}>
           {label}
         </Text>
       ) : null}

@@ -41,7 +41,7 @@ export default React.forwardRef<HTMLSpanElement, AvatarProps>(({ size = 80, shap
         className={classnames(`${classPrefix}--image`, {
           [`${classPrefix}--image-loaded`]: loaded,
         })}
-        onLoad={handleLoad}
+        onLoad={() => handleLoad()}
         src={src}
         alt={alt}
       />
@@ -52,7 +52,7 @@ export default React.forwardRef<HTMLSpanElement, AvatarProps>(({ size = 80, shap
         className={classnames(`${classPrefix}--image`, {
           [`${classPrefix}--image-loaded`]: loaded,
         })}
-        onLoad={handleLoad}
+        onLoad={() => handleLoad()}
         src={placeholder}
         alt={alt}
       />
