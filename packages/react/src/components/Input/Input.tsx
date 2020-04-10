@@ -98,7 +98,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
     const [currentValue, setCurrentValue] = useState(value);
 
     useEffect(() => {
-      setCurrentValue(value ? value : defaultValue);
+      setCurrentValue(value);
     }, [value]);
 
     const classNames = classnames(classPrefix, `${classPrefix}--size-${size}`, `${classPrefix}--border-type-${borderType}`, {
@@ -126,7 +126,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
     };
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      setCurrentValue(event.target.value);
+      if (value !== undefined) setCurrentValue(event.target.value);
       onChange?.(event);
     };
 

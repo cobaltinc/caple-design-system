@@ -38,10 +38,17 @@ export default React.forwardRef<HTMLSpanElement, AvatarProps>(({ size = 80, shap
   if (src) {
     children = (
       <img
+        ref={img => {
+          if (!img) return;
+
+          img.onload = handleLoad;
+          if (img.complete) {
+            handleLoad();
+          }
+        }}
         className={classnames(`${classPrefix}--image`, {
           [`${classPrefix}--image-loaded`]: loaded,
         })}
-        onLoad={() => handleLoad()}
         src={src}
         alt={alt}
       />
@@ -49,10 +56,17 @@ export default React.forwardRef<HTMLSpanElement, AvatarProps>(({ size = 80, shap
   } else if (placeholder) {
     children = (
       <img
+        ref={img => {
+          if (!img) return;
+
+          img.onload = handleLoad;
+          if (img.complete) {
+            handleLoad();
+          }
+        }}
         className={classnames(`${classPrefix}--image`, {
           [`${classPrefix}--image-loaded`]: loaded,
         })}
-        onLoad={() => handleLoad()}
         src={placeholder}
         alt={alt}
       />
