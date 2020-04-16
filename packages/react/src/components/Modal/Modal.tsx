@@ -4,6 +4,7 @@ import ConfigContext from '../_config/ConfigContext';
 import Icon from '../Icon';
 import { FadeTransition } from '../_transition';
 import './Modal.style.scss';
+import ReactDOM from 'react-dom';
 
 interface ModalProps {
   children: React.ReactNode;
@@ -46,7 +47,15 @@ export default ({ children, width = 500, height, visible = false, closable = tru
     }
   }, [visible]);
 
-  return (
+  const el = document.createElement('div');
+  useEffect(() => {
+    document.body.appendChild(el);
+    return () => {
+      document.body.removeChild(el);
+    };
+  });
+
+  return ReactDOM.createPortal(
     <FadeTransition show={visible}>
       <div className={`${classPrefix}--dim`} style={dimStyle} onClick={onClose}>
         <div className={classNames} style={{ ...style, ...containerStyle }} onClick={e => e.stopPropagation()}>
@@ -56,6 +65,7 @@ export default ({ children, width = 500, height, visible = false, closable = tru
           {children}
         </div>
       </div>
-    </FadeTransition>
+    </FadeTransition>,
+    el,
   );
 };

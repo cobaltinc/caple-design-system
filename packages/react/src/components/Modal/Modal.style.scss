@@ -14,6 +14,7 @@ $modal-prefix: '#{$prefix}-modal';
   height: 100vh;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.15);
+  z-index: 10000;
 
   .#{$modal-prefix} {
     position: fixed;
@@ -25,13 +26,14 @@ $modal-prefix: '#{$prefix}-modal';
     background-color: white;
     box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.5);
     overflow: hidden;
+    z-index: 10001;
 
     .#{$modal-prefix}--close {
       position: absolute;
       top: 10px;
       right: 10px;
       cursor: pointer;
-      z-index: 50;
+      z-index: 10;
     }
   }
 }

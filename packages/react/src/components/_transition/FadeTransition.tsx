@@ -16,13 +16,11 @@ export default ({ children, show, onExited }: Props) => {
 
   return (
     <TransitionGroup component={null}>
-      {
-        show ?
-          <CSSTransition in={show} timeout={240} onExited={onExited} classNames={`${prefix}-transition--fade`}>
-            {children}
-          </CSSTransition> :
-          null
-      }
+      {show ? (
+        <CSSTransition in={show} timeout={240} onExited={onExited} classNames={`${prefix}-transition--fade`}>
+          {children}
+        </CSSTransition>
+      ) : null}
     </TransitionGroup>
   );
 };
