@@ -5,6 +5,7 @@ import Icon from '../Icon';
 import { FadeTransition } from '../_transition';
 import './Modal.style.scss';
 import ReactDOM from 'react-dom';
+import { isServer } from 'src/utils';
 
 interface ModalProps {
   children: React.ReactNode;
@@ -46,6 +47,10 @@ export default ({ children, width = 500, height, visible = false, closable = tru
       }, 240);
     }
   }, [visible]);
+
+  if (isServer) {
+    return null;
+  }
 
   const el = document.createElement('div');
   useEffect(() => {

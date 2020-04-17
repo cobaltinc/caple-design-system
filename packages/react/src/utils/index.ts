@@ -29,3 +29,5 @@ export const concatReactNodeToString = (reactNode: React.ReactNode) => {
     .concat()
     .toString();
 };
+
+export const isServer = typeof window === 'undefined';
