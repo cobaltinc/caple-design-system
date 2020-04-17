@@ -61,16 +61,16 @@ export default ({ children, width = 500, height, visible = false, closable = tru
   });
 
   return ReactDOM.createPortal(
-    // <FadeTransition show={visible}>
-    <div className={`${classPrefix}--dim`} style={dimStyle} onClick={onClose}>
-      <div className={classNames} style={{ ...style, ...containerStyle }} onClick={e => e.stopPropagation()}>
-        <span onClick={onClose} className={`${classPrefix}--close`}>
-          <Icon type="close" size={20} />
-        </span>
-        {children}
+    <FadeTransition show={visible}>
+      <div className={`${classPrefix}--dim`} style={dimStyle} onClick={onClose}>
+        <div className={classNames} style={{ ...style, ...containerStyle }} onClick={e => e.stopPropagation()}>
+          <span onClick={onClose} className={`${classPrefix}--close`}>
+            <Icon type="close" size={20} />
+          </span>
+          {children}
+        </div>
       </div>
-    </div>,
-    // </FadeTransition>,
+    </FadeTransition>,
     el,
   );
 };
