@@ -5,7 +5,7 @@ import './Pagination.style.scss';
 import Button from '../Button';
 import Icon from '../Icon';
 
-export interface BadgeProps {
+export interface PaginationProps {
   activePage?: number;
   itemsCountPerView?: number;
   totalItemsCount: number;
@@ -14,7 +14,7 @@ export interface BadgeProps {
   style?: React.CSSProperties;
 }
 
-export default ({ activePage = 1, itemsCountPerView = 10, totalItemsCount, onChange, className = '', style }: BadgeProps) => {
+export default ({ activePage = 1, itemsCountPerView = 10, totalItemsCount, onChange, className = '', style }: PaginationProps) => {
   const { useContext, useState } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-pagination`;
