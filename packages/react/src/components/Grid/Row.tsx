@@ -13,7 +13,7 @@ export interface RowProps {
   style?: React.CSSProperties;
 }
 
-export default ({ children, gutter = 0, justify = 'start', align = 'top', className = '', style }: RowProps) => {
+export default ({ children, gutter = 0, justify = 'start', align = 'top', className = '', style, ...props }: RowProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-row`;
@@ -38,7 +38,7 @@ export default ({ children, gutter = 0, justify = 'start', align = 'top', classN
 
   return (
     <RowContext.Provider value={{ gutter }}>
-      <div className={classNames} style={{ ...style, ...gutterStyle }}>
+      <div className={classNames} style={{ ...style, ...gutterStyle }} {...props}>
         {children}
       </div>
     </RowContext.Provider>

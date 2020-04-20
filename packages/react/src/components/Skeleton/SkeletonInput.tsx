@@ -11,7 +11,7 @@ export interface SkeletonInputProps {
   style?: React.CSSProperties;
 }
 
-export default ({ size = 'normal', block, className = '', style }: SkeletonInputProps) => {
+export default ({ size = 'normal', block, className = '', style, ...props }: SkeletonInputProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-skeleton`;
@@ -25,5 +25,5 @@ export default ({ size = 'normal', block, className = '', style }: SkeletonInput
     height,
   };
 
-  return <div className={classNames} style={{ ...sizeStyle, ...style }} />;
+  return <div className={classNames} style={{ ...sizeStyle, ...style }} {...props} />;
 };

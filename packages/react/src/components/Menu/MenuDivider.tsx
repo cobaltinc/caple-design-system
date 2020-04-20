@@ -8,11 +8,11 @@ export interface MenuDividerProps {
   style?: React.CSSProperties;
 }
 
-export default ({ className = '', style }: MenuDividerProps) => {
+export default ({ className = '', style, ...props }: MenuDividerProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-menu-divider`;
   const classNames = classnames(classPrefix, className);
 
-  return <li className={classNames} style={style} />;
+  return <li className={classNames} style={style} {...props} />;
 };

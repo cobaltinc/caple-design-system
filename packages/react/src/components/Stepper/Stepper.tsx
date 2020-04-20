@@ -12,23 +12,23 @@ export interface StepperProps {
   style?: React.CSSProperties;
 }
 
-const Stepper = ({ children, active = 0, className = '', style }: StepperProps) => {
+const Stepper = ({ children, active = 0, className = '', style, ...props }: StepperProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-stepper`;
   const classNames = classnames(`${classPrefix}`, className);
 
   const items = convertReactNodeTo<StepperItemProps>('Stepper', 'Stepper.Item', children).map((element: any, index, elements) => {
-    const props = (element as React.ReactElement<StepperItemProps>).props;
+    const itemProps = (element as React.ReactElement<StepperItemProps>).props;
     return (
       <React.Fragment key={index}>
-        {StepperItem.render({ ...props, done: index + 1 < active, active: active === index + 1, zIndex: elements.length - index })}
+        {StepperItem.render({ ...itemProps, done: index + 1 < active, active: active === index + 1, zIndex: elements.length - index })}
       </React.Fragment>
     );
   });
 
   return (
-    <ul className={classNames} style={style}>
+    <ul className={classNames} style={style} {...props}>
       {items}
     </ul>
   );

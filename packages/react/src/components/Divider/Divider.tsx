@@ -9,10 +9,10 @@ export interface DividerProps {
   style?: React.CSSProperties;
 }
 
-export default ({ type = 'horizontal', className = '', style }: DividerProps) => {
+export default ({ type = 'horizontal', className = '', style, ...props }: DividerProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-divider`;
   const classNames = classnames(`${classPrefix}`, `${classPrefix}-${type}`, className);
-  return <hr className={classNames} style={style} />;
+  return <hr className={classNames} style={style} {...props} />;
 };

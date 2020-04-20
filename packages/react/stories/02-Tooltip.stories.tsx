@@ -8,7 +8,7 @@ export default {
 export const Default = () => {
   return (
     <div style={{ padding: 30 }}>
-      <Tooltip title="Peekaboo! I'm Tooltip. :D" placement="bottomLeft">
+      <Tooltip content="Peekaboo! I'm Tooltip. :D" placement="bottom-left">
         <Button>Hover me</Button>
       </Tooltip>
     </div>
@@ -18,20 +18,20 @@ export const Default = () => {
 export const Trigger = () => {
   return (
     <div style={{ padding: 30 }}>
-      <Tooltip title="Peekaboo! I'm Tooltip. :D" placement="bottomLeft" trigger="click">
+      <Tooltip content="Peekaboo! I'm Tooltip. :D" placement="bottom-left" trigger="click">
         <Button>Click me</Button>
       </Tooltip>
 
       <Spacer type="vertical" size={30} />
 
-      <Tooltip title="Peekaboo! I'm Tooltip. :D" placement="bottomLeft" trigger="hover">
+      <Tooltip content="Peekaboo! I'm Tooltip. :D" placement="bottom-left" trigger="hover">
         <Button>Hover me</Button>
       </Tooltip>
 
       <Spacer type="vertical" size={30} />
 
-      <Tooltip title="Peekaboo! I'm Tooltip. :D" placement="bottomLeft" trigger="focus">
-        <Input.Text placeholder="Focus me" />
+      <Tooltip content="Peekaboo! I'm Tooltip. :D" placement="bottom-left" trigger="focus">
+        <Input.Text placeholder="Focus me" style={{ width: 120 }} />
       </Tooltip>
     </div>
   );
@@ -41,61 +41,61 @@ export const Placement = () => {
   return (
     <div style={{ padding: 30 }}>
       <div style={{ width: 500, margin: '100px auto' }}>
-        <Spacer type="vertical" size={50} />
-        <Tooltip title="Peekaboo! I'm Tooltip. :D" placement="topLeft">
+        <Spacer size={50} />
+        <Tooltip content="Peekaboo! I'm Tooltip. :D" placement="top-left">
           <Button>Top Left</Button>
         </Tooltip>
-        <Spacer type="vertical" size={70} />
-        <Tooltip title="Peekaboo! I'm Tooltip. :D" placement="top">
+        <Spacer size={70} />
+        <Tooltip content="Peekaboo! I'm Tooltip. :D" placement="top">
           <Button>Top</Button>
         </Tooltip>
-        <Spacer type="vertical" size={70} />
-        <Tooltip title="Peekaboo! I'm Tooltip. :D" placement="topRight">
+        <Spacer size={70} />
+        <Tooltip content="Peekaboo! I'm Tooltip. :D" placement="top-right">
           <Button>Top Right</Button>
         </Tooltip>
 
-        <Spacer size={30} />
+        <Spacer type="vertical" size={30} />
 
-        <Tooltip title="Peekaboo! I'm Tooltip. :D" placement="leftTop">
+        <Tooltip content="Peekaboo! I'm Tooltip. :D" placement="left-top">
           <Button>Left Top</Button>
         </Tooltip>
-        <Spacer type="vertical" size={280} />
-        <Tooltip title="Peekaboo! I'm Tooltip. :D" placement="rightTop">
+        <Spacer size={280} />
+        <Tooltip content="Peekaboo! I'm Tooltip. :D" placement="right-top">
           <Button>Right Top</Button>
         </Tooltip>
 
-        <Spacer size={30} />
+        <Spacer type="vertical" size={30} />
 
-        <Tooltip title="Peekaboo! I'm Tooltip. :D" placement="left">
+        <Tooltip content="Peekaboo! I'm Tooltip. :D" placement="left">
           <Button>Left</Button>
         </Tooltip>
-        <Spacer type="vertical" size={326} />
-        <Tooltip title="Peekaboo! I'm Tooltip. :D" placement="right">
+        <Spacer size={326} />
+        <Tooltip content="Peekaboo! I'm Tooltip. :D" placement="right">
           <Button>Right</Button>
         </Tooltip>
 
-        <Spacer size={30} />
+        <Spacer type="vertical" size={30} />
 
-        <Tooltip title="Peekaboo! I'm Tooltip. :D" placement="leftBottom">
+        <Tooltip content="Peekaboo! I'm Tooltip. :D" placement="left-bottom">
           <Button>Left Bottom</Button>
         </Tooltip>
-        <Spacer type="vertical" size={236} />
-        <Tooltip title="Peekaboo! I'm Tooltip. :D" placement="rightBottom">
+        <Spacer size={236} />
+        <Tooltip content="Peekaboo! I'm Tooltip. :D" placement="right-bottom">
           <Button>Right Bottom</Button>
         </Tooltip>
 
-        <Spacer size={30} />
+        <Spacer type="vertical" size={30} />
 
-        <Spacer type="vertical" size={50} />
-        <Tooltip title="Peekaboo! I'm Tooltip. :D" placement="bottomLeft">
+        <Spacer size={50} />
+        <Tooltip content="Peekaboo! I'm Tooltip. :D" placement="bottom-left">
           <Button>Bottom Left</Button>
         </Tooltip>
-        <Spacer type="vertical" size={40} />
-        <Tooltip title="Peekaboo! I'm Tooltip. :D" placement="bottom">
+        <Spacer size={40} />
+        <Tooltip content="Peekaboo! I'm Tooltip. :D" placement="bottom">
           <Button>Bottom</Button>
         </Tooltip>
-        <Spacer type="vertical" size={50} />
-        <Tooltip title="Peekaboo! I'm Tooltip. :D" placement="bottomRight">
+        <Spacer size={50} />
+        <Tooltip content="Peekaboo! I'm Tooltip. :D" placement="bottom-right">
           <Button>Bottom Right</Button>
         </Tooltip>
       </div>

@@ -15,6 +15,7 @@ export type SelectBorderType = 'border' | 'underline' | 'none';
 
 export interface SelectProps {
   children: React.ReactNode;
+  defaultActive?: string;
   label?: string;
   labelColor?: string;
   name?: string;
@@ -40,8 +41,10 @@ type SelectedOption = {
   value: string;
 };
 
+// TODO: need refactoring
 const Select = ({
   children,
+  defaultActive,
   label,
   labelColor,
   name,
@@ -59,6 +62,7 @@ const Select = ({
   labelStyle,
   inputClassName = '',
   inputStyle,
+  ...props
 }: SelectProps) => {
   const { useContext, useState, useRef, useEffect } = React;
   const classPrefix = `${useContext(ConfigContext).prefix}-select`;
@@ -66,7 +70,6 @@ const Select = ({
   const [focused, setFocused] = useState(false);
   const [active, setActive] = useState<SelectedOption>();
   const inputRef = useRef<HTMLDivElement>(null);
-  const selectRef = useRef<HTMLSelectElement>(null);
 
   const inputClassNames = classnames(classPrefix, inputClassName, `${classPrefix}--size-${size}`, `${classPrefix}--border-type-${borderType}`, {
     [`${classPrefix}--disabled`]: disabled,
@@ -81,8 +84,6 @@ const Select = ({
     }
 
     setFocused(!focused);
-
-    selectRef.current?.click();
   };
   const handleClickOutside = (event: MouseEvent) => {
     if (inputRef.current && !inputRef.current.contains(event.target as HTMLElement)) {
@@ -99,25 +100,46 @@ const Select = ({
     }
   }, [handleClickOutside]);
 
+  useEffect(() => {
+    const newActive = convertReactNodeTo<typeof SelectOption>('Select', 'Select.Option', children)
+      .filter(element => {
+        const optionProps = (element as React.ReactElement<SelectOptionProps>).props;
+        return optionProps.value === defaultActive;
+      })
+      .map((element, index) => {
+        const optionProps = (element as React.ReactElement<SelectOptionProps>).props;
+        const title = concatReactNodeToString(optionProps.children);
+        return {
+          key: index,
+          title,
+          value: optionProps.value,
+        };
+      });
+
+    if (newActive.length > 0) {
+      setActive(newActive[0]);
+    }
+  }, [defaultActive]);
+
   const options = convertReactNodeTo<typeof SelectOption>('Select', 'Select.Option', children).map((element, index) => {
-    const props = (element as React.ReactElement<SelectOptionProps>).props;
-    const title = concatReactNodeToString(props.children);
+    const optionProps = (element as React.ReactElement<SelectOptionProps>).props;
+    const title = concatReactNodeToString(optionProps.children);
     const handleOptionClick = () => {
       if (!disabled) {
         setActive({
           key: index,
           title,
-          value: props.value,
+          value: optionProps.value,
         });
-        onChange?.(props.value);
+        onChange?.(optionProps.value);
       }
     };
 
-    return SelectOption.render({ ...props, key: index, selected: active?.key === index, onClick: handleOptionClick });
+    return SelectOption.render({ ...optionProps, key: index, selected: active?.key === index, onClick: handleOptionClick });
   });
 
   return (
-    <div className={classnames(`${classPrefix}--container`, className, { [`${classPrefix}--block`]: block })} style={style}>
+    <div className={classnames(`${classPrefix}--container`, className, { [`${classPrefix}--block`]: block })} style={style} {...props}>
       {label ? (
         <Text size="small" color={labelColor} className={classnames(`${classPrefix}--label`, labelClassName)} style={labelStyle}>
           {label}
@@ -125,12 +147,12 @@ const Select = ({
       ) : null}
 
       <div ref={inputRef} className={inputClassNames} style={{ ...inputStyle, textAlign: align }} onClick={handleClick}>
-        <select ref={selectRef} name={name} defaultValue={active?.value} disabled={disabled}>
+        <select name={name} defaultValue={active?.value} disabled={disabled}>
           {options.map((option, index) => {
-            const props = (option as React.ReactElement<SelectOptionProps>).props;
-            const title = concatReactNodeToString(props.children);
+            const optionProps = (option as React.ReactElement<SelectOptionProps>).props;
+            const title = concatReactNodeToString(optionProps.children);
             return (
-              <option value={props.value} key={index}>
+              <option value={optionProps.value} key={index}>
                 {title}
               </option>
             );

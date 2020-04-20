@@ -15,7 +15,7 @@ export interface NavigationProps {
 }
 
 // TODO: Need Refactoring
-const Navigation = ({ children, defaultActive, onChange, className = '', style }: NavigationProps) => {
+const Navigation = ({ children, defaultActive, onChange, className = '', style, ...props }: NavigationProps) => {
   const { useContext, useState, useEffect } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-navigation`;
@@ -69,7 +69,7 @@ const Navigation = ({ children, defaultActive, onChange, className = '', style }
     });
 
   return (
-    <div className={classNames} style={style}>
+    <div className={classNames} style={style} {...props}>
       {items}
     </div>
   );

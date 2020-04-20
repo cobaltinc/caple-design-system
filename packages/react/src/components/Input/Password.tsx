@@ -8,7 +8,7 @@ export interface InputPasswordProps extends InputProps {
   toggle?: boolean;
 }
 
-export default ({ toggle, ...props }: InputPasswordProps) => {
+export default React.forwardRef<HTMLInputElement, InputPasswordProps>(({ toggle, ...props }, ref) => {
   const { useContext, useState } = React;
   const classPrefix = `${useContext(ConfigContext).prefix}-input`;
 
@@ -20,6 +20,7 @@ export default ({ toggle, ...props }: InputPasswordProps) => {
 
   return (
     <Input
+      ref={ref}
       type={visible ? 'text' : 'password'}
       subfix={
         toggle ? (
@@ -31,4 +32,4 @@ export default ({ toggle, ...props }: InputPasswordProps) => {
       {...props}
     />
   );
-};
+});

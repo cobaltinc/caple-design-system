@@ -10,7 +10,7 @@ export interface SkeletonBoxProps {
   style?: React.CSSProperties;
 }
 
-export default ({ width, height, className = '', style }: SkeletonBoxProps) => {
+export default ({ width, height, className = '', style, ...props }: SkeletonBoxProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-skeleton`;
@@ -21,5 +21,5 @@ export default ({ width, height, className = '', style }: SkeletonBoxProps) => {
     height,
   };
 
-  return <div className={classNames} style={{ ...style, ...sizeStyle }} />;
+  return <div className={classNames} style={{ ...style, ...sizeStyle }} {...props} />;
 };

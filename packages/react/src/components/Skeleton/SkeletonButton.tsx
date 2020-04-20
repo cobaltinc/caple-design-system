@@ -11,7 +11,7 @@ export interface SkeletonButtonProps {
   style?: React.CSSProperties;
 }
 
-export default ({ size = 'normal', block, className = '', style }: SkeletonButtonProps) => {
+export default ({ size = 'normal', block, className = '', style, ...props }: SkeletonButtonProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-skeleton`;
@@ -25,5 +25,5 @@ export default ({ size = 'normal', block, className = '', style }: SkeletonButto
     height,
   };
 
-  return <div className={classNames} style={{ ...sizeStyle, ...style }} />;
+  return <div className={classNames} style={{ ...sizeStyle, ...style }} {...props} />;
 };

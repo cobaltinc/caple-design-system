@@ -19,7 +19,18 @@ export interface TagProps {
   style?: React.CSSProperties;
 }
 
-export default ({ name, size = 'normal', disabled = false, closable = false, color, onClick, onClose, className = '', style }: TagProps) => {
+export default ({
+  name,
+  size = 'normal',
+  disabled = false,
+  closable = false,
+  color,
+  onClick,
+  onClose,
+  className = '',
+  style,
+  ...props
+}: TagProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-tag`;
@@ -29,9 +40,11 @@ export default ({ name, size = 'normal', disabled = false, closable = false, col
   });
 
   return (
-    <div className={classNames} style={style} onClick={onClick}>
+    <div className={classNames} style={style} onClick={onClick} {...props}>
       <Text size={size}>{name}</Text>
-      {closable ? <Icon type="close" size={12} color={color ? color : '#5c6ac4'} onClick={() => onClose?.(name)} className={`${classPrefix}--delete`} /> : null}
+      {closable ? (
+        <Icon type="close" size={12} color={color ? color : '#5c6ac4'} onClick={() => onClose?.(name)} className={`${classPrefix}--delete`} />
+      ) : null}
     </div>
   );
 };

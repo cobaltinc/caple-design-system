@@ -21,7 +21,7 @@ const StepperItem = (_: StepperItemProps) => {
   return null;
 };
 
-StepperItem.render = ({ title, className = '', style, done, active, zIndex }: StepperItemProps & StepperItemRenderProps) => {
+StepperItem.render = ({ title, className = '', style, done, active, zIndex, ...props }: StepperItemProps & StepperItemRenderProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-stepper-item`;
@@ -31,7 +31,7 @@ StepperItem.render = ({ title, className = '', style, done, active, zIndex }: St
   });
 
   return (
-    <li className={classNames} style={{ ...style, zIndex }}>
+    <li className={classNames} style={{ ...style, zIndex }} {...props}>
       <Icon type="check-circle" size={14} className={`${classPrefix}--icon`} />
       <Text size="small">{title}</Text>
     </li>

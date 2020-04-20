@@ -5,7 +5,7 @@ import Icon from '../Icon';
 import { FadeTransition } from '../_transition';
 import './Modal.style.scss';
 import ReactDOM from 'react-dom';
-import { isServer } from 'src/utils';
+import { isServer } from '../../utils';
 
 interface ModalProps {
   children: React.ReactNode;
@@ -64,9 +64,11 @@ export default ({ children, width = 500, height, visible = false, closable = tru
     <FadeTransition show={visible}>
       <div className={`${classPrefix}--dim`} style={dimStyle} onClick={onClose}>
         <div className={classNames} style={{ ...style, ...containerStyle }} onClick={e => e.stopPropagation()}>
-          <span onClick={onClose} className={`${classPrefix}--close`}>
-            <Icon type="close" size={20} />
-          </span>
+          {closable ? (
+            <span onClick={onClose} className={`${classPrefix}--close`}>
+              <Icon type="close" size={20} />
+            </span>
+          ) : null}
           {children}
         </div>
       </div>

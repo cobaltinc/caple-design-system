@@ -21,7 +21,15 @@ const NavigationSubItem = (_: NavigationSubItemProps) => {
   return null;
 };
 
-NavigationSubItem.render = ({ title, disabled, onClick, className = '', style, active }: NavigationSubItemProps & NavigationSubItemRenderProps) => {
+NavigationSubItem.render = ({
+  title,
+  disabled,
+  onClick,
+  className = '',
+  style,
+  active,
+  ...props
+}: NavigationSubItemProps & NavigationSubItemRenderProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-navigation-sub-item`;
@@ -36,7 +44,7 @@ NavigationSubItem.render = ({ title, disabled, onClick, className = '', style, a
   };
 
   return (
-    <div className={classNames} style={style} onClick={handleClick}>
+    <div className={classNames} style={style} onClick={handleClick} {...props}>
       <Text size={11} className={`${classPrefix}--title`}>
         {title}
       </Text>

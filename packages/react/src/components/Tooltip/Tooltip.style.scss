@@ -6,18 +6,16 @@
 $tooltip-prefix: '#{$prefix}-tooltip';
 
 .#{$tooltip-prefix} {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   display: inline-block;
-
-  .#{$tooltip-prefix}--host {
-    display: inline-block;
-  }
 
   &.#{$tooltip-prefix}--active {
     .#{$tooltip-prefix}--caret {
       opacity: 1;
     }
-    .#{$tooltip-prefix}--title {
+    .#{$tooltip-prefix}--content {
       opacity: 1;
     }
   }
@@ -38,10 +36,24 @@ $tooltip-prefix: '#{$prefix}-tooltip';
       transform: translate(-50%) rotate(180deg);
     }
 
+    &.top-left {
+      margin-left: 12px;
+    }
+    &.top-right {
+      margin-left: -12px;
+    }
+
     &[class^='bottom'] {
       bottom: -12px;
       left: 50%;
       transform: translate(-50%);
+    }
+
+    &.bottom-left {
+      margin-left: 12px;
+    }
+    &.bottom-right {
+      margin-left: -12px;
     }
 
     &[class^='right'] {
@@ -50,14 +62,28 @@ $tooltip-prefix: '#{$prefix}-tooltip';
       transform: translateY(-50%) rotate(-90deg);
     }
 
+    &.right-top {
+      margin-top: 12px;
+    }
+    &.right-bottom {
+      margin-top: -12px;
+    }
+
     &[class^='left'] {
       left: -18px;
       top: 50%;
       transform: translateY(-50%) rotate(90deg);
     }
+
+    &.left-top {
+      margin-top: 12px;
+    }
+    &.left-bottom {
+      margin-top: -12px;
+    }
   }
 
-  .#{$tooltip-prefix}--title {
+  .#{$tooltip-prefix}--content {
     position: absolute;
     padding: 12px 20px;
     font-size: $text-size-small;

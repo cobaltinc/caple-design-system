@@ -33,6 +33,7 @@ ProgressIndicatorItem.render = ({
   loading,
   className = '',
   style,
+  ...props
 }: ProgressIndicatorItemProps & ProgressIndicatorItemRenderProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
@@ -43,7 +44,7 @@ ProgressIndicatorItem.render = ({
   });
 
   return (
-    <li className={classNames} style={style} key={key}>
+    <li className={classNames} style={style} key={key} {...props}>
       <div className={`${classPrefix}--line`} />
       <div className={`${classPrefix}--content`}>
         {loading ? (

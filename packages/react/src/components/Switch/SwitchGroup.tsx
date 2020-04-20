@@ -15,7 +15,7 @@ interface SwitchGroupProps {
   style?: React.CSSProperties;
 }
 
-export default ({ children, multiple = false, onChange, className = '', style }: SwitchGroupProps) => {
+export default ({ children, multiple = false, onChange, className = '', style, ...props }: SwitchGroupProps) => {
   const { useContext, useState, useEffect } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-switch-group`;
@@ -77,21 +77,21 @@ export default ({ children, multiple = false, onChange, className = '', style }:
   }, [children]);
 
   return (
-    <div className={classNames} style={style}>
+    <div className={classNames} style={style} {...props}>
       {switchs.map((element, index) => {
-        const props = (element as React.ReactElement<SwitchProps>).props;
+        const switchProps = (element as React.ReactElement<SwitchProps>).props;
         const switchClassPrefix = `${prefix}-switch`;
 
         return (
           <label className={`${switchClassPrefix}--container`} key={index}>
-            <input type="checkbox" name={props.name} checked={checkes[index]} value={props.value} onChange={() => null} />
+            <input type="checkbox" name={switchProps.name} checked={checkes[index]} value={switchProps.value} onChange={() => null} />
             <button
-              className={classnames(switchClassPrefix, props.className)}
-              style={props.style}
-              disabled={!!props.disabled}
+              className={classnames(switchClassPrefix, switchProps.className)}
+              style={switchProps.style}
+              disabled={!!switchProps.disabled}
               onClick={() => onClick(index)}
             >
-              {props.title}
+              {switchProps.title}
             </button>
           </label>
         );

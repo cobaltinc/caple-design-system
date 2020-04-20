@@ -11,23 +11,23 @@ export interface BreadcrumbProps {
   style?: React.CSSProperties;
 }
 
-const Breadcrumb = ({ children, className = '', style }: BreadcrumbProps) => {
+const Breadcrumb = ({ children, className = '', style, ...props }: BreadcrumbProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-breadcrumb`;
   const classNames = classnames(classPrefix, className);
 
   const crumbs = convertReactNodeTo<BreadcrumbItemProps>('Breadcrumb', 'Breadcrumb.Item', children).map((element: any, index, elements) => {
-    const props = (element as React.ReactElement<BreadcrumbItemProps>).props;
+    const crumbProps = (element as React.ReactElement<BreadcrumbItemProps>).props;
     return (
       <React.Fragment key={index}>
-        {BreadcrumbItem.render({ ...props, active: index === elements.length - 1, hasSeperator: index !== elements.length - 1 })}
+        {BreadcrumbItem.render({ ...crumbProps, active: index === elements.length - 1, hasSeperator: index !== elements.length - 1 })}
       </React.Fragment>
     );
   });
 
   return (
-    <div className={classNames} style={style}>
+    <div className={classNames} style={style} {...props}>
       {crumbs}
     </div>
   );

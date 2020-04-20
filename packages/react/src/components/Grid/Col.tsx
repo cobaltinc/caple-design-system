@@ -92,7 +92,7 @@ export default ({ children, span, offset, auto, flex, order, className = '', sty
         }
 
         return (
-          <div className={classNames} style={{ ...style, ...gutterStyle, ...flexStyle }}>
+          <div className={classNames} style={{ ...style, ...gutterStyle, ...flexStyle }} {...props}>
             {children}
           </div>
         );

@@ -12,14 +12,14 @@ export interface CalloutProps {
   style?: React.CSSProperties;
 }
 
-export default ({ children, icon, className = '', style }: CalloutProps) => {
+export default ({ children, icon, className = '', style, ...props }: CalloutProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-callout`;
   const classNames = classnames(classPrefix, className);
 
   return (
-    <div className={classNames} style={style}>
+    <div className={classNames} style={style} {...props}>
       <div className={`${classPrefix}--icon`}>{React.cloneElement(icon, { ...icon.props, size: 40 })}</div>
       <div className={`${classPrefix}--content`}>{children}</div>
     </div>

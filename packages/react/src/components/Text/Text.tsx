@@ -47,6 +47,7 @@ export default ({
   onPressEnter,
   className = '',
   style,
+  ...props
 }: TextProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
@@ -107,6 +108,7 @@ export default ({
       suppressContentEditableWarning={editable}
       className={classNames}
       style={{ ...style, ...fontStyle }}
+      {...props}
     >
       {children}
     </Tag>

@@ -11,7 +11,7 @@ export interface SkeletonAvatarProps {
   style?: React.CSSProperties;
 }
 
-export default ({ size = 80, shape = 'circle', className = '', style }: SkeletonAvatarProps) => {
+export default ({ size = 80, shape = 'circle', className = '', style, ...props }: SkeletonAvatarProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-skeleton`;
@@ -23,5 +23,5 @@ export default ({ size = 80, shape = 'circle', className = '', style }: Skeleton
     borderRadius: shape === 'circle' ? '50%' : undefined,
   };
 
-  return <div className={classNames} style={{ ...style, ...sizeStyle }} />;
+  return <div className={classNames} style={{ ...style, ...sizeStyle }} {...props} />;
 };

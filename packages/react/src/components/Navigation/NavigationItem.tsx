@@ -34,6 +34,7 @@ NavigationItem.render = ({
   onClick,
   className = '',
   style,
+  ...props
 }: NavigationItemProps & NavigationItemRenderProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
@@ -50,7 +51,7 @@ NavigationItem.render = ({
 
   return (
     <>
-      <div className={classNames} style={style} onClick={handleClick}>
+      <div className={classNames} style={style} onClick={handleClick} {...props}>
         {icon ? React.cloneElement(icon, { size: 24, className: `${classPrefix}--icon` }) : null}
         <Text size="small" className={`${classPrefix}--title`}>
           {title}

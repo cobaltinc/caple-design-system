@@ -10,7 +10,18 @@ export interface IconFeatherProps extends IconProps {
   strokeWidth?: number;
 }
 
-export default ({ type, size = 16, rotate = 0, spin = false, strokeWidth = 2, color = Ink, onClick, className = '', style }: IconFeatherProps) => {
+export default ({
+  type,
+  size = 16,
+  rotate = 0,
+  spin = false,
+  strokeWidth = 2,
+  color = Ink,
+  onClick,
+  className = '',
+  style,
+  ...props
+}: IconFeatherProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-icon`;
@@ -31,5 +42,5 @@ export default ({ type, size = 16, rotate = 0, spin = false, strokeWidth = 2, co
 
   const svg = require('feather-icons').icons[type].toSvg({ 'stroke-width': strokeWidth, ...iconStyle });
 
-  return <i className={classNames} style={{ ...style, ...shapeStyle }} onClick={onClick} dangerouslySetInnerHTML={{ __html: svg }} />;
+  return <i className={classNames} style={{ ...style, ...shapeStyle }} onClick={onClick} dangerouslySetInnerHTML={{ __html: svg }} {...props} />;
 };

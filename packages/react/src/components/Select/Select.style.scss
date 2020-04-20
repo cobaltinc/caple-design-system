@@ -125,7 +125,7 @@ $select-prefix: '#{$prefix}-select';
     box-shadow: 0 2px 16px 0 rgba(33, 43, 54, 0.08), 0 0 0 1px rgba(6, 44, 82, 0.1);
     background-color: white;
     opacity: 0;
-    z-index: 10;
+    z-index: 100;
 
     .#{$select-prefix}-option {
       display: flex;

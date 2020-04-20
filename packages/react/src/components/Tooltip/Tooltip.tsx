@@ -1,38 +1,59 @@
 import React from 'react';
 import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
-import { camelToKebab } from '../../utils';
 import './Tooltip.style.scss';
-
-// TODO: child node의 width가 가변 단위이거나 block일 경우 width가 제대로 반영이 안됨. 수정해야 함.
+import ReactDOM from 'react-dom';
 
 export type TooltipPlacementType =
-  | 'topLeft'
+  | 'top-left'
   | 'top'
-  | 'topRight'
-  | 'leftTop'
+  | 'top-right'
+  | 'left-top'
   | 'left'
-  | 'leftBottom'
-  | 'rightTop'
+  | 'left-bottom'
+  | 'right-top'
   | 'right'
-  | 'rightBottom'
-  | 'bottomLeft'
+  | 'right-bottom'
+  | 'bottom-left'
   | 'bottom'
-  | 'bottomRight';
+  | 'bottom-right';
 
 export type ToolTipTriggerType = 'hover' | 'click' | 'focus';
 
+const getPositionStyle = (target: HTMLElement, placement: TooltipPlacementType) => {
+  let top = 0;
+  let left = 0;
+  const rect = target.getBoundingClientRect();
+  const splited = placement.split('-');
+
+  if (splited[0] === 'top') top = rect.top;
+  else if (splited[0] === 'right') left = rect.left + rect.width;
+  else if (splited[0] === 'bottom') top = rect.top + rect.height;
+  else if (splited[0] === 'left') left = rect.left;
+
+  if (splited[1] === 'top') top = rect.top;
+  else if (splited[1] === 'right') left = rect.left + rect.width;
+  else if (splited[1] === 'bottom') top = rect.top + rect.height;
+  else if (splited[1] === 'left') left = rect.left;
+  else {
+    if (splited[0] === 'top' || splited[0] === 'bottom') left = rect.left + rect.width / 2;
+    else if (splited[0] === 'left' || splited[0] === 'right') top = rect.top + rect.height / 2;
+  }
+
+  return { top, left };
+};
+
 export interface TooltipProps {
-  children: React.ReactNode;
+  children: React.ReactElement;
   placement?: TooltipPlacementType;
   trigger?: ToolTipTriggerType;
-  title: string;
+  content: string;
   width?: number;
   className?: string;
   style?: React.CSSProperties;
 }
 
-export default ({ children, placement = 'top', trigger = 'hover', title, width, className = '', style }: TooltipProps) => {
+export default ({ children, placement = 'top', trigger = 'hover', content, width, className = '', style }: TooltipProps) => {
   const { useState, useContext, useEffect, useRef } = React;
   const [visible, setVisible] = useState(false);
 
@@ -42,6 +63,7 @@ export default ({ children, placement = 'top', trigger = 'hover', title, width, 
     [`${classPrefix}--active`]: visible,
   });
 
+  const targetRef = useRef<HTMLElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const handleMouseEnter = trigger === 'hover' ? () => setVisible(true) : undefined;
@@ -50,7 +72,7 @@ export default ({ children, placement = 'top', trigger = 'hover', title, width, 
   const handleClickOutside =
     trigger === 'click'
       ? (event: MouseEvent) => {
-          if (wrapperRef.current && !wrapperRef.current.contains(event.target as HTMLElement)) {
+          if (targetRef.current && !targetRef.current.contains(event.target as HTMLElement)) {
             setVisible(false);
           }
         }
@@ -72,17 +94,43 @@ export default ({ children, placement = 'top', trigger = 'hover', title, width, 
     whiteSpace: width ? 'normal' : 'nowrap',
   };
 
+  const el = document.createElement('div');
+  useEffect(() => {
+    document.body.appendChild(el);
+    return () => {
+      document.body.removeChild(el);
+    };
+  });
+
+  let positionStyle = {
+    top: 0,
+    left: 0,
+  };
+  if (targetRef.current) {
+    positionStyle = getPositionStyle(targetRef.current!!, placement);
+  }
+
   return (
-    <div ref={wrapperRef} className={classNames} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} style={style}>
-      <span className={`${classPrefix}--host`} onClick={handleClick} onFocus={handleFocus} onBlur={handleBlur}>
-        {children}
-      </span>
-      <svg className={classnames(camelToKebab(placement), `${classPrefix}--caret`)} width="24" height="12" viewBox="0 0 24 12">
-        <path fill="#212B36" strokeWidth="1px" stroke="#EAEAEA" fillRule="evenodd" d="M20 12l-8-8-12 12" />
-      </svg>
-      <div className={classnames(camelToKebab(placement), `${classPrefix}--title`)} style={widthStyle}>
-        {title}
-      </div>
-    </div>
+    <>
+      {React.cloneElement(children, {
+        ref: targetRef,
+        onClick: handleClick,
+        onFocus: handleFocus,
+        onBlur: handleBlur,
+        onMouseEnter: handleMouseEnter,
+        onMouseLeave: handleMouseLeave,
+      })}
+      {ReactDOM.createPortal(
+        <div ref={wrapperRef} className={classNames} style={{ ...style, ...positionStyle }}>
+          <svg className={classnames(placement, `${classPrefix}--caret`)} width="24" height="12" viewBox="0 0 24 12">
+            <path fill="#212B36" strokeWidth="1px" stroke="#EAEAEA" fillRule="evenodd" d="M20 12l-8-8-12 12" />
+          </svg>
+          <div className={classnames(placement, `${classPrefix}--content`)} style={widthStyle}>
+            {content}
+          </div>
+        </div>,
+        el,
+      )}
+    </>
   );
 };

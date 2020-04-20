@@ -19,7 +19,7 @@ export interface LinkProps {
 }
 
 export default React.forwardRef<HTMLAnchorElement, LinkProps>(
-  ({ children, size = 'normal', href, target = '_blank', disabled, loading, onClick, className = '', style }, ref) => {
+  ({ children, size = 'normal', href, target = '_blank', disabled, loading, onClick, className = '', style, ...props }, ref) => {
     const { useContext } = React;
     const { prefix } = useContext(ConfigContext);
     const classPrefix = `${prefix}-link`;
@@ -45,7 +45,7 @@ export default React.forwardRef<HTMLAnchorElement, LinkProps>(
     };
 
     return (
-      <span className={`${classPrefix}--wrapper`}>
+      <span className={`${classPrefix}--wrapper`} {...props}>
         <Tag
           ref={ref}
           href={disabled ? undefined : href}

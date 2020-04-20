@@ -43,6 +43,7 @@ export default ({
   headerStyle,
   footerClassName = '',
   footerStyle,
+  ...props
 }: CardProps) => {
   const { useContext, useState } = React;
   const { prefix } = useContext(ConfigContext);
@@ -70,7 +71,7 @@ export default ({
   }
 
   return (
-    <div className={classNames} style={style}>
+    <div className={classNames} style={style} {...props}>
       {header || collapsible ? (
         <div className={classnames(`${classPrefix}--header`, headerClassName)} style={headerStyle}>
           {header === undefined ? null : typeof header === 'string' ? (

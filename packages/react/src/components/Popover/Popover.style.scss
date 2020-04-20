@@ -4,12 +4,10 @@
 $popover-prefix: '#{$prefix}-popover';
 
 .#{$popover-prefix} {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: inline-block;
-  position: relative;
-
-  .#{$popover-prefix}--host {
-    display: inline-block;
-  }
 
   &.#{$popover-prefix}--active {
     .#{$popover-prefix}--caret {
@@ -36,10 +34,24 @@ $popover-prefix: '#{$prefix}-popover';
       transform: translate(-50%) rotate(180deg);
     }
 
+    &.top-left {
+      margin-left: 12px;
+    }
+    &.top-right {
+      margin-left: -12px;
+    }
+
     &[class^='bottom'] {
       bottom: -12px;
       left: 50%;
       transform: translate(-50%);
+    }
+
+    &.bottom-left {
+      margin-left: 12px;
+    }
+    &.bottom-right {
+      margin-left: -12px;
     }
 
     &[class^='right'] {
@@ -48,10 +60,24 @@ $popover-prefix: '#{$prefix}-popover';
       transform: translateY(-50%) rotate(-90deg);
     }
 
+    &.right-top {
+      margin-top: 12px;
+    }
+    &.right-bottom {
+      margin-top: -12px;
+    }
+
     &[class^='left'] {
       left: -18px;
       top: 50%;
       transform: translateY(-50%) rotate(90deg);
+    }
+
+    &.left-top {
+      margin-top: 12px;
+    }
+    &.left-bottom {
+      margin-top: -12px;
     }
   }
 

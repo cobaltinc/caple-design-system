@@ -11,9 +11,10 @@ export interface InputNumberProps extends InputProps {
   group?: InputNumberThousandsGroupStyle;
 }
 
-export default ({ group = 'thousand', ...props }: InputNumberProps) => {
-  const { useRef, useEffect } = React;
+export default React.forwardRef<HTMLInputElement | null, InputNumberProps>(({ group = 'thousand', ...props }: InputNumberProps, ref) => {
+  const { useRef, useEffect, useImperativeHandle } = React;
   const inputRef = useRef<HTMLInputElement>(null);
+  useImperativeHandle(ref, () => inputRef.current, [inputRef]);
 
   useEffect(() => {
     if (inputRef.current) {
@@ -26,4 +27,4 @@ export default ({ group = 'thousand', ...props }: InputNumberProps) => {
   }, [inputRef]);
 
   return <Input ref={inputRef} type={group === 'none' ? 'number' : 'text'} {...props} />;
-};
+});

@@ -14,7 +14,7 @@ export interface SpacerProps {
   style?: React.CSSProperties;
 }
 
-export default ({ children, type = 'horizontal', size = 'normal', className = '', style }: SpacerProps) => {
+export default ({ children, type = 'horizontal', size = 'normal', className = '', style, ...props }: SpacerProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-spacer`;
@@ -36,7 +36,7 @@ export default ({ children, type = 'horizontal', size = 'normal', className = ''
     });
 
   return children ? (
-    <div className={classNames} style={style}>
+    <div className={classNames} style={style} {...props}>
       {nodes}
     </div>
   ) : (
@@ -49,6 +49,7 @@ export default ({ children, type = 'horizontal', size = 'normal', className = ''
         width: type === 'horizontal' && typeof size === 'number' ? size : undefined,
         height: type === 'vertical' && typeof size === 'number' ? size : undefined,
       }}
+      {...props}
     />
   );
 };

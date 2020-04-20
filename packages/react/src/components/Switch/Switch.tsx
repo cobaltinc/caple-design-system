@@ -19,7 +19,7 @@ type ISwitch<P> = React.FunctionComponent<P> & {
   Group: typeof SwitchGroup;
 };
 
-const Switch: ISwitch<SwitchProps> = ({ title, value, name, checked = false, disabled = false, onChange, className = '', style }) => {
+const Switch: ISwitch<SwitchProps> = ({ title, value, name, checked = false, disabled = false, onChange, className = '', style, ...props }) => {
   const { useContext, useState } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-switch`;
@@ -33,7 +33,7 @@ const Switch: ISwitch<SwitchProps> = ({ title, value, name, checked = false, dis
   };
 
   return (
-    <label className={`${classPrefix}--container`}>
+    <label className={`${classPrefix}--container`} {...props}>
       <input type="checkbox" name={name} checked={check} disabled={disabled} value={value} onChange={() => null} />
       <button className={classNames} style={style} disabled={disabled} onClick={handleClick}>
         {title}

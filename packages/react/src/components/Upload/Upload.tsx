@@ -17,7 +17,7 @@ export interface UploadProps {
 
 let dragCounter = 0;
 
-export default ({ children, name, value, accept, disabled = false, draggable = false, onChange, className = '', style }: UploadProps) => {
+export default ({ children, name, value, accept, disabled = false, draggable = false, onChange, className = '', style, ...props }: UploadProps) => {
   const { useContext, useState, useRef } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-upload`;
@@ -82,6 +82,7 @@ export default ({ children, name, value, accept, disabled = false, draggable = f
       onDragEnter={handleDragEnter}
       onDragLeave={handleDragLeave}
       onDragOver={onDragOver}
+      {...props}
     >
       <input ref={inputRef} type="file" name={name} accept={accept} onChange={handleFileChange} />
       {typeof children === 'function' ? children?.(file, dragging) : children}

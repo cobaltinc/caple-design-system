@@ -26,7 +26,7 @@ export interface ButtonProps {
 }
 
 export default React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, icon, htmlType, type = 'basic', size = 'normal', block, ghost, disabled, loading, onClick, className = '', style }, ref) => {
+  ({ children, icon, htmlType, type = 'basic', size = 'normal', block, ghost, disabled, loading, onClick, className = '', style, ...props }, ref) => {
     const { useContext } = React;
     const { prefix } = useContext(ConfigContext);
     const classPrefix = `${prefix}-button`;
@@ -48,7 +48,7 @@ export default React.forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     return (
-      <button ref={ref} type={htmlType} className={classNames} style={style} disabled={disabled} onClick={handleClick}>
+      <button ref={ref} type={htmlType} className={classNames} style={style} disabled={disabled} onClick={handleClick} {...props}>
         {loading ? <Spinner color={spinnerColor} size={spinnerSize} /> : null}
         <div style={{ opacity: loading ? 0 : 1, height: loading ? 0 : 'auto' }}>
           {icon ? React.cloneElement(icon, { size }) : null}

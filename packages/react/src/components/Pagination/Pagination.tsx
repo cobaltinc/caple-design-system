@@ -14,7 +14,7 @@ export interface PaginationProps {
   style?: React.CSSProperties;
 }
 
-export default ({ activePage = 1, itemsCountPerView = 10, totalItemsCount, onChange, className = '', style }: PaginationProps) => {
+export default ({ activePage = 1, itemsCountPerView = 10, totalItemsCount, onChange, className = '', style, ...props }: PaginationProps) => {
   const { useContext, useState } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-pagination`;
@@ -55,7 +55,7 @@ export default ({ activePage = 1, itemsCountPerView = 10, totalItemsCount, onCha
   };
 
   return (
-    <div className={classNames} style={style}>
+    <div className={classNames} style={style} {...props}>
       <Button className={`${classPrefix}--arrow`} onClick={handlePrevPage}>
         <Icon type="arrow-left" />
       </Button>

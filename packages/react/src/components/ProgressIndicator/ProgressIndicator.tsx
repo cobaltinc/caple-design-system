@@ -14,16 +14,16 @@ export interface ProgressIndicatorProps {
   style?: React.CSSProperties;
 }
 
-const ProgressIndicator = ({ children, active = 0, loading, onChange, className = '', style }: ProgressIndicatorProps) => {
+const ProgressIndicator = ({ children, active = 0, loading, onChange, className = '', style, ...props }: ProgressIndicatorProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-progress-indicator`;
   const classNames = classnames(classPrefix, className);
 
   const items = convertReactNodeTo<ProgressIndicatorItemProps>('ProgressIndicator', 'ProgressIndicator.Item', children).map((element: any, index) => {
-    const props = (element as React.ReactElement<ProgressIndicatorItemProps>).props;
+    const itemProps = (element as React.ReactElement<ProgressIndicatorItemProps>).props;
     return ProgressIndicatorItem.render({
-      ...props,
+      ...itemProps,
       done: index + 1 < active,
       active: active === index + 1,
       loading: active === index + 1 && loading,
@@ -32,7 +32,7 @@ const ProgressIndicator = ({ children, active = 0, loading, onChange, className 
   });
 
   return (
-    <ul className={classNames} style={style}>
+    <ul className={classNames} style={style} {...props}>
       {items}
     </ul>
   );

@@ -17,7 +17,18 @@ export interface ToggleProps {
   style?: React.CSSProperties;
 }
 
-export default ({ value, name, on = false, size = 'normal', error = false, disabled = false, onChange, className = '', style }: ToggleProps) => {
+export default ({
+  value,
+  name,
+  on = false,
+  size = 'normal',
+  error = false,
+  disabled = false,
+  onChange,
+  className = '',
+  style,
+  ...props
+}: ToggleProps) => {
   const { useState, useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-toggle`;
@@ -33,7 +44,7 @@ export default ({ value, name, on = false, size = 'normal', error = false, disab
   };
 
   return (
-    <label className={classNames} style={style}>
+    <label className={classNames} style={style} {...props}>
       <input type="checkbox" name={name} checked={check} disabled={disabled} value={value} onChange={change} />
       <div className={classnames(`${classPrefix}--button`, `${classPrefix}--size-${size}`)} />
     </label>

@@ -16,7 +16,19 @@ export interface CheckboxProps {
   style?: React.CSSProperties;
 }
 
-export default ({ name, label, value, checked = false, block = false, error = false, disabled = false, onChange, className = '', style }: CheckboxProps) => {
+export default ({
+  name,
+  label,
+  value,
+  checked = false,
+  block = false,
+  error = false,
+  disabled = false,
+  onChange,
+  className = '',
+  style,
+  ...props
+}: CheckboxProps) => {
   const { useState, useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-checkbox`;
@@ -33,7 +45,7 @@ export default ({ name, label, value, checked = false, block = false, error = fa
   });
 
   return (
-    <label className={classNames} style={style}>
+    <label className={classNames} style={style} {...props}>
       <input type="checkbox" name={name} checked={check} disabled={disabled} value={value} onChange={handleChange} />
       <span className={`${classPrefix}--checkmark`}>
         {check ? (

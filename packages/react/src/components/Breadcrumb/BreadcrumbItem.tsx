@@ -34,6 +34,7 @@ BreadcrumbItem.render = ({
   style,
   active,
   hasSeperator,
+  ...props
 }: BreadcrumbItemProps & BreadcrumbItemRenderProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
@@ -43,7 +44,7 @@ BreadcrumbItem.render = ({
   const isIcon = React.isValidElement<IconProps | IconFeatherProps>(children);
 
   return (
-    <span className={classNames} style={style}>
+    <span className={classNames} style={style} {...props}>
       <a href={href} className={`${classPrefix}--text`} onClick={onClick}>
         {isIcon ? (
           React.cloneElement(children as React.ReactElement<IconProps | IconFeatherProps>, { size: 20, color: InkLighter })

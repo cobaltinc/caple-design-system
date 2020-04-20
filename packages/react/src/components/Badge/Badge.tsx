@@ -26,6 +26,7 @@ export default ({
   textColor = '#fff',
   className = '',
   style,
+  ...props
 }: BadgeProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
@@ -59,7 +60,7 @@ export default ({
   }
 
   return (
-    <span className={`${classPrefix}--container`} style={style}>
+    <span className={`${classPrefix}--container`} style={style} {...props}>
       {children}
       {badge}
     </span>

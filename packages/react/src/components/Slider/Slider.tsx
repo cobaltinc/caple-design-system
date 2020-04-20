@@ -15,7 +15,7 @@ export interface SliderProps {
   style?: React.CSSProperties;
 }
 
-export default ({ min, max, step = 0.1, defaultValue, disabled, onChange, className = '', style }: SliderProps) => {
+export default ({ min, max, step = 0.1, defaultValue, disabled, onChange, className = '', style, ...props }: SliderProps) => {
   const { useContext, useRef, useState, useEffect } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-slider`;
@@ -66,7 +66,7 @@ export default ({ min, max, step = 0.1, defaultValue, disabled, onChange, classN
   }, [handleMouseMove]);
 
   return (
-    <div ref={sliderRef} className={classNames} style={style}>
+    <div ref={sliderRef} className={classNames} style={style} {...props}>
       <div className={`${classPrefix}--rail`} />
       <div className={`${classPrefix}--track`} style={{ width: `${percentage}%` }} />
       <div className={`${classPrefix}--handle`} onMouseDown={handleMouseDown} style={{ left: `${percentage}%` }} />

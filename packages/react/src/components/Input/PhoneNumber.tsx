@@ -10,9 +10,10 @@ export interface InputPhoneNumberProps extends InputProps {
   delimiter?: string;
 }
 
-export default ({ regionCode, delimiter = '-', ...props }: InputPhoneNumberProps) => {
-  const { useRef, useEffect } = React;
+export default React.forwardRef<HTMLInputElement | null, InputPhoneNumberProps>(({ regionCode, delimiter = '-', ...props }, ref) => {
+  const { useRef, useEffect, useImperativeHandle } = React;
   const inputRef = useRef<HTMLInputElement>(null);
+  useImperativeHandle(ref, () => inputRef.current, [inputRef]);
 
   useEffect(() => {
     if (inputRef.current) {
@@ -27,4 +28,4 @@ export default ({ regionCode, delimiter = '-', ...props }: InputPhoneNumberProps
   }, [inputRef]);
 
   return <Input ref={inputRef} type="tel" {...props} />;
-};
+});

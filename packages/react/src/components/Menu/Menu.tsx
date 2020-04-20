@@ -11,14 +11,14 @@ export interface MenuProps {
   style?: React.CSSProperties;
 }
 
-const Menu = ({ children, className = '', style }: MenuProps) => {
+const Menu = ({ children, className = '', style, ...props }: MenuProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-menu`;
   const classNames = classnames(classPrefix, className);
 
   return (
-    <ul className={classNames} style={style}>
+    <ul className={classNames} style={style} {...props}>
       {children}
     </ul>
   );

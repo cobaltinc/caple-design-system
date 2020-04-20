@@ -40,6 +40,7 @@ export default ({
   onPressEnter,
   className = '',
   style,
+  ...props
 }: HeaderProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
@@ -94,6 +95,7 @@ export default ({
       data-value={editable ? children : undefined}
       className={classNames}
       style={{ ...style, ...fontStyle }}
+      {...props}
     >
       {children}
     </Tag>

@@ -40,6 +40,7 @@ export default ({
   onClose,
   className = '',
   style,
+  ...props
 }: CollapseProps) => {
   const { useContext, useState } = React;
   const { prefix } = useContext(ConfigContext);
@@ -64,7 +65,7 @@ export default ({
   }
 
   return (
-    <div className={classNames} style={style}>
+    <div className={classNames} style={style} {...props}>
       <div className={`${classPrefix}--header`}>
         <Text strong color={titleColor} className={`${classPrefix}--title`}>
           {title}

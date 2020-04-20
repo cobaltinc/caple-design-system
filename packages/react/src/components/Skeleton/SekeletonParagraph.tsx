@@ -9,11 +9,10 @@ export interface SkeletonParagraphProps {
   style?: React.CSSProperties;
 }
 
-export default ({ line = 3, className = '', style }: SkeletonParagraphProps) => {
+export default ({ line = 3, className = '', style, ...props }: SkeletonParagraphProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-skeleton`;
-  const classNames = classnames(classPrefix, className);
 
   const sizeStyle = {
     width: '100%',
@@ -22,14 +21,14 @@ export default ({ line = 3, className = '', style }: SkeletonParagraphProps) => 
   };
 
   return (
-    <>
+    <div className={className} style={style} {...props}>
       {Array.from(Array(line), (_, index) =>
         index !== line - 1 ? (
-          <div className={classNames} style={{ ...style, ...sizeStyle }} key={index} />
+          <div className={classPrefix} style={sizeStyle} key={index} />
         ) : (
-          <div className={classNames} style={{ ...style, width: '64%', height: 16 }} key={index} />
+          <div className={classPrefix} style={{ width: '64%', height: 16 }} key={index} />
         ),
       )}
-    </>
+    </div>
   );
 };

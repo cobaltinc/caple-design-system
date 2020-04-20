@@ -21,7 +21,7 @@ export interface IconProps {
   style?: React.CSSProperties;
 }
 
-const Icon = ({ type, component, size = 16, rotate, spin = false, color = Ink, onClick, className = '', style }: IconProps) => {
+const Icon = ({ type, component, size = 16, rotate, spin = false, color = Ink, onClick, className = '', style, ...props }: IconProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-icon`;
@@ -53,7 +53,7 @@ const Icon = ({ type, component, size = 16, rotate, spin = false, color = Ink, o
   }
 
   return (
-    <i className={classNames} style={{ ...style, ...shapeStyle }} onClick={onClick}>
+    <i className={classNames} style={{ ...style, ...shapeStyle }} onClick={onClick} {...props}>
       {IconComponent}
     </i>
   );

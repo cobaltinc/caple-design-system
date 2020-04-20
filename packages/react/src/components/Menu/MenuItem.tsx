@@ -17,7 +17,7 @@ export interface MenuItemProps {
   style?: React.CSSProperties;
 }
 
-export default ({ title, icon, badge, disabled, onClick, className = '', style }: MenuItemProps) => {
+export default ({ title, icon, badge, disabled, onClick, className = '', style, ...props }: MenuItemProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-menu-item`;
@@ -31,7 +31,7 @@ export default ({ title, icon, badge, disabled, onClick, className = '', style }
   };
 
   return (
-    <li className={classNames} style={style} onClick={handleClick}>
+    <li className={classNames} style={style} onClick={handleClick} {...props}>
       {icon
         ? React.cloneElement(icon, {
             ...icon.props,
