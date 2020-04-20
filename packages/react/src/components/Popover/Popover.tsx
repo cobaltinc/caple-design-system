@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import './Popover.style.scss';
 import ReactDOM from 'react-dom';
+import { isServer } from '../../utils';
 
 export type PlacementType =
   | 'top-left'
@@ -118,6 +119,10 @@ export default ({
     whiteSpace: width ? 'normal' : 'nowrap',
     pointerEvents: visible ? 'all' : 'none',
   };
+
+  if (isServer) {
+    return null;
+  }
 
   const el = document.createElement('div');
   useEffect(() => {

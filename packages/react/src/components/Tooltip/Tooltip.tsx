@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import './Tooltip.style.scss';
 import ReactDOM from 'react-dom';
+import { isServer } from '../../utils';
 
 export type TooltipPlacementType =
   | 'top-left'
@@ -93,6 +94,10 @@ export default ({ children, placement = 'top', trigger = 'hover', content, width
     width: width ? width : 'auto',
     whiteSpace: width ? 'normal' : 'nowrap',
   };
+
+  if (isServer) {
+    return null;
+  }
 
   const el = document.createElement('div');
   useEffect(() => {
