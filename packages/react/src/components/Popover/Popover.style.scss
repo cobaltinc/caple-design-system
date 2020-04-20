@@ -30,7 +30,6 @@ $popover-prefix: '#{$prefix}-popover';
 
     &[class^='top'] {
       top: -12px;
-      left: 50%;
       transform: translate(-50%) rotate(180deg);
     }
 
@@ -43,7 +42,6 @@ $popover-prefix: '#{$prefix}-popover';
 
     &[class^='bottom'] {
       bottom: -12px;
-      left: 50%;
       transform: translate(-50%);
     }
 
@@ -56,7 +54,6 @@ $popover-prefix: '#{$prefix}-popover';
 
     &[class^='right'] {
       right: -18px;
-      top: 50%;
       transform: translateY(-50%) rotate(-90deg);
     }
 
@@ -69,7 +66,6 @@ $popover-prefix: '#{$prefix}-popover';
 
     &[class^='left'] {
       left: -18px;
-      top: 50%;
       transform: translateY(-50%) rotate(90deg);
     }
 
@@ -93,78 +89,56 @@ $popover-prefix: '#{$prefix}-popover';
 
     // Top
     &[class^='top'] {
-      bottom: 100%;
+      bottom: 0;
       margin-bottom: 12px;
     }
 
-    &.top-left {
-      left: 10%;
-    }
-
     &.top {
-      left: 50%;
       transform: translate(-50%);
     }
 
     &.top-right {
-      right: 10%;
+      transform: translate(-100%);
     }
 
     // Bottom
     &[class^='bottom'] {
-      top: 100%;
       margin-top: 12px;
     }
 
-    &.bottom-left {
-      left: 10%;
-    }
-
     &.bottom {
-      left: 50%;
       transform: translate(-50%);
     }
 
     &.bottom-right {
-      right: 10%;
+      transform: translate(-100%);
     }
 
     // Right
     &[class^='right'] {
-      left: 100%;
       margin-left: 12px;
     }
 
-    &.right-top {
-      top: 10%;
-    }
-
     &.right {
-      top: 50%;
       transform: translateY(-50%);
     }
 
     &.right-bottom {
-      bottom: 10%;
+      transform: translateY(-100%);
     }
 
     // Left
     &[class^='left'] {
-      right: 100%;
+      right: 0;
       margin-right: 12px;
     }
 
-    &.left-top {
-      top: 10%;
-    }
-
     &.left {
-      top: 50%;
       transform: translateY(-50%);
     }
 
     &.left-bottom {
-      bottom: 10%;
+      transform: translateY(-100%);
     }
   }
 }
