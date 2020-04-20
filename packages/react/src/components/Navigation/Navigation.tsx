@@ -16,12 +16,15 @@ export interface NavigationProps {
 
 // TODO: Need Refactoring
 const Navigation = ({ children, defaultActive, onChange, className = '', style }: NavigationProps) => {
-  const { useContext, useState } = React;
+  const { useContext, useState, useEffect } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-navigation`;
   const classNames = classnames(classPrefix, className);
 
   const [active, setActive] = useState(defaultActive);
+  useEffect(() => {
+    setActive(defaultActive);
+  }, [defaultActive]);
 
   const items = convertReactNodeTo<NavigationItemProps>('Navigation', 'Navigation.Item', children)
     .map((itemElement: any) => {
