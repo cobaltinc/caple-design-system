@@ -88,6 +88,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
       labelStyle,
       inputClassName = '',
       inputStyle,
+      ...props
     },
     ref,
   ) => {
@@ -162,6 +163,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
             onChange={handleChange}
             className={inputClassName}
             style={{ ...inputStyle, textAlign: align }}
+            {...props}
           />
           {loading ? (
             <Spinner size={iconSize} />
