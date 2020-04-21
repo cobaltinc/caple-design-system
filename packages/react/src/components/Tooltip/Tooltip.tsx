@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import './Tooltip.style.scss';
 import ReactDOM from 'react-dom';
-import { isServer } from '../../utils';
 
 export type TooltipPlacementType =
   | 'top-left'
@@ -46,17 +45,31 @@ const getPositionStyle = (target: HTMLElement, placement: TooltipPlacementType) 
 
 export interface TooltipProps {
   children: React.ReactElement;
-  placement?: TooltipPlacementType;
-  trigger?: ToolTipTriggerType;
   content: string;
+  placement?: TooltipPlacementType;
+  defaultVisible?: boolean;
+  onVisibleChange?(visible: boolean): void;
+  trigger?: ToolTipTriggerType;
   width?: number;
+  disabled?: boolean;
   className?: string;
   style?: React.CSSProperties;
 }
 
-export default ({ children, placement = 'top', trigger = 'hover', content, width, className = '', style }: TooltipProps) => {
+export default ({
+  children,
+  content,
+  placement = 'top',
+  defaultVisible = false,
+  onVisibleChange,
+  trigger = 'hover',
+  width,
+  disabled,
+  className = '',
+  style,
+}: TooltipProps) => {
   const { useState, useContext, useEffect, useRef } = React;
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(defaultVisible);
 
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-tooltip`;
@@ -91,6 +104,14 @@ export default ({ children, placement = 'top', trigger = 'hover', content, width
   }, [handleClickOutside]);
 
   useEffect(() => {
+    onVisibleChange?.(visible);
+  }, [visible]);
+
+  useEffect(() => {
+    setVisible(defaultVisible);
+  }, [defaultVisible]);
+
+  useEffect(() => {
     const widthStyle: React.CSSProperties = {
       width: width ? width : 'auto',
       whiteSpace: width ? 'normal' : 'nowrap',
@@ -104,17 +125,19 @@ export default ({ children, placement = 'top', trigger = 'hover', content, width
     }
 
     const el = document.createElement('div');
-    ReactDOM.render(
-      <div ref={wrapperRef} className={classNames} style={{ ...style, ...positionStyle }}>
-        <svg className={classnames(placement, `${classPrefix}--caret`)} width="24" height="12" viewBox="0 0 24 12">
-          <path fill="#212B36" strokeWidth="1px" stroke="#EAEAEA" fillRule="evenodd" d="M20 12l-8-8-12 12" />
-        </svg>
-        <div className={classnames(placement, `${classPrefix}--content`)} style={widthStyle}>
-          {content}
-        </div>
-      </div>,
-      el,
-    );
+    if (!disabled) {
+      ReactDOM.render(
+        <div ref={wrapperRef} className={classNames} style={{ ...style, ...positionStyle }}>
+          <svg className={classnames(placement, `${classPrefix}--caret`)} width="24" height="12" viewBox="0 0 24 12">
+            <path fill="#212B36" strokeWidth="1px" stroke="#EAEAEA" fillRule="evenodd" d="M20 12l-8-8-12 12" />
+          </svg>
+          <div className={classnames(placement, `${classPrefix}--content`)} style={widthStyle}>
+            {content}
+          </div>
+        </div>,
+        el,
+      );
+    }
 
     document.body.appendChild(el);
     return () => {

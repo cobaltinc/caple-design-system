@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import './Popover.style.scss';
 import ReactDOM from 'react-dom';
-import { isServer } from '../../utils';
 
 export type PlacementType =
   | 'top-left'
@@ -52,6 +51,7 @@ export interface PopoverProps {
   onVisibleChange?(visible: boolean): void;
   trigger?: PopoverTriggerType;
   width?: number;
+  disabled?: boolean;
   className?: string;
   style?: React.CSSProperties;
 }
@@ -64,6 +64,7 @@ export default ({
   defaultVisible = false,
   onVisibleChange,
   width,
+  disabled,
   className = '',
   style,
 }: PopoverProps) => {
@@ -129,23 +130,25 @@ export default ({
     }
 
     const el = document.createElement('div');
-    ReactDOM.render(
-      <div ref={wrapperRef} className={classNames} style={{ ...style, ...positionStyle }}>
-        <svg className={classnames(placement, `${classPrefix}--caret`)} width="24" height="12" viewBox="0 0 24 12">
-          <path fill="white" strokeWidth="1px" stroke="#EAEAEA" fillRule="evenodd" d="M20 12l-8-8-12 12" />
-        </svg>
-        <div className={classnames(placement, `${classPrefix}--content`)} style={contentStyle}>
-          {content}
-        </div>
-      </div>,
-      el,
-    );
+    if (!disabled) {
+      ReactDOM.render(
+        <div ref={wrapperRef} className={classNames} style={{ ...style, ...positionStyle }}>
+          <svg className={classnames(placement, `${classPrefix}--caret`)} width="24" height="12" viewBox="0 0 24 12">
+            <path fill="white" strokeWidth="1px" stroke="#EAEAEA" fillRule="evenodd" d="M20 12l-8-8-12 12" />
+          </svg>
+          <div className={classnames(placement, `${classPrefix}--content`)} style={contentStyle}>
+            {content}
+          </div>
+        </div>,
+        el,
+      );
+    }
 
     document.body.appendChild(el);
     return () => {
       document.body.removeChild(el);
     };
-  }, [targetRef, visible]);
+  }, [targetRef, visible, disabled]);
 
   return React.cloneElement(children, {
     ref: targetRef,
