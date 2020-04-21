@@ -143,7 +143,7 @@ export default ({
     return () => {
       document.body.removeChild(el);
     };
-  }, [targetRef, visible]);
+  }, [targetRef, visible, content]);
 
   return React.cloneElement(children, {
     ref: targetRef,
