@@ -90,52 +90,44 @@ export default ({ children, placement = 'top', trigger = 'hover', content, width
     }
   }, [handleClickOutside]);
 
-  const widthStyle: React.CSSProperties = {
-    width: width ? width : 'auto',
-    whiteSpace: width ? 'normal' : 'nowrap',
-  };
-
-  if (isServer) {
-    return null;
-  }
-
-  const el = document.createElement('div');
   useEffect(() => {
+    const widthStyle: React.CSSProperties = {
+      width: width ? width : 'auto',
+      whiteSpace: width ? 'normal' : 'nowrap',
+    };
+    let positionStyle = {
+      top: 0,
+      left: 0,
+    };
+    if (targetRef.current) {
+      positionStyle = getPositionStyle(targetRef.current!!, placement);
+    }
+
+    const el = document.createElement('div');
+    ReactDOM.render(
+      <div ref={wrapperRef} className={classNames} style={{ ...style, ...positionStyle }}>
+        <svg className={classnames(placement, `${classPrefix}--caret`)} width="24" height="12" viewBox="0 0 24 12">
+          <path fill="#212B36" strokeWidth="1px" stroke="#EAEAEA" fillRule="evenodd" d="M20 12l-8-8-12 12" />
+        </svg>
+        <div className={classnames(placement, `${classPrefix}--content`)} style={widthStyle}>
+          {content}
+        </div>
+      </div>,
+      el,
+    );
+
     document.body.appendChild(el);
     return () => {
       document.body.removeChild(el);
     };
+  }, [targetRef, visible]);
+
+  return React.cloneElement(children, {
+    ref: targetRef,
+    onClick: handleClick,
+    onFocus: handleFocus,
+    onBlur: handleBlur,
+    onMouseEnter: handleMouseEnter,
+    onMouseLeave: handleMouseLeave,
   });
-
-  let positionStyle = {
-    top: 0,
-    left: 0,
-  };
-  if (targetRef.current) {
-    positionStyle = getPositionStyle(targetRef.current!!, placement);
-  }
-
-  return (
-    <>
-      {React.cloneElement(children, {
-        ref: targetRef,
-        onClick: handleClick,
-        onFocus: handleFocus,
-        onBlur: handleBlur,
-        onMouseEnter: handleMouseEnter,
-        onMouseLeave: handleMouseLeave,
-      })}
-      {ReactDOM.createPortal(
-        <div ref={wrapperRef} className={classNames} style={{ ...style, ...positionStyle }}>
-          <svg className={classnames(placement, `${classPrefix}--caret`)} width="24" height="12" viewBox="0 0 24 12">
-            <path fill="#212B36" strokeWidth="1px" stroke="#EAEAEA" fillRule="evenodd" d="M20 12l-8-8-12 12" />
-          </svg>
-          <div className={classnames(placement, `${classPrefix}--content`)} style={widthStyle}>
-            {content}
-          </div>
-        </div>,
-        el,
-      )}
-    </>
-  );
 };

@@ -10,14 +10,12 @@ $tooltip-prefix: '#{$prefix}-tooltip';
   top: 0;
   left: 0;
   display: inline-block;
+  opacity: 0;
+  will-change: opacity;
+  transition: opacity $duration-fast $ease-in;
 
   &.#{$tooltip-prefix}--active {
-    .#{$tooltip-prefix}--caret {
-      opacity: 1;
-    }
-    .#{$tooltip-prefix}--content {
-      opacity: 1;
-    }
+    opacity: 1;
   }
 
   .#{$tooltip-prefix}--caret {
@@ -25,8 +23,6 @@ $tooltip-prefix: '#{$prefix}-tooltip';
     position: absolute;
     display: inline-block;
     z-index: 10000;
-    opacity: 0;
-    transition: opacity $duration-fast $ease-in;
     user-select: none;
     pointer-events: none;
 
@@ -88,8 +84,6 @@ $tooltip-prefix: '#{$prefix}-tooltip';
     background-color: $ink;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
     z-index: 9999;
-    opacity: 0;
-    transition: opacity $duration-fast $ease-in;
     pointer-events: none;
 
     // Top

@@ -8,14 +8,12 @@ $popover-prefix: '#{$prefix}-popover';
   top: 0;
   left: 0;
   display: inline-block;
+  opacity: 0;
+  will-change: opacity;
+  transition: opacity $duration-fast $ease-in;
 
   &.#{$popover-prefix}--active {
-    .#{$popover-prefix}--caret {
-      opacity: 1;
-    }
-    .#{$popover-prefix}--content {
-      opacity: 1;
-    }
+    opacity: 1;
   }
 
   .#{$popover-prefix}--caret {
@@ -23,8 +21,6 @@ $popover-prefix: '#{$prefix}-popover';
     position: absolute;
     display: inline-block;
     z-index: 10000;
-    opacity: 0;
-    transition: opacity $duration-fast $ease-in;
     user-select: none;
     pointer-events: none;
 
@@ -84,8 +80,6 @@ $popover-prefix: '#{$prefix}-popover';
     background-color: white;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
     z-index: 9999;
-    opacity: 0;
-    transition: opacity $duration-fast $ease-in;
 
     // Top
     &[class^='top'] {
