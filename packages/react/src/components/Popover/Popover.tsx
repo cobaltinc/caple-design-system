@@ -116,6 +116,8 @@ export default ({
   }, [defaultVisible]);
 
   useEffect(() => {
+    if (visible === false) return;
+
     const contentStyle: React.CSSProperties = {
       width: width ? width : 'auto',
       whiteSpace: width ? 'normal' : 'nowrap',
