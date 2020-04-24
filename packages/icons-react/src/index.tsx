@@ -205,6 +205,16 @@ export const Gear = (props: any) => {
   );
 };
 
+export const Pencil = (props: any) => {
+  const { color, size, ...otherProps } = props;
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 32 32" fill={color} {...otherProps}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M19.2268 5.38429C19.7371 4.87331 20.566 4.8717 21.0783 5.3807L26.6147 10.882C26.8607 11.1265 26.9993 11.4584 27 11.8047C27.0007 12.1511 26.8634 12.4836 26.6183 12.7289L13.7976 25.5678L12.87 24.6461L13.077 25.9356L6.51618 26.9836C6.10252 27.0496 5.68214 26.9142 5.38532 26.6193C5.08849 26.3244 4.95108 25.9056 5.01566 25.4927L6.04002 18.9434C6.08266 18.6708 6.2108 18.4186 6.40603 18.2231L19.2268 5.38429ZM12.2428 23.4237L23.8393 11.8109L20.1579 8.15284L8.56146 19.7656L7.88033 24.1205L12.2428 23.4237Z" />
+		  <path fillRule="evenodd" clipRule="evenodd" d="M11.9868 23.1413L8.09769 19.2522L9.68994 17.6599L13.5791 21.549L11.9868 23.1413Z" />
+		</svg>
+  );
+};
+
 export const Phone = (props: any) => {
   const { color, size, ...otherProps } = props;
   return (
