@@ -3,7 +3,7 @@
 $pagination-prefix: '#{$prefix}-pagination';
 
 .#{$pagination-prefix} {
-  display: flex;
+  display: inline-flex;
   align-items: center;
 
   .#{$pagination-prefix}--page {
