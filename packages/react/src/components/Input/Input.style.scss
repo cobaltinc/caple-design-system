@@ -142,6 +142,7 @@ $input-prefix: '#{$prefix}-input';
     }
 
     input {
+      max-width: 100%;
       flex: auto;
       padding: 0;
       line-height: 0;
