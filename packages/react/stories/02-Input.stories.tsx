@@ -71,6 +71,14 @@ export const InputText = () => {
   );
 };
 
+export const InputEmail = () => {
+  return (
+    <div style={{ padding: 20, maxWidth: 500 }}>
+      <Input.Email placeholder="kciter@naver.com" />
+    </div>
+  );
+};
+
 export const InputPassword = () => {
   return (
     <div style={{ padding: 20, maxWidth: 500 }}>

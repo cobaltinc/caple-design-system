@@ -2,6 +2,7 @@ import React from 'react';
 import Cleave from 'cleave.js';
 import Input, { InputProps } from './Input';
 import './Input.style.scss';
+import raf from 'raf';
 
 export type InputNumberThousandsGroupStyle = 'thousand' | 'lakh' | 'wan' | 'none';
 
@@ -18,10 +19,12 @@ export default React.forwardRef<HTMLInputElement | null, InputNumberProps>(({ gr
 
   useEffect(() => {
     if (inputRef.current) {
-      // tslint:disable-next-line: no-unused-expression
-      new Cleave(inputRef.current, {
-        numeral: true,
-        numeralThousandsGroupStyle: group,
+      raf(() => {
+        // tslint:disable-next-line: no-unused-expression
+        new Cleave(inputRef.current!!, {
+          numeral: true,
+          numeralThousandsGroupStyle: group,
+        });
       });
     }
   }, [inputRef, props.value]);

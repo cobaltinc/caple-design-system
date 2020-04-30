@@ -33,6 +33,9 @@ export interface InputProps extends InputEvent {
   size?: InputSizeType;
   borderType?: InputBorderType;
   autoFocus?: boolean;
+  autoComplete?: string;
+  autoCapitalize?: string;
+  autoCorrect?: string;
   block?: boolean;
   disabled?: boolean;
   readonly?: boolean;
@@ -66,6 +69,9 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
       size = 'normal',
       borderType = 'border',
       autoFocus,
+      autoComplete,
+      autoCorrect,
+      autoCapitalize,
       block,
       disabled,
       readonly,
@@ -153,6 +159,9 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
             name={name}
             placeholder={placeholder}
             autoFocus={autoFocus}
+            autoCapitalize={autoCapitalize}
+            autoCorrect={autoCorrect}
+            autoComplete={autoComplete}
             disabled={disabled || readonly}
             onInput={onInput}
             onFocus={handleFocus}
