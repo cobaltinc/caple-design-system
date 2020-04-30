@@ -88,12 +88,9 @@ export const InputPassword = () => {
 };
 
 export const InputNumber = () => {
-  const { useState } = React;
-  const [test, setTest] = useState(0);
   return (
     <div style={{ padding: 20, maxWidth: 500 }}>
-      <input onChange={e => setTest(parseInt(e.currentTarget.value, 10))} />
-      <Input.Number group="thousand" placeholder="Thousand style" value={test} />
+      <Input.Number group="thousand" placeholder="Thousand style" />
       <Spacer type="horizontal" size={20} />
       <Input.Number group="lakh" placeholder="Lakh style" />
       <Spacer type="horizontal" size={20} />
