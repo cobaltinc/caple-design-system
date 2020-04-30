@@ -24,7 +24,7 @@ export default React.forwardRef<HTMLInputElement | null, InputNumberProps>(({ gr
         numeralThousandsGroupStyle: group,
       });
     }
-  }, [inputRef]);
+  }, [inputRef, props.value]);
 
   return <Input ref={inputRef} type={group === 'none' ? 'number' : 'text'} {...props} />;
 });
