@@ -2,7 +2,6 @@ import React from 'react';
 import Cleave from 'cleave.js';
 import Input, { InputProps } from './Input';
 import './Input.style.scss';
-import raf from 'raf';
 
 export interface InputTextProps extends InputProps {
   blocks?: number[];
@@ -19,14 +18,12 @@ export default React.forwardRef<HTMLInputElement | null, InputTextProps>(
 
     useEffect(() => {
       if (inputRef.current && blocks) {
-        raf(() => {
-          // tslint:disable-next-line: no-unused-expression
-          new Cleave(inputRef.current!!, {
-            blocks,
-            delimiter,
-            uppercase,
-            lowercase,
-          });
+        // tslint:disable-next-line: no-unused-expression
+        new Cleave(inputRef.current!!, {
+          blocks,
+          delimiter,
+          uppercase,
+          lowercase,
         });
       }
     }, [inputRef]);
