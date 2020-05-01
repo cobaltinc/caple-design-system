@@ -169,6 +169,12 @@ $input-prefix: '#{$prefix}-input';
       }
     }
 
+    &.#{$input-prefix}--readonly {
+      input:disabled {
+        color: $ink;
+      }
+    }
+
     .#{$input-prefix}--password-toggle {
       cursor: pointer;
       svg {
