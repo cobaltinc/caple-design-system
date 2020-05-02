@@ -6,6 +6,7 @@ import Text from '../Text';
 import Icon from '../Icon';
 import './Card.style.scss';
 import Spinner from '../Spinner';
+import * as Colors from '@caple-ui/colors';
 
 export type CollapsibleConfig = {
   expand: boolean;
@@ -75,7 +76,7 @@ export default ({
       {header || collapsible ? (
         <div className={classnames(`${classPrefix}--header`, headerClassName)} style={headerStyle}>
           {header === undefined ? null : typeof header === 'string' ? (
-            <Text strong className={`${classPrefix}--title`}>
+            <Text strong color={Colors.InkLighter} className={`${classPrefix}--title`}>
               {header}
             </Text>
           ) : (
