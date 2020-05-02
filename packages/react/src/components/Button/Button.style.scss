@@ -59,7 +59,7 @@ $button-prefix: '#{$prefix}-button';
       &:hover {
         box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
       }
-  
+
       &:active {
         color: $ink;
         border: solid 1px $ink;
@@ -119,7 +119,7 @@ $button-prefix: '#{$prefix}-button';
       &:hover {
         box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
       }
-  
+
       &:active {
         color: #3e4bb1;
         border: solid 1px #3e4bb1;
@@ -176,7 +176,7 @@ $button-prefix: '#{$prefix}-button';
       &:hover {
         box-shadow: 0 0 0 2px rgba(255, 24, 24, 0.2);
       }
-  
+
       &:active {
         color: #bc2206;
         border: solid 1px #bc2206;
@@ -202,25 +202,21 @@ $button-prefix: '#{$prefix}-button';
     height: 24px;
     padding: 0 6px;
     font-size: 11px;
-    line-height: 1.2;
   }
   &.#{$button-prefix}--size-small {
     height: 30px;
     padding: 0 8px;
     font-size: 12px;
-    line-height: 1.3;
   }
   &.#{$button-prefix}--size-normal {
     height: 36px;
     padding: 0 10px;
     font-size: 12px;
-    line-height: 1.4;
   }
   &.#{$button-prefix}--size-large {
     height: 44px;
     padding: 0 14px;
     font-size: 13px;
-    line-height: 1.5;
   }
   &.#{$button-prefix}--size-xlarge {
     height: 50px;
