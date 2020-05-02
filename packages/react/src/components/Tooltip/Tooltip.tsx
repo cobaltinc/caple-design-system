@@ -149,10 +149,25 @@ export default ({
 
   return React.cloneElement(children, {
     ref: targetRef,
-    onClick: handleClick,
-    onFocus: handleFocus,
-    onBlur: handleBlur,
-    onMouseEnter: handleMouseEnter,
-    onMouseLeave: handleMouseLeave,
+    onClick: () => {
+      (children.props as any).onClick?.();
+      handleClick?.();
+    },
+    onFocus: () => {
+      (children.props as any).onFocus?.();
+      handleFocus?.();
+    },
+    onBlur: () => {
+      (children.props as any).onBlur?.();
+      handleBlur?.();
+    },
+    onMouseEnter: () => {
+      (children.props as any).onMouseEnter?.();
+      handleMouseEnter?.();
+    },
+    onMouseLeave: () => {
+      (children.props as any).onMouseLeave?.();
+      handleMouseLeave?.();
+    },
   });
 };
