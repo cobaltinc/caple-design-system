@@ -134,7 +134,12 @@ export default ({
             <path fill="#212B36" strokeWidth="1px" stroke="#EAEAEA" fillRule="evenodd" d="M20 12l-8-8-12 12" />
           </svg>
           <div className={classnames(placement, `${classPrefix}--content`)} style={widthStyle}>
-            {content}
+            {content.split('\\n').map((item, key) => (
+              <React.Fragment key={key}>
+                {item}
+                <br />
+              </React.Fragment>
+            ))}
           </div>
         </div>,
         el,

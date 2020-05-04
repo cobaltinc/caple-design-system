@@ -8,7 +8,7 @@ export default {
 export const Default = () => {
   return (
     <div style={{ padding: 30 }}>
-      <Tooltip content="Peekaboo! I'm Tooltip. :D" placement="bottom-left">
+      <Tooltip content="Peekaboo!\nI'm Tooltip. :D" placement="bottom-left">
         <Button>Hover me</Button>
       </Tooltip>
     </div>
