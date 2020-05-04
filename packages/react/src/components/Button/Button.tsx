@@ -26,7 +26,24 @@ export interface ButtonProps {
 }
 
 export default React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, icon, htmlType, type = 'basic', size = 'normal', block, ghost, disabled, loading, onClick, className = '', style, ...props }, ref) => {
+  (
+    {
+      children,
+      icon,
+      htmlType = 'button',
+      type = 'basic',
+      size = 'normal',
+      block,
+      ghost,
+      disabled,
+      loading,
+      onClick,
+      className = '',
+      style,
+      ...props
+    },
+    ref,
+  ) => {
     const { useContext } = React;
     const { prefix } = useContext(ConfigContext);
     const classPrefix = `${prefix}-button`;
