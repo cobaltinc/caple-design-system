@@ -10,7 +10,7 @@ export interface InputTextProps extends InputProps {
   lowercase?: boolean;
 }
 
-export default React.forwardRef<HTMLInputElement | null, InputTextProps & any>(({ blocks, delimiter, uppercase, lowercase, ...props }, ref) => {
+export default React.forwardRef<HTMLInputElement | null, InputTextProps>(({ blocks, delimiter, uppercase, lowercase, ...props }, ref) => {
   const { useRef, useEffect, useImperativeHandle } = React;
   const inputRef = useRef<HTMLInputElement>(null);
   useImperativeHandle(ref, () => inputRef.current, [inputRef]);

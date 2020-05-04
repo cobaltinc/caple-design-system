@@ -24,7 +24,7 @@ interface IconType<T> extends React.ForwardRefExoticComponent<T> {
   Feather: typeof IconFeather;
 }
 
-const Icon = React.forwardRef<HTMLSpanElement, IconProps & any>(
+const Icon = React.forwardRef<HTMLSpanElement, IconProps>(
   ({ type, component, size = 14, rotate, spin = false, color = Ink, className = '', style, ...props }, ref) => {
     const { useContext } = React;
     const { prefix } = useContext(ConfigContext);
