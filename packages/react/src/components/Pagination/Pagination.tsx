@@ -9,7 +9,7 @@ export interface PaginationProps {
   activePage?: number;
   itemsCountPerView?: number;
   totalItemsCount: number;
-  onChange(page: number): void;
+  onChange?(page: number): void;
   className?: string;
   style?: React.CSSProperties;
 }
