@@ -42,7 +42,7 @@ export default ({ activePage = 1, itemsCountPerView = 10, totalItemsCount, onCha
 
   const handlePrevPage = () => {
     if (currentPage > 1) {
-      onChange?.(currentPage + 1);
+      onChange?.(currentPage - 1);
       setCurrentPage(currentPage - 1);
     }
   };
