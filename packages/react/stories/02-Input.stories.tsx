@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spacer, Input, Icon } from '../src';
+import { Spacer, Input, Icon, Tooltip } from '../src';
 
 export default {
   title: 'Component|Input',
@@ -8,7 +8,9 @@ export default {
 export const Default = () => {
   return (
     <div style={{ padding: 20, maxWidth: 500 }}>
-      <Input.Text />
+      <Tooltip content="test">
+        <Input.Text onBlur={console.log} />
+      </Tooltip>
     </div>
   );
 };
