@@ -1,6 +1,7 @@
 @import '../../styles/base/core';
 @import '../../styles/helpers/mixins';
 @import '../../styles/variables/typography';
+@import '../../styles/variables/color';
 
 $tab-prefix: '#{$prefix}-tab';
 $tab-item-prefix: '#{$prefix}-tab-item';
@@ -20,9 +21,9 @@ $tab-item-prefix: '#{$prefix}-tab-item';
       align-items: center;
       justify-content: center;
       font-size: $text-size-normal;
-      color: #637381;
+      color: $ink-lighter;
       border-right: solid 1px #f2f2f6;
-      background-color: #f9fafb;
+      background-color: $sky-lighter;
       box-shadow: inset 0 -1px 0 0 #dfe3e8;
       cursor: pointer;
 
@@ -33,6 +34,12 @@ $tab-item-prefix: '#{$prefix}-tab-item';
         background-color: white;
         color: #212b36;
         box-sizing: border-box;
+      }
+
+      &.#{$tab-item-prefix}--disabled {
+        color: $ink-lightest;
+        background-color: $sky-light;
+        cursor: not-allowed;
       }
     }
 
