@@ -6,7 +6,7 @@ import { convertReactNodeTo } from '../../utils';
 import './Table.style.scss';
 
 export interface TableRowProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
 }
@@ -23,5 +23,9 @@ export default ({ children, className = '', style }: TableRowProps) => {
     });
   });
 
-  return <tr className={classNames}>{cells}</tr>;
+  return (
+    <tr className={classNames} style={style}>
+      {cells}
+    </tr>
+  );
 };

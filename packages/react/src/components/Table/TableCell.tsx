@@ -4,13 +4,15 @@ import ConfigContext from '../_config/ConfigContext';
 import './Table.style.scss';
 
 export interface TableCellProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   type?: 'td' | 'th';
+  colSpan?: number;
+  rowSpan?: number;
   className?: string;
   style?: React.CSSProperties;
 }
 
-export default ({ children, type = 'td', className = '', style }: TableCellProps) => {
+export default ({ children, type = 'td', colSpan, rowSpan, className = '', style }: TableCellProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-table-cell`;
@@ -18,5 +20,9 @@ export default ({ children, type = 'td', className = '', style }: TableCellProps
 
   const Tag = type;
 
-  return <Tag className={classNames}>{children}</Tag>;
+  return (
+    <Tag colSpan={colSpan} rowSpan={rowSpan} className={classNames} style={style}>
+      {children}
+    </Tag>
+  );
 };
