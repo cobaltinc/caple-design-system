@@ -15,7 +15,7 @@ export interface PaginationProps {
 }
 
 export default ({ activePage = 1, itemsCountPerView = 10, totalItemsCount, onChange, className = '', style, ...props }: PaginationProps) => {
-  const { useContext, useState } = React;
+  const { useContext, useState, useEffect } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-pagination`;
   const classNames = classnames(classPrefix, className);
@@ -34,6 +34,10 @@ export default ({ activePage = 1, itemsCountPerView = 10, totalItemsCount, onCha
   } else {
     pages = [currentPage - 2, currentPage - 1, currentPage, currentPage + 1, currentPage + 2];
   }
+
+  useEffect(() => {
+    setCurrentPage(activePage);
+  }, [activePage]);
 
   const handleChangePage = (page: number) => {
     onChange?.(page);
