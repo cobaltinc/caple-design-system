@@ -6,6 +6,7 @@ import './Checkbox.style.scss';
 export interface CheckboxProps {
   name?: string;
   label?: string;
+  labelColor?: string;
   value?: string;
   checked?: boolean;
   block?: boolean;
@@ -19,6 +20,7 @@ export interface CheckboxProps {
 export default ({
   name,
   label,
+  labelColor,
   value,
   checked = false,
   block = false,
@@ -100,7 +102,11 @@ export default ({
           </svg>
         )}
       </span>
-      {label ? <span className={`${classPrefix}--text`}>{label}</span> : null}
+      {label ? (
+        <span className={`${classPrefix}--text`} style={{ color: labelColor }}>
+          {label}
+        </span>
+      ) : null}
     </label>
   );
 };
