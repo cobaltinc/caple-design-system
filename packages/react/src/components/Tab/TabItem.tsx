@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import { IconProps } from '../Icon/Icon';
 import { IconFeatherProps } from '../Icon/IconFeather';
+import Spacer from '../Spacer';
 
 export type StateIconType = {
   activeIcon?: React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
@@ -36,18 +37,20 @@ const TabItem = React.forwardRef<HTMLDivElement, TabItemProps>(
     return (
       <div ref={ref} className={classNames} style={style} onClick={onClick} {...props}>
         <div className={`${classPrefix}--wrapper`}>
-          {icon && 'activeIcon' in icon
-            ? disabled && icon.disabledIcon
-              ? React.cloneElement(icon.disabledIcon, { size: 17 })
-              : active && icon.activeIcon
-              ? React.cloneElement(icon.activeIcon, { size: 17 })
-              : icon.inactiveIcon
-              ? React.cloneElement(icon.inactiveIcon, { size: 17 })
-              : null
-            : React.isValidElement(icon)
-            ? React.cloneElement(icon, { size: 17 })
-            : null}
-          <span className={`${classPrefix}--title`}>{title}</span>
+          <Spacer size={4}>
+            {icon && 'activeIcon' in icon
+              ? disabled && icon.disabledIcon
+                ? React.cloneElement(icon.disabledIcon, { size: 17 })
+                : active && icon.activeIcon
+                ? React.cloneElement(icon.activeIcon, { size: 17 })
+                : icon.inactiveIcon
+                ? React.cloneElement(icon.inactiveIcon, { size: 17 })
+                : null
+              : React.isValidElement(icon)
+              ? React.cloneElement(icon, { size: 17 })
+              : null}
+            <span className={`${classPrefix}--title`}>{title}</span>
+          </Spacer>
           {subtitle ? <div className={`${classPrefix}--subtitle`}>{subtitle}</div> : null}
         </div>
       </div>
