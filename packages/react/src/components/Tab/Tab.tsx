@@ -24,45 +24,31 @@ const Tab = ({ children, active, onChange, className = '', style, ...props }: Ta
   const classPrefix = `${prefix}-tab`;
   const classNames = classnames(classPrefix, className);
 
-  const getActiveTab = (): SelectItem => {
-    const tabs = convertReactNodeTo<TabItemProps>('Tab', 'Tab.Item', children);
-    const activeTab = tabs.find((element: any) => element.props.title === active);
-    let title: string = (tabs[0] as any).props.title;
-    let content: React.ReactNode = (tabs[0] as any).props.children;
-    if (active && activeTab) {
-      if (activeTab) {
-        title = active;
-        content = (activeTab as any).props.children;
-      }
-    }
-
-    return { title, content };
-  };
-
-  const [currentItem, setCurrentItem] = useState<SelectItem>(getActiveTab());
-
+  const [currentActive, setCurrentActive] = useState(active);
   useEffect(() => {
-    setCurrentItem(getActiveTab());
-  }, [active, children]);
-
-  const handleTabItemClick = (title: string, content: React.ReactNode, index: number) => {
-    if (currentItem.title === title) {
-      return;
+    if (active) {
+      setCurrentActive(active);
+    } else {
+      const key = (convertReactNodeTo<TabItemProps>('Tab', 'Tab.Item', children)[0] as React.ReactElement<TabItemProps>)
+        .key!!.toString()
+        .replace(/[.$]/g, '');
+      setCurrentActive(key);
     }
-    setCurrentItem({ title, content });
-    onChange?.(title, index);
-  };
+  }, [active]);
 
   const tabItems = convertReactNodeTo<TabItemProps>('Tab', 'Tab.Item', children).map((element, index) => {
-    const itemProps = (element as React.ReactElement<TabItemProps>).props;
+    const item = element as React.ReactElement<TabItemProps>;
+    const itemProps = item.props;
+    const itemKey = item.key!!.toString().replace(/[.$]/g, '');
     return React.createElement(TabItem, {
       ...itemProps,
-      key: index,
-      active: currentItem.title === itemProps.title,
+      key: itemKey,
+      active: currentActive === itemKey,
       onClick: () => {
         if (!itemProps.disabled) {
           itemProps.onClick?.();
-          handleTabItemClick(itemProps.title, itemProps.children, index);
+          setCurrentActive(itemKey);
+          onChange?.(itemProps.title, index);
         }
       },
     });
@@ -71,7 +57,15 @@ const Tab = ({ children, active, onChange, className = '', style, ...props }: Ta
   return (
     <div className={classNames} style={style} {...props}>
       <div className={`${classPrefix}--panes`}>{tabItems}</div>
-      <div className={`${classPrefix}--content`}>{currentItem.content}</div>
+      <div className={`${classPrefix}--content`}>
+        {
+          tabItems.find(element => {
+            const item = element as React.ReactElement<TabItemProps>;
+            const itemKey = item.key!!.toString().replace(/[.$]/g, '');
+            return currentActive === itemKey;
+          })?.props.children
+        }
+      </div>
     </div>
   );
 };

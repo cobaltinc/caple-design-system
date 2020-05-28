@@ -9,13 +9,13 @@ export const Default = () => {
   return (
     <div style={{ padding: 30 }}>
       <Tab>
-        <Tab.Item icon={<Icon type="apple" />} title="Tab 1" subtitle="SubTitle">
+        <Tab.Item icon={<Icon type="apple" />} title="Tab 1" subtitle="SubTitle" key="tab1">
           Content 1
         </Tab.Item>
-        <Tab.Item icon={<Icon type="apple" />} title="Tab 2">
+        <Tab.Item icon={<Icon type="apple" />} title="Tab 2" key="tab2">
           Content 2
         </Tab.Item>
-        <Tab.Item icon={{ activeIcon: <Icon type="apple" />, inactiveIcon: <Icon type="android" /> }} title="Tab 3">
+        <Tab.Item icon={{ activeIcon: <Icon type="apple" />, inactiveIcon: <Icon type="android" /> }} title="Tab 3" key="tab3">
           Content 3
         </Tab.Item>
       </Tab>
@@ -23,13 +23,19 @@ export const Default = () => {
   );
 };
 
-export const DefaultActive = () => {
+export const Active = () => {
   return (
     <div style={{ padding: 30 }}>
-      <Tab active="Tab 3">
-        <Tab.Item title="Tab 1">Content 1</Tab.Item>
-        <Tab.Item title="Tab 2">Content 2</Tab.Item>
-        <Tab.Item title="Tab 3">Content 3</Tab.Item>
+      <Tab active="tab3">
+        <Tab.Item title="Tab 1" key="tab1">
+          Content 1
+        </Tab.Item>
+        <Tab.Item title="Tab 2" key="tab2">
+          Content 2
+        </Tab.Item>
+        <Tab.Item title="Tab 3" key="tab3">
+          Content 3
+        </Tab.Item>
       </Tab>
     </div>
   );
@@ -39,11 +45,13 @@ export const Disabled = () => {
   return (
     <div style={{ padding: 30 }}>
       <Tab>
-        <Tab.Item title="Tab 1">Content 1</Tab.Item>
-        <Tab.Item title="Tab 2" disabled>
+        <Tab.Item title="Tab 1" key="tab1">
+          Content 1
+        </Tab.Item>
+        <Tab.Item title="Tab 2" key="tab2" disabled>
           Content 2
         </Tab.Item>
-        <Tab.Item title="Tab 3" disabled>
+        <Tab.Item title="Tab 3" key="tab3" disabled>
           Content 3
         </Tab.Item>
       </Tab>

@@ -15,6 +15,7 @@ export interface TabItemProps {
   title: string;
   icon?: React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps> | StateIconType;
   subtitle?: string;
+  key: string;
   disabled?: boolean;
   active?: boolean;
   onClick?(): void;
@@ -23,7 +24,7 @@ export interface TabItemProps {
 }
 
 const TabItem = React.forwardRef<HTMLDivElement, TabItemProps>(
-  ({ title, icon, subtitle, active, disabled, onClick, className = '', style, ...props }: TabItemProps, ref) => {
+  ({ title, icon, subtitle, active, key, disabled, onClick, className = '', style, ...props }: TabItemProps, ref) => {
     const { useContext } = React;
     const { prefix } = useContext(ConfigContext);
     const classPrefix = `${prefix}-tab-item`;
