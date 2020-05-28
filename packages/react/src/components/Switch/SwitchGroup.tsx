@@ -86,6 +86,7 @@ export default ({ children, multiple = false, onChange, className = '', style, .
           <label className={`${switchClassPrefix}--container`} key={index}>
             <input type="checkbox" name={switchProps.name} checked={checkes[index]} value={switchProps.value} onChange={() => null} />
             <button
+              type="button"
               className={classnames(switchClassPrefix, switchProps.className)}
               style={switchProps.style}
               disabled={!!switchProps.disabled}
