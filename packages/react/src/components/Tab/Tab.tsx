@@ -69,7 +69,7 @@ const Tab = ({ children, active, onChange, className = '', style, ...props }: Ta
   });
 
   return (
-    <div className={classNames} style={style}>
+    <div className={classNames} style={style} {...props}>
       <div className={`${classPrefix}--panes`}>{tabItems}</div>
       <div className={`${classPrefix}--content`}>{currentItem.content}</div>
     </div>

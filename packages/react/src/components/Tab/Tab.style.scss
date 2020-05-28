@@ -20,7 +20,6 @@ $tab-item-prefix: '#{$prefix}-tab-item';
       height: 56px;
       align-items: center;
       justify-content: center;
-      font-size: $text-size-normal;
       color: $ink-lighter;
       border-right: solid 1px #f2f2f6;
       background-color: $sky-lighter;
@@ -29,7 +28,6 @@ $tab-item-prefix: '#{$prefix}-tab-item';
 
       &.#{$tab-item-prefix}--active {
         font-weight: bold;
-        color: #000323;
         border-bottom: 3px solid #2a357c;
         background-color: white;
         color: #212b36;
@@ -40,6 +38,20 @@ $tab-item-prefix: '#{$prefix}-tab-item';
         color: $ink-lightest;
         background-color: $sky-light;
         cursor: not-allowed;
+      }
+
+      .#{$tab-item-prefix}--wrapper {
+        text-align: center;
+
+        .#{$tab-item-prefix}--title {
+          font-size: $text-size-normal;
+          vertical-align: middle;
+        }
+
+        .#{$tab-item-prefix}--subtitle {
+          margin-top: 4px;
+          font-size: 11px;
+        }
       }
     }
 
