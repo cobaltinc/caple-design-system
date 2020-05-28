@@ -4,22 +4,19 @@ import ConfigContext from '../_config/ConfigContext';
 import TabItem, { TabItemProps } from './TabItem';
 import { convertReactNodeTo } from '../../utils';
 import './Tab.style.scss';
+import ScrollPane from './ScrollPane';
 
 export interface TabProps {
   children: React.ReactNode;
   active?: string;
   onChange?(title: string, index: number): void;
+  scrollable?: boolean;
   className?: string;
   style?: React.CSSProperties;
 }
 
-interface SelectItem {
-  title: string;
-  content: React.ReactNode;
-}
-
-const Tab = ({ children, active, onChange, className = '', style, ...props }: TabProps) => {
-  const { useContext, useEffect, useState } = React;
+const Tab = ({ children, active, onChange, scrollable, className = '', style, ...props }: TabProps) => {
+  const { useContext, useEffect, useState, useRef } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-tab`;
   const classNames = classnames(classPrefix, className);
@@ -54,9 +51,28 @@ const Tab = ({ children, active, onChange, className = '', style, ...props }: Ta
     });
   });
 
+  const handleScrollLeft = () => {
+    panesRef.current?.scrollTo({
+      left: panesRef.current.scrollLeft - 140,
+    });
+  };
+  const handleScrollRight = () => {
+    panesRef.current?.scrollTo({
+      left: panesRef.current.scrollLeft + 140,
+    });
+  };
+
+  const panesRef = useRef<HTMLDivElement>(null);
+
   return (
     <div className={classNames} style={style} {...props}>
-      <div className={`${classPrefix}--panes`}>{tabItems}</div>
+      <div className={`${classPrefix}--wrapper`}>
+        {scrollable ? <ScrollPane type="left" onClick={handleScrollLeft} /> : null}
+        <div className={`${classPrefix}--panes`} ref={panesRef}>
+          {tabItems}
+        </div>
+        {scrollable ? <ScrollPane type="right" onClick={handleScrollRight} /> : null}
+      </div>
       <div className={`${classPrefix}--content`}>
         {
           tabItems.find(element => {

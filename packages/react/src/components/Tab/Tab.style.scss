@@ -8,54 +8,74 @@ $tab-item-prefix: '#{$prefix}-tab-item';
 
 .#{$tab-prefix} {
   width: 100%;
+  user-select: none;
 
-  .#{$tab-prefix}--panes {
-    box-shadow: inset 0 -1px 0 0 #dfe3e8;
-    background-color: #f9fafb;
+  .#{$tab-prefix}--wrapper {
+    position: relative;
+    display: flex;
 
-    .#{$tab-item-prefix} {
-      float: left;
+    .#{$tab-prefix}--scroll {
       display: inline-flex;
-      min-width: 140px;
+      width: 34px;
       height: 56px;
       align-items: center;
       justify-content: center;
-      color: $ink-lighter;
-      border-right: solid 1px #f2f2f6;
-      background-color: $sky-lighter;
-      box-shadow: inset 0 -1px 0 0 #dfe3e8;
+      border: solid 1px #f2f2f6;
+      background-color: white;
+      box-sizing: border-box;
       cursor: pointer;
+    }
 
-      &.#{$tab-item-prefix}--active {
-        font-weight: bold;
-        border-bottom: 3px solid #2a357c;
-        background-color: white;
-        color: #212b36;
+    .#{$tab-prefix}--panes {
+      width: 100%;
+      box-shadow: inset 0 -1px 0 0 #dfe3e8;
+      background-color: #f9fafb;
+      white-space: nowrap;
+      overflow: hidden;
+
+      .#{$tab-item-prefix} {
+        display: inline-flex;
+        min-width: 140px;
+        height: 56px;
+        align-items: center;
+        justify-content: center;
+        color: $ink-lighter;
+        border-right: solid 1px #f2f2f6;
+        background-color: $sky-lighter;
+        box-shadow: inset 0 -1px 0 0 #dfe3e8;
         box-sizing: border-box;
-      }
+        vertical-align: middle;
+        cursor: pointer;
 
-      &.#{$tab-item-prefix}--disabled {
-        color: $ink-lightest;
-        background-color: $sky-light;
-        cursor: not-allowed;
-      }
-
-      .#{$tab-item-prefix}--wrapper {
-        text-align: center;
-
-        .#{$tab-item-prefix}--title {
-          font-size: $text-size-normal;
-          vertical-align: middle;
+        &.#{$tab-item-prefix}--active {
+          font-weight: bold;
+          border-bottom: 3px solid #2a357c;
+          background-color: white;
+          color: #212b36;
+          box-sizing: border-box;
         }
 
-        .#{$tab-item-prefix}--subtitle {
-          margin-top: 4px;
-          font-size: 11px;
+        &.#{$tab-item-prefix}--disabled {
+          color: $ink-lightest;
+          background-color: $sky-light;
+          cursor: not-allowed;
+        }
+
+        .#{$tab-item-prefix}--wrapper {
+          text-align: center;
+
+          .#{$tab-item-prefix}--title {
+            font-size: $text-size-normal;
+            vertical-align: middle;
+          }
+
+          .#{$tab-item-prefix}--subtitle {
+            margin-top: 4px;
+            font-size: 11px;
+          }
         }
       }
     }
-
-    @include clearfix;
   }
 
   .#{$tab-prefix}--content {
