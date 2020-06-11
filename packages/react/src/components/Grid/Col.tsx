@@ -82,11 +82,11 @@ export default ({ children, span, offset, auto, flex, order, className = '', sty
             };
           } else if (typeof flex === 'number') {
             flexStyle = {
-              flex: `${flex} ${flex} 0`,
+              flex: `${flex} ${flex} 0px`,
             };
           } else {
             flexStyle = {
-              flex: auto ? '1 1 0' : flex,
+              flex: auto ? '1 1 0px' : flex,
             };
           }
         }

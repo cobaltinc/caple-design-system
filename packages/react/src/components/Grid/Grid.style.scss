@@ -60,7 +60,7 @@ $grid-count: 12;
       &.#{$col-prefix}--xs-col-#{$i} {
         width: #{percentage($i / $grid-count)};
       }
-  
+
       &.#{$col-prefix}--xs-col-offset-#{$i} {
         margin-left: #{percentage($i / $grid-count)};
       }
@@ -76,7 +76,7 @@ $grid-count: 12;
       &.#{$col-prefix}--sm-col-#{$i} {
         width: #{percentage($i / $grid-count)};
       }
-  
+
       &.#{$col-prefix}--sm-col-offset-#{$i} {
         margin-left: #{percentage($i / $grid-count)};
       }
@@ -92,7 +92,7 @@ $grid-count: 12;
       &.#{$col-prefix}--md-col-#{$i} {
         width: #{percentage($i / $grid-count)};
       }
-  
+
       &.#{$col-prefix}--md-col-offset-#{$i} {
         margin-left: #{percentage($i / $grid-count)};
       }
@@ -108,7 +108,7 @@ $grid-count: 12;
       &.#{$col-prefix}--lg-col-#{$i} {
         width: #{percentage($i / $grid-count)};
       }
-  
+
       &.#{$col-prefix}--lg-col-offset-#{$i} {
         margin-left: #{percentage($i / $grid-count)};
       }
@@ -124,7 +124,7 @@ $grid-count: 12;
       &.#{$col-prefix}--xl-col-#{$i} {
         width: #{percentage($i / $grid-count)};
       }
-  
+
       &.#{$col-prefix}--xl-col-offset-#{$i} {
         margin-left: #{percentage($i / $grid-count)};
       }
@@ -140,7 +140,7 @@ $grid-count: 12;
       &.#{$col-prefix}--xxl-col-#{$i} {
         width: #{percentage($i / $grid-count)};
       }
-  
+
       &.#{$col-prefix}--xxl-col-offset-#{$i} {
         margin-left: #{percentage($i / $grid-count)};
       }
