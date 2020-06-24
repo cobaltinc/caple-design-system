@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://design.caple.ai" target="_blank">
-    <img width="240" src="https://user-images.githubusercontent.com/3623695/75950595-f097e280-5eec-11ea-835d-647e7cebd2ae.png" />
+    <img width="240" src="https://user-images.githubusercontent.com/3623695/85503605-04df2700-b625-11ea-972f-7bda9226a289.png" />
   </a>
 </p>
 
