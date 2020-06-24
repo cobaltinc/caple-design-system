@@ -6,7 +6,7 @@ import { IconProps } from '../Icon/Icon';
 import { IconFeatherProps } from '../Icon/IconFeather';
 import './Button.style.scss';
 
-export type ButtonType = 'basic' | 'core' | 'warning';
+export type ButtonType = 'basic' | 'core' | 'special' | 'danger' | 'warning';
 export type ButtonHtmlType = 'button' | 'submit' | 'reset';
 export type ButtonSizeType = 'tiny' | 'small' | 'normal' | 'large' | 'xlarge';
 

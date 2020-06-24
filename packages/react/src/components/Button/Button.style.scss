@@ -140,7 +140,67 @@ $button-prefix: '#{$prefix}-button';
       }
     }
   }
-  &.#{$button-prefix}--type-warning {
+  &.#{$button-prefix}--type-special {
+    color: white;
+    border: solid 1px #00ACC2;
+    background-image: linear-gradient(to bottom, #0DC2D9, #00ACC2);
+    box-shadow: 0 1px 0 0 rgba(22, 29, 37, 0.1), inset 0 1px 0 1px rgba(255, 255, 255, 0.06);
+
+    .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+      fill: white;
+    }
+
+    &:hover {
+      border: solid 1px #019EB2;
+      background-image: linear-gradient(to bottom, #00AFC6, #0193A6);
+    }
+
+    &:active {
+      border: solid 1px #019EB2;
+      background-image: linear-gradient(to bottom, #009FB6, #018396);
+    }
+
+    &:disabled {
+      border: solid 1px #82C9D2;
+      background-image: none;
+      background-color: #9BD4DB;
+    }
+
+    &.#{$button-prefix}--ghost {
+      color: #0DC2D9;
+      border: solid 1px #0DC2D9;
+      background-image: none;
+      background-color: transparent;
+
+      .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+        fill: #0DC2D9;
+      }
+
+      &:hover {
+        box-shadow: 0 0 0 2px rgba(24, 240, 255, 0.2);
+      }
+
+      &:active {
+        color: #009FB6;
+        border: solid 1px #009FB6;
+
+        .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+          fill: #009FB6;
+        }
+      }
+
+      &:disabled {
+        color: #9BD4DB;
+        border: solid 1px #9BD4DB;
+        box-shadow: none;
+
+        .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+          fill: #9BD4DB;
+        }
+      }
+    }
+  }
+  &.#{$button-prefix}--type-danger {
     color: white;
     border: solid 1px #bf0711;
     background-image: linear-gradient(to bottom, #e33719, #d63418);
@@ -193,6 +253,64 @@ $button-prefix: '#{$prefix}-button';
 
         .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
           fill: $red-light;
+        }
+      }
+    }
+  }
+  &.#{$button-prefix}--type-warning {
+    color: white;
+    border: solid 1px #FF8A00;
+    background-image: linear-gradient(to bottom, #FD8101, #E88B00);
+    box-shadow: 0 1px 0 0 rgba(22, 29, 37, 0.1), inset 0 1px 0 1px rgba(255, 255, 255, 0.09);
+
+    .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+      fill: white;
+    }
+
+    &:hover {
+      background-image: linear-gradient(to bottom, #F49401, #FF7A00);
+    }
+
+    &:active {
+      background-image: linear-gradient(to bottom, #D48401, #DF6A00);
+    }
+
+    &:disabled {
+      border: solid 1px #F9B96C;
+      background-image: none;
+      background-color: #FFCD93;
+    }
+
+    &.#{$button-prefix}--ghost {
+      color: #FD8101;
+      border: solid 1px #FD8101;
+      background-image: none;
+      background-color: transparent;
+
+      .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+        fill: #FD8101;
+      }
+
+      &:hover {
+        box-shadow: 0 0 0 2px rgba(255, 143, 24, 0.2);
+      }
+
+      &:active {
+        color: #D49401;
+        border: solid 1px #D49401;
+
+        .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+          fill: #D49401;
+        }
+      }
+
+      &:disabled {
+        color: #FFCD93;
+        border: solid 1px #FFCD93;
+        box-shadow: none;
+
+        .#{$prefix}-icon:not(.#{$prefix}-icon-feather) svg {
+          fill: #FFCD93;
         }
       }
     }
