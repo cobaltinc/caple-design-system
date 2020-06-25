@@ -9,6 +9,10 @@
 <p align="center"><strong>Caple Design System is an open-source design system built by <a href="https://cobalt.run">Cobalt, Inc.</a></strong></p>
 
 <p align="center">
+  <a href="https://cobalt.run">
+    <img src="https://badgen.net/badge/icon/Made%20by%20Cobalt?icon=https://caple-static.s3.ap-northeast-2.amazonaws.com/cobalt-badge.svg&label&color=5B69C3&labelColor=414C9A" />
+  </a>
+  <br />
   <a href="https://github.com/carbon-design-system/carbon/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Carbon is released under the Apache-2.0 license" />
   </a>
