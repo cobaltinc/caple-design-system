@@ -63,11 +63,14 @@ $input-prefix: '#{$prefix}-input';
     &.#{$input-prefix}--size-normal {
       height: 36px;
       padding: 0 10px;
-      font-size: 12px;
 
       input {
         height: 32px;
-        font-size: 12px;
+        font-size: $typography-paragraph2;
+
+        &::placeholder {
+          font-size: $typography-paragraph3;
+        }
       }
     }
     &.#{$input-prefix}--size-large {
