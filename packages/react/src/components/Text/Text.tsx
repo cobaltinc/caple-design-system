@@ -3,11 +3,12 @@ import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import './Text.style.scss';
 
-export type TextSizeType = 'small' | 'normal' | 'large';
+export type TextSizeType = 'small' | 'normal' | 'large' | 'tiny' | 'tiniest';
 
 export interface TextProps {
   children?: React.ReactNode;
   size?: TextSizeType | number;
+  block?: boolean;
   paragraph?: boolean;
   strong?: boolean;
   underline?: boolean;
@@ -30,12 +31,13 @@ export interface TextProps {
 export default ({
   children,
   size,
-  paragraph = false,
-  strong = false,
-  underline = false,
-  delete: del = false,
-  mark = false,
-  code = false,
+  block,
+  paragraph,
+  strong,
+  underline,
+  delete: del,
+  mark,
+  code,
   color,
   editable,
   placeholder,
@@ -55,7 +57,7 @@ export default ({
   const classNames = classnames(classPrefix, className, {
     [`${classPrefix}--size-${size}`]: size !== undefined && typeof size === 'string',
   });
-  const Tag = paragraph ? 'p' : 'span';
+  const Tag = block ? 'div' : paragraph ? 'p' : 'span';
 
   const fontStyle: React.CSSProperties = {
     fontWeight: strong ? 'bold' : undefined,

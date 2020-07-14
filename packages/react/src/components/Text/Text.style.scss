@@ -32,6 +32,12 @@ $text-prefix: '#{$prefix}-text';
   &.#{$text-prefix}--size-small {
     font-size: $typography-paragraph3;
   }
+  &.#{$text-prefix}--size-tiny {
+    font-size: $typography-caption1;
+  }
+  &.#{$text-prefix}--size-tiniest {
+    font-size: $typography-caption2;
+  }
 
   &[contenteditable='true']:empty:before {
     content: attr(placeholder);
@@ -46,5 +52,21 @@ $text-prefix: '#{$prefix}-text';
 }
 
 p.#{$text-prefix} {
-  line-height: 20px;
+  margin: 0;
+  padding: 16px 0;
+  &.#{$text-prefix}--size-large {
+    line-height: 22px;
+  }
+  &.#{$text-prefix}--size-normal {
+    line-height: 22px;
+  }
+  &.#{$text-prefix}--size-small {
+    line-height: 20px;
+  }
+  &.#{$text-prefix}--size-tiny {
+    line-height: 18px;
+  }
+  &.#{$text-prefix}--size-tiniest {
+    line-height: 18px;
+  }
 }

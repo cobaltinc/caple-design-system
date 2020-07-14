@@ -10,14 +10,14 @@ html,
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-size: $typography-paragraph2;
+  line-height: 22px;
+  letter-spacing: -0.3px;
+  color: $ink;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   background-color: $background;
-  color: $ink;
   -ms-overflow-style: scrollbar;
 }
-
-

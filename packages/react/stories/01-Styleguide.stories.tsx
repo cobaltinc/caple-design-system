@@ -11,33 +11,26 @@ export default {
 export const Typography = () => {
   return (
     <div style={{ padding: 20 }}>
-      <Header level={1} strong>
-        DisplayXLarge
-      </Header>
-      <Spacer type="horizontal" size={30} />
-      <Header level={2} strong>
-        DisplayLarge
-      </Header>
-      <Spacer type="horizontal" size={30} />
-      <Header level={3}>DisplayMedium</Header>
-      <Spacer type="horizontal" size={30} />
-      <Header level={4}>DisplaySmall</Header>
-      <Spacer type="horizontal" size={30} />
-      <Text size="large" strong>
-        Heading
-      </Text>
-      <Spacer type="horizontal" size={30} />
-      <Text size="small" strong>
-        SubHeading
-      </Text>
-      <Spacer type="horizontal" size={30} />
-      <Text size="normal" strong>
-        TitleBody
-      </Text>
-      <Spacer type="horizontal" size={30} />
-      <Text size="normal">Body</Text>
-      <Spacer type="horizontal" size={30} />
-      <Text size="small">Caption</Text>
+      <Spacer type="vertical" size="normal">
+        <Header level={1}>Heading1</Header>
+        <Header level={2}>Heading2</Header>
+        <Header level={3}>Heading3</Header>
+        <Text block size="large">
+          Paragraph1
+        </Text>
+        <Text block size="normal">
+          Paragraph2
+        </Text>
+        <Text block size="small">
+          Paragraph3
+        </Text>
+        <Text block size="tiny">
+          Caption1
+        </Text>
+        <Text block size="tiniest">
+          Caption2
+        </Text>
+      </Spacer>
     </div>
   );
 };
@@ -69,7 +62,7 @@ export const Color = () => {
   );
   return (
     <div style={{ padding: 20 }}>
-      <Header level={4}>Indigo</Header>
+      <Header level={3}>Indigo</Header>
       <div style={{ padding: '20px 0' }}>
         <Palette name="Indigo Lighter" color={Colors.IndigoLighter} />
         <Palette name="Indigo Light" color={Colors.IndigoLight} />
@@ -78,7 +71,7 @@ export const Color = () => {
         <Palette name="Indigo Darker" color={Colors.IndigoDarker} />
       </div>
 
-      <Header level={4}>Red</Header>
+      <Header level={3}>Red</Header>
       <div style={{ padding: '20px 0' }}>
         <Palette name="Red Lighter" color={Colors.RedLighter} />
         <Palette name="Red Light" color={Colors.RedLight} />
@@ -87,7 +80,7 @@ export const Color = () => {
         <Palette name="Red Darker" color={Colors.RedDarker} />
       </div>
 
-      <Header level={4}>Blue</Header>
+      <Header level={3}>Blue</Header>
       <div style={{ padding: '20px 0' }}>
         <Palette name="Blue Lighter" color={Colors.BlueLighter} />
         <Palette name="Blue Light" color={Colors.BlueLight} />
@@ -96,7 +89,7 @@ export const Color = () => {
         <Palette name="Blue Darker" color={Colors.BlueDarker} />
       </div>
 
-      <Header level={4}>Ink</Header>
+      <Header level={3}>Ink</Header>
       <div style={{ padding: '20px 0' }}>
         <Palette name="Ink Lightest" color={Colors.InkLightest} />
         <Palette name="Ink Lighter" color={Colors.InkLighter} />
@@ -104,7 +97,7 @@ export const Color = () => {
         <Palette name="Ink" color={Colors.Ink} />
       </div>
 
-      <Header level={4}>Sky</Header>
+      <Header level={3}>Sky</Header>
       <div style={{ padding: '20px 0' }}>
         <Palette name="Sky Lighter" color={Colors.SkyLighter} />
         <Palette name="Sky Light" color={Colors.SkyLight} />
@@ -112,7 +105,7 @@ export const Color = () => {
         <Palette name="Sky Dark" color={Colors.SkyDark} />
       </div>
 
-      <Header level={4}>Pink</Header>
+      <Header level={3}>Pink</Header>
       <div style={{ padding: '20px 0' }}>
         <Palette name="Pink Lighter" color={Colors.PinkLighter} />
         <Palette name="Pink Light" color={Colors.PinkLight} />
@@ -121,7 +114,7 @@ export const Color = () => {
         <Palette name="Pink Darker" color={Colors.PinkDarker} />
       </div>
 
-      <Header level={4}>Amber</Header>
+      <Header level={3}>Amber</Header>
       <div style={{ padding: '20px 0' }}>
         <Palette name="Amber Lighter" color={Colors.AmberLighter} />
         <Palette name="Amber Light" color={Colors.AmberLight} />
@@ -130,7 +123,7 @@ export const Color = () => {
         <Palette name="Amber Darker" color={Colors.AmberDarker} />
       </div>
 
-      <Header level={4}>Incarnadine</Header>
+      <Header level={3}>Incarnadine</Header>
       <div style={{ padding: '20px 0' }}>
         <Palette name="Incarnadine Lighter" color={Colors.IncarnadineLighter} />
         <Palette name="Incarnadine Light" color={Colors.IncarnadineLight} />
@@ -139,7 +132,7 @@ export const Color = () => {
         <Palette name="Incarnadine Darker" color={Colors.IncarnadineDarker} />
       </div>
 
-      <Header level={4}>Lightgreen</Header>
+      <Header level={3}>Lightgreen</Header>
       <div style={{ padding: '20px 0' }}>
         <Palette name="Lightgreen Lighter" color={Colors.LightgreenLighter} />
         <Palette name="Lightgreen Light" color={Colors.LightgreenLight} />
@@ -148,7 +141,7 @@ export const Color = () => {
         <Palette name="Lightgreen Darker" color={Colors.LightgreenDarker} />
       </div>
 
-      <Header level={4}>Cyan</Header>
+      <Header level={3}>Cyan</Header>
       <div style={{ padding: '20px 0' }}>
         <Palette name="Cyan Lighter" color={Colors.CyanLighter} />
         <Palette name="Cyan Light" color={Colors.CyanLight} />
@@ -157,7 +150,7 @@ export const Color = () => {
         <Palette name="Cyan Darker" color={Colors.CyanDarker} />
       </div>
 
-      <Header level={4}>Purple</Header>
+      <Header level={3}>Purple</Header>
       <div style={{ padding: '20px 0' }}>
         <Palette name="Purple Lighter" color={Colors.PurpleLighter} />
         <Palette name="Purple Light" color={Colors.PurpleLight} />
@@ -166,7 +159,7 @@ export const Color = () => {
         <Palette name="Purple Darker" color={Colors.PurpleDarker} />
       </div>
 
-      <Header level={4}>Style</Header>
+      <Header level={3}>Style</Header>
       <div style={{ padding: '20px 0' }}>
         <Palette name="Background" color={Colors.Background} />
         <Palette name="Border" color={Colors.Border} />

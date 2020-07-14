@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from '../src';
+import { Text, Spacer } from '../src';
 
 export default {
   title: 'Component|Text',
@@ -16,14 +16,26 @@ export const Default = () => {
 export const Size = () => {
   return (
     <div style={{ padding: 30 }}>
-      <Text size="large">Large</Text>
-      <br />
-      <Text size="normal">Normal</Text>
-      <br />
-      <Text size="small">Small</Text>
-      <br />
-      <Text size={40}>Custom size</Text>
-      <br />
+      <Spacer type="vertical" size="normal">
+        <Text block size="large">
+          Large
+        </Text>
+        <Text block size="normal">
+          Normal
+        </Text>
+        <Text block size="small">
+          Small
+        </Text>
+        <Text block size="tiny">
+          Tiny
+        </Text>
+        <Text block size="tiniest">
+          Tiniest
+        </Text>
+        <Text block size={40}>
+          Custom size
+        </Text>
+      </Spacer>
     </div>
   );
 };

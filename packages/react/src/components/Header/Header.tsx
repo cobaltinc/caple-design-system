@@ -6,7 +6,7 @@ import './Header.style.scss';
 
 export interface HeaderProps {
   children?: React.ReactNode;
-  level?: 1 | 2 | 3 | 4;
+  level?: 1 | 2 | 3;
   strong?: boolean;
   underline?: boolean;
   delete?: boolean;
@@ -49,7 +49,7 @@ export default ({
 
   let Tag = `h${level}` as 'h1';
   if (level < 1 || level > 4) {
-    warning('Header', 'Header only accept `1 | 2 | 3 | 4` as `level` value.');
+    warning('Header', 'Header only accept `1 | 2 | 3` as `level` value.');
     Tag = 'h1' as 'h1';
   }
 

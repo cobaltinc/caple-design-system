@@ -11,7 +11,6 @@ export const Default = () => {
       <Header level={1}>Level 1</Header>
       <Header level={2}>Level 2</Header>
       <Header level={3}>Level 3</Header>
-      <Header level={4}>Level 4</Header>
     </div>
   );
 };
@@ -19,16 +18,16 @@ export const Default = () => {
 export const Decoration = () => {
   return (
     <div style={{ padding: 30 }}>
-      <Header strong level={4}>
+      <Header strong level={3}>
         Strong
       </Header>
-      <Header underline level={4}>
+      <Header underline level={3}>
         Underline
       </Header>
-      <Header delete level={4}>
+      <Header delete level={3}>
         Delete
       </Header>
-      <Header strong underline delete level={4}>
+      <Header strong underline delete level={3}>
         Mixed
       </Header>
     </div>
@@ -38,13 +37,13 @@ export const Decoration = () => {
 export const Color = () => {
   return (
     <div style={{ padding: 30 }}>
-      <Header color="red" level={4}>
+      <Header color="red" level={3}>
         Strong
       </Header>
-      <Header color="green" level={4}>
+      <Header color="green" level={3}>
         Underline
       </Header>
-      <Header color="blue" level={4}>
+      <Header color="blue" level={3}>
         Delete
       </Header>
     </div>

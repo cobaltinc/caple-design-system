@@ -20,17 +20,16 @@ $header-prefix: '#{$prefix}-header';
 }
 
 h1.#{$header-prefix} {
-  font-size: $header-size-xlarge;
+  font-size: $typography-heading1;
+  line-height: 26px;
 }
 
 h2.#{$header-prefix} {
-  font-size: $header-size-large;
+  font-size: $typography-heading2;
+  line-height: 24px;
 }
 
 h3.#{$header-prefix} {
-  font-size: $header-size-normal;
-}
-
-h4.#{$header-prefix} {
-  font-size: $header-size-small;
+  font-size: $typography-heading3;
+  line-height: 22px;
 }
