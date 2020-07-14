@@ -78,7 +78,7 @@ $tooltip-prefix: '#{$prefix}-tooltip';
   .#{$tooltip-prefix}--content {
     position: absolute;
     padding: 12px 20px;
-    font-size: $text-size-small;
+    font-size: $typography-paragraph3;
     color: white;
     border-radius: 5px;
     background-color: $ink;

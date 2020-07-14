@@ -15,13 +15,13 @@ $link-prefix: '#{$prefix}-link';
   cursor: pointer;
 
   &.#{$link-prefix}--size-large {
-    font-size: $text-size-large;
+    font-size: $typography-paragraph1;
   }
   &.#{$link-prefix}--size-normal {
-    font-size: $text-size-normal;
+    font-size: $typography-paragraph2;
   }
   &.#{$link-prefix}--size-small {
-    font-size: $text-size-small;
+    font-size: $typography-paragraph3;
   }
 
   &:hover {

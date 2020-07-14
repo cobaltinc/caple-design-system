@@ -65,13 +65,13 @@ $tab-item-prefix: '#{$prefix}-tab-item';
           text-align: center;
 
           .#{$tab-item-prefix}--title {
-            font-size: $text-size-normal;
+            font-size: $typography-paragraph2;
             vertical-align: middle;
           }
 
           .#{$tab-item-prefix}--subtitle {
             margin-top: 4px;
-            font-size: 11px;
+            font-size: $typography-caption2;
           }
         }
       }

@@ -75,7 +75,7 @@ $popover-prefix: '#{$prefix}-popover';
 
   .#{$popover-prefix}--content {
     position: absolute;
-    font-size: 14px;
+    font-size: $typography-paragraph2;
     border-radius: 5px;
     background-color: white;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);

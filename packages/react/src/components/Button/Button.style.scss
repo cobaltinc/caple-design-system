@@ -319,27 +319,27 @@ $button-prefix: '#{$prefix}-button';
   &.#{$button-prefix}--size-tiny {
     height: 24px;
     padding: 0 6px;
-    font-size: 11px;
+    font-size: $typography-caption2;
   }
   &.#{$button-prefix}--size-small {
     height: 30px;
     padding: 0 8px;
-    font-size: 12px;
+    font-size: $typography-caption1;
   }
   &.#{$button-prefix}--size-normal {
     height: 36px;
     padding: 0 10px;
-    font-size: 12px;
+    font-size: $typography-caption1;
   }
   &.#{$button-prefix}--size-large {
     height: 44px;
     padding: 0 14px;
-    font-size: 13px;
+    font-size: $typography-paragraph3;
   }
   &.#{$button-prefix}--size-xlarge {
     height: 50px;
     padding: 0 20px;
-    font-size: 14px;
+    font-size: $typography-paragraph2;
     font-weight: bold;
   }
 

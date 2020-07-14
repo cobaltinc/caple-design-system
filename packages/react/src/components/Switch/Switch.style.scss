@@ -15,7 +15,7 @@ $switch-group-prefix: '#{$prefix}-switch-group';
     min-width: 78px;
     height: 30px;
     padding: 0 10px;
-    font-size: 12px;
+    font-size: $typography-caption1;
     text-align: center;
     vertical-align: middle;
     border-radius: 3px;

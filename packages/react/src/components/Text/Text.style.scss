@@ -24,13 +24,13 @@ $text-prefix: '#{$prefix}-text';
   }
 
   &.#{$text-prefix}--size-large {
-    font-size: $text-size-large;
+    font-size: $typography-paragraph1;
   }
   &.#{$text-prefix}--size-normal {
-    font-size: $text-size-normal;
+    font-size: $typography-paragraph2;
   }
   &.#{$text-prefix}--size-small {
-    font-size: $text-size-small;
+    font-size: $typography-paragraph3;
   }
 
   &[contenteditable='true']:empty:before {

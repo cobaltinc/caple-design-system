@@ -18,6 +18,7 @@ $input-prefix: '#{$prefix}-input';
   .#{$input-prefix}--label {
     display: block;
     margin-bottom: 4px;
+    font-size: $typography-caption1;
   }
 
   .#{$input-prefix} {
@@ -35,22 +36,28 @@ $input-prefix: '#{$prefix}-input';
     &.#{$input-prefix}--size-tiny {
       height: 24px;
       padding: 0 6px;
-      font-size: 11px;
 
       input {
         margin-top: -1px;
         height: 20px;
-        font-size: 11px;
+        font-size: $typography-caption1;
+
+        &::placeholder {
+          font-size: $typography-caption2;
+        }
       }
     }
     &.#{$input-prefix}--size-small {
       height: 30px;
       padding: 0 8px;
-      font-size: 12px;
 
       input {
         height: 26px;
-        font-size: 12px;
+        font-size: $typography-paragraph3;
+
+        &::placeholder {
+          font-size: $typography-caption1;
+        }
       }
     }
     &.#{$input-prefix}--size-normal {
@@ -66,11 +73,14 @@ $input-prefix: '#{$prefix}-input';
     &.#{$input-prefix}--size-large {
       height: 44px;
       padding: 0 10px;
-      font-size: 13px;
 
       input {
         height: 40px;
-        font-size: 13px;
+        font-size: $typography-paragraph2;
+
+        &::placeholder {
+          font-size: $typography-paragraph3;
+        }
       }
     }
     &.#{$input-prefix}--size-xlarge {
@@ -81,8 +91,12 @@ $input-prefix: '#{$prefix}-input';
 
       input {
         height: 46px;
-        font-size: 14px;
+        font-size: $typography-paragraph1;
         font-weight: bold;
+
+        &::placeholder {
+          font-size: $typography-paragraph2;
+        }
       }
     }
 

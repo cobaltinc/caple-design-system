@@ -7,7 +7,7 @@ $table-prefix: '#{$prefix}-table';
 
 .#{$table-prefix} {
   width: 100%;
-  font-size: 12px;
+  font-size: $typography-caption2;
   border-collapse: collapse;
   border-spacing: 0;
 

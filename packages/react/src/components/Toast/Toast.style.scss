@@ -95,7 +95,7 @@ $toast-prefix: '#{$prefix}-toast';
     align-items: center;
     border: 1px solid #cfd8eb;
     box-shadow: 0px 1px 3px rgba(63, 63, 68, 0.15), 0px 0px 0px rgba(63, 63, 68, 0.05);
-    font-size: 14px;
+    font-size: $typography-paragraph2;
 
     .#{$toast-prefix}--icon {
       vertical-align: middle;

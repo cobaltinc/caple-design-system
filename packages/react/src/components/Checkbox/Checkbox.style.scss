@@ -1,4 +1,5 @@
 @import '../../styles/base/core';
+@import '../../styles/variables/typography';
 
 $checkbox-prefix: '#{$prefix}-checkbox';
 
@@ -25,7 +26,7 @@ $checkbox-prefix: '#{$prefix}-checkbox';
 
   .#{$checkbox-prefix}--text {
     padding-left: 8px;
-    font-size: 12px;
+    font-size: $typography-caption1;
     vertical-align: middle;
   }
 
