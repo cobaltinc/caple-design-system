@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button, Header, Spacer, Icon, Text } from '../src';
-
+import { Button, Spacer, Icon } from '../src';
 import { action } from '@storybook/addon-actions';
 
 export default {

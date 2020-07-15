@@ -1,0 +1,72 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/color';
+@import '../../styles/variables/typography';
+
+$alert-prefix: '#{$prefix}-alert';
+
+.#{$alert-prefix} {
+  padding: 10px 16px;
+  color: $ink;
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+
+  &.#{$alert-prefix}--type-success {
+    border-color: $lightgreen-light;
+    background-color: $lightgreen-lighter;
+    .#{$alert-prefix}--icon svg {
+      fill: $lightgreen !important;
+    }
+  }
+  &.#{$alert-prefix}--type-info {
+    border-color: $indigo-light;
+    background-color: $indigo-lighter;
+    .#{$alert-prefix}--icon svg {
+      fill: $indigo-light !important;
+    }
+  }
+  &.#{$alert-prefix}--type-warning {
+    border-color: $amber-light;
+    background-color: $amber-lighter;
+    .#{$alert-prefix}--icon svg {
+      fill: $amber !important;
+    }
+  }
+  &.#{$alert-prefix}--type-error {
+    border-color: $red-light;
+    background-color: $red-lighter;
+    .#{$alert-prefix}--icon svg {
+      fill: $red-light !important;
+    }
+  }
+
+  .#{$alert-prefix}--wrapper {
+    display: flex;
+
+    > .#{$alert-prefix}--icon {
+      flex: 0 0 18px;
+      width: 18px;
+      margin-top: 2px;
+      margin-right: 8px;
+    }
+
+    > .#{$alert-prefix}--close {
+      flex: 0 0 12px;
+      width: 12px;
+      margin-top: 6px;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+  }
+
+  .#{$alert-prefix}--title {
+    flex: 1 1 0px;
+    font-size: $typography-paragraph1;
+  }
+
+  .#{$alert-prefix}--description {
+    flex: 1 1 0px;
+    font-size: $typography-paragraph3;
+  }
+}

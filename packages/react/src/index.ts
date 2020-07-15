@@ -8,6 +8,7 @@ import './styles/index.scss';
 // - normalize.css (https://github.com/necolas/normalize.css)
 // - cleave.js (https://github.com/nosir/cleave.js)
 
+export { default as Alert } from './components/Alert';
 export { default as Avatar } from './components/Avatar';
 export { default as Badge } from './components/Badge';
 export { default as Breadcrumb } from './components/Breadcrumb';

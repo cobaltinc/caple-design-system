@@ -8,6 +8,7 @@ export default {
 
 export const Default = () => {
   const components = [
+    'Alert',
     'Avatar',
     'Badge',
     'Breadcrumb',
