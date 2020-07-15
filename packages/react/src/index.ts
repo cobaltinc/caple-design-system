@@ -38,6 +38,7 @@ export { default as Stepper } from './components/Stepper';
 export { default as Switch } from './components/Switch';
 export { default as Tab } from './components/Tab';
 export { default as Table } from './components/Table';
+export { default as Tag } from './components/Tag';
 export { default as Text } from './components/Text';
 export { default as Toast } from './components/Toast';
 export { default as Toggle } from './components/Toggle';

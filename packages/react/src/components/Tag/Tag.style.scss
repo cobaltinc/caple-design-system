@@ -1,0 +1,37 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/typography';
+@import '../../styles/variables/color';
+
+$tag-prefix: '#{$prefix}-tag';
+
+.#{$tag-prefix} {
+  display: inline-flex;
+  padding: 0 8px;
+  height: 24px;
+  align-items: center;
+  font-size: $typography-caption1;
+  border-radius: 2px;
+  vertical-align: middle;
+  box-sizing: border-box;
+
+  &.#{$tag-prefix}--preset-lightgreen {
+    color: $lightgreen-dark;
+    background-color: $lightgreen-lighter;
+  }
+  &.#{$tag-prefix}--preset-blue {
+    color: $blue-dark;
+    background-color: $cyan-lighter;
+  }
+  &.#{$tag-prefix}--preset-indigo {
+    color: $indigo-dark;
+    background-color: $indigo-lighter;
+  }
+  &.#{$tag-prefix}--preset-amber {
+    color: $amber-darker;
+    background-color: $amber-lighter;
+  }
+  &.#{$tag-prefix}--preset-red {
+    color: $red-dark;
+    background-color: $red-lighter;
+  }
+}
