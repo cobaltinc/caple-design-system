@@ -5,6 +5,11 @@
 
 $link-prefix: '#{$prefix}-link';
 
+.#{$link-prefix}--wrapper {
+  position: relative;
+  display: inline-block;
+}
+
 .#{$link-prefix} {
   display: inline;
   text-decoration: none;
@@ -22,6 +27,12 @@ $link-prefix: '#{$prefix}-link';
   }
   &.#{$link-prefix}--size-small {
     font-size: $typography-paragraph3;
+  }
+  &.#{$link-prefix}--size-tiny {
+    font-size: $typography-caption1;
+  }
+  &.#{$link-prefix}--size-tiniest {
+    font-size: $typography-caption2;
   }
 
   &:hover {
@@ -43,4 +54,12 @@ $link-prefix: '#{$prefix}-link';
     pointer-events: none;
     touch-action: none;
   }
+}
+
+.#{$link-prefix}--loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  vertical-align: middle;
 }

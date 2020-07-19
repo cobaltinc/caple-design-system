@@ -38,6 +38,26 @@ export const Size = () => {
   );
 };
 
+export const Underline = () => {
+  return (
+    <div style={{ padding: 30 }}>
+      <Link href="https://design.caple.ai" target="_blank" underline>
+        https://design.caple.ai
+      </Link>
+    </div>
+  );
+};
+
+export const Danger = () => {
+  return (
+    <div style={{ padding: 30 }}>
+      <Link href="https://design.caple.ai" target="_blank" danger>
+        https://design.caple.ai
+      </Link>
+    </div>
+  );
+};
+
 export const Disabled = () => {
   return (
     <div style={{ padding: 30 }}>
