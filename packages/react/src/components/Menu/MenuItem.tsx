@@ -3,13 +3,12 @@ import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import './Menu.style.scss';
 import { IconProps } from '../Icon/Icon';
-import IconFeather, { IconFeatherProps } from '../Icon/IconFeather';
 import { BadgeProps } from '../Badge/Badge';
 import Text from '../Text';
 
 export interface MenuItemProps {
   title: string;
-  icon?: React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
+  icon?: React.ReactElement<IconProps>;
   badge?: React.ReactElement<BadgeProps>;
   disabled?: boolean;
   onClick?: React.MouseEventHandler;
@@ -36,7 +35,7 @@ export default ({ title, icon, badge, disabled, onClick, className = '', style, 
         ? React.cloneElement(icon, {
             ...icon.props,
             size: 20,
-            className: icon?.type === IconFeather ? `${classPrefix}--icon-feather` : `${classPrefix}--icon`,
+            className: `${classPrefix}--icon`,
           })
         : null}
       <Text>{title}</Text>
