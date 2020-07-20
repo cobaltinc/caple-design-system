@@ -5,24 +5,27 @@ import Text from '../Text';
 import { IconProps } from '../Icon/Icon';
 import './Navigation.style.scss';
 
-export interface NavigationItemProps {
+export interface NavigationGroupProps {
+  children?: React.ReactNode;
   icon?: React.ReactElement<IconProps>;
   title: string;
+  defaultExpand?: boolean;
   disabled?: boolean;
   onClick?(event: React.MouseEvent<HTMLDivElement>): void;
   className?: string;
   style?: React.CSSProperties;
 }
 
-export interface NavigationItemRenderProps {
+export interface NavigationGroupRenderProps {
   active: boolean;
 }
 
-const NavigationItem = (_: NavigationItemProps) => {
+const NavigationGroup = (_: NavigationGroupProps) => {
   return null;
 };
 
-NavigationItem.render = ({
+NavigationGroup.render = ({
+  children,
   icon,
   title,
   disabled,
@@ -31,10 +34,10 @@ NavigationItem.render = ({
   className = '',
   style,
   ...props
-}: NavigationItemProps & NavigationItemRenderProps) => {
+}: NavigationGroupProps & NavigationGroupRenderProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
-  const classPrefix = `${prefix}-navigation-item`;
+  const classPrefix = `${prefix}-navigation-group`;
   const classNames = classnames(classPrefix, className, {
     [`${classPrefix}--active`]: active,
     [`${classPrefix}--disabled`]: disabled,
@@ -46,16 +49,21 @@ NavigationItem.render = ({
   };
 
   return (
-    <div className={classNames} style={style} onClick={handleClick} {...props}>
-      {icon ? React.cloneElement(icon, { size: 24, className: `${classPrefix}--icon` }) : null}
-      <Text size="small" className={`${classPrefix}--title`}>
-        {title}
-      </Text>
-    </div>
+    <>
+      <div className={classNames} style={style} onClick={handleClick} {...props}>
+        {icon ? React.cloneElement(icon, { size: 24, className: `${classPrefix}--icon` }) : null}
+        <Text size="small" className={`${classPrefix}--title`}>
+          {title}
+        </Text>
+      </div>
+
+      {children}
+    </>
   );
 };
 
-NavigationItem.renderInGroup = ({
+NavigationGroup.renderInGroup = ({
+  children,
   icon,
   title,
   disabled,
@@ -64,10 +72,10 @@ NavigationItem.renderInGroup = ({
   className = '',
   style,
   ...props
-}: NavigationItemProps & NavigationItemRenderProps) => {
+}: NavigationGroupProps & NavigationGroupRenderProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
-  const classPrefix = `${prefix}-navigation-item`;
+  const classPrefix = `${prefix}-navigation-group`;
   const classNames = classnames(classPrefix, className, {
     [`${classPrefix}--active`]: active,
     [`${classPrefix}--disabled`]: disabled,
@@ -79,13 +87,17 @@ NavigationItem.renderInGroup = ({
   };
 
   return (
-    <div className={classNames} style={style} onClick={handleClick} {...props}>
-      {icon ? React.cloneElement(icon, { size: 24, className: `${classPrefix}--icon` }) : null}
-      <Text size="small" className={`${classPrefix}--title`}>
-        {title}
-      </Text>
-    </div>
+    <>
+      <div className={classNames} style={style} onClick={handleClick} {...props}>
+        {icon ? React.cloneElement(icon, { size: 24, className: `${classPrefix}--icon` }) : null}
+        <Text size="small" className={`${classPrefix}--title`}>
+          {title}
+        </Text>
+      </div>
+
+      {children}
+    </>
   );
 };
 
-export default NavigationItem;
+export default NavigationGroup;

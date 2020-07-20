@@ -21,8 +21,8 @@ $navigation-sub-item-prefix: '#{$prefix}-navigation-sub-item';
     position: relative;
     display: inline-flex;
     width: 100%;
-    height: 56px;
-    padding-left: 20px;
+    height: 46px;
+    padding-left: 24px;
     align-items: center;
     font-size: $typography-caption1;
     line-height: 17px;
@@ -32,7 +32,12 @@ $navigation-sub-item-prefix: '#{$prefix}-navigation-sub-item';
     box-sizing: border-box;
 
     &.#{$navigation-item-prefix}--active {
-      background-color: #cfd8eb;
+      background-color: $indigo-lighter;
+      color: $indigo;
+
+      svg {
+        fill: $indigo;
+      }
     }
 
     &.#{$navigation-item-prefix}--disabled {
@@ -41,7 +46,7 @@ $navigation-sub-item-prefix: '#{$prefix}-navigation-sub-item';
     }
 
     &:not(.nohover):not(.disabled):hover {
-      background-color: #dfe8fb;
+      background-color: #E9EBF5;
     }
 
     .#{$navigation-item-prefix}--icon {
