@@ -4,7 +4,6 @@ import './styles/index.scss';
 // - react
 // - classnames (https://github.com/JedWatson/classnames)
 // - react-transition-group (https://github.com/reactjs/react-transition-group)
-// - feather-icons (https://feathericons.com/)
 // - normalize.css (https://github.com/necolas/normalize.css)
 // - cleave.js (https://github.com/nosir/cleave.js)
 
