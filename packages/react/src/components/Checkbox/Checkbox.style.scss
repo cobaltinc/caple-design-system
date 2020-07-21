@@ -5,21 +5,40 @@
 $checkbox-prefix: '#{$prefix}-checkbox';
 
 .#{$checkbox-prefix} {
+  position: relative;
   display: inline-flex;
   align-items: center;
   cursor: pointer;
   user-select: none;
   vertical-align: middle;
-  padding: 0 4px;
+  z-index: 0;
 
   &:hover {
-    border-radius: 4px;
-    background-color: $sky-light;
+    &::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      bottom: -4px;
+      left: -4px;
+      border-radius: 4px;
+      background-color: $sky;
+      z-index: -1;
+    }
   }
 
   &:active {
-    border-radius: 4px;
-    background-color: $sky;
+    &::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      bottom: -4px;
+      left: -4px;
+      border-radius: 4px;
+      background-color: $sky-dark;
+      z-index: -1;
+    }
   }
 
   input {
