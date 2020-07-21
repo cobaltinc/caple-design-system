@@ -41,6 +41,24 @@ export const Active = () => {
   );
 };
 
+export const Ghost = () => {
+  return (
+    <div style={{ padding: 30 }}>
+      <Tab ghost>
+        <Tab.Item title="Tab 1" key="tab1">
+          Content 1
+        </Tab.Item>
+        <Tab.Item title="Tab 2" key="tab2">
+          Content 2
+        </Tab.Item>
+        <Tab.Item title="Tab 3" key="tab3">
+          Content 3
+        </Tab.Item>
+      </Tab>
+    </div>
+  );
+};
+
 export const Disabled = () => {
   return (
     <div style={{ padding: 30 }}>

@@ -10,16 +10,17 @@ export interface TabProps {
   children: React.ReactNode;
   active?: string;
   onChange?(title: string, index: number): void;
+  ghost?: boolean;
   scrollable?: boolean;
   className?: string;
   style?: React.CSSProperties;
 }
 
-const Tab = ({ children, active, onChange, scrollable, className = '', style, ...props }: TabProps) => {
+const Tab = ({ children, active, onChange, ghost, scrollable, className = '', style, ...props }: TabProps) => {
   const { useContext, useEffect, useState, useRef } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-tab`;
-  const classNames = classnames(classPrefix, className);
+  const classNames = classnames(classPrefix, `${classPrefix}--ghost`, className);
 
   const [currentActive, setCurrentActive] = useState(active);
   useEffect(() => {

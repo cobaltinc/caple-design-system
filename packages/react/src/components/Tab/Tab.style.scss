@@ -82,4 +82,9 @@ $tab-item-prefix: '#{$prefix}-tab-item';
     width: 100%;
     height: auto;
   }
+
+  &.#{$tab-prefix}--ghost * {
+    background-color: transparent !important;
+    border-right: none !important;
+  }
 }
