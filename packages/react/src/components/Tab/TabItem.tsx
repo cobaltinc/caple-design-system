@@ -2,19 +2,18 @@ import React from 'react';
 import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import { IconProps } from '../Icon/Icon';
-import { IconFeatherProps } from '../Icon/IconFeather';
 import Spacer from '../Spacer';
 
 export type StateIconType = {
-  activeIcon?: React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
-  inactiveIcon?: React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
-  disabledIcon?: React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
+  activeIcon?: React.ReactElement<IconProps>;
+  inactiveIcon?: React.ReactElement<IconProps>;
+  disabledIcon?: React.ReactElement<IconProps>;
 };
 
 export interface TabItemProps {
   children?: React.ReactNode;
   title: string;
-  icon?: React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps> | StateIconType;
+  icon?: React.ReactElement<IconProps> | StateIconType;
   subtitle?: string;
   key: string;
   disabled?: boolean;
