@@ -1,5 +1,6 @@
 @import '../../styles/base/core';
 @import '../../styles/variables/typography';
+@import '../../styles/variables/color';
 
 $checkbox-prefix: '#{$prefix}-checkbox';
 
@@ -9,6 +10,17 @@ $checkbox-prefix: '#{$prefix}-checkbox';
   cursor: pointer;
   user-select: none;
   vertical-align: middle;
+  padding: 0 4px;
+
+  &:hover {
+    border-radius: 4px;
+    background-color: $sky-light;
+  }
+
+  &:active {
+    border-radius: 4px;
+    background-color: $sky;
+  }
 
   input {
     position: absolute;

@@ -23,6 +23,7 @@
     "access": "public"
   },
   "scripts": {
+    "start": "yarn clean && node scripts/build.js && rollup -c -w",
     "build": "yarn clean && node scripts/build.js && rollup -c",
     "build:types": "tsc --emitDeclarationOnly",
     "clean": "rimraf dist ./src/index.ts",
