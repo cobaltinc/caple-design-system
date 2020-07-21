@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import { warning, kebabToPascal } from '../../utils';
 import * as Icons from '@caple-ui/icons-react';
-import IconFeather, { IconFeatherProps } from './IconFeather';
 import { Ink } from '@caple-ui/colors';
 import './Icon.style.scss';
 
@@ -16,16 +15,13 @@ export interface IconProps {
   rotate?: number;
   spin?: boolean;
   color?: string;
+  onClick?(): void;
   className?: string;
   style?: React.CSSProperties;
 }
 
-interface IconType<T> extends React.ForwardRefExoticComponent<T> {
-  Feather: typeof IconFeather;
-}
-
-const Icon = React.forwardRef<HTMLSpanElement, IconProps>(
-  ({ type, component, size = 14, rotate, spin = false, color = Ink, className = '', style, ...props }, ref) => {
+export default React.forwardRef<HTMLSpanElement, IconProps>(
+  ({ type, component, size = 14, rotate, spin = false, color = Ink, onClick, className = '', style, ...props }, ref) => {
     const { useContext } = React;
     const { prefix } = useContext(ConfigContext);
     const classPrefix = `${prefix}-icon`;
@@ -62,8 +58,4 @@ const Icon = React.forwardRef<HTMLSpanElement, IconProps>(
       </i>
     );
   },
-) as IconType<React.PropsWithoutRef<IconProps & any> & React.RefAttributes<HTMLDivElement>>;
-
-Icon.Feather = IconFeather;
-
-export default Icon;
+);

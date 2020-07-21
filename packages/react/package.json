@@ -42,7 +42,6 @@
     "@caple-ui/icons-react": "^0.0.9",
     "classnames": "2.2.6",
     "cleave.js": "^1.5.4",
-    "feather-icons": "4.26.0",
     "raf": "^3.4.1",
     "react-transition-group": "4.3.0"
   },
