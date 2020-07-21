@@ -2,12 +2,11 @@ import React from 'react';
 import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import { IconProps } from '../Icon/Icon';
-import { IconFeatherProps } from '../Icon/IconFeather';
 import './Callout.style.scss';
 
 export interface CalloutProps {
   children: React.ReactNode;
-  icon: React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
+  icon: React.ReactElement<IconProps>;
   className?: string;
   style?: React.CSSProperties;
 }

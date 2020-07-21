@@ -3,12 +3,11 @@ import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import Text from '../Text';
 import { IconProps } from '../Icon/Icon';
-import { IconFeatherProps } from '../Icon/IconFeather';
 import './Navigation.style.scss';
 
 export interface NavigationItemProps {
   children?: React.ReactNode;
-  icon?: React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
+  icon?: React.ReactElement<IconProps>;
   title: string;
   key: string;
   disabled?: boolean;

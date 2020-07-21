@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import Spinner from '../Spinner';
 import { IconProps } from '../Icon/Icon';
-import { IconFeatherProps } from '../Icon/IconFeather';
 import './Button.style.scss';
 
 export type ButtonType = 'basic' | 'core' | 'special' | 'danger' | 'warning';
@@ -12,7 +11,7 @@ export type ButtonSizeType = 'tiny' | 'small' | 'normal' | 'large' | 'xlarge';
 
 export interface ButtonProps {
   children?: React.ReactNode;
-  icon?: React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
+  icon?: React.ReactElement<IconProps>;
   htmlType?: ButtonHtmlType;
   type?: ButtonType;
   size?: ButtonSizeType;

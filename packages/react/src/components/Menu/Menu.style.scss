@@ -25,13 +25,6 @@ $menu-item-prefix: '#{$prefix}-menu-item';
       }
     }
 
-    .#{$menu-item-prefix}--icon-feather {
-      margin-right: 8px;
-      svg {
-        stroke: $ink-light;
-      }
-    }
-
     .#{$menu-item-prefix}--badge {
       float: right;
       margin-right: 8px;
@@ -45,12 +38,6 @@ $menu-item-prefix: '#{$prefix}-menu-item';
           fill: $ink;
         }
       }
-
-      .#{$menu-item-prefix}--icon-feather {
-        svg {
-          stroke: $ink;
-        }
-      }
     }
 
     &.#{$menu-item-prefix}--disabled {
@@ -60,12 +47,6 @@ $menu-item-prefix: '#{$prefix}-menu-item';
       .#{$menu-item-prefix}--icon {
         svg {
           fill: $border;
-        }
-      }
-
-      .#{$menu-item-prefix}--icon-feather {
-        svg {
-          stroke: $border;
         }
       }
     }

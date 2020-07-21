@@ -54,9 +54,9 @@ export const PrefixSubfix = () => {
       <Spacer type="horizontal" size={20} />
       <Input.Text subfix={<Icon type="reload" />} placeholder="Please enter your name." />
       <Spacer type="horizontal" size={20} />
-      <Input.Text borderType="underline" prefix={<Icon.Feather type="github" />} subfix="SUBFIX" placeholder="Please enter your name." />
+      <Input.Text borderType="underline" prefix={<Icon type="apple" />} subfix="SUBFIX" placeholder="Please enter your name." />
       <Spacer type="horizontal" size={20} />
-      <Input.Text borderType="none" prefix={<Icon.Feather type="github" />} subfix="SUBFIX" placeholder="Please enter your name." />
+      <Input.Text borderType="none" prefix={<Icon type="android" />} subfix="SUBFIX" placeholder="Please enter your name." />
     </div>
   );
 };

@@ -4,7 +4,6 @@ import ConfigContext from '../_config/ConfigContext';
 import Text from '../Text';
 import Spinner from '../Spinner';
 import { IconProps } from '../Icon/Icon';
-import { IconFeatherProps } from '../Icon/IconFeather';
 import './Input.style.scss';
 
 export type InputType = 'email' | 'number' | 'text' | 'password' | 'date' | 'time' | 'datetime' | 'url' | 'tel';
@@ -40,8 +39,8 @@ export interface InputProps extends InputEvent {
   disabled?: boolean;
   readonly?: boolean;
   align?: InputAlignType;
-  prefix?: string | React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
-  subfix?: string | React.ReactElement<IconProps> | React.ReactElement<IconFeatherProps>;
+  prefix?: string | React.ReactElement<IconProps>;
+  subfix?: string | React.ReactElement<IconProps>;
   error?: boolean;
   loading?: boolean;
   className?: string;

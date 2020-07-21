@@ -40,17 +40,6 @@ import { Icon, Divider } from '@caple-ui/react';
 <Icon type="gear" size={60} spin />
 ```
 
-```jsx header=Feather&nbsp;예제
-<>
-  <Icon.Feather type="bell" />
-  <Icon.Feather type="clipboard" />
-  <Icon.Feather type="cloud-rain" />
-  <Icon.Feather type="git-branch" />
-  <Icon.Feather type="wifi" />
-  <Icon.Feather type="smile" />
-  <Icon.Feather type="map" />
-</>
-```
 
 ## Props
 | Name | Description | Type | Default | Required |
