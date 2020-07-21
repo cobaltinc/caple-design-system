@@ -1,3 +1,0 @@
-# CDS documentation site
-
-WIP

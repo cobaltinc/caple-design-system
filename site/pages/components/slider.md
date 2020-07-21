@@ -1,3 +1,0 @@
-# Slider
-
-WIP
