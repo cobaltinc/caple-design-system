@@ -1,0 +1,110 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/typography';
+@import '../../styles/variables/color';
+@import '../../styles/variables/motion';
+
+$input-prefix: '#{$prefix}-input';
+
+.#{$input-prefix} {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 54px;
+  padding: 16px;
+  align-items: center;
+  border: 1px solid $sky-dark;
+  border-radius: 3px;
+  box-shadow: inset 0px 1px 2px rgba(102, 113, 123, 0.21);
+  background: rgba(249, 250, 251, 0.5);
+  box-sizing: border-box;
+  transition: all $duration-moderate;
+  cursor: text;
+
+  &.#{$input-prefix}--focused {
+    border: 2px solid $indigo;
+  }
+
+  label {
+    position: absolute;
+    font-size: $typography-paragraph2;
+    color: $ink-lightest;
+    transition: all $duration-moderate;
+  }
+
+  &.#{$input-prefix}--focused label {
+    transform: translate(0, -8px);
+    font-size: $typography-caption2;
+    color: $indigo;
+  }
+
+  .#{$input-prefix}--prefix,
+  .#{$input-prefix}--subfix {
+    vertical-align: middle;
+  }
+
+  .#{$input-prefix}--prefix {
+    margin-right: 4px;
+  }
+
+  .#{$input-prefix}--subfix {
+    margin-left: 4px;
+  }
+
+  input {
+    width: 100%;
+    padding: 0;
+    font-size: $typography-paragraph2;
+    line-height: 0;
+    color: $ink;
+    vertical-align: middle;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &[type='number'] {
+      -moz-appearance: textfield;
+    }
+  }
+
+  &.#{$input-prefix}--focused input {
+    transform: translate(0, 8px);
+  }
+
+  &:not(.#{$input-prefix}--readonly) {
+    input:disabled {
+      color: #919eab;
+      cursor: not-allowed;
+    }
+  }
+
+  &.#{$input-prefix}--readonly {
+    input:disabled {
+      color: $ink;
+    }
+  }
+
+  .#{$input-prefix}--password-toggle {
+    cursor: pointer;
+    svg {
+      transition: fill $duration-moderate, stroke $duration-moderate;
+
+      &:hover {
+        fill: $ink !important;
+      }
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+  box-shadow: 0 0 0 30px transparent inset !important;
+}
