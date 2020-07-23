@@ -73,10 +73,6 @@ export const Group = () => {
         <Navigation.Item icon={<Icon type="gear" />} title="Navigation 2" index="navigation2" />
         <Navigation.Group icon={<Icon type="android" />} title="Navigation 3">
           <Navigation.Item title="SubItem 1" index="subitem4" />
-          <Navigation.Group icon={<Icon type="android" />} title="Navigation 3">
-            <Navigation.Item title="SubItem 1" index="subitem4" />
-            <Navigation.Item title="SubItem 2" index="subitem5" />
-          </Navigation.Group>
           <Navigation.Item title="SubItem 2" index="subitem5" />
         </Navigation.Group>
         <Navigation.Item icon={<Icon type="apple" />} title="Navigation 4" index="navigation4" />
