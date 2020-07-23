@@ -5,7 +5,7 @@
 
 $navigation-prefix: '#{$prefix}-navigation';
 $navigation-item-prefix: '#{$prefix}-navigation-item';
-$navigation-sub-item-prefix: '#{$prefix}-navigation-sub-item';
+$navigation-group-prefix: '#{$prefix}-navigation-group';
 
 .#{$navigation-prefix} {
   display: inline-flex;
@@ -17,21 +17,41 @@ $navigation-sub-item-prefix: '#{$prefix}-navigation-sub-item';
   text-align: left;
   overflow: hidden;
 
-  .#{$navigation-item-prefix} {
+  > .#{$navigation-item-prefix},
+  > .#{$navigation-group-prefix} {
+    font-size: $typography-paragraph1;
+    font-weight: bold;
+  }
+
+  .#{$navigation-item-prefix},
+  .#{$navigation-group-prefix} {
     position: relative;
-    display: inline-flex;
-    width: 100%;
+    display: flex;
     height: 46px;
     padding-left: 24px;
     align-items: center;
-    font-size: $typography-caption1;
-    line-height: 17px;
     transition: color 0.2s ease 0s;
     cursor: pointer;
     user-select: none;
     box-sizing: border-box;
 
+    &:not(:first-child) {
+      margin-top: 8px;
+    }
+
+    &--icon {
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    &--title {
+      vertical-align: middle;
+    }
+  }
+
+  .#{$navigation-item-prefix} {
     &.#{$navigation-item-prefix}--active {
+      border-right: 3px solid $indigo;
       background-color: $indigo-lighter;
       color: $indigo;
 
@@ -48,62 +68,49 @@ $navigation-sub-item-prefix: '#{$prefix}-navigation-sub-item';
     &:not(.nohover):not(.disabled):hover {
       background-color: #E9EBF5;
     }
-
-    .#{$navigation-item-prefix}--icon {
-      margin-right: 8px;
-      vertical-align: middle;
-    }
-
-    .#{$navigation-item-prefix}--title {
-      vertical-align: middle;
-    }
   }
 
-  .#{$navigation-sub-item-prefix} {
-    position: relative;
-    display: inline-flex;
-    height: 32px;
-    padding-left: 52px;
-    align-items: center;
-    cursor: pointer;
-    user-select: none;
-    box-sizing: border-box;
+  .#{$navigation-group-prefix} {
+    &--active {
+      color: $indigo;
 
-    .#{$navigation-sub-item-prefix}--title {
-      vertical-align: middle;
-      font-size: $typography-caption2;
-      color: $ink-light;
-    }
-
-    &:hover {
-      .#{$navigation-sub-item-prefix}--title {
-        color: $ink;
+      svg {
+        fill: $indigo;
       }
     }
 
-    &.#{$navigation-sub-item-prefix}--active {
-      .#{$navigation-sub-item-prefix}--title {
-        font-weight: bold;
-        color: $indigo;
-      }
-
-      &:before {
-        content: '';
-        position: absolute;
-        left: 40px;
-        display: block;
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-        background-color: $indigo;
-      }
-    }
-
-    &.#{$navigation-sub-item-prefix}--disabled {
+    &--disabled {
+      opacity: 0.5;
       cursor: not-allowed;
+    }
 
-      .#{$navigation-sub-item-prefix}--title {
-        color: $ink-lightest;
+    &:not(.nohover):not(.disabled):hover {
+      background-color: #E9EBF5;
+    }
+
+    &--expand {
+      margin-left: auto;
+      margin-right: 24px;
+
+      &-open {
+        transform: rotate(-180deg);
+      }
+    }
+
+    &--children {
+      padding-top: 8px;
+      box-sizing: border-box;
+
+      > .#{$navigation-item-prefix} {
+        font-size: $typography-paragraph3;
+        font-weight: normal;
+
+        .#{$navigation-item-prefix}--title {
+          margin-left: 32px;
+        }
+        .#{$prefix}-icon + .#{$navigation-item-prefix}--title {
+          margin-left: 0;
+        }
       }
     }
   }

@@ -41,7 +41,7 @@ export const Color = () => {
       style={{
         display: 'inline-block',
         width: 150,
-        height: 100,
+        height: 110,
         marginRight: 10,
         textAlign: 'center',
         borderRadius: 4,
@@ -51,13 +51,13 @@ export const Color = () => {
         fontSize: 12,
       }}
     >
-      <div style={{ width: '100%', height: 60, backgroundColor: color, marginBottom: 6 }} />
-      <div style={{ marginBottom: 2 }}>
-        <Text strong size="small">
-          {name}
-        </Text>
-      </div>
-      <Text size="small">{color}</Text>
+      <div style={{ width: '100%', height: 60, backgroundColor: color, marginBottom: 4 }} />
+      <Text block strong size="small">
+        {name}
+      </Text>
+      <Text block size="tiny">
+        {color}
+      </Text>
     </div>
   );
   return (
