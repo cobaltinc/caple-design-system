@@ -1,10 +1,10 @@
 import React from 'react';
 import Input, { FloatingLabelInputProps } from './Input';
-import './Input.style.scss';
+import './FloatingLabelInput.style.scss';
 
-export interface InputEmailProps extends FloatingLabelInputProps {}
+// export interface InputEmailProps extends FloatingLabelInputProps {}
 
-export default React.forwardRef<HTMLInputElement | null, InputEmailProps>(({ ...props }, ref) => {
+export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps>(({ ...props }, ref) => {
   const { useRef, useImperativeHandle } = React;
   const inputRef = useRef<HTMLInputElement>(null);
   useImperativeHandle(ref, () => inputRef.current, [inputRef]);

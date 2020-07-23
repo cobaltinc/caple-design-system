@@ -35,71 +35,106 @@ $input-prefix: '#{$prefix}-input';
 
     &.#{$input-prefix}--size-tiny {
       height: 24px;
-      padding: 0 6px;
 
       input {
         margin-top: -1px;
         height: 20px;
+        padding: 0 6px;
         font-size: $typography-caption1;
 
         &::placeholder {
           font-size: $typography-caption2;
         }
       }
+
+      .#{$input-prefix}--prefix {
+        margin-left: 6px;
+      }
+      .#{$input-prefix}--subfix {
+        margin-right: 6px;
+      }
     }
     &.#{$input-prefix}--size-small {
       height: 30px;
-      padding: 0 8px;
 
       input {
         height: 26px;
+        padding: 0 8px;
         font-size: $typography-paragraph3;
 
         &::placeholder {
           font-size: $typography-caption1;
         }
       }
+
+      .#{$input-prefix}--prefix {
+        margin-left: 8px;
+      }
+      .#{$input-prefix}--subfix {
+        margin-right: 8px;
+      }
     }
     &.#{$input-prefix}--size-normal {
       height: 36px;
-      padding: 0 10px;
 
       input {
         height: 32px;
+        padding: 0 10px;
         font-size: $typography-paragraph2;
 
         &::placeholder {
           font-size: $typography-paragraph3;
         }
+      }
+
+      .#{$input-prefix}--prefix {
+        margin-left: 10px;
+      }
+      .#{$input-prefix}--subfix {
+        margin-right: 10px;
       }
     }
     &.#{$input-prefix}--size-large {
       height: 44px;
-      padding: 0 10px;
 
       input {
         height: 40px;
+        padding: 0 10px;
         font-size: $typography-paragraph2;
 
         &::placeholder {
           font-size: $typography-paragraph3;
         }
       }
+
+      .#{$input-prefix}--prefix {
+        margin-left: 10px;
+      }
+      .#{$input-prefix}--subfix {
+        margin-right: 10px;
+      }
     }
     &.#{$input-prefix}--size-xlarge {
       height: 50px;
-      padding: 0 10px;
       font-size: 14px;
       font-weight: bold;
 
       input {
         height: 46px;
+        padding: 0 10px;
         font-size: $typography-paragraph1;
         font-weight: bold;
 
         &::placeholder {
           font-size: $typography-paragraph2;
         }
+      }
+
+      .#{$input-prefix}--prefix {
+        margin-left: 10px;
+      }
+      .#{$input-prefix}--subfix {
+        margin-right: 10px;
       }
     }
 
@@ -143,6 +178,8 @@ $input-prefix: '#{$prefix}-input';
     &.#{$input-prefix}--border-type-none {
       padding: 0;
       border: none;
+      box-shadow: none;
+      background-color: transparent;
     }
 
     .#{$input-prefix}--prefix,
@@ -150,17 +187,8 @@ $input-prefix: '#{$prefix}-input';
       vertical-align: middle;
     }
 
-    .#{$input-prefix}--prefix {
-      margin-right: 4px;
-    }
-
-    .#{$input-prefix}--subfix {
-      margin-left: 4px;
-    }
-
     input {
       width: 100%;
-      padding: 0;
       line-height: 0;
       vertical-align: middle;
       background-color: transparent;

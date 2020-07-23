@@ -174,7 +174,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
             {...props}
           />
           {loading ? (
-            <Spinner size={iconSize} />
+            <Spinner size={iconSize} className={`${classPrefix}--subfix`} />
           ) : subfix ? (
             <span className={`${classPrefix}--subfix`}>{React.isValidElement(subfix) ? React.cloneElement(subfix, { size: iconSize }) : subfix}</span>
           ) : null}

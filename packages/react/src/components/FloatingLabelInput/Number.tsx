@@ -1,7 +1,7 @@
 import React from 'react';
 import Cleave from 'cleave.js';
 import Input, { FloatingLabelInputProps } from './Input';
-import './Input.style.scss';
+import './FloatingLabelInput.style.scss';
 
 export type InputNumberThousandsGroupStyle = 'thousand' | 'lakh' | 'wan' | 'none';
 

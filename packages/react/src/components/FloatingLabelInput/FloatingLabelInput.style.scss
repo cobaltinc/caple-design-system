@@ -3,14 +3,13 @@
 @import '../../styles/variables/color';
 @import '../../styles/variables/motion';
 
-$input-prefix: '#{$prefix}-input';
+$input-prefix: '#{$prefix}-floating-label-input';
 
 .#{$input-prefix} {
   position: relative;
   display: flex;
   width: 100%;
   height: 54px;
-  padding: 16px;
   align-items: center;
   border: 1px solid $sky-dark;
   border-radius: 3px;
@@ -18,7 +17,6 @@ $input-prefix: '#{$prefix}-input';
   background: rgba(249, 250, 251, 0.5);
   box-sizing: border-box;
   transition: all $duration-moderate;
-  cursor: text;
 
   &.#{$input-prefix}--focused {
     border: 2px solid $indigo;
@@ -26,13 +24,14 @@ $input-prefix: '#{$prefix}-input';
 
   label {
     position: absolute;
+    padding-left: 16px;
     font-size: $typography-paragraph2;
     color: $ink-lightest;
     transition: all $duration-moderate;
   }
 
   &.#{$input-prefix}--focused label {
-    transform: translate(0, -8px);
+    transform: translate(0, -10px);
     font-size: $typography-caption2;
     color: $indigo;
   }
@@ -43,16 +42,19 @@ $input-prefix: '#{$prefix}-input';
   }
 
   .#{$input-prefix}--prefix {
-    margin-right: 4px;
+    margin-left: 16px;
+    margin-right: 16px;
   }
 
   .#{$input-prefix}--subfix {
-    margin-left: 4px;
+    margin-left: 16px;
+    margin-right: 16px;
   }
 
   input {
     width: 100%;
-    padding: 0;
+    height: 54px;
+    padding: 16px;
     font-size: $typography-paragraph2;
     line-height: 0;
     color: $ink;
@@ -61,6 +63,7 @@ $input-prefix: '#{$prefix}-input';
     border: none;
     outline: none;
     box-sizing: border-box;
+    z-index: 1;
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
@@ -74,7 +77,7 @@ $input-prefix: '#{$prefix}-input';
   }
 
   &.#{$input-prefix}--focused input {
-    transform: translate(0, 8px);
+    padding-top: 26px;
   }
 
   &:not(.#{$input-prefix}--readonly) {
@@ -88,6 +91,24 @@ $input-prefix: '#{$prefix}-input';
     input:disabled {
       color: $ink;
     }
+  }
+
+  &.#{$input-prefix}--error {
+    border: 1px solid $red-dark;
+    background-color: $red-lighter;
+
+    &.#{$input-prefix}--focused {
+      box-shadow: 0 0 0 2px rgba(255, 24, 24, 0.2);
+    }
+
+    &.#{$input-prefix}--focused label {
+      color: $ink-lightest;
+    }
+  }
+
+  &.#{$input-prefix}--disabled {
+    border: 1px solid $sky-dark;
+    background-color: $sky-light;
   }
 
   .#{$input-prefix}--password-toggle {

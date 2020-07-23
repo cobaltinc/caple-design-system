@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import { warning, kebabToPascal } from '../../utils';
@@ -8,20 +8,19 @@ import './Icon.style.scss';
 
 export type IconSize = 'tiny' | 'small' | 'normal' | 'large' | 'xlarge';
 
-export interface IconProps {
+export interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
   type?: string;
   component?: React.ReactElement;
   size?: number | IconSize;
   rotate?: number;
   spin?: boolean;
   color?: string;
-  onClick?(): void;
   className?: string;
   style?: React.CSSProperties;
 }
 
 export default React.forwardRef<HTMLSpanElement, IconProps>(
-  ({ type, component, size = 14, rotate, spin = false, color = Ink, onClick, className = '', style, ...props }, ref) => {
+  ({ type, component, size = 14, rotate, spin = false, color = Ink, className = '', style, ...props }, ref) => {
     const { useContext } = React;
     const { prefix } = useContext(ConfigContext);
     const classPrefix = `${prefix}-icon`;

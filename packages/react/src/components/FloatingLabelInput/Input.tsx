@@ -74,7 +74,7 @@ export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps
     ref,
   ) => {
     const { useContext, useState, useEffect } = React;
-    const classPrefix = `${useContext(ConfigContext).prefix}-input`;
+    const classPrefix = `${useContext(ConfigContext).prefix}-floating-label-input`;
 
     const [focused, setFocused] = useState(false);
     const [currentValue, setCurrentValue] = useState(value);
@@ -113,13 +113,13 @@ export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps
       onKeyDown?.(event);
     };
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      setCurrentValue(event.target.value);
-      onChange?.(event);
+    const handleInput = (event: React.KeyboardEvent<HTMLInputElement>) => {
+      setCurrentValue(event.currentTarget.value);
+      onInput?.(event);
     };
 
     return (
-      <div className={classNames} style={style} onClick={() => inputRef.current?.focus()}>
+      <div className={classNames} style={style}>
         <label>{label}</label>
         {prefix ? (
           <span className={`${classPrefix}--prefix`}>{React.isValidElement(prefix) ? React.cloneElement(prefix, { size: 24 }) : prefix}</span>
@@ -135,17 +135,17 @@ export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps
           autoCorrect={autoCorrect}
           autoComplete={autoComplete}
           disabled={disabled || readonly}
-          onInput={onInput}
+          onInput={handleInput}
           onFocus={handleFocus}
           onBlur={handleBlur}
           onKeyDown={handleKeyDown}
           onKeyPress={onKeyPress}
           onKeyUp={onKeyUp}
-          onChange={handleChange}
+          onChange={onChange}
           {...props}
         />
         {loading ? (
-          <Spinner size={24} />
+          <Spinner size={24} className={`${classPrefix}--subfix`} />
         ) : subfix ? (
           <span className={`${classPrefix}--subfix`}>{React.isValidElement(subfix) ? React.cloneElement(subfix, { size: 24 }) : subfix}</span>
         ) : null}
