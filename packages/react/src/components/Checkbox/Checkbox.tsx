@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import './Checkbox.style.scss';
@@ -35,6 +35,10 @@ export default ({
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-checkbox`;
   const [check, setCheck] = useState(checked);
+
+  useEffect(() => {
+    setCheck(check);
+  }, [checked]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCheck(event.target.checked);
