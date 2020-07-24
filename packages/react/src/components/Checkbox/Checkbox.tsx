@@ -37,7 +37,7 @@ export default ({
   const [check, setCheck] = useState(checked);
 
   useEffect(() => {
-    setCheck(check);
+    setCheck(checked);
   }, [checked]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
