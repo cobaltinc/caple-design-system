@@ -8,21 +8,23 @@ import './Navigation.style.scss';
 
 export interface NavigationProps {
   children: React.ReactNode;
-  defaultActive?: string;
+  active?: string;
   onChange?(active?: string): void;
   className?: string;
   style?: React.CSSProperties;
 }
 
-const Navigation = ({ children, defaultActive, onChange, className = '', style, ...props }: NavigationProps) => {
-  const { useContext, useReducer } = React;
+const Navigation = ({ children, active, onChange, className = '', style, ...props }: NavigationProps) => {
+  const { useContext, useReducer, useEffect } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-navigation`;
   const classNames = classnames(classPrefix, className);
 
-  const [state, dispatch] = useReducer(NavigationReducer, {
-    active: defaultActive,
-  });
+  const [state, dispatch] = useReducer(NavigationReducer, { active });
+
+  useEffect(() => {
+    dispatch({ active });
+  }, [active]);
 
   const items = React.Children.toArray(children).filter(element => {
     if ((element as any).type !== NavigationItem && (element as any).type !== NavigationGroup) {
