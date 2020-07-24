@@ -29,6 +29,7 @@ export { default as Navigation } from './components/Navigation';
 export { default as Pagination } from './components/Pagination';
 export { default as Popover } from './components/Popover';
 export { default as ProgressIndicator } from './components/ProgressIndicator';
+export { default as Scroll } from './components/Scroll';
 export { default as Select } from './components/Select';
 export { default as Skeleton } from './components/Skeleton';
 export { default as Slider } from './components/Slider';
