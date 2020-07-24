@@ -8,7 +8,7 @@ export default {
 export const Default = () => {
   return (
     <div style={{ padding: 30 }}>
-      <FloatingLabelInput.Text label="Title" />
+      <FloatingLabelInput.Text label="Title" defaultValue="asdf" />
     </div>
   );
 };

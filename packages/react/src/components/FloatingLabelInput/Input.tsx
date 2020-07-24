@@ -90,6 +90,7 @@ export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps
       [`${classPrefix}--disabled`]: disabled,
       [`${classPrefix}--readonly`]: readonly,
       [`${classPrefix}--focused`]: focused,
+      [`${classPrefix}--active`]: defaultValue ? (currentValue === undefined ? true : currentValue ? true : false) : currentValue ? true : false,
       [`${classPrefix}--error`]: error,
       className,
     });
@@ -100,9 +101,7 @@ export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps
     };
 
     const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-      if (!currentValue) {
-        setFocused(false);
-      }
+      setFocused(false);
       onBlur?.(event);
     };
 
