@@ -34,4 +34,8 @@ $tag-prefix: '#{$prefix}-tag';
     color: $red-dark;
     background-color: $red-lighter;
   }
+  &.#{$tag-prefix}--preset-ink {
+    color: $ink-light;
+    background-color: $sky-light;
+  }
 }
