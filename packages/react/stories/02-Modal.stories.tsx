@@ -25,7 +25,7 @@ const ModalContent = ({ onSubmit }: ModalContentProps) => {
 
   return (
     <div style={{ padding: 30 }}>
-      <Header level={4}>Form</Header>
+      <Header level={3}>Form</Header>
       <Spacer size={30} />
       <Input.Text placeholder="Please enter your email." />
       <Spacer size={10} />
