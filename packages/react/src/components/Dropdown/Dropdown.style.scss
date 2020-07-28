@@ -1,0 +1,46 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/motion';
+@import '../../styles/variables/typography';
+
+$dropdown-prefix: '#{$prefix}-dropdown';
+
+.#{$dropdown-prefix} {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  min-width: 120px;
+  border-radius: 2px;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.08), 0px 3px 6px rgba(0, 0, 0, 0.12), 0px 9px 28px rgba(0, 0, 0, 0.05);
+  background-color: white;
+  opacity: 0;
+  will-change: opacity;
+  transition: opacity $duration-fast $ease-in;
+  overflow: hidden;
+
+  &.#{$dropdown-prefix}--active {
+    opacity: 1;
+  }
+
+  // Top
+  &.top {
+    transform: translate(-50%, -100%);
+  }
+
+  &.top-left {
+    transform: translateY(-100%);
+  }
+
+  &.top-right {
+    transform: translate(-100%, -100%);
+  }
+
+  // Bottom
+  &.bottom {
+    transform: translateX(-50%);
+  }
+
+  &.bottom-right {
+    transform: translate(-100%);
+  }
+}

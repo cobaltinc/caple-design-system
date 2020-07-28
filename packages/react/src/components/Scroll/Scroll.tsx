@@ -71,7 +71,7 @@ export default ({ children, height, autoHide = true, className = '', style, ...p
   const handleMouseEnter = autoHide ? () => setState({ ...state, visible: true }) : undefined;
   const handleMouseLeave = autoHide ? () => setState({ ...state, visible: false }) : undefined;
 
-  const scrollBarWidth = getScrollbarWidth();
+  const scrollBarWidth = typeof window === 'object' ? getScrollbarWidth() : 0;
 
   return (
     <div

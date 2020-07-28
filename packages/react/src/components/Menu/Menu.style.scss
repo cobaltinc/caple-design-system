@@ -1,5 +1,6 @@
 @import '../../styles/base/core';
 @import '../../styles/variables/color';
+@import '../../styles/variables/typography';
 
 $menu-prefix: '#{$prefix}-menu';
 $menu-divider-prefix: '#{$prefix}-menu-divider';
@@ -9,14 +10,19 @@ $menu-item-prefix: '#{$prefix}-menu-item';
   display: block;
   padding: 8px 0;
   margin: 0;
+  font-size: $typography-paragraph3;
   background-color: white;
   list-style-type: none;
 
   .#{$menu-item-prefix} {
+    position: relative;
+    height: 36px;
     padding: 8px 16px;
     color: $ink-light;
-    border-radius: 4px;
     cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 0.2s;
+    will-change: background-color;
 
     .#{$menu-item-prefix}--icon {
       margin-right: 8px;
@@ -30,13 +36,28 @@ $menu-item-prefix: '#{$prefix}-menu-item';
       margin-right: 8px;
     }
 
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      transition: border-color 0.2s;
+      will-change: border-color;
+    }
+
     &:hover {
       color: $ink;
+      background-color: $indigo-lighter;
 
       .#{$menu-item-prefix}--icon {
         svg {
           fill: $ink;
         }
+      }
+
+      &::before {
+        border-left: 2px solid $indigo;
       }
     }
 

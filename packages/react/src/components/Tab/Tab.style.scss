@@ -85,6 +85,8 @@ $tab-item-prefix: '#{$prefix}-tab-item';
 
   &.#{$tab-prefix}--ghost * {
     background-color: transparent !important;
-    border-right: none !important;
+    .#{$tab-item-prefix} {
+      border-right: none !important;
+    }
   }
 }

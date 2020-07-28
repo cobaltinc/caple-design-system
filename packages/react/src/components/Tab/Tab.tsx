@@ -20,7 +20,7 @@ const Tab = ({ children, active, onChange, ghost, scrollable, className = '', st
   const { useContext, useEffect, useState, useRef } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-tab`;
-  const classNames = classnames(classPrefix, `${classPrefix}--ghost`, className);
+  const classNames = classnames(classPrefix, { [`${classPrefix}--ghost`]: ghost }, className);
 
   const [currentActive, setCurrentActive] = useState(active);
   useEffect(() => {
