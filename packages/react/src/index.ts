@@ -18,6 +18,7 @@ export { default as Checkbox } from './components/Checkbox';
 export { default as Collapse } from './components/Collapse';
 export { default as Divider } from './components/Divider';
 export { default as FloatingLabelInput } from './components/FloatingLabelInput';
+export { default as FloatingLabelSelect } from './components/FloatingLabelSelect';
 export { default as Grid } from './components/Grid';
 export { default as Header } from './components/Header';
 export { default as Icon } from './components/Icon';
