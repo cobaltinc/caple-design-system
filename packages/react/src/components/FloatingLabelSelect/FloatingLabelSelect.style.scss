@@ -1,0 +1,130 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/typography';
+@import '../../styles/variables/color';
+@import '../../styles/variables/motion';
+
+$select-prefix: '#{$prefix}-floating-label-select';
+
+.#{$select-prefix}--container {
+  position: relative;
+  display: block;
+  cursor: pointer;
+
+  .#{$select-prefix} {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 54px;
+    padding: 0 16px;
+    align-items: center;
+    border: 1px solid $sky-dark;
+    border-radius: 3px;
+    box-shadow: inset 0px 1px 2px rgba(102, 113, 123, 0.21);
+    background: rgba(249, 250, 251, 0.5);
+    box-sizing: border-box;
+    transition: all $duration-moderate;
+
+    &.#{$select-prefix}--focused {
+      border: 2px solid $indigo;
+    }
+
+    label {
+      position: absolute;
+      font-size: $typography-paragraph2;
+      color: $ink-lightest;
+      transition: all $duration-moderate;
+    }
+
+    &.#{$select-prefix}--focused label,
+    &.#{$select-prefix}--active label {
+      transform: translate(0, -10px);
+      font-size: $typography-caption2;
+      color: $indigo;
+    }
+
+    select {
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+
+    .#{$select-prefix}--value {
+      width: 100%;
+    }
+
+    &.#{$select-prefix}--focused .#{$select-prefix}--value,
+    &.#{$select-prefix}--active .#{$select-prefix}--value {
+      transform: translate(0, 8px);
+    }
+
+    &.#{$select-prefix}--error {
+      border: 1px solid $red-dark;
+      background-color: $red-lighter;
+
+      &.#{$select-prefix}--focused {
+        box-shadow: 0 0 0 2px rgba(255, 24, 24, 0.2);
+      }
+
+      &.#{$select-prefix}--focused label,
+      &.#{$select-prefix}--active label {
+        color: $ink-lightest;
+      }
+    }
+
+    &.#{$select-prefix}--disabled {
+      border: 1px solid $sky-dark;
+      background-color: $sky-light;
+      color: #919eab;
+      cursor: not-allowed;
+    }
+
+    .#{$select-prefix}--caret {
+      vertical-align: middle;
+      transition: transform $duration-moderate;
+
+      &.reverse {
+        transform-origin: center;
+        transform: rotateZ(-180deg) !important;
+      }
+    }
+  }
+
+  .#{$select-prefix}--options {
+    position: absolute;
+    top: calc(100% + 5px);
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: 0 2px 16px 0 rgba(33, 43, 54, 0.08), 0 0 0 1px rgba(6, 44, 82, 0.1);
+    background-color: white;
+    opacity: 0;
+    z-index: 100;
+
+    .#{$select-prefix}-option {
+      display: flex;
+      width: 100%;
+      height: 36px;
+      padding: 0 15px;
+      justify-content: left;
+      align-items: center;
+      font-size: $typography-caption1;
+      color: $ink;
+      box-sizing: border-box;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $sky-light;
+      }
+
+      &.#{$select-prefix}-option--selected {
+        box-shadow: inset 2px 0 0 0 $indigo;
+        background-color: $sky-light;
+      }
+
+      &.#{$select-prefix}-option--disabled {
+        color: $ink-lightest;
+        background-color: white;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
