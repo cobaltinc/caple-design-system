@@ -43,6 +43,7 @@ $alert-prefix: '#{$prefix}-alert';
 
   .#{$alert-prefix}--wrapper {
     display: flex;
+    align-items: center;
 
     > .#{$alert-prefix}--icon {
       flex: 0 0 18px;
@@ -63,10 +64,12 @@ $alert-prefix: '#{$prefix}-alert';
   .#{$alert-prefix}--title {
     flex: 1 1 0px;
     font-size: $typography-paragraph1;
+    vertical-align: middle;
   }
 
   .#{$alert-prefix}--description {
     flex: 1 1 0px;
     font-size: $typography-paragraph3;
+    vertical-align: middle;
   }
 }
