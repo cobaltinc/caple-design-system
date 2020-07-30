@@ -40,28 +40,6 @@ const Select = ({
   const wrapperRef = useRef<HTMLDivElement>(null);
   const selectRef = useRef<HTMLSelectElement>(null);
 
-  const [state, dispatch] = useReducer(FloatingLabelSelectReducer, {
-    active: defaultActive
-      ? {
-          id: defaultActive,
-          title: '',
-          value: '',
-        }
-      : undefined,
-  });
-
-  useEffect(() => {
-    if (state.active) {
-      onChange?.(state.active.value, state.active.title);
-    }
-  }, [state]);
-
-  const inputClassNames = classnames(classPrefix, {
-    [`${classPrefix}--disabled`]: disabled,
-    [`${classPrefix}--focused`]: focused,
-    [`${classPrefix}--active`]: defaultActive ? (state.active === undefined ? true : state.active ? true : false) : state.active ? true : false,
-  });
-
   const options = React.Children.toArray(children).filter(element => {
     if ((element as any).type !== FloatingLabelSelectOption) {
       console.warn(`%c FloatingLabelSelect\n\n`, 'font-weight: bold; font-size: 16px;', `Only accepts FloatingLabelSelectOption as it's children`);
@@ -70,6 +48,29 @@ const Select = ({
 
     return true;
   });
+
+  const [state, dispatch] = useReducer(FloatingLabelSelectReducer, {
+    active: (() => {
+      if (defaultActive) {
+        const optionTypes = options.map(option => {
+          const optionProps = (option as React.ReactElement<FloatingLabelSelectOptionProps>).props;
+          return {
+            id: optionProps.id,
+            value: optionProps.value,
+            title: concatReactNodeToString(optionProps.children),
+          };
+        });
+
+        return optionTypes.find(optionType => optionType.id === defaultActive);
+      }
+    })(),
+  });
+
+  useEffect(() => {
+    if (state.active) {
+      onChange?.(state.active.value, state.active.title);
+    }
+  }, [state]);
 
   const handleClick = () => {
     if (disabled) return;
@@ -132,6 +133,12 @@ const Select = ({
       };
     }
   }, [handleClickOutside]);
+
+  const inputClassNames = classnames(classPrefix, {
+    [`${classPrefix}--disabled`]: disabled,
+    [`${classPrefix}--focused`]: focused,
+    [`${classPrefix}--active`]: defaultActive ? (state.active === undefined ? true : state.active ? true : false) : state.active ? true : false,
+  });
 
   return (
     <FloatingLabelSelectContext.Provider value={{ state, dispatch }}>
