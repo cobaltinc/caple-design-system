@@ -85,7 +85,10 @@ export default ({ children, height, autoHide = true, className = '', style, ...p
       <div ref={contentRef} className={`${classPrefix}--content`} style={{ marginRight: -scrollBarWidth, marginBottom: -scrollBarWidth }}>
         {children}
       </div>
-      <div className={`${classPrefix}--vertical`} style={{ opacity: state.visible ? 1 : 0 }} hidden={state.scrollHeight <= state.clientHeight}>
+      <div
+        className={`${classPrefix}--vertical`}
+        style={{ opacity: state.visible ? 1 : 0, display: state.scrollHeight <= state.clientHeight ? 'none' : 'block' }}
+      >
         <div className={`${classPrefix}--scroll-bar`} style={verticalScrollBarStyle} />
       </div>
     </div>
