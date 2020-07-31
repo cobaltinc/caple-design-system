@@ -8,6 +8,7 @@ $link-prefix: '#{$prefix}-link';
 .#{$link-prefix}--wrapper {
   position: relative;
   display: inline-block;
+  vertical-align: middle;
 }
 
 .#{$link-prefix} {
