@@ -12,6 +12,7 @@ export interface LinkProps {
   size?: LinkSizeType | number;
   href?: string;
   target?: string;
+  strong?: boolean;
   underline?: boolean;
   danger?: boolean;
   disabled?: boolean;
@@ -22,7 +23,10 @@ export interface LinkProps {
 }
 
 export default React.forwardRef<HTMLAnchorElement, LinkProps>(
-  ({ children, size = 'normal', href, target = '_blank', underline, danger, disabled, loading, onClick, className = '', style, ...props }, ref) => {
+  (
+    { children, size = 'normal', href, target = '_blank', strong, underline, danger, disabled, loading, onClick, className = '', style, ...props },
+    ref,
+  ) => {
     const { useContext } = React;
     const { prefix } = useContext(ConfigContext);
     const classPrefix = `${prefix}-link`;
@@ -35,6 +39,7 @@ export default React.forwardRef<HTMLAnchorElement, LinkProps>(
     const fontStyle: React.CSSProperties = {
       fontSize: typeof size === 'number' ? size : undefined,
       textDecoration: underline ? 'underline' : undefined,
+      fontWeight: strong ? 'bold' : undefined,
       color: danger ? Red : undefined,
     };
 
