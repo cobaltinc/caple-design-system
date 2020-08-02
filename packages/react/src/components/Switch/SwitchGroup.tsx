@@ -10,7 +10,7 @@ interface SwitchGroupProps {
   children: React.ReactNode;
   multiple?: boolean;
   defaultActive?: string | string[];
-  onChange?(values?: SwitchItemType | SwitchItemType[]): void;
+  onChange?(items?: SwitchItemType | SwitchItemType[]): void;
   className?: string;
   style?: React.CSSProperties;
 }
@@ -72,7 +72,6 @@ export default ({ children, multiple = false, defaultActive, onChange, className
   });
 
   useEffect(() => {
-    console.log(state.active);
     onChange?.(state.active);
   }, [state.active]);
 
