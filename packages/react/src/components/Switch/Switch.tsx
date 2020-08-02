@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import SwitchGroup from './SwitchGroup';
 import './Switch.style.scss';
-import SwitchContext from './SwitchContext';
+import SwitchContext, { SwitchItemType } from './SwitchContext';
 
 export interface SwitchProps {
   title: string;
@@ -40,13 +40,25 @@ const Switch: ISwitch<SwitchProps> = ({ title, value, id, name, checked = false,
 
     dispatch?.({
       multiple: state?.multiple ?? false,
-      active: id
-        ? {
-            id,
-            title,
-            value,
-          }
-        : undefined,
+      active:
+        id && !check
+          ? state?.multiple
+            ? [
+                ...(state.active as SwitchItemType[]),
+                {
+                  id,
+                  title,
+                  value,
+                },
+              ]
+            : {
+                id,
+                title,
+                value,
+              }
+          : state?.multiple
+          ? (state.active as SwitchItemType[]).filter(item => item.id !== id)
+          : undefined,
     });
   };
 
