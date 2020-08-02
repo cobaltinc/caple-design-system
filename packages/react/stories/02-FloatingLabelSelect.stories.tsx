@@ -1,5 +1,5 @@
 import React from 'react';
-import { FloatingLabelInput, FloatingLabelSelect, Spacer } from '../src';
+import { FloatingLabelSelect } from '../src';
 
 export default {
   title: 'Component|FloatingLabelSelect',
@@ -19,8 +19,6 @@ export const Default = () => {
           Option 3
         </FloatingLabelSelect.Option>
       </FloatingLabelSelect>
-
-      <FloatingLabelInput.Text label="Test" />
     </div>
   );
 };
