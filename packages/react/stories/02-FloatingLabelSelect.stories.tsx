@@ -8,7 +8,7 @@ export default {
 export const Default = () => {
   return (
     <div style={{ padding: 30, width: 400 }}>
-      <FloatingLabelSelect label="Title">
+      <FloatingLabelSelect label="Title" defaultActive="id2" onChange={value => console.log(value)}>
         <FloatingLabelSelect.Option id="id1" value="1">
           Option 1
         </FloatingLabelSelect.Option>
