@@ -17,8 +17,8 @@ export const Group = () => {
   return (
     <div style={{ padding: 30 }}>
       <Switch.Group>
-        <Switch title="Switch 1" value="value 1" />
-        <Switch title="Switch 2" value="value 2" />
+        <Switch id="switch1" title="Switch 1" value="value 1" />
+        <Switch id="switch2" title="Switch 2" value="value 2" />
       </Switch.Group>
     </div>
   );

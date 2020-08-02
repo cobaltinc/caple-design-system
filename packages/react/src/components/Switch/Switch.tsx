@@ -3,10 +3,12 @@ import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import SwitchGroup from './SwitchGroup';
 import './Switch.style.scss';
+import SwitchContext from './SwitchContext';
 
 export interface SwitchProps {
   title: string;
   value: string;
+  id?: string;
   name?: string;
   checked?: boolean;
   disabled?: boolean;
@@ -19,17 +21,33 @@ type ISwitch<P> = React.FunctionComponent<P> & {
   Group: typeof SwitchGroup;
 };
 
-const Switch: ISwitch<SwitchProps> = ({ title, value, name, checked = false, disabled = false, onChange, className = '', style, ...props }) => {
-  const { useContext, useState } = React;
+const Switch: ISwitch<SwitchProps> = ({ title, value, id, name, checked = false, disabled = false, onChange, className = '', style, ...props }) => {
+  const { useContext, useState, useEffect } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-switch`;
   const classNames = classnames(classPrefix, className);
+  const { state, dispatch } = useContext(SwitchContext);
 
   const [check, setCheck] = useState(checked);
+
+  useEffect(() => {
+    setCheck(checked);
+  }, [checked]);
 
   const handleClick = () => {
     onChange?.(!check, value);
     setCheck(!check);
+
+    dispatch?.({
+      multiple: state?.multiple ?? false,
+      active: id
+        ? {
+            id,
+            title,
+            value,
+          }
+        : undefined,
+    });
   };
 
   return (
