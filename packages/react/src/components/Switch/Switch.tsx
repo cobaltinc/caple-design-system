@@ -35,31 +35,38 @@ const Switch: ISwitch<SwitchProps> = ({ title, value, id, name, checked = false,
   }, [checked]);
 
   const handleClick = () => {
-    onChange?.(!check, value);
-    setCheck(!check);
-
-    dispatch?.({
-      multiple: state?.multiple ?? false,
-      active:
-        id && !check
-          ? state?.multiple
-            ? [
-                ...(state.active as SwitchItemType[]),
-                {
-                  id,
-                  title,
-                  value,
-                },
-              ]
-            : {
-                id,
-                title,
-                value,
-              }
-          : state?.multiple
-          ? (state.active as SwitchItemType[]).filter(item => item.id !== id)
-          : undefined,
-    });
+    if (state?.multiple) {
+      onChange?.(!check, value);
+      setCheck(!check);
+      if (id && !check) {
+        dispatch?.({
+          multiple: state.multiple,
+          active: [
+            ...(state.active as SwitchItemType[]),
+            {
+              id,
+              title,
+              value,
+            },
+          ],
+        });
+      } else {
+        dispatch?.({ multiple: state.multiple, active: (state.active as SwitchItemType[]).filter(item => item.id !== id) });
+      }
+    } else {
+      if (id && !check && id !== (state?.active as SwitchItemType).id) {
+        onChange?.(!check, value);
+        setCheck(!check);
+        dispatch?.({
+          multiple: state?.multiple ?? false,
+          active: {
+            id,
+            title,
+            value,
+          },
+        });
+      }
+    }
   };
 
   return (
