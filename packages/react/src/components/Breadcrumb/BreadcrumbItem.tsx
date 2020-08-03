@@ -53,7 +53,7 @@ BreadcrumbItem.render = ({
           </Text>
         )}
       </a>
-      {hasSeperator ? <Icon type="chenvron-right" color={SkyDark} className={`${classPrefix}--separator`} /> : null}
+      {hasSeperator ? <Icon type="chevron-right" color={SkyDark} className={`${classPrefix}--separator`} /> : null}
     </span>
   );
 };

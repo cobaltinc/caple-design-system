@@ -16,7 +16,7 @@ export default ({ type, onClick }: ScrollLeftProps) => {
 
   return (
     <div className={classPrefix} onClick={onClick}>
-      <Icon type={`chenvron-${type}`} color={Colors.Indigo} />
+      <Icon type={`chevron-${type}`} color={Colors.Indigo} />
     </div>
   );
 };
