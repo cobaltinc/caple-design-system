@@ -33,14 +33,16 @@ export const Default = ({ onSubmit }: ModalProps) => {
   };
 
   const footerButton = (
-    <>
-      <Button type="basic" onClick={() => setVisible(false)}>
-        Cancel
-      </Button>
-      <Button type="core" style={{ margin: 10 }} onClick={handleSubmit} loading={loading}>
-        Submit
-      </Button>
-    </>
+    <div style={{ display: 'flex', height: 60, justifyContent: 'flex-end', alignItems: 'center' }}>
+      <Spacer size="tiny" style={{ padding: '0 16px' }}>
+        <Button type="basic" onClick={() => setVisible(false)}>
+          Cancel
+        </Button>
+        <Button type="core" onClick={handleSubmit} loading={loading}>
+          Submit
+        </Button>
+      </Spacer>
+    </div>
   );
 
   return (
