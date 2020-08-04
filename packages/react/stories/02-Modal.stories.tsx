@@ -1,18 +1,27 @@
 import React from 'react';
-import { Modal, Button, Header, Input, Spacer, Grid } from '../src';
-
-const { Row, Col } = Grid;
+import { Modal, Button, Input, Spacer } from '../src';
 
 export default {
   title: 'Component|Modal',
 };
 
-interface ModalContentProps {
+interface ModalProps {
   onSubmit(): void;
 }
 
-const ModalContent = ({ onSubmit }: ModalContentProps) => {
+const ModalContent = () => {
+  return (
+    <div style={{ padding: 24 }}>
+      <Input.Text placeholder="Please enter your email." />
+      <Spacer size={10} />
+      <Input.Password placeholder="Please enter your password." />
+    </div>
+  );
+};
+
+export const Default = ({ onSubmit }: ModalProps) => {
   const { useState } = React;
+  const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = () => {
@@ -23,38 +32,22 @@ const ModalContent = ({ onSubmit }: ModalContentProps) => {
     }, 1000);
   };
 
-  return (
-    <div style={{ padding: 30 }}>
-      <Header level={3}>Form</Header>
-      <Spacer size={30} />
-      <Input.Text placeholder="Please enter your email." />
-      <Spacer size={10} />
-      <Input.Password placeholder="Please enter your password." />
-      <Spacer size={10} />
-      <Row justify="end">
-        <Col>
-          <Button type="core" onClick={handleSubmit} loading={loading}>
-            Submit
-          </Button>
-        </Col>
-      </Row>
-    </div>
+  const footerButton = (
+    <>
+      <Button type="basic" onClick={() => setVisible(false)}>
+        Cancel
+      </Button>
+      <Button type="core" style={{ margin: 10 }} onClick={handleSubmit} loading={loading}>
+        Submit
+      </Button>
+    </>
   );
-};
-
-export const Default = () => {
-  const { useState } = React;
-  const [visible, setVisible] = useState(false);
-
-  const handleSubmit = () => {
-    setVisible(false);
-  };
 
   return (
     <div style={{ padding: 30 }}>
       <Button onClick={() => setVisible(true)}>Show Modal</Button>
-      <Modal visible={visible} onClose={() => setVisible(false)}>
-        <ModalContent onSubmit={handleSubmit} />
+      <Modal visible={visible} onClose={() => setVisible(false)} header="Basic Modal" footer={footerButton} footerStyle={{ textAlign: 'right' }}>
+        <ModalContent />
       </Modal>
     </div>
   );

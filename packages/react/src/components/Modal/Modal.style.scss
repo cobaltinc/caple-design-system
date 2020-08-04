@@ -22,18 +22,29 @@ $modal-prefix: '#{$prefix}-modal';
     left: 50%;
     min-height: 30px;
     transform: translate(-50%, -50%);
-    border-radius: 8px;
+    border-radius: 2px;
     background-color: white;
-    box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 9px 28px rgba(0, 0, 0, 0.05), 0px 3px 6px rgba(0, 0, 0, 0.12), 0px 6px 16px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     z-index: 10001;
 
+    .#{$modal-prefix}--header {
+      line-height: 56px;
+      padding-left: 24px;
+      box-shadow: inset 0px -1px 0px #f0f0f0;
+    }
+
     .#{$modal-prefix}--close {
       position: absolute;
-      top: 10px;
-      right: 10px;
+      top: 20px;
+      right: 20px;
       cursor: pointer;
       z-index: 10;
+    }
+
+    .#{$modal-prefix}--footer {
+      min-height: 60px;
+      box-shadow: inset 0px 1px 0px #f0f0f0;
     }
   }
 }
