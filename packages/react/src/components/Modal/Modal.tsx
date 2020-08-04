@@ -88,7 +88,7 @@ export default ({
       <div className={`${classPrefix}--dim`} style={dimStyle} onClick={onClose}>
         <div className={classNames} style={{ ...style, ...containerStyle }} onClick={e => e.stopPropagation()}>
           {header ? (
-            <Header level={3} className={classnames(`${classPrefix}--header`, headerClassName)} style={headerStyle}>
+            <Header strong level={3} className={classnames(`${classPrefix}--header`, headerClassName)} style={headerStyle}>
               {header}
             </Header>
           ) : null}
