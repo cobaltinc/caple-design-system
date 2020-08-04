@@ -55,7 +55,7 @@ export default ({ children, icon, title, disabled, defaultExpand, onClick, class
       <div className={classnames(classNames, { [`${classPrefix}--active`]: hasActiveItem })} style={style} onClick={handleClick} {...props}>
         {icon ? React.cloneElement(icon, { size: 24, className: `${classPrefix}--icon` }) : null}
         <span className={`${classPrefix}--title`}>{title}</span>
-        <Icon type="chenvron-down" size={12} className={classnames(`${classPrefix}--expand`, { [`${classPrefix}--expand-open`]: expand })} />
+        <Icon type="chevron-down" size={12} className={classnames(`${classPrefix}--expand`, { [`${classPrefix}--expand-open`]: expand })} />
       </div>
 
       <ExpandTransition open={expand}>

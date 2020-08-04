@@ -100,7 +100,7 @@ export const Check = (props: any) => {
   );
 };
 
-export const ChenvronDown = (props: any) => {
+export const ChevronDown = (props: any) => {
   const { color, size, ...otherProps } = props;
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 32 32" fill={color} {...otherProps}>
@@ -109,7 +109,7 @@ export const ChenvronDown = (props: any) => {
   );
 };
 
-export const ChenvronLeft = (props: any) => {
+export const ChevronLeft = (props: any) => {
   const { color, size, ...otherProps } = props;
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 32 32" fill={color} {...otherProps}>
@@ -118,7 +118,7 @@ export const ChenvronLeft = (props: any) => {
   );
 };
 
-export const ChenvronRight = (props: any) => {
+export const ChevronRight = (props: any) => {
   const { color, size, ...otherProps } = props;
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 32 32" fill={color} {...otherProps}>
@@ -127,7 +127,7 @@ export const ChenvronRight = (props: any) => {
   );
 };
 
-export const ChenvronUp = (props: any) => {
+export const ChevronUp = (props: any) => {
   const { color, size, ...otherProps } = props;
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 32 32" fill={color} {...otherProps}>
