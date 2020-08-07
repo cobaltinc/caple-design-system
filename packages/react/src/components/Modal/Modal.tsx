@@ -85,7 +85,7 @@ export default ({
 
   return ReactDOM.createPortal(
     <FadeTransition show={visible}>
-      <div className={`${classPrefix}--dim`} style={dimStyle} onClick={onClose}>
+      <div className={`${classPrefix}--dim`} style={dimStyle}>
         <div className={classNames} style={{ ...style, ...containerStyle }} onClick={e => e.stopPropagation()}>
           {header ? (
             <Header strong level={3} className={classnames(`${classPrefix}--header`, headerClassName)} style={headerStyle}>
