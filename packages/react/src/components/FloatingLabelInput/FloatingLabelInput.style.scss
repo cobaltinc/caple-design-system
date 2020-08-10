@@ -32,6 +32,10 @@ $input-prefix: '#{$prefix}-floating-label-input';
     transition: all $duration-moderate;
   }
 
+  &.#{$input-prefix}--disabled label {
+    color: $sky-dark;
+  }
+
   &.#{$input-prefix}--focused label,
   &.#{$input-prefix}--active label {
     transform: translateY(calc(-50% - 10px));
@@ -132,6 +136,6 @@ $input-prefix: '#{$prefix}-floating-label-input';
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
-input:-webkit-autofill:active  {
+input:-webkit-autofill:active {
   box-shadow: 0 0 0 30px transparent inset !important;
 }
