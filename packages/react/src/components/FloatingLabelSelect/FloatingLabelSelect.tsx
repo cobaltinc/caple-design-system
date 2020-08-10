@@ -15,7 +15,9 @@ export interface FloatingLabelSelectProps {
   label: string;
   name?: string;
   disabled?: boolean;
+  readonly?: boolean;
   loading?: boolean;
+  error?: boolean;
   onChange?(value: string, title: string): void;
   className?: string;
   style?: React.CSSProperties;
@@ -26,8 +28,10 @@ const Select = ({
   defaultActive,
   label,
   name,
-  disabled = false,
+  disabled,
+  readonly,
   loading,
+  error,
   onChange,
   className = '',
   style,
@@ -72,25 +76,13 @@ const Select = ({
     }
   }, [state]);
 
-  const handleClick = () => {
-    if (disabled) return;
-    setFocused(!focused);
-    selectRef.current?.focus();
-  };
-
   const handleFocus = () => {
-    if (disabled) return;
+    if (disabled || readonly) return;
     setFocused(true);
   };
 
   const handleBlur = () => {
     setFocused(false);
-  };
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (wrapperRef.current && !wrapperRef.current.contains(event.target as HTMLElement)) {
-      setFocused(false);
-    }
   };
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
@@ -125,27 +117,18 @@ const Select = ({
     }
   };
 
-  useEffect(() => {
-    if (handleClickOutside) {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
-      };
-    }
-  }, [handleClickOutside]);
-
   const inputClassNames = classnames(classPrefix, {
     [`${classPrefix}--disabled`]: disabled,
     [`${classPrefix}--focused`]: focused,
+    [`${classPrefix}--error`]: error,
+    [`${classPrefix}--readonly`]: readonly,
     [`${classPrefix}--active`]: defaultActive ? (state.active === undefined ? true : state.active ? true : false) : state.active ? true : false,
   });
 
   return (
     <FloatingLabelSelectContext.Provider value={{ state, dispatch }}>
       <div className={classnames(`${classPrefix}--container`, className)} style={style} {...props}>
-        <div ref={wrapperRef} className={inputClassNames} onClick={handleClick}>
-          <select ref={selectRef} name={name} disabled={disabled} onFocus={handleFocus} onBlur={handleBlur} onKeyDown={handleKeyDown} />
-
+        <div ref={wrapperRef} className={inputClassNames}>
           <label>{label}</label>
           <div className={`${classPrefix}--value`}>{state.active?.title}</div>
 
@@ -154,6 +137,8 @@ const Select = ({
           ) : (
             <Icon type="caret-down" size={24} className={classnames(`${classPrefix}--caret`, { [`reverse`]: focused })} />
           )}
+
+          <select ref={selectRef} name={name} disabled={disabled || readonly} onFocus={handleFocus} onBlur={handleBlur} onKeyDown={handleKeyDown} />
         </div>
 
         <FadeTransition show={focused}>{focused ? <div className={`${classPrefix}--options`}>{options}</div> : null}</FadeTransition>

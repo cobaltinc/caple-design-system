@@ -30,6 +30,8 @@ $select-prefix: '#{$prefix}-floating-label-select';
 
     label {
       position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
       font-size: $typography-paragraph2;
       color: $ink-lightest;
       transition: all $duration-moderate;
@@ -37,15 +39,20 @@ $select-prefix: '#{$prefix}-floating-label-select';
 
     &.#{$select-prefix}--focused label,
     &.#{$select-prefix}--active label {
-      transform: translate(0, -10px);
+      transform: translateY(calc(-50% - 10px));
+      -ms-transform: translateY(-50%) translateY(-10px);
       font-size: $typography-caption2;
       color: $indigo;
     }
 
     select {
-      width: 0;
-      height: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 56px;
       opacity: 0;
+      cursor: pointer;
     }
 
     .#{$select-prefix}--value {
@@ -75,7 +82,16 @@ $select-prefix: '#{$prefix}-floating-label-select';
       border: 1px solid $sky-dark;
       background-color: $sky-light;
       color: #919eab;
-      cursor: not-allowed;
+
+      select {
+        cursor: not-allowed;
+      }
+    }
+
+    &.#{$select-prefix}--readonly {
+      select {
+        cursor: default;
+      }
     }
 
     .#{$select-prefix}--caret {

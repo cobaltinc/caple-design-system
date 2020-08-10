@@ -24,7 +24,9 @@ $input-prefix: '#{$prefix}-floating-label-input';
 
   label {
     position: absolute;
-    padding-left: 16px;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
     font-size: $typography-paragraph2;
     color: $ink-lightest;
     transition: all $duration-moderate;
@@ -32,7 +34,8 @@ $input-prefix: '#{$prefix}-floating-label-input';
 
   &.#{$input-prefix}--focused label,
   &.#{$input-prefix}--active label {
-    transform: translate(0, -10px);
+    transform: translateY(calc(-50% - 10px));
+    -ms-transform: translateY(-50%) translateY(-10px);
     font-size: $typography-caption2;
     color: $indigo;
   }
@@ -79,7 +82,7 @@ $input-prefix: '#{$prefix}-floating-label-input';
 
   &.#{$input-prefix}--focused input,
   &.#{$input-prefix}--active input {
-    padding-top: 26px;
+    transform: translateY(6px);
   }
 
   &:not(.#{$input-prefix}--readonly) {
