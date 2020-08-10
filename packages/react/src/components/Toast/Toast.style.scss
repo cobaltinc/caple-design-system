@@ -7,95 +7,66 @@ $toast-prefix: '#{$prefix}-toast';
 
 ##{$toast-prefix}-portal {
   position: fixed;
-  top: 30px;
-  right: 30px;
-  max-width: 420px;
+  top: 24px;
+  right: 24px;
+  max-width: 450px;
   z-index: 2000;
-  // transition: transform 0.4s, opacity 0.4s ease;
 }
 
 .#{$toast-prefix}--container {
   transform: translate3d(0, -0, -0) scale(1);
-  transition: all 0.4s ease;
-  position: absolute;
-  top: 0;
-  height: 72px;
-  right: 0;
+  transition: all $duration-slow ease;
+  opacity: 0;
 
-  &:nth-last-child(1) {
-    animation: #{$toast-prefix}-show-1 0.4s ease forwards;
-    z-index: 2002;
+  &.#{$toast-prefix}--container-active {
+    opacity: 1;
   }
 
-  &:nth-last-child(2) {
-    animation: #{$toast-prefix}-show-2 0.4s ease forwards;
-    z-index: 2001;
+  &:first-child {
+    animation: #{$toast-prefix}--move $duration-slow ease-out forwards;
   }
 
-  &:nth-last-child(3) {
-    animation: #{$toast-prefix}-show-3 0.4s ease forwards;
-    z-index: 2000;
+  &:not(:first-child) {
+    margin-top: 8px;
   }
 
-  &:nth-last-child(4) {
-    animation: #{$toast-prefix}-show-3 0.4s ease forwards;
-    z-index: 2000;
-  }
-
-  &:nth-last-child(n + 4) {
-    visibility: hidden;
-  }
-
-  @keyframes #{$toast-prefix}-show-1 {
-    from {
-      transform: translate3d(0, 72px, 0);
-    }
-    to {
-      transform: translate3d(0, 0, 0);
-    }
-  }
-  @keyframes #{$toast-prefix}-show-2 {
-    from {
-      transform: translate3d(0, 0, 0) scale(1);
-    }
-    to {
-      transform: translate3d(0, -14px, 0) scale(0.95);
-    }
-  }
-
-  @keyframes #{$toast-prefix}-show-3 {
-    from {
-      transform: translate3d(0, -14px, 0) scale(0.95);
-    }
-    to {
-      transform: translate3d(0, -28px, 0) scale(0.9);
-    }
-  }
-
-  @keyframes #{$toast-prefix}-show-4 {
-    from {
-      transform: translate3d(0, -28px, 0) scale(0.9);
-      opacity: 1;
-    }
-    to {
-      transform: translate3d(0, -32px, 0) scale(0.85);
-      opacity: 0;
-    }
+  @keyframes #{$toast-prefix}--move {
+    0% { margin-top: 78px; }
+    100% { margin-top: 0; }
   }
 
   .#{$toast-prefix} {
-    padding: 0 20px;
-    border-radius: 5px;
-    border: 0;
+    position: relative;
+    display: flex;
     width: 450px;
     height: 70px;
-    color: #212b36;
-    background-color: white;
-    display: flex;
+    padding: 0 20px;
     align-items: center;
-    border: 1px solid #cfd8eb;
-    box-shadow: 0px 1px 3px rgba(63, 63, 68, 0.15), 0px 0px 0px rgba(63, 63, 68, 0.05);
     font-size: $typography-paragraph2;
+    color: #212b36;
+    border-radius: 5px;
+    border: 1px solid #cfd8eb;
+    background-color: white;
+    box-shadow: 0px 1px 3px rgba(63, 63, 68, 0.15), 0px 0px 0px rgba(63, 63, 68, 0.05);
+    box-sizing: border-box;
+    overflow: hidden;
+
+    .#{$toast-prefix}--progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: $indigo;
+      animation-name: #{$toast-prefix}--progress;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+
+      @keyframes #{$toast-prefix}--progress {
+        0% { width: 100%; }
+        100% { width: 0; }
+      }
+    }
 
     .#{$toast-prefix}--icon {
       vertical-align: middle;
@@ -105,6 +76,13 @@ $toast-prefix: '#{$prefix}-toast';
       margin-top: -2px;
       margin-left: 14px;
       vertical-align: middle;
+    }
+
+    &.#{$toast-prefix}--type-error .#{$toast-prefix}--progress {
+      background-color: $red;
+    }
+    &.#{$toast-prefix}--type-warning .#{$toast-prefix}--progress {
+      background-color: $amber;
     }
   }
 }

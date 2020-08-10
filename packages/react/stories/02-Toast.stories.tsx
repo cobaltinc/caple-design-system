@@ -21,6 +21,8 @@ export const Type = () => {
       <Button onClick={() => Toast.success('Success')}>Success</Button>
       <Spacer type="vertical" size={20} />
       <Button onClick={() => Toast.error('Error')}>Error</Button>
+      <Spacer type="vertical" size={20} />
+      <Button onClick={() => Toast.warning('Warning')}>Warning</Button>
     </div>
   );
 };
