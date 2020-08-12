@@ -80,6 +80,14 @@ export const Rotate = () => {
   );
 };
 
+export const Flip = () => {
+  return (
+    <div style={{ padding: 20 }}>
+      <Icon type="pencil" size={80} flip />
+    </div>
+  );
+};
+
 export const Spin = () => {
   return (
     <div style={{ padding: 20 }}>
