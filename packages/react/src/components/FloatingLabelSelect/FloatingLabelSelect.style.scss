@@ -88,6 +88,10 @@ $select-prefix: '#{$prefix}-floating-label-select';
       }
     }
 
+    &.#{$select-prefix}--disabled label {
+      color: $sky-dark;
+    }
+
     &.#{$select-prefix}--readonly {
       select {
         cursor: default;
