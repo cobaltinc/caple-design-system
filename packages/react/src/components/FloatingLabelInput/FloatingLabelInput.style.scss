@@ -32,16 +32,16 @@ $input-prefix: '#{$prefix}-floating-label-input';
     transition: all $duration-moderate;
   }
 
-  &.#{$input-prefix}--disabled label {
-    color: $sky-dark;
-  }
-
   &.#{$input-prefix}--focused label,
   &.#{$input-prefix}--active label {
     transform: translateY(calc(-50% - 10px));
     -ms-transform: translateY(-50%) translateY(-10px);
     font-size: $typography-caption2;
     color: $indigo;
+  }
+
+  &.#{$input-prefix}--disabled label {
+    color: $sky-dark;
   }
 
   .#{$input-prefix}--prefix,
