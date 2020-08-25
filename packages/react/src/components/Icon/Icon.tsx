@@ -13,6 +13,7 @@ export interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
   component?: React.ReactElement;
   size?: number | IconSize;
   rotate?: number;
+  flip?: boolean;
   spin?: boolean;
   color?: string;
   className?: string;
@@ -20,7 +21,7 @@ export interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 export default React.forwardRef<HTMLSpanElement, IconProps>(
-  ({ type, component, size = 14, rotate, spin = false, color = Ink, className = '', style, ...props }, ref) => {
+  ({ type, component, size = 14, rotate, spin, flip, color = Ink, className = '', style, ...props }, ref) => {
     const { useContext } = React;
     const { prefix } = useContext(ConfigContext);
     const classPrefix = `${prefix}-icon`;
@@ -32,7 +33,7 @@ export default React.forwardRef<HTMLSpanElement, IconProps>(
     const shapeStyle = {
       width: typeof size === 'number' ? size : undefined,
       height: typeof size === 'number' ? size : undefined,
-      transform: rotate ? `rotate(${rotate}deg)` : undefined,
+      transform: rotate || flip ? `${rotate ? `rotate(${rotate}deg) ` : ''}${flip ? `scaleX(-1)` : ''}` : undefined,
     };
 
     let IconComponent = null;
