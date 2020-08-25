@@ -9,9 +9,10 @@ export interface TableRowProps {
   children?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
+  onClick?(): void;
 }
 
-export default ({ children, className = '', style }: TableRowProps) => {
+export default ({ children, className = '', onClick, style }: TableRowProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-table-row`;
@@ -24,7 +25,7 @@ export default ({ children, className = '', style }: TableRowProps) => {
   });
 
   return (
-    <tr className={classNames} style={style}>
+    <tr className={classNames} style={style} onClick={onClick}>
       {cells}
     </tr>
   );
