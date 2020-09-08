@@ -58,10 +58,15 @@ export default ({ activePage = 1, itemsCountPerView = 10, totalItemsCount, onCha
     }
   };
 
+  const leftButtonClassName = classnames(classPrefix, {
+    [`${classPrefix}--disabled`]: currentPage === 1,
+    [`${classPrefix}--arrow`]: true,
+  });
+
   return (
     <div className={classNames} style={style} {...props}>
-      <Button className={`${classPrefix}--arrow`} onClick={handlePrevPage}>
-        <Icon type="arrow-left" />
+      <Button className={leftButtonClassName} onClick={handlePrevPage}>
+        <Icon type="chevron-left" color={currentPage === 1 ? '#D9D9D9' : '#000000'} />
       </Button>
 
       {pages.map(index => (
@@ -75,7 +80,7 @@ export default ({ activePage = 1, itemsCountPerView = 10, totalItemsCount, onCha
       ))}
 
       <Button className={`${classPrefix}--arrow`} onClick={handleNextPage}>
-        <Icon type="arrow-right" />
+        <Icon type="chevron-right" />
       </Button>
     </div>
   );

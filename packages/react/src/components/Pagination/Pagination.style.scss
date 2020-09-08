@@ -34,4 +34,8 @@ $pagination-prefix: '#{$prefix}-pagination';
       margin-left: 8px;
     }
   }
+
+  .#{$pagination-prefix}--disabled {
+    pointer-events: none;
+  }
 }
