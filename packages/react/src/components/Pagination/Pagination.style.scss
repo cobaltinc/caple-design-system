@@ -9,21 +9,34 @@ $pagination-prefix: '#{$prefix}-pagination';
 
   .#{$pagination-prefix}--page {
     display: inline-block;
-    padding: 0 16px;
-    font-size: $typography-heading3;
-    font-weight: bold;
+    width: 32px;
+    height: 32px;
+    padding: 7px 0px;
+    text-align: center;
+    font-size: $typography-paragraph2;
+    line-height: 16px;
     vertical-align: middle;
-    color: #8a93a4;
+    color: rgba(0, 0, 0, 0.65);
+    background: #ffffff;
+    border: 1px solid #d9d9d9;
+    box-sizing: border-box;
+    border-radius: 2px;
+    margin-right: 8px;
     cursor: pointer;
+
+    &:last-of-type {
+      margin-right: 0px;
+    }
 
     &.#{$pagination-prefix}--active {
       color: #5d6bc5;
+      border: 1px solid #5d6bc5;
     }
   }
   .#{$pagination-prefix}--arrow {
     display: inline-block;
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     vertical-align: middle;
 
     &:first-of-type {
