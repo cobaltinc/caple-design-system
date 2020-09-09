@@ -41,15 +41,15 @@ export default ({ children, size = 24, color = '#919EAB', dimColor = 'white', lo
   );
 
   return children ? (
-    loading ? (
-      <div className={`${classPrefix}--container`}>
-        {children}
-        <div className={`${classPrefix}--dim`} style={{ backgroundColor: dimColor }} />
-        {spinner}
-      </div>
-    ) : (
-      children
-    )
+    <div className={`${classPrefix}--container`}>
+      {children}
+      {loading ? (
+        <>
+          <div className={`${classPrefix}--dim`} style={{ backgroundColor: dimColor }} />
+          {spinner}
+        </>
+      ) : null}
+    </div>
   ) : loading ? (
     spinner
   ) : null;
