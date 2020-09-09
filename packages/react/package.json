@@ -1,10 +1,6 @@
 {
   "name": "@caple-ui/react",
-<<<<<<< HEAD
-  "version": "0.2.26",
-=======
   "version": "0.2.27",
->>>>>>> develop
   "author": "Cobalt. Inc.",
   "license": "MIT",
   "repository": "https://github.com/cobaltinc/caple-design-system/tree/master/packages/react",
