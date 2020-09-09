@@ -8,11 +8,12 @@ export interface SpinnerProps {
   size?: number;
   color?: string;
   dimColor?: string;
+  loading?: boolean;
   className?: string;
   style?: React.CSSProperties;
 }
 
-export default ({ children, size = 24, color = '#919EAB', dimColor = 'white', className = '', style }: SpinnerProps) => {
+export default ({ children, size = 24, color = '#919EAB', dimColor = 'white', loading = true, className = '', style }: SpinnerProps) => {
   const { useContext } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-spinner`;
@@ -42,10 +43,14 @@ export default ({ children, size = 24, color = '#919EAB', dimColor = 'white', cl
   return children ? (
     <div className={`${classPrefix}--container`}>
       {children}
-      <div className={`${classPrefix}--dim`} style={{ backgroundColor: dimColor }} />
-      {spinner}
+      {loading ? (
+        <>
+          <div className={`${classPrefix}--dim`} style={{ backgroundColor: dimColor }} />
+          {spinner}
+        </>
+      ) : null}
     </div>
-  ) : (
+  ) : loading ? (
     spinner
-  );
+  ) : null;
 };
