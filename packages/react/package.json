@@ -1,6 +1,6 @@
 {
   "name": "@caple-ui/react",
-  "version": "0.2.25",
+  "version": "0.2.27",
   "author": "Cobalt. Inc.",
   "license": "MIT",
   "repository": "https://github.com/cobaltinc/caple-design-system/tree/master/packages/react",
@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@caple-ui/colors": "^0.0.4",
-    "@caple-ui/icons-react": "^0.1.2",
+    "@caple-ui/icons-react": "^0.1.4",
     "classnames": "2.2.6",
     "cleave.js": "^1.5.4",
     "raf": "^3.4.1",
