@@ -51,4 +51,21 @@ $pagination-prefix: '#{$prefix}-pagination';
   .#{$pagination-prefix}--disabled {
     pointer-events: none;
   }
+
+  .#{$pagination-prefix}--bullet {
+    margin-right: 8px;
+  }
+
+  .#{$pagination-prefix}--circle {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-right: 4px;
+    background-color: #d9d9d9;
+
+    &:last-of-type {
+      margin-right: 0px;
+    }
+  }
 }
