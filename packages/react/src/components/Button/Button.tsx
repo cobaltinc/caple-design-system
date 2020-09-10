@@ -51,7 +51,7 @@ export default React.forwardRef<HTMLButtonElement, ButtonProps>(
       [`${classPrefix}--block`]: block,
     });
 
-    const spinnerColor = type === 'basic' ? '#637381' : 'white';
+    const spinnerColor = type === 'basic' || ghost ? '#637381' : 'white';
     const spinnerSize = size === 'tiny' ? 13 : size === 'small' ? 14 : size === 'normal' ? 18 : size === 'large' ? 20 : 24;
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
