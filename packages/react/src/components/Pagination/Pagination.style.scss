@@ -9,9 +9,9 @@ $pagination-prefix: '#{$prefix}-pagination';
 
   .#{$pagination-prefix}--page {
     display: inline-block;
-    width: 32px;
+    min-width: 32px;
     height: 32px;
-    padding: 7px 0px;
+    padding: 7px 11.5px;
     text-align: center;
     font-size: $typography-paragraph2;
     line-height: 16px;
