@@ -12,12 +12,8 @@
   <a href="https://cobalt.run">
     <img src="https://badgen.net/badge/icon/Made%20by%20Cobalt?icon=https://caple-static.s3.ap-northeast-2.amazonaws.com/cobalt-badge.svg&label&color=5B69C3&labelColor=414C9A" />
   </a>
-  <br />
-  <a href="https://github.com/carbon-design-system/carbon/blob/master/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Carbon is released under the Apache-2.0 license" />
-  </a>
-  <a href="https://lernajs.io/">
-    <img src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg" alt="Maintained with Lerna" />
+  <a href="https://github.com/cobaltinc/caple-design-system/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Caple Design System is released under the MIT license" />
   </a>
   <a href="https://github.com/cobaltinc/caple-design-system/blob/master/.github/CONTRIBUTING.md">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome" />
