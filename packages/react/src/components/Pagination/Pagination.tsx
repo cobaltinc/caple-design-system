@@ -64,7 +64,7 @@ export default ({ activePage = 1, itemsCountPerView = 10, totalItemsCount, onCha
         <Icon type="chevron-left" color={currentPage === 1 ? '#D9D9D9' : '#000000'} />
       </Button>
 
-      {currentPage > 3 ? (
+      {currentPage > 3 && totalPage > pages.length ? (
         <>
           <div className={classnames(`${classPrefix}--page`, { [`${classPrefix}--active`]: 1 === currentPage })} onClick={() => handleChangePage(1)}>
             1
@@ -87,7 +87,7 @@ export default ({ activePage = 1, itemsCountPerView = 10, totalItemsCount, onCha
         </div>
       ))}
 
-      {totalPage - 2 > currentPage ? (
+      {totalPage - 2 > currentPage && totalPage > pages.length ? (
         <>
           <div className={`${classPrefix}--bullet`}>
             <div className={`${classPrefix}--circle`} />
