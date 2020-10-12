@@ -20,6 +20,7 @@ export interface TextareaEvent {
   onKeyPress?: React.KeyboardEventHandler<HTMLTextAreaElement>;
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
   onPressEnter?: React.KeyboardEventHandler<HTMLTextAreaElement>;
+  onPaste?: React.ClipboardEventHandler<HTMLTextAreaElement>;
 }
 
 export interface TextareaProps extends TextareaEvent {
@@ -68,12 +69,14 @@ export default ({
   onKeyPress,
   onChange,
   onPressEnter,
+  onPaste,
   className = '',
   style,
   labelClassName = '',
   labelStyle,
   textareaClassName = '',
   textareaStyle,
+  ...props
 }: TextareaProps) => {
   const { useContext, useState, useRef, useEffect } = React;
   const classPrefix = `${useContext(ConfigContext).prefix}-textarea`;
@@ -143,8 +146,10 @@ export default ({
         onKeyPress={onKeyPress}
         onKeyUp={onKeyUp}
         onChange={onChange}
+        onPaste={onPaste}
         className={textareaClassNames}
         style={{ ...textareaStyle, ...resizeStyle, textAlign: align, resize: resizeType }}
+        {...props}
       />
       {loading ? <Spinner size={16} className={`${classPrefix}--loading`} /> : null}
     </div>
