@@ -39,6 +39,18 @@ export const Shape = () => {
   );
 };
 
+export const Mode = () => {
+  return (
+    <div style={{ padding: 30 }}>
+      <Spacer size="small">
+        <Avatar src="https://picsum.photos/200" shape="square" mode="contain"/>
+        <Avatar src="https://picsum.photos/200" shape="square" mode="cover" />
+        <Avatar src="https://picsum.photos/200" shape="square" mode="fill" />
+      </Spacer>
+    </div>
+  );
+};
+
 export const WithBadge = () => {
   return (
     <div style={{ padding: 30 }}>
