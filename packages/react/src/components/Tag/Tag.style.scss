@@ -38,4 +38,16 @@ $tag-prefix: '#{$prefix}-tag';
     color: $ink-light;
     background-color: $sky-light;
   }
+  &.#{$tag-prefix}--preset-indigodark {
+    color: #ffffff;
+    background-color: $indigo-dark;
+  }
+  &.#{$tag-prefix}--preset-indigolight {
+    color: #ffffff;
+    background-color: $indigo-light;
+  }
+  &.#{$tag-prefix}--preset-cyanlight {
+    color: #ffffff;
+    background-color: $cyan-light;
+  }
 }

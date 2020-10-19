@@ -13,12 +13,12 @@ export interface AvatarProps {
   placeholder?: string;
   alt?: string;
   className?: string;
-  objectFit?: 'cover' | 'fill' | 'contain'
+  mode?: 'cover' | 'fill' | 'contain'
   style?: React.CSSProperties;
 }
 
 export default React.forwardRef<HTMLSpanElement, AvatarProps>(
-  ({ size = 80, shape = 'round', src, placeholder, alt, className = '', objectFit = 'cover', style, ...props }, ref) => {
+  ({ size = 80, shape = 'round', src, placeholder, alt, className = '', mode = 'cover', style, ...props }, ref) => {
     const { useContext, useState } = React;
     const [loaded, setLoaded] = useState(false);
     const { prefix } = useContext(ConfigContext);
@@ -53,7 +53,7 @@ export default React.forwardRef<HTMLSpanElement, AvatarProps>(
           })}
           src={src}
           alt={alt}
-          style={{ objectFit }}
+          style={{ objectFit: mode }}
         />
       );
     } else if (placeholder) {
@@ -72,7 +72,7 @@ export default React.forwardRef<HTMLSpanElement, AvatarProps>(
           })}
           src={placeholder}
           alt={alt}
-          style={{ objectFit }}
+          style={{ objectFit: mode }}
         />
       );
     } else {
