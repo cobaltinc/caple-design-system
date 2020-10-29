@@ -9,12 +9,22 @@ export interface PaginationProps {
   activePage?: number;
   itemsCountPerView?: number;
   totalItemsCount: number;
+  option?: 'mobile' | 'descktop';
   onChange?(page: number): void;
   className?: string;
   style?: React.CSSProperties;
 }
 
-export default ({ activePage = 1, itemsCountPerView = 10, totalItemsCount, onChange, className = '', style, ...props }: PaginationProps) => {
+export default ({
+  activePage = 1,
+  itemsCountPerView = 10,
+  totalItemsCount,
+  option = 'descktop',
+  onChange,
+  className = '',
+  style,
+  ...props
+}: PaginationProps) => {
   const { useContext, useState, useEffect } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-pagination`;
@@ -64,7 +74,7 @@ export default ({ activePage = 1, itemsCountPerView = 10, totalItemsCount, onCha
         <Icon type="chevron-left" color={currentPage === 1 ? '#D9D9D9' : '#000000'} />
       </Button>
 
-      {currentPage > 3 && totalPage > pages.length ? (
+      {currentPage > 3 && totalPage > pages.length && option === 'descktop' ? (
         <>
           <div className={classnames(`${classPrefix}--page`, { [`${classPrefix}--active`]: 1 === currentPage })} onClick={() => handleChangePage(1)}>
             1
@@ -87,7 +97,7 @@ export default ({ activePage = 1, itemsCountPerView = 10, totalItemsCount, onCha
         </div>
       ))}
 
-      {totalPage - 2 > currentPage && totalPage > pages.length ? (
+      {totalPage - 2 > currentPage && totalPage > pages.length && option === 'descktop' ? (
         <>
           <div className={`${classPrefix}--bullet`}>
             <div className={`${classPrefix}--circle`} />

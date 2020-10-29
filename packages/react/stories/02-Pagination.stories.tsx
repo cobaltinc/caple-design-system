@@ -12,3 +12,11 @@ export const Default = () => {
     </div>
   );
 };
+
+export const Mobile = () => {
+  return (
+    <div style={{ padding: 30, maxWidth: 500 }}>
+      <Pagination totalItemsCount={150} option="mobile" />
+    </div>
+  );
+};
