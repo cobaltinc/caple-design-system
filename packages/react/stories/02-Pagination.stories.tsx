@@ -7,16 +7,13 @@ export default {
 
 export const Default = () => {
   return (
-    <div style={{ padding: 30, maxWidth: 500 }}>
-      <Pagination totalItemsCount={150} />
-    </div>
-  );
-};
-
-export const Mobile = () => {
-  return (
-    <div style={{ padding: 30, maxWidth: 500 }}>
-      <Pagination totalItemsCount={150} option="mobile" />
-    </div>
+    <>
+      <div style={{ padding: '30px 30px 15px 30px', maxWidth: 500 }}>
+        <Pagination totalItemsCount={150} />
+      </div>
+      <div style={{ padding: '15px 30px 15px 30px', maxWidth: 500 }}>
+        <Pagination totalItemsCount={150} showFirst={false} showLast={false} />
+      </div>
+    </>
   );
 };
