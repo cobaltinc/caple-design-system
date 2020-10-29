@@ -9,7 +9,8 @@ export interface PaginationProps {
   activePage?: number;
   itemsCountPerView?: number;
   totalItemsCount: number;
-  option?: 'mobile' | 'descktop';
+  showFirst?: boolean;
+  showLast?: boolean;
   onChange?(page: number): void;
   className?: string;
   style?: React.CSSProperties;
@@ -19,7 +20,8 @@ export default ({
   activePage = 1,
   itemsCountPerView = 10,
   totalItemsCount,
-  option = 'descktop',
+  showFirst = true,
+  showLast = true,
   onChange,
   className = '',
   style,
@@ -68,22 +70,28 @@ export default ({
     }
   };
 
+  const Bullet = () => {
+    return (
+      <div className={`${classPrefix}--bullet`}>
+        {[0, 1, 2].map((_, index) => (
+          <div key={index} className={`${classPrefix}--circle`} />
+        ))}
+      </div>
+    );
+  };
+
   return (
     <div className={classNames} style={style} {...props}>
       <Button className={classnames(`${classPrefix}--arrow`, { [`${classPrefix}--disabled`]: currentPage === 1 })} onClick={handlePrevPage}>
         <Icon type="chevron-left" color={currentPage === 1 ? '#D9D9D9' : '#000000'} />
       </Button>
 
-      {currentPage > 3 && totalPage > pages.length && option === 'descktop' ? (
+      {currentPage > 3 && totalPage > pages.length && showFirst ? (
         <>
           <div className={classnames(`${classPrefix}--page`, { [`${classPrefix}--active`]: 1 === currentPage })} onClick={() => handleChangePage(1)}>
             1
           </div>
-          <div className={`${classPrefix}--bullet`}>
-            <div className={`${classPrefix}--circle`} />
-            <div className={`${classPrefix}--circle`} />
-            <div className={`${classPrefix}--circle`} />
-          </div>
+          <Bullet />
         </>
       ) : null}
 
@@ -97,13 +105,9 @@ export default ({
         </div>
       ))}
 
-      {totalPage - 2 > currentPage && totalPage > pages.length && option === 'descktop' ? (
+      {totalPage - 2 > currentPage && totalPage > pages.length && showLast ? (
         <>
-          <div className={`${classPrefix}--bullet`}>
-            <div className={`${classPrefix}--circle`} />
-            <div className={`${classPrefix}--circle`} />
-            <div className={`${classPrefix}--circle`} />
-          </div>
+          <Bullet />
           <div
             className={classnames(`${classPrefix}--page`, { [`${classPrefix}--active`]: totalPage === currentPage })}
             onClick={() => handleChangePage(totalPage)}
