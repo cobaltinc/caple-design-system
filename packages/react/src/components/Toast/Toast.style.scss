@@ -10,7 +10,12 @@ $toast-prefix: '#{$prefix}-toast';
   top: 24px;
   right: 24px;
   max-width: 450px;
+  width: 95%;
   z-index: 2000;
+
+  @media (max-width: 500px) {
+    right: 2.5%;
+  }
 }
 
 .#{$toast-prefix}--container {
@@ -38,7 +43,8 @@ $toast-prefix: '#{$prefix}-toast';
   .#{$toast-prefix} {
     position: relative;
     display: flex;
-    width: 450px;
+    max-width: 450px;
+    width: 100%;
     height: 70px;
     padding: 0 20px;
     align-items: center;
