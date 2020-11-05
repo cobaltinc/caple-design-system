@@ -85,3 +85,13 @@ export const Error = () => {
     </div>
   );
 };
+
+export const Subfix = () => {
+  return (
+    <div style={{ padding: 20, maxWidth: 500 }}>
+      <Spacer type="vertical">
+        <FloatingLabelInput.Text label="Title" subfix="SUBFIX" />
+      </Spacer>
+    </div>
+  );
+};

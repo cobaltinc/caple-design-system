@@ -6,6 +6,7 @@ import { IconProps } from '../Icon/Icon';
 import './FloatingLabelInput.style.scss';
 
 export type InputType = 'email' | 'number' | 'text' | 'password' | 'date' | 'time' | 'datetime' | 'url' | 'tel';
+export type InputAlignType = 'left' | 'center' | 'right';
 
 export interface InputEvent {
   onInput?: React.KeyboardEventHandler<HTMLInputElement>;
@@ -29,12 +30,14 @@ export interface FloatingLabelInputProps extends InputEvent {
   autoCorrect?: string;
   disabled?: boolean;
   readonly?: boolean;
+  align?: InputAlignType;
   prefix?: string | React.ReactElement<IconProps>;
   subfix?: string | React.ReactElement<IconProps>;
   error?: boolean;
   loading?: boolean;
   className?: string;
   style?: React.CSSProperties;
+  inputStyle?: React.CSSProperties;
 }
 
 interface Props {
@@ -55,6 +58,7 @@ export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps
       autoCapitalize,
       disabled,
       readonly,
+      align,
       prefix,
       subfix,
       error,
@@ -69,6 +73,7 @@ export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps
       onPressEnter,
       className = '',
       style,
+      inputStyle,
       ...props
     },
     ref,
@@ -120,9 +125,9 @@ export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps
     return (
       <div className={classNames} style={style}>
         <label>{label}</label>
-        {prefix ? (
+        {/* {prefix ? (
           <span className={`${classPrefix}--prefix`}>{React.isValidElement(prefix) ? React.cloneElement(prefix, { size: 24 }) : prefix}</span>
-        ) : null}
+        ) : null} */}
         <input
           ref={inputRef}
           type={type}
@@ -141,6 +146,7 @@ export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps
           onKeyPress={onKeyPress}
           onKeyUp={onKeyUp}
           onChange={onChange}
+          style={{ ...inputStyle, textAlign: align }}
           {...props}
         />
         {loading ? (
