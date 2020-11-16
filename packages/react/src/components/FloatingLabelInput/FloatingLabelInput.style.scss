@@ -64,7 +64,6 @@ $input-prefix: '#{$prefix}-floating-label-input';
     .#{$input-prefix}--subfix {
       transition: all $duration-moderate;
       transform: translateY(6px);
-      color: $ink-lightest;
     }
   }
 
