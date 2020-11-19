@@ -46,10 +46,18 @@ $textarea-prefix: '#{$prefix}-textarea';
         border: 1px solid $sky;
       }
       &.#{$textarea-prefix}--error {
-        background-color: #FBEAE5;
-        border: 1px solid #DE3617;
+        background-color: $red-lighter;
+        border: 1px solid $red-dark;
 
         &:focus {
+          box-shadow: 0 0 0 2px rgba(255, 24, 24, 0.2);
+        }
+      }
+      &.#{$textarea-prefix}--invalid {
+        background-color: $amber-lighter;
+        border: 1px solid $amber-dark;
+
+        &.#{$textarea-prefix}--focused {
           box-shadow: 0 0 0 2px rgba(255, 24, 24, 0.2);
         }
       }
@@ -65,7 +73,10 @@ $textarea-prefix: '#{$prefix}-textarea';
         border-color: $sky;
       }
       &.#{$textarea-prefix}--error {
-        border-color: #DE3617;
+        border-color: $red-dark;
+      }
+      &.#{$textarea-prefix}--invalid {
+        border-color: $amber-dark;
       }
     }
     &.#{$textarea-prefix}--border-type-none {
