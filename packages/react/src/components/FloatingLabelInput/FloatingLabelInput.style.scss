@@ -124,6 +124,20 @@ $input-prefix: '#{$prefix}-floating-label-input';
     }
   }
 
+  &.#{$input-prefix}--invalid {
+    border: 1px solid $amber-dark;
+    background-color: $amber-lighter;
+
+    &.#{$input-prefix}--focused {
+      box-shadow: 0 0 0 2px rgba(255, 24, 24, 0.2);
+    }
+
+    &.#{$input-prefix}--focused label,
+    &.#{$input-prefix}--active label {
+      color: $ink-lightest;
+    }
+  }
+
   &.#{$input-prefix}--disabled {
     border: 1px solid $sky-dark;
     background-color: $sky-light;

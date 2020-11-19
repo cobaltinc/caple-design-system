@@ -2,7 +2,10 @@ import React, { useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import Spinner from '../Spinner';
+import Icon from '../Icon';
+import Text from '../Text';
 import { IconProps } from '../Icon/Icon';
+import { AmberDark, RedDark } from '@caple-ui/colors';
 import './FloatingLabelInput.style.scss';
 
 export type InputType = 'email' | 'number' | 'text' | 'password' | 'date' | 'time' | 'datetime' | 'url' | 'tel';
@@ -34,6 +37,8 @@ export interface FloatingLabelInputProps extends InputEvent {
   prefix?: string | React.ReactElement<IconProps>;
   subfix?: string | React.ReactElement<IconProps>;
   error?: boolean;
+  invalid?: boolean;
+  message?: string;
   loading?: boolean;
   className?: string;
   style?: React.CSSProperties;
@@ -62,6 +67,8 @@ export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps
       prefix,
       subfix,
       error,
+      invalid,
+      message,
       loading,
       onInput,
       onFocus,
@@ -97,6 +104,7 @@ export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps
       [`${classPrefix}--focused`]: focused,
       [`${classPrefix}--active`]: defaultValue ? (currentValue === undefined ? true : currentValue ? true : false) : currentValue ? true : false,
       [`${classPrefix}--error`]: error,
+      [`${classPrefix}--invalid`]: invalid,
       className,
     });
 
@@ -123,38 +131,56 @@ export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps
     };
 
     return (
-      <div className={classNames} style={style}>
-        <label>{label}</label>
-        {/* {prefix ? (
+      <>
+        <div className={classNames} style={style}>
+          <label>{label}</label>
+          {/* {prefix ? (
           <span className={`${classPrefix}--prefix`}>{React.isValidElement(prefix) ? React.cloneElement(prefix, { size: 24 }) : prefix}</span>
         ) : null} */}
-        <input
-          ref={inputRef}
-          type={type}
-          value={currentValue}
-          defaultValue={defaultValue}
-          name={name}
-          autoFocus={autoFocus}
-          autoCapitalize={autoCapitalize}
-          autoCorrect={autoCorrect}
-          autoComplete={autoComplete}
-          disabled={disabled || readonly}
-          onInput={handleInput}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onKeyDown={handleKeyDown}
-          onKeyPress={onKeyPress}
-          onKeyUp={onKeyUp}
-          onChange={onChange}
-          style={{ ...inputStyle, textAlign: align }}
-          {...props}
-        />
-        {loading ? (
-          <Spinner size={24} className={`${classPrefix}--subfix`} />
-        ) : subfix ? (
-          <span className={`${classPrefix}--subfix`}>{React.isValidElement(subfix) ? React.cloneElement(subfix, { size: 24 }) : subfix}</span>
+          <input
+            ref={inputRef}
+            type={type}
+            value={currentValue}
+            defaultValue={defaultValue}
+            name={name}
+            autoFocus={autoFocus}
+            autoCapitalize={autoCapitalize}
+            autoCorrect={autoCorrect}
+            autoComplete={autoComplete}
+            disabled={disabled || readonly}
+            onInput={handleInput}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            onKeyDown={handleKeyDown}
+            onKeyPress={onKeyPress}
+            onKeyUp={onKeyUp}
+            onChange={onChange}
+            style={{ ...inputStyle, textAlign: align }}
+            {...props}
+          />
+          {loading ? (
+            <Spinner size={24} className={`${classPrefix}--subfix`} />
+          ) : subfix ? (
+            <span className={`${classPrefix}--subfix`}>{React.isValidElement(subfix) ? React.cloneElement(subfix, { size: 24 }) : subfix}</span>
+          ) : null}
+        </div>
+        {error && message ? (
+          <>
+            <Icon type="alert-circle" color={RedDark} style={{ marginRight: 4 }} size={16} />
+            <Text color={RedDark} size="normal">
+              {message}
+            </Text>
+          </>
         ) : null}
-      </div>
+        {invalid && message ? (
+          <>
+            <Icon type="alert-circle" color={AmberDark} style={{ marginRight: 4 }} size={16} />
+            <Text color={AmberDark} size="normal">
+              {message}
+            </Text>
+          </>
+        ) : null}
+      </>
     );
   },
 );

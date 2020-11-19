@@ -81,7 +81,15 @@ export const Readonly = () => {
 export const Error = () => {
   return (
     <div style={{ padding: 20, maxWidth: 500 }}>
-      <FloatingLabelInput.Text label="Error" error />
+      <FloatingLabelInput.Text label="Error" error message="error message" />
+    </div>
+  );
+};
+
+export const Invalid = () => {
+  return (
+    <div style={{ padding: 20, maxWidth: 500 }}>
+      <FloatingLabelInput.Text label="Invalid" invalid message="invalid message" />
     </div>
   );
 };
