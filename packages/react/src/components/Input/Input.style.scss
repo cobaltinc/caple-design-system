@@ -153,8 +153,16 @@ $input-prefix: '#{$prefix}-input';
         border: 1px solid $sky;
       }
       &.#{$input-prefix}--error {
-        background-color: #FBEAE5;
-        border: 1px solid #DE3617;
+        background-color: $red-lighter;
+        border: 1px solid $red-dark;
+
+        &.#{$input-prefix}--focused {
+          box-shadow: 0 0 0 2px rgba(255, 24, 24, 0.2);
+        }
+      }
+      &.#{$input-prefix}--invalid {
+        background-color: $amber-lighter;
+        border: 1px solid $amber-dark;
 
         &.#{$input-prefix}--focused {
           box-shadow: 0 0 0 2px rgba(255, 24, 24, 0.2);
@@ -172,7 +180,10 @@ $input-prefix: '#{$prefix}-input';
         border-color: $sky;
       }
       &.#{$input-prefix}--error {
-        border-color: #DE3617;
+        border-color: $red-dark;
+      }
+      &.#{$input-prefix}--invalid {
+        border-color: $amber-dark;
       }
     }
     &.#{$input-prefix}--border-type-none {
@@ -235,7 +246,7 @@ $input-prefix: '#{$prefix}-input';
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
-  input:-webkit-autofill:active  {
+  input:-webkit-autofill:active {
     box-shadow: 0 0 0 30px transparent inset !important;
   }
 }

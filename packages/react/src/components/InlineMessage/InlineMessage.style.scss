@@ -1,0 +1,29 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/typography';
+@import '../../styles/variables/color';
+
+$inline-message-prefix: '#{$prefix}-inline-message';
+
+.#{$inline-message-prefix}--error {
+  color: $red-dark;
+
+  .#{$prefix}-icon {
+    margin-right: 4px;
+  }
+
+  .#{$prefix}-icon svg {
+    fill: $red-dark;
+  }
+}
+
+.#{$inline-message-prefix}--invalid {
+  color: $amber-dark;
+
+  .#{$prefix}-icon {
+    margin-right: 4px;
+  }
+
+  .#{$prefix}-icon svg {
+    fill: $amber-dark;
+  }
+}

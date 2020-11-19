@@ -10,6 +10,7 @@ export type InputType = 'email' | 'number' | 'text' | 'password' | 'date' | 'tim
 export type InputSizeType = 'tiny' | 'small' | 'normal' | 'large' | 'xlarge';
 export type InputBorderType = 'border' | 'underline' | 'none';
 export type InputAlignType = 'left' | 'center' | 'right';
+export type StatusType = 'normal' | 'error' | 'invalid';
 
 export interface InputEvent {
   onInput?: React.KeyboardEventHandler<HTMLInputElement>;
@@ -41,7 +42,7 @@ export interface InputProps extends InputEvent {
   align?: InputAlignType;
   prefix?: string | React.ReactElement<IconProps>;
   subfix?: string | React.ReactElement<IconProps>;
-  error?: boolean;
+  status?: StatusType;
   loading?: boolean;
   className?: string;
   style?: React.CSSProperties;
@@ -77,7 +78,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
       align,
       prefix,
       subfix,
-      error,
+      status,
       loading,
       onInput,
       onFocus,
@@ -111,7 +112,7 @@ export default React.forwardRef<HTMLInputElement, InputProps & Props>(
       [`${classPrefix}--disabled`]: disabled,
       [`${classPrefix}--readonly`]: readonly,
       [`${classPrefix}--focused`]: focused,
-      [`${classPrefix}--error`]: error,
+      [`${classPrefix}--${status}`]: status,
     });
 
     const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {

@@ -10,6 +10,7 @@ import './Textarea.style.scss';
 export type TextareaBorderType = 'border' | 'underline' | 'none';
 export type TextareaAlignType = 'left' | 'center' | 'right';
 export type TextareaResizeType = 'vertical' | 'horizontal' | 'both' | 'none';
+export type StatusType = 'normal' | 'error' | 'invalid';
 
 export interface TextareaEvent {
   onInput?: React.KeyboardEventHandler<HTMLTextAreaElement>;
@@ -36,7 +37,7 @@ export interface TextareaProps extends TextareaEvent {
   resizeType?: TextareaResizeType;
   rows?: number;
   autoSize?: boolean;
-  error?: boolean;
+  status?: StatusType;
   loading?: boolean;
   className?: string;
   style?: React.CSSProperties;
@@ -59,7 +60,7 @@ export default ({
   resizeType = 'vertical',
   rows = 1,
   autoSize = false,
-  error,
+  status,
   loading,
   onInput,
   onFocus,
@@ -89,7 +90,7 @@ export default ({
     [`${classPrefix}--disabled`]: disabled,
     [`${classPrefix}--readonly`]: readonly,
     [`${classPrefix}--focused`]: focused,
-    [`${classPrefix}--error`]: error,
+    [`${classPrefix}--${status}`]: status,
   });
 
   const handleFocus = (event: React.FocusEvent<HTMLTextAreaElement>) => {

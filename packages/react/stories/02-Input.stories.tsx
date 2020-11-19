@@ -165,16 +165,24 @@ export const Readonly = () => {
   );
 };
 
-export const Error = () => {
+export const Status = () => {
   return (
     <div style={{ padding: 20, maxWidth: 500 }}>
-      <Input.Text borderType="border" defaultValue="This is value" error />
+      <Input.Text borderType="border" defaultValue="This is error value" status="error" />
       <Spacer type="horizontal" size={20} />
-      <Input.Text borderType="underline" defaultValue="This is value" error />
+      <Input.Text borderType="underline" defaultValue="This is error value" status="error" />
       <Spacer type="horizontal" size={20} />
-      <Input.Text borderType="none" defaultValue="This is value" error />
+      <Input.Text borderType="none" defaultValue="This is error value" status="error" />
       <Spacer type="horizontal" size={20} />
-      <Input.Textarea rows={4} placeholder="Please tell me your story." error />
+      <Input.Textarea rows={4} placeholder="This is error value" status="error" />
+      <Spacer type="horizontal" size={20} />
+      <Input.Text borderType="border" defaultValue="This is invalid value" status="invalid" />
+      <Spacer type="horizontal" size={20} />
+      <Input.Text borderType="underline" defaultValue="This is invalid value" status="invalid" />
+      <Spacer type="horizontal" size={20} />
+      <Input.Text borderType="none" defaultValue="This is invalid value" status="invalid" />
+      <Spacer type="horizontal" size={20} />
+      <Input.Textarea rows={4} placeholder="This is invalid value" status="invalid" />
     </div>
   );
 };

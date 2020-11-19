@@ -7,6 +7,7 @@ import './FloatingLabelInput.style.scss';
 
 export type InputType = 'email' | 'number' | 'text' | 'password' | 'date' | 'time' | 'datetime' | 'url' | 'tel';
 export type InputAlignType = 'left' | 'center' | 'right';
+export type StatusType = 'normal' | 'error' | 'invalid';
 
 export interface InputEvent {
   onInput?: React.KeyboardEventHandler<HTMLInputElement>;
@@ -33,7 +34,7 @@ export interface FloatingLabelInputProps extends InputEvent {
   align?: InputAlignType;
   prefix?: string | React.ReactElement<IconProps>;
   subfix?: string | React.ReactElement<IconProps>;
-  error?: boolean;
+  status?: StatusType;
   loading?: boolean;
   className?: string;
   style?: React.CSSProperties;
@@ -61,7 +62,7 @@ export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps
       align,
       prefix,
       subfix,
-      error,
+      status = 'normal',
       loading,
       onInput,
       onFocus,
@@ -96,7 +97,7 @@ export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps
       [`${classPrefix}--readonly`]: readonly,
       [`${classPrefix}--focused`]: focused,
       [`${classPrefix}--active`]: defaultValue ? (currentValue === undefined ? true : currentValue ? true : false) : currentValue ? true : false,
-      [`${classPrefix}--error`]: error,
+      [`${classPrefix}--${status}`]: status,
       className,
     });
 
@@ -123,38 +124,40 @@ export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps
     };
 
     return (
-      <div className={classNames} style={style}>
-        <label>{label}</label>
-        {/* {prefix ? (
+      <>
+        <div className={classNames} style={style}>
+          <label>{label}</label>
+          {/* {prefix ? (
           <span className={`${classPrefix}--prefix`}>{React.isValidElement(prefix) ? React.cloneElement(prefix, { size: 24 }) : prefix}</span>
         ) : null} */}
-        <input
-          ref={inputRef}
-          type={type}
-          value={currentValue}
-          defaultValue={defaultValue}
-          name={name}
-          autoFocus={autoFocus}
-          autoCapitalize={autoCapitalize}
-          autoCorrect={autoCorrect}
-          autoComplete={autoComplete}
-          disabled={disabled || readonly}
-          onInput={handleInput}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onKeyDown={handleKeyDown}
-          onKeyPress={onKeyPress}
-          onKeyUp={onKeyUp}
-          onChange={onChange}
-          style={{ ...inputStyle, textAlign: align }}
-          {...props}
-        />
-        {loading ? (
-          <Spinner size={24} className={`${classPrefix}--subfix`} />
-        ) : subfix ? (
-          <span className={`${classPrefix}--subfix`}>{React.isValidElement(subfix) ? React.cloneElement(subfix, { size: 24 }) : subfix}</span>
-        ) : null}
-      </div>
+          <input
+            ref={inputRef}
+            type={type}
+            value={currentValue}
+            defaultValue={defaultValue}
+            name={name}
+            autoFocus={autoFocus}
+            autoCapitalize={autoCapitalize}
+            autoCorrect={autoCorrect}
+            autoComplete={autoComplete}
+            disabled={disabled || readonly}
+            onInput={handleInput}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            onKeyDown={handleKeyDown}
+            onKeyPress={onKeyPress}
+            onKeyUp={onKeyUp}
+            onChange={onChange}
+            style={{ ...inputStyle, textAlign: align }}
+            {...props}
+          />
+          {loading ? (
+            <Spinner size={24} className={`${classPrefix}--subfix`} />
+          ) : subfix ? (
+            <span className={`${classPrefix}--subfix`}>{React.isValidElement(subfix) ? React.cloneElement(subfix, { size: 24 }) : subfix}</span>
+          ) : null}
+        </div>
+      </>
     );
   },
 );

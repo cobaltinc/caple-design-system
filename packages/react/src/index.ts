@@ -23,6 +23,7 @@ export { default as FloatingLabelSelect } from './components/FloatingLabelSelect
 export { default as Grid } from './components/Grid';
 export { default as Header } from './components/Header';
 export { default as Icon } from './components/Icon';
+export { default as InlineMessage } from './components/InlineMessage';
 export { default as Input } from './components/Input';
 export { default as Link } from './components/Link';
 export { default as Menu } from './components/Menu';
