@@ -2,14 +2,12 @@ import React, { useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import Spinner from '../Spinner';
-import Icon from '../Icon';
-import Text from '../Text';
 import { IconProps } from '../Icon/Icon';
-import { AmberDark, RedDark } from '@caple-ui/colors';
 import './FloatingLabelInput.style.scss';
 
 export type InputType = 'email' | 'number' | 'text' | 'password' | 'date' | 'time' | 'datetime' | 'url' | 'tel';
 export type InputAlignType = 'left' | 'center' | 'right';
+export type StatusType = 'normal' | 'error' | 'invalid';
 
 export interface InputEvent {
   onInput?: React.KeyboardEventHandler<HTMLInputElement>;
@@ -36,9 +34,7 @@ export interface FloatingLabelInputProps extends InputEvent {
   align?: InputAlignType;
   prefix?: string | React.ReactElement<IconProps>;
   subfix?: string | React.ReactElement<IconProps>;
-  error?: boolean;
-  invalid?: boolean;
-  message?: string;
+  status?: StatusType;
   loading?: boolean;
   className?: string;
   style?: React.CSSProperties;
@@ -66,9 +62,7 @@ export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps
       align,
       prefix,
       subfix,
-      error,
-      invalid,
-      message,
+      status = 'normal',
       loading,
       onInput,
       onFocus,
@@ -103,8 +97,7 @@ export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps
       [`${classPrefix}--readonly`]: readonly,
       [`${classPrefix}--focused`]: focused,
       [`${classPrefix}--active`]: defaultValue ? (currentValue === undefined ? true : currentValue ? true : false) : currentValue ? true : false,
-      [`${classPrefix}--error`]: error,
-      [`${classPrefix}--invalid`]: invalid,
+      [`${classPrefix}--${status}`]: status,
       className,
     });
 
@@ -164,22 +157,6 @@ export default React.forwardRef<HTMLInputElement | null, FloatingLabelInputProps
             <span className={`${classPrefix}--subfix`}>{React.isValidElement(subfix) ? React.cloneElement(subfix, { size: 24 }) : subfix}</span>
           ) : null}
         </div>
-        {error && message ? (
-          <>
-            <Icon type="alert-circle" color={RedDark} style={{ marginRight: 4 }} size={16} />
-            <Text color={RedDark} size="normal">
-              {message}
-            </Text>
-          </>
-        ) : null}
-        {invalid && message ? (
-          <>
-            <Icon type="alert-circle" color={AmberDark} style={{ marginRight: 4 }} size={16} />
-            <Text color={AmberDark} size="normal">
-              {message}
-            </Text>
-          </>
-        ) : null}
       </>
     );
   },
