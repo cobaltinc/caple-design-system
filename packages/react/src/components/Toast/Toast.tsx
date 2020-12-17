@@ -5,6 +5,7 @@ import Icon from '../Icon';
 import { useTimeout } from '../_hook';
 import './Toast.style.scss';
 import { useEffect } from 'react';
+import * as Colors from '@caple-ui/colors';
 
 export type ToastType = 'default' | 'success' | 'error' | 'warning';
 
@@ -22,7 +23,7 @@ export default ({ message, type = 'default', duration, onDone }: ToastProps) => 
   const classPrefix = `${prefix}-toast`;
   const classNames = classnames(classPrefix, `${classPrefix}--type-${type}`);
 
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   useEffect(() => {
     setShow(true);
   }, []);
@@ -44,6 +45,9 @@ export default ({ message, type = 'default', duration, onDone }: ToastProps) => 
         <div className={`${classPrefix}--progress`} style={{ animationDuration: `${duration}ms` }} />
         <Icon type={iconType} color={iconColor} size={38} className={`${classPrefix}--icon`} />
         <span className={`${classPrefix}--message`}>{message}</span>
+        <div onClick={() => setShow(false)}>
+          <Icon type="close" color={Colors.SkyDark} size={24} className={`${classPrefix}--icon--close`} />
+        </div>
       </div>
     </div>
   );

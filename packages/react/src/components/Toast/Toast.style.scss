@@ -31,8 +31,12 @@ $toast-prefix: '#{$prefix}-toast';
   }
 
   @keyframes #{$toast-prefix}--move {
-    0% { margin-top: 78px; }
-    100% { margin-top: 0; }
+    0% {
+      margin-top: 78px;
+    }
+    100% {
+      margin-top: 0;
+    }
   }
 
   .#{$toast-prefix} {
@@ -63,13 +67,24 @@ $toast-prefix: '#{$prefix}-toast';
       animation-fill-mode: forwards;
 
       @keyframes #{$toast-prefix}--progress {
-        0% { width: 100%; }
-        100% { width: 0; }
+        0% {
+          width: 100%;
+        }
+        100% {
+          width: 0;
+        }
       }
     }
 
     .#{$toast-prefix}--icon {
       vertical-align: middle;
+    }
+
+    .#{$toast-prefix}--icon--close {
+      cursor: pointer;
+      position: absolute;
+      right: 8px;
+      top: 8px;
     }
 
     .#{$toast-prefix}--message {
