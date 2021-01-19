@@ -50,4 +50,12 @@ $tag-prefix: '#{$prefix}-tag';
     color: #ffffff;
     background-color: $cyan-light;
   }
+  &.#{$tag-prefix}--preset-amberDark {
+    color: #ffffff;
+    background-color: $amber-dark;
+  }
+  &.#{$tag-prefix}--preset-amberDarker {
+    color: #ffffff;
+    background-color: $amber-darker;
+  }
 }

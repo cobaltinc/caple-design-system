@@ -3,7 +3,18 @@ import classnames from 'classnames';
 import ConfigContext from '../_config/ConfigContext';
 import './Tag.style.scss';
 
-export type ColorPreset = 'lightgreen' | 'blue' | 'indigo' | 'amber' | 'red' | 'ink' | 'indigodark' | 'indigolight' | 'cyanlight';
+export type ColorPreset =
+  | 'lightgreen'
+  | 'blue'
+  | 'indigo'
+  | 'amber'
+  | 'red'
+  | 'ink'
+  | 'indigodark'
+  | 'indigolight'
+  | 'cyanlight'
+  | 'amberDark'
+  | 'amberDarker';
 
 export interface TagProps {
   text: string;
