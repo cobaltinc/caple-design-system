@@ -14,10 +14,11 @@ export interface ToastProps {
   message: string;
   type: ToastType;
   duration: number;
+  close?: boolean;
   onDone?(): void;
 }
 
-export default ({ message, type = 'default', duration, onDone }: ToastProps) => {
+export default ({ message, type = 'default', duration, close = false, onDone }: ToastProps) => {
   const { useContext, useState } = React;
   const { prefix } = useContext(ConfigContext);
   const classPrefix = `${prefix}-toast`;
@@ -29,11 +30,12 @@ export default ({ message, type = 'default', duration, onDone }: ToastProps) => 
   }, []);
 
   useTimeout(() => {
-    setShow(false);
-
-    setTimeout(() => {
-      onDone?.();
-    }, 400);
+    if (!close) {
+      setShow(false);
+      setTimeout(() => {
+        onDone?.();
+      }, 400);
+    }
   }, duration);
 
   const iconType = type === 'default' ? 'alert-circle' : type === 'success' ? 'check-circle' : type === 'error' ? 'close-circle' : 'alert-circle';
@@ -42,12 +44,14 @@ export default ({ message, type = 'default', duration, onDone }: ToastProps) => 
   return (
     <div className={classnames(`${classPrefix}--container`, { [`${classPrefix}--container-active`]: show })}>
       <div className={classNames}>
-        <div className={`${classPrefix}--progress`} style={{ animationDuration: `${duration}ms` }} />
+        {!close ? <div className={`${classPrefix}--progress`} style={{ animationDuration: `${duration}ms` }} /> : null}
         <Icon type={iconType} color={iconColor} size={38} className={`${classPrefix}--icon`} />
         <span className={`${classPrefix}--message`}>{message}</span>
-        <div onClick={() => setShow(false)}>
-          <Icon type="close" color={Colors.SkyDark} size={24} className={`${classPrefix}--icon--close`} />
-        </div>
+        {close ? (
+          <div onClick={onDone}>
+            <Icon type="close" color={Colors.SkyDark} size={18} className={`${classPrefix}--icon--close`} />
+          </div>
+        ) : null}
       </div>
     </div>
   );
