@@ -16,7 +16,15 @@ export const Default = () => {
 export const Label = () => {
   return (
     <div style={{ padding: 30 }}>
-      <Radio label="Group" />
+      <Radio label="Radio" />
+    </div>
+  );
+};
+
+export const Selected = () => {
+  return (
+    <div style={{ padding: 30 }}>
+      <Radio label="Selected Radio" checked />
     </div>
   );
 };
@@ -26,9 +34,9 @@ export const Group = () => {
     <div style={{ padding: 30 }}>
       <Header level={3}>Radio Group</Header>
       <Radio.Group defaultActive="value1" style={{ marginTop: 20 }}>
-        <Radio label="group1" value="value1" style={{ marginRight: 20 }} />
-        <Radio label="group2" value="value2" style={{ marginRight: 20 }} />
-        <Radio label="group3" value="value3" style={{ marginRight: 20 }} />
+        <Radio label="group radio1" value="value1" style={{ marginRight: 20 }} />
+        <Radio label="group radio2" value="value2" style={{ marginRight: 20 }} />
+        <Radio label="group radio3" value="value3" style={{ marginRight: 20 }} />
       </Radio.Group>
     </div>
   );
@@ -39,9 +47,9 @@ export const Block = () => {
     <div style={{ padding: 30 }}>
       <Header level={3}>Radio Group</Header>
       <Radio.Group defaultActive="value1">
-        <Radio label="group1" value="value1" block style={{ marginTop: 20 }} />
-        <Radio label="group2" value="value2" block style={{ marginTop: 20 }} />
-        <Radio label="group3" value="value3" block style={{ marginTop: 20 }} />
+        <Radio label="group radio11" value="value1" block style={{ marginTop: 20 }} />
+        <Radio label="group radio12" value="value2" block style={{ marginTop: 20 }} />
+        <Radio label="group radio13" value="value3" block style={{ marginTop: 20 }} />
       </Radio.Group>
     </div>
   );
