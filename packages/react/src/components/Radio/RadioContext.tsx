@@ -1,9 +1,8 @@
 import { createContext, Context } from 'react';
 
 export type RadioItemType = {
-  id: string;
-  title: string;
-  value: string;
+  label?: string;
+  value?: string;
 };
 
 export interface RadioState {

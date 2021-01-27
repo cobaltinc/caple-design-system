@@ -25,13 +25,12 @@ export default ({ children, defaultActive, onChange, className = '', style, ...p
         const radioItems = React.Children.toArray(children).map((radioComponent: any) => {
           const radioProps = (radioComponent as React.ReactElement<RadioProps>).props;
           return {
-            id: radioProps.id ?? '',
             value: radioProps.value,
-            title: radioProps.title,
+            label: radioProps.label,
           };
         }) as RadioItemType[];
 
-        return radioItems.find(radioItem => radioItem.id && radioItem.id === defaultActive);
+        return radioItems.find(radioItem => radioItem.value && radioItem.value === defaultActive);
       }
     })(),
   });
@@ -39,7 +38,7 @@ export default ({ children, defaultActive, onChange, className = '', style, ...p
   const radios = convertReactNodeTo<RadioProps>('Radio.Group', 'Radio', children).map((element, index, elements) => {
     const radioComponent = element as React.ReactElement<RadioProps>;
     return React.cloneElement<RadioProps>(radioComponent, {
-      checked: radioComponent.props.id === (state?.active as any)?.id,
+      checked: radioComponent.props.value === (state?.active as any)?.value,
       style: {
         ...radioComponent.props.style,
       },

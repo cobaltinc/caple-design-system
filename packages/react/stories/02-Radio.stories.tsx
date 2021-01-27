@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radio } from '../src';
+import { Radio, Header } from '../src';
 
 export default {
   title: 'Component|Radio',
@@ -8,7 +8,15 @@ export default {
 export const Default = () => {
   return (
     <div style={{ padding: 30 }}>
-      <Radio title="Radio" value="value" onChange={(check, value) => console.log(check, value)} />
+      <Radio />
+    </div>
+  );
+};
+
+export const Label = () => {
+  return (
+    <div style={{ padding: 30 }}>
+      <Radio label="Group" />
     </div>
   );
 };
@@ -16,11 +24,34 @@ export const Default = () => {
 export const Group = () => {
   return (
     <div style={{ padding: 30 }}>
-      <Radio.Group defaultActive="group1">
-        <Radio id="group1" title="group 1" value="value 1" />
-        <Radio id="group2" title="group 2" value="value 2" />
-        <Radio id="group3" title="group 3" value="value 3" />
+      <Header level={3}>Radio Group</Header>
+      <Radio.Group defaultActive="value1" style={{ marginTop: 20 }}>
+        <Radio label="group1" value="value1" style={{ marginRight: 20 }} />
+        <Radio label="group2" value="value2" style={{ marginRight: 20 }} />
+        <Radio label="group3" value="value3" style={{ marginRight: 20 }} />
       </Radio.Group>
+    </div>
+  );
+};
+
+export const Block = () => {
+  return (
+    <div style={{ padding: 30 }}>
+      <Header level={3}>Radio Group</Header>
+      <Radio.Group defaultActive="value1">
+        <Radio label="group1" value="value1" block style={{ marginTop: 20 }} />
+        <Radio label="group2" value="value2" block style={{ marginTop: 20 }} />
+        <Radio label="group3" value="value3" block style={{ marginTop: 20 }} />
+      </Radio.Group>
+    </div>
+  );
+};
+
+export const Disabled = () => {
+  return (
+    <div style={{ padding: 30 }}>
+      <Radio label="Disalbled" disabled block style={{ marginTop: 20 }} />
+      <Radio label="Selected Disalbled" checked disabled block style={{ marginTop: 20 }} />
     </div>
   );
 };

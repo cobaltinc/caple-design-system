@@ -1,0 +1,71 @@
+@import '../../styles/base/core';
+@import '../../styles/variables/typography';
+@import '../../styles/variables/color';
+
+$radio-prefix: '#{$prefix}-radio';
+
+.#{$radio-prefix} {
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  vertical-align: middle;
+  z-index: 0;
+
+  &:hover {
+    &::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      bottom: -4px;
+      left: -4px;
+      border-radius: 4px;
+      background-color: $sky;
+      z-index: -1;
+    }
+  }
+
+  &:active {
+    &::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      bottom: -4px;
+      left: -4px;
+      border-radius: 4px;
+      background-color: $sky-dark;
+      z-index: -1;
+    }
+  }
+
+  input {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+  }
+
+  .#{$radio-prefix}--radiomark {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+  }
+
+  .#{$radio-prefix}--text {
+    padding-left: 8px;
+    font-size: $typography-paragraph3;
+    vertical-align: middle;
+  }
+
+  &.#{$radio-prefix}--disabled {
+    cursor: not-allowed;
+  }
+
+  &.#{$radio-prefix}--block {
+    display: flex;
+  }
+}
