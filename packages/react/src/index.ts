@@ -48,3 +48,4 @@ export { default as Toast } from './components/Toast';
 export { default as Toggle } from './components/Toggle';
 export { default as Tooltip } from './components/Tooltip';
 export { default as Upload } from './components/Upload';
+export { default as Radio } from './components/Radio';

@@ -17,6 +17,8 @@ export const Default = () => {
         <Tag text="IndigoDark" color="indigodark" />
         <Tag text="CyanLight" color="cyanlight" />
         <Tag text="IndigoLight" color="indigolight" />
+        <Tag text="AmberDark" color="amberDark" />
+        <Tag text="AmberDarker" color="amberDarker" />
       </Spacer>
     </div>
   );
