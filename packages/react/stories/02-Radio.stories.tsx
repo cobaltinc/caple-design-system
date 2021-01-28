@@ -47,9 +47,9 @@ export const Block = () => {
     <div style={{ padding: 30 }}>
       <Header level={3}>Radio Group</Header>
       <Radio.Group defaultActive="value1">
-        <Radio label="group radio11" value="value1" block style={{ marginTop: 20 }} />
-        <Radio label="group radio12" value="value2" block style={{ marginTop: 20 }} />
-        <Radio label="group radio13" value="value3" block style={{ marginTop: 20 }} />
+        <Radio label="group radio1" value="value1" block style={{ marginTop: 20 }} />
+        <Radio label="group radio2" value="value2" block style={{ marginTop: 20 }} />
+        <Radio label="group radio3" value="value3" block style={{ marginTop: 20 }} />
       </Radio.Group>
     </div>
   );
