@@ -71,7 +71,7 @@
     "babel-loader": "^8.0.6",
     "cross-env": "7.0.2",
     "css-loader": "3.4.2",
-    "node-sass": "4.13.1",
+    "node-sass": "7.0.0",
     "react-docgen-typescript-loader": "3.6.0",
     "rimraf": "3.0.2",
     "rollup": "1.32.0",
